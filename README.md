@@ -32,3 +32,16 @@ rm ~/.zshrc && ln -siv ~/gitRepos/dotfiles/{.zshrc,.vimrc} ~/
 cd ~/gitRepos/dotfiles
 git pull origin master
 
+NOTES:
+
+   * Installed plugins
+
+   $HOME/.vim/autoload:
+   pathogen.vim
+
+   $HOME/.vim/bundle:
+   python-mode
+   vim-colors-solarized
+   vim-commentary
+   vim-repeat
+
