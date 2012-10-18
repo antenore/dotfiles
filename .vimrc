@@ -294,5 +294,5 @@ au BufEnter,BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,tr
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:BASH_AuthorName   = 'Antenore Gatta'
-let g:BASH_Email        = 'antenore.gatta@ch.ibm.com'
+let g:BASH_Email        = ''
 let g:BASH_Company      = 'IBM Switzerland'
