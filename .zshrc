@@ -1,3 +1,11 @@
+# I keep the following just to avoid wizards
+# Lines configured by zsh-newuser-install
+setopt appendhistory autocd extendedglob
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+# End of lines added by compinstall
+
+
 [[ `who am i` != *\) ]] && is_local=yes
  
 case $TERM in rxvt*) TERM=rxvt esac  # urxvt only, TERM value is not recognized
@@ -77,22 +85,22 @@ zstyle ':completion:*:*:kill:*:processes' list-colors \
  
 bindkey -e  # emacs style (-v for vi)
 # rxvt
-#bindkey '^[[7~' beginning-of-line  # origin
-#bindkey '^[[8~' end-of-line  # end
-#bindkey '^[Od' backward-word  # ctrl + left
-#bindkey '^[Oc' forward-word  # ctrl + right
-#bindkey '^[[3^' delete-word  # ctrl + del
-#bindkey '^[[3~' delete-char  # del
-#bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
+bindkey '^[[7~' beginning-of-line  # origin
+bindkey '^[[8~' end-of-line  # end
+bindkey '^[Od' backward-word  # ctrl + left
+bindkey '^[Oc' forward-word  # ctrl + right
+bindkey '^[[3^' delete-word  # ctrl + del
+bindkey '^[[3~' delete-char  # del
+bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
  
 # Xterm
-bindkey '^[[H' beginning-of-line  # origin
-bindkey '^[[F' end-of-line  # end
-bindkey '^[[1;5D' backward-word  # ctrl + left
-bindkey '^[[1;5C' forward-word  # ctrl + right
-bindkey '^[[3;5~' delete-word  # ctrl + del
-bindkey '^[[3~' delete-char  # del
-bindkey '^?' backward-delete-word  # ctrl + backspace == ctrl + h
+#bindkey '^[[H' beginning-of-line  # origin
+#bindkey '^[[F' end-of-line  # end
+#bindkey '^[[1;5D' backward-word  # ctrl + left
+#bindkey '^[[1;5C' forward-word  # ctrl + right
+#bindkey '^[[3;5~' delete-word  # ctrl + del
+#bindkey '^[[3~' delete-char  # del
+#bindkey '^?' backward-delete-word  # ctrl + backspace == ctrl + h
  
 # Search history for a command beginning with the current input. It places the
 # cursor at the beginning of the command line.
