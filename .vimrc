@@ -5,6 +5,8 @@
 " I use pathogen to manage all the plugin, it's easier
 " https://github.com/tpope/vim-pathogen
 call pathogen#infect()
+call pathogen#helptags()
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Notes
@@ -39,6 +41,9 @@ set backspace=indent,eol,start
 set ttyfast          
 " Printing options such syntax and paper size
 set printoptions=paper:A4,syntax:y 
+
+" Omni completion
+set ofu=syntaxcomplete#Complete
 
 " Prevent Vim from clobbering the scrollback buffer. See
 " (http://www.shallowsky.com/linux/noaltscreen.html)
