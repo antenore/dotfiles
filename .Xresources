@@ -1,0 +1,89 @@
+
+! Seems good this (!?)
+Xft.autohint:       0
+Xft.antialias:      true
+Xft.hinting:        full
+Xft.hintstyle:      hintslight
+Xft.dpi:             96
+Xft.rgba:            rgb
+Xft.lcdfilter:      lcddefault
+ 
+
+!##############################################################################
+! URxvt ---------------------------------------------------------------
+! Author: Several and myself
+!##############################################################################
+
+!==============================================================================
+!Font
+!==============================================================================
+
+urxvt*font:             xft:Monospace:pixelsize=13
+urxvt*boldFont:         xft:Monospace:bold:pixelsize=13
+
+!==============================================================================
+!Options
+!==============================================================================
+urxvt*termName:         rxvt-unicode
+urxvt.scrollBar:        false
+urxvt.imLocale:         ch_FR.UTF-8
+urxvt.loginShell:       true
+urxvt.saveLines:        99999
+urxvt.geometry:         90x25
+urxvt.boldMode:         false
+urxvt.inheritPixmap:    false
+urxvt.xftAntialias:     false
+urxvt.jumpScroll:       true
+urxvt*internalBorder:   3
+URxvt*inheritPixmap:    false
+!==============================================================================
+!Cursor
+!==============================================================================
+urxvt*cursorBlink:      true
+urxvt*cursorUnderline:  false
+urxvt*cursorColor:      #d6dadf
+!==============================================================================
+!Colors
+!==============================================================================
+urxvt.tintColor:            white
+urxvt*internalBordercolor: #121212
+
+urxvt.underlineColor:       #999999
+urxvt*background:           #333333
+urxvt*foreground:           #CCCCCC
+urxvt*colorBD:              #FFFFFF
+!urxvt*colorBD:              #998164
+urxvt*colorUL:              #CCCCFF
+!
+!BLK
+urxvt*color0:               #666666
+urxvt*color8:               #999999
+!RED
+urxvt*color1:               #CC6666
+urxvt*color9:               #FF9999
+!GRN
+urxvt*color2:               #99CC66
+urxvt*color10:              #99FF99
+!YEL
+urxvt*color3:               #CC9966
+urxvt*color11:              #FFFF99
+!BLE
+urxvt*color4:               #6699CC
+urxvt*color12:              #99CCFF
+!MAG
+urxvt*color5:               #CC6699
+urxvt*color13:              #FF99CC
+!CYN
+urxvt*color6:               #66CCCC
+urxvt*color14:              #99FFFF
+!WHT
+urxvt*color7:               #CCCCCC
+urxvt*color15:              #FFFFFF
+!==============================================================================
+! Other options
+!==============================================================================
+! To make links clickabel
+urxvt.perl-ext-common:       default,matcher
+urxvt.urlLauncher:           /usr/bin/firefox
+urxvt.matcher.button:        1
+
