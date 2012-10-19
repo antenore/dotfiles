@@ -114,7 +114,7 @@ URxvt.geometry:         160x50
 URxvt.pastableTabs:     true
 URxvt.boldMode:         false
 URxvt.skipBuiltinGlyphs: true
-URxvt.inheritPixmap:    true
+!URxvt.inheritPixmap:    true
 URxvt.xftAntialias:     true
 URxvt*internalBorder:   3
 ! Set the Urgent hint on bell for console apps without notify-send
@@ -193,4 +193,4 @@ xpdf*foreground: black
 xpdf*urlCommand: chromium %s
 
 ! Eventually
-!#include "/home/antenore/.Xresources.local
+!#include "/home/antenore/.Xresources.local"
