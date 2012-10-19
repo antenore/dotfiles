@@ -58,10 +58,10 @@ syntax on
 " default background
 "set background=dark
 " 256 colors
-set t_Co=256 " 256 colors
-set background=dark
+set t_Co=256
+set background=light
 " default coloration theme
-colorscheme murphy  
+colorscheme molokai  
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backup
