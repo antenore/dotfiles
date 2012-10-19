@@ -1,3 +1,73 @@
+! {{{ Quick Reference
+!
+! Scrolling:
+! Scroll Wheel
+! Shift-PgUp/PgDn
+!
+! Copy/Paste:
+! Mouse-Select : Copy to PRIMARY
+! Shift + Mouse-Select: Copy to CLIPBOARD
+!
+! Middle-Click : Paste from PRIMARY
+! Shift + Middle-Click: Paste from CLIPBOARD
+!
+! Ctrl+Shift+V : Paste from CLIPBOARD
+! Ctrl+Alt+Shift+V : Paste from PRIMARY
+!
+! }}}
+
+! Make Tk applications slightly less ugly
+*TkTheme: clearlooks
+
+! ---=== XTerm Defaults for a nice mix of Linux console and Konsole ===---
+
+! Operate terminals in utf8 mode whether or not uxterm was called
+*VT100.utf8: 1
+
+! Plenty of room for things like Vim :vsplit
+*VT100*geometry: 160x50
+
+! Set the Urgent hint on bell for console apps without notify-send
+XTerm*bellIsUrgent: true
+UXTerm*bellIsUrgent: true
+
+! White on Black without being eye-straining.
+*customization: -color
+*VT100*foreground: gray70
+*VT100*background: black
+
+! Make the scrollbar look a little less 1980s on all Athena-based VT100s.
+*VT100.scrollbar.background: gray60
+*VT100.scrollbar.foreground: white
+*rightScrollBar: true
+
+! More Konsole/Yakuake-like keybindings:
+! NOTE: in Konsole/Yakuake, bind Ctrl+Backspace to \b
+*VT100.Translations: #override \
+             Shift <Key>Up: scroll-back(1) \n\
+             Shift <Key>Down: scroll-forw(1) \n\
+\
+            ~Ctrl<Key>BackSpace: string(0x08) \n\
+             Ctrl<Key>BackSpace: string(0x1b) string(0x08) \n\
+\
+            ~Ctrl<Key>Tab: string(0x09) \n\
+             Ctrl<Key>Tab: string(0x1b) string("r") \n\
+\
+      ~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD) \n\
+       Meta Shift Ctrl <Key>V: insert-selection(PRIMARY) \n\
+            ~Shift ~Ctrl <Btn2Up>: insert-selection(PRIMARY, CUT_BUFFER0) \n\
+             Shift ~Ctrl <Btn2Up>: insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
+            ~Shift <BtnUp>: select-end(PRIMARY, CUT_BUFFER0) \n\
+             Shift <BtnUp>: select-end(CLIPBOARD, CUT_BUFFER1) \n\
+
+! Make selection of URLs and ebuild names behave more naturally
+*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
+
+! Keep 5K of scrollback and only reset the scroll position on keypresses.
+XTerm*saveLines: 5120
+XTerm*scrollKey: true
+XTerm*scrollTtyOutput: false
+
 
 ! Seems good this (!?)
 Xft.autohint:       0
@@ -14,76 +84,107 @@ Xft.lcdfilter:      lcddefault
 ! Author: Several and myself
 !##############################################################################
 
+URxvt.iconFile: /usr/share/icons/elementary/apps/32/terminal.svg
+
+! URL integration, clipboard and tabbed (shift/ctrl right, left, down, up)
+URxvt.perl-lib: /home/antenore/.urxvt
+URxvt.perl-ext-common:       default,matcher,tabbed,clipboard
+URxvt.urlLauncher:           xdg-open
+URxvt.matcher.button:        1
+
 !==============================================================================
 !Font
 !==============================================================================
 
-urxvt*font:             xft:Monospace:pixelsize=13
-urxvt*boldFont:         xft:Monospace:bold:pixelsize=13
+URxvt*font:            xft:Monospace:pixelsize=13
+URxvt*boldFont:        xft:Monospace:bold:pixelsize=13
+!URxvt*font:            xft:Bitstream Vera Sans Mono:style=Regular:pixelsize=13
+!URxvt*boldFont:        xft:Bitstream Vera Sans Mono:style=Bold:pixelsize=13
 
 !==============================================================================
 !Options
 !==============================================================================
-urxvt*termName:         rxvt-unicode
-urxvt.scrollBar:        false
-urxvt.imLocale:         ch_FR.UTF-8
-urxvt.loginShell:       true
-urxvt.saveLines:        99999
-urxvt.geometry:         90x25
-urxvt.boldMode:         false
-urxvt.inheritPixmap:    false
-urxvt.xftAntialias:     false
-urxvt.jumpScroll:       true
-urxvt*internalBorder:   3
-URxvt*inheritPixmap:    false
+URxvt*termName:         rxvt-unicode
+URxvt.imLocale:         ch_FR.UTF-8
+URxvt.loginShell:       true
+URxvt.saveLines:        99999
+URxvt.geometry:         160x50
+URxvt.pastableTabs:     true
+URxvt.boldMode:         false
+!URxvt.inheritPixmap:    false
+URxvt.xftAntialias:     true
+URxvt*internalBorder:   3
+! Set the Urgent hint on bell for console apps without notify-send
+URxvt.urgentOnBell: true
+! More Konsole/Yakuake-like clipboard keybindings
+URxvt.iso14755: false
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.S-C-C: perl:clipboard:copy
+URxvt.keysym.S-C-V: perl:clipboard:paste
+URxvt.keysym.M-v: perl:clipboard:paste_escaped
+! Unbreak zsh keys in URxvt
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+! Match my XTerm additions
+URxvt*keysym.C-BackSpace: \033\010
+URxvt*keysym.C-Tab: \033r
+! Extend smart selection for the zsh and Python interactive interpreter prompts
+URxvt.selection.pattern-0: >>>[ ]+(.+)
+URxvt.selection.pattern-1: .+?@.+? .+? %%?[ ]+(.+)
+!==============================================================================
+! Scroll
+!==============================================================================
+URxvt.jumpScroll:       true
+! Make the scrollbar look a little less 1980s.
+URxvt*scrollstyle: plain
+URxvt*scrollBar_right: true
+! Keep 5K of scrollback and only reset the scroll position on keypresses.
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
 !==============================================================================
 !Cursor
 !==============================================================================
-urxvt*cursorBlink:      true
-urxvt*cursorUnderline:  false
-urxvt*cursorColor:      #d6dadf
+URxvt*cursorBlink:      true
+URxvt*cursorUnderline:  false
+URxvt*cursorColor:      #d6dadf
 !==============================================================================
 !Colors
 !==============================================================================
-urxvt.tintColor:            white
-urxvt*internalBordercolor: #121212
-
-urxvt.underlineColor:       #999999
-urxvt*background:           #333333
-urxvt*foreground:           #CCCCCC
-urxvt*colorBD:              #FFFFFF
+URxvt.tintColor:            white
+URxvt.depth: 32
+URxvt.background: [90]#333333
+!URxvt.background: rgba:0000/0000/4444/cccc
+URxvt*internalBordercolor:  #121212
+URxvt.underlineColor:       #999999
+!urxvt*background:           
+URxvt*foreground:           #CCCCCC
+URxvt*colorBD:              #FFFFFF
 !urxvt*colorBD:              #998164
-urxvt*colorUL:              #CCCCFF
+URxvt*colorUL:              #CCCCFF
 !
 !BLK
-urxvt*color0:               #666666
-urxvt*color8:               #999999
+URxvt*color0:               #666666
+URxvt*color8:               #999999
 !RED
-urxvt*color1:               #CC6666
-urxvt*color9:               #FF9999
+URxvt*color1:               #CC6666
+URxvt*color9:               #FF9999
 !GRN
-urxvt*color2:               #99CC66
-urxvt*color10:              #99FF99
+URxvt*color2:               #99CC66
+URxvt*color10:              #99FF99
 !YEL
-urxvt*color3:               #CC9966
-urxvt*color11:              #FFFF99
+URxvt*color3:               #CC9966
+URxvt*color11:              #FFFF99
 !BLE
-urxvt*color4:               #6699CC
-urxvt*color12:              #99CCFF
+URxvt*color4:               #6699CC
+URxvt*color12:              #99CCFF
 !MAG
-urxvt*color5:               #CC6699
-urxvt*color13:              #FF99CC
+URxvt*color5:               #CC6699
+URxvt*color13:              #FF99CC
 !CYN
-urxvt*color6:               #66CCCC
-urxvt*color14:              #99FFFF
+URxvt*color6:               #66CCCC
+URxvt*color14:              #99FFFF
 !WHT
-urxvt*color7:               #CCCCCC
-urxvt*color15:              #FFFFFF
-!==============================================================================
-! Other options
-!==============================================================================
-! To make links clickabel
-urxvt.perl-ext-common:       default,matcher
-urxvt.urlLauncher:           /usr/bin/firefox
-urxvt.matcher.button:        1
-
+URxvt*color7:               #CCCCCC
+URxvt*color15:              #FFFFFF
