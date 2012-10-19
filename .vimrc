@@ -1,6 +1,7 @@
 " Antenore Gatta .vimrc
 " vim:set ts=2 sts=2 sw=2 expandtab:
-"
+
+" Consider https://github.com/askedrelic/homedir/blob/master/.vimrc
 
 " I use pathogen to manage all the plugin, it's easier
 " https://github.com/tpope/vim-pathogen
@@ -119,6 +120,16 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ruler
+" Highlight current line
+set cursorline
+"Highlight cursorline ONLY in the active window:
+au WinEnter * setlocal cursorline
+au WinLeave * setlocal nocursorline
+" Scrolling
+set scrolloff=3
+set sidescroll=1
+set sidescrolloff=10
 " show matching brackets
 set showmatch     
 " how many tenths of a second to blink matching brackets for
@@ -147,9 +158,6 @@ set nostartofline
 set listchars=tab:>-,trail:~
 set listchars=tab:>-
 set listchars+=trail:.
-"Some useful infos in the status bar
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
- 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Menu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -293,6 +301,10 @@ endfunction
 autocmd BufRead,BufNewFile *.py syntax on
 autocmd BufRead,BufNewFile *.py set ai
 au BufEnter,BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim Powerline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bash Support Plugin

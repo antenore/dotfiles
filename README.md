@@ -36,12 +36,13 @@ NOTES:
 
    * Installed plugins
 
-   $HOME/.vim/autoload:
-   pathogen.vim
+    $HOME/.vim/autoload:
+    pathogen.vim
 
-   $HOME/.vim/bundle:
-   python-mode
-   vim-colors-solarized
-   vim-commentary
-   vim-repeat
+    $HOME/.vim/bundle:
+    python-mode
+    vim-colors-solarized
+    vim-commentary
+    vim-powerline
+    vim-repeat
 
