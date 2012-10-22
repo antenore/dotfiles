@@ -28,8 +28,8 @@
 *VT100*geometry: 160x50
 
 ! Set the Urgent hint on bell for console apps without notify-send
-!XTerm*bellIsUrgent: true
-!UXTerm*bellIsUrgent: true
+XTerm*bellIsUrgent: true
+UXTerm*bellIsUrgent: true
 
 ! White on Black without being eye-straining.
 *customization: -color
@@ -122,7 +122,7 @@ URxvt.skipBuiltinGlyphs: true
 URxvt.xftAntialias:     true
 URxvt*internalBorder:   3
 ! Set the Urgent hint on bell for console apps without notify-send
-!URxvt.urgentOnBell: true
+URxvt.urgentOnBell: true
 ! More Konsole/Yakuake-like clipboard keybindings
 URxvt.iso14755: false
 URxvt.copyCommand: xclip -i -selection clipboard
@@ -195,6 +195,13 @@ xpdf*background: white
 xpdf*enableFreetype: yes
 xpdf*foreground: black
 xpdf*urlCommand: firefox %s
+!
+!==============================================================================
+! DZEN2
+!==============================================================================
+dzen2.font:       -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-*-* 
+dzen2.foreground: #FFFFFF
+dzen2.background: #1A1A1A
 
 ! Eventually
 !#include "/home/antenore/.Xresources.local"
