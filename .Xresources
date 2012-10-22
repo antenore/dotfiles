@@ -190,7 +190,7 @@ xpdf*antialias: yes
 xpdf*background: white
 xpdf*enableFreetype: yes
 xpdf*foreground: black
-xpdf*urlCommand: chromium %s
+xpdf*urlCommand: firefox %s
 
 ! Eventually
 !#include "/home/antenore/.Xresources.local
