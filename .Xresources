@@ -102,8 +102,10 @@ URxvt.print-pipe:           cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 !URxvt*boldFont:        xft:Monospace:bold:pixelsize=12
 !URxvt*font:            xft:Bitstream\ Vera\ Sans\ Mono:style=Regular:pixelsize=14
 !URxvt*boldFont:        xft:Bitstream\ Vera\ Sans\ Mono:style=Bold:pixelsize=14
-URxvt.font: -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont: -*-termsyn-bold-r-*-*-14-*-*-*-*-*-*-*
+!URxvt.font: -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
+!URxvt.boldFont: -*-termsyn-bold-r-*-*-14-*-*-*-*-*-*-*
+URxvt.font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+URxvt.boldFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
 
 !==============================================================================
 !Options
