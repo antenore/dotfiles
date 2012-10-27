@@ -148,7 +148,7 @@ URxvt.jumpScroll:       true
 ! Make the scrollbar look a little less 1980s.
 URxvt*scrollstyle: plain
 URxvt*scrollBar_right: true
-URxvt.scrollColor: #bdef34
+URxvt.scrollColor: #c8e7a8
 ! Keep 5K of scrollback and only reset the scroll position on keypresses.
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyOutput: false
@@ -159,14 +159,14 @@ URxvt.scrollTtyKeypress: true
 ! tabs
 URxvt.tabbed.tabbar-fg: 7
 URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 7
-URxvt.tabbed.tab-bg: 4
+URxvt.tabbed.tab-fg: 0
+URxvt.tabbed.tab-bg: 10
 !==============================================================================
 !Cursor
 !==============================================================================
 URxvt*cursorBlink:      true
 URxvt*cursorUnderline:  false
-URxvt*cursorColor:      #d6dadf
+URxvt*cursorColor:      #c8e7a8
 
 !==============================================================================
 !Colors
@@ -182,7 +182,7 @@ uRxvt.highlightColor:       #0A9DFF
 URxvt*internalBordercolor:  #121212
 URxvt.underlineColor:       #999999
 URxvt*colorBD:              #FFFFFF
-URxvt*colorUL:              #CCCCFF
+URxvt*colorUL:              #93d44f
 URxvt.transparent:          true
 URxvt.shading:              20
 
