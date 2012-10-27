@@ -172,7 +172,7 @@ URxvt*cursorColor:      #d6dadf
 !Colors
 !==============================================================================
 !#include "/home/antenore/.Xdefaults.local"
-URxvt.tintColor:            white
+URxvt.tintColor:            #93d44f 
 URxvt.depth: 32
 URxvt.intensityStyles:      true
 URxvt.background:           [90]#1B1D1E
@@ -183,6 +183,8 @@ URxvt*internalBordercolor:  #121212
 URxvt.underlineColor:       #999999
 URxvt*colorBD:              #FFFFFF
 URxvt*colorUL:              #CCCCFF
+URxvt.transparent:          true
+URxvt.shading:              20
 
 #include "/home/antenore/.Xcolors/sickill8"
 
