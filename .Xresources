@@ -120,7 +120,7 @@ URxvt.boldMode:         false
 URxvt.skipBuiltinGlyphs: true
 !URxvt.inheritPixmap:    true
 URxvt.xftAntialias:     true
-URxvt*internalBorder:   3
+!URxvt*internalBorder:   3
 ! Set the Urgent hint on bell for console apps without notify-send
 URxvt.urgentOnBell: true
 ! More Konsole/Yakuake-like clipboard keybindings
@@ -158,7 +158,7 @@ URxvt.scrollTtyKeypress: true
 !==============================================================================
 ! tabs
 URxvt.tabbed.tabbar-fg: 7
-URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tabbar-bg: 2
 URxvt.tabbed.tab-fg: 0
 URxvt.tabbed.tab-bg: 10
 !==============================================================================
@@ -186,7 +186,8 @@ URxvt*colorUL:              #93d44f
 URxvt.transparent:          true
 URxvt.shading:              20
 
-#include "/home/antenore/.Xcolors/sickill8"
+!#include "/home/antenore/.Xcolors/sickill8"
+#include "/home/antenore/.Xcolors/molokai"
 
 !==============================================================================
 ! XPDF
