@@ -65,13 +65,13 @@ UXTerm*bellIsUrgent: true
 
 
 
-! Seems good this (!?)
-Xft.autohint:       0
-Xft.antialias:      true
-Xft.hinting:        full
-Xft.hintstyle:      hintslight
+! To improve
 Xft.dpi:            96
+Xft.antialias:      true
 Xft.rgba:           rgb
+Xft.autohint:       false
+Xft.hinting:        true
+Xft.hintstyle:      hintslight
 Xft.lcdfilter:      lcddefault
  
 !==============================================================================
@@ -155,6 +155,7 @@ URxvt*keysym.C-Tab: \033r
 ! Extend smart selection for the zsh and Python interactive interpreter prompts
 URxvt.selection.pattern-0: >>>[ ]+(.+)
 URxvt.selection.pattern-1: .+?@.+? .+? %%?[ ]+(.+)
+URxvt.selection.pattern-2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/+$2 \\Q$1\\E/
 URxvt.cutchars: "()*,<>[]{}|''"
 !==============================================================================
@@ -223,9 +224,9 @@ xpdf*urlCommand: firefox %s
 !==============================================================================
 ! DZEN2
 !==============================================================================
-dzen2.font:       -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-*-* 
-dzen2.foreground: #FFFFFF
-dzen2.background: #1A1A1A
+!dzen2.font:       -*-tamsyn-normal-*-*-*-8-*-*-*-*-*-*-* 
+!dzen2.foreground: #c8e7a8
+!dzen2.background: #1A1A1A
 
 ! Eventually
 !#include "/home/antenore/.Xresources.local"
