@@ -4,22 +4,29 @@
 " Consider https://github.com/askedrelic/homedir/blob/master/.vimrc
 
 " I use pathogen to manage all the plugin, it's easier
+" https://github.com/tpope/vim-pathogen 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pathogen
 " https://github.com/tpope/vim-pathogen
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 call pathogen#infect()
 call pathogen#helptags()
-
-
+"}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Notes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
+""{{{
 " TODO:
 "       1. Use functions
 "       2. Use folding style
-" 
+" "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 " disable arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -60,11 +67,11 @@ set ofu=syntaxcomplete#Complete
 " Prevent Vim from clobbering the scrollback buffer. See
 " (http://www.shallowsky.com/linux/noaltscreen.html)
 " set t_ti= t_te=
- 
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"{{{
 " active coloration
 syntax enable
 " 256 colors
@@ -72,11 +79,11 @@ set t_Co=256
 set background=dark
 " default coloration theme
 colorscheme gardener
- 
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backup
-"""""""""""""""""""""""""""""" make backup file""""""""""""""""""""""""""""""""
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 " where to put backup file
 set backup                   
 " directory is the directory for temp file
@@ -84,14 +91,17 @@ set backupdir=~/.vim/backup/
 " When using make, where should it dump the file
 set directory=~/.vim/temp    
 set makeef=error.err         
- 
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GVim UI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ "{{{
  
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim UI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 " Set terminal title to Vim + filename
 set title        
 " Show (partial) command in the last line of the screen.
@@ -125,10 +135,21 @@ augroup vimrc_autocmds
   autocmd BufEnter * match OverLength /\%81v.\+/
 augroup END
 
- 
+" Folding settings
+"fold based on indent
+set foldmethod=marker
+"deepest fold is 10 levels
+set foldnestmax=10
+"dont fold by default
+set nofoldenable
+"this is just what i use
+set foldlevel=1
+
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 set ruler
 " Highlight current line
 set cursorline
@@ -167,9 +188,11 @@ set nostartofline
 set listchars=tab:>-,trail:~
 set listchars=tab:>-
 set listchars+=trail:.
+"}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Menu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 " menu completion
 " use emacs-style tab completion when selecting files, etc
 set wildmode=longest,list
@@ -177,10 +200,11 @@ set wildmode=longest,list
 set wildmenu 
 " Not sure I need this
 set wildchar=<Tab>
- 
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 " See Help (complex)
 set fo=tcrqn      
 " autoindent
@@ -212,11 +236,12 @@ set expandtab
 set smarttab      
 " No wrap lines
 set nowrap        
-
+"}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 function! InsertTabWrapper()
     let col = col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
@@ -227,17 +252,17 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
- 
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Perl
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"{{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
- 
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"{{{
 autocmd FileType text setlocal textwidth=80
 
 " when we reload, tell vim to restore the cursor to the saved position
@@ -265,21 +290,26 @@ autocmd BufWinEnter *
 \ unlet b:doopenfold |
 \ endif
 
- 
+" Auto load/save view (useful for folding)
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"{{{
 command! Q  quit
 command! W  write
 command! Wq wq
 " Remap ctrl-] to Enter and ctrl-T to esc to make help sane.
 :au filetype help :nnoremap <buffer><CR> <c-]>
 :au filetype help :nnoremap <buffer><BS> <c-T>
-
+"}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 " Switch window mappings /*{{{*/
 nnoremap <C-Up> :normal <c-r>=SwitchWindow('+')<CR><CR>
 nnoremap <C-Down> :normal <c-r>=SwitchWindow('-')<CR><CR>
@@ -301,24 +331,27 @@ function! SwitchWindow(dir)
     return ""
   endif
 endfunction
-" /*}}}*/
+"}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetypes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"{{{
 " http://wiki.python.org/moin/ViImproved
 autocmd BufRead,BufNewFile *.py syntax on
 autocmd BufRead,BufNewFile *.py set ai
 au BufEnter,BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
+"}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim Powerline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"{{{
 
+"}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bash Support Plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"{{{
 let g:BASH_AuthorName   = 'Antenore Gatta'
 let g:BASH_Email        = ''
 let g:BASH_Company      = 'IBM Switzerland'
+"}}}

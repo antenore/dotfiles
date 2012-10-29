@@ -1,4 +1,4 @@
-! {{{ Quick Reference
+!{{{ Quick Reference
 !
 ! Scrolling:
 ! Scroll Wheel
@@ -14,7 +14,7 @@
 ! Ctrl+Shift+V : Paste from CLIPBOARD
 ! Ctrl+Alt+Shift+V : Paste from PRIMARY
 !
-! }}}
+!}}}
 
 ! Make Tk applications slightly less ugly
 *TkTheme: clearlooks
