@@ -63,10 +63,6 @@ UXTerm*bellIsUrgent: true
 ! Make selection of URLs and ebuild names behave more naturally
 *charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 
-! Keep 5K of scrollback and only reset the scroll position on keypresses.
-XTerm*saveLines: 5120
-XTerm*scrollKey: true
-XTerm*scrollTtyOutput: false
 
 
 ! Seems good this (!?)
@@ -82,6 +78,22 @@ Xft.lcdfilter:      lcddefault
 !Xterm
 !==============================================================================
 XTerm*termName:  xterm-256color
+xterm*font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+xterm*font1: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
+
+XTerm*background: black
+XTerm*foreground: white
+XTerm*veryBoldColors: 6
+XTerm*pointerColor: red
+XTerm*pointerColorBackground: black
+XTerm*cursorColor: green
+XTerm*internalBorder: 3
+XTerm*loginShell: true
+XTerm*scrollBar: true
+XTerm*scrollKey: true
+XTerm*saveLines: 32768
+XTerm*multiClickTime: 250
+XTerm*scrollTtyOutput: false
 
 !##############################################################################
 ! URxvt ---------------------------------------------------------------
@@ -170,7 +182,6 @@ URxvt.tabbed.tab-bg: 10
 !==============================================================================
 URxvt*cursorBlink:      true
 URxvt*cursorUnderline:  false
-URxvt*cursorColor:      #c8e7a8
 
 !==============================================================================
 !Colors
@@ -181,8 +192,8 @@ URxvt.depth: 32
 URxvt.intensityStyles:      true
 URxvt.background:           [90]#1B1D1E
 URxvt.foreground:           #FFFFFF
-URxvt.cursorColor:          #0A9DFF
-uRxvt.highlightColor:       #0A9DFF
+URxvt*cursorColor:      #93d44f
+URxvt.highlightColor:       #0A9DFF
 URxvt*internalBordercolor:  #121212
 URxvt.underlineColor:       #999999
 URxvt*colorBD:              #FFFFFF
@@ -190,8 +201,14 @@ URxvt*colorUL:              #93d44f
 URxvt.transparent:          true
 URxvt.shading:              20
 
-!#include "/home/antenore/.Xcolors/sickill8"
-#include "/home/antenore/.Xcolors/molokai"
+! Installed colors
+!  belge bitmute bleh-1 cloud cloudef colorfulcolors deafened derp digerati
+!  dotshare dwmrob epiphany eqie6 erebus euphrasia fishbone gnometerm gutterslob
+!  hybrid iiamblack insignificato jasonwryan jhvid jwr-dark mikado mikazuki
+!  molokai muzieca nancy nucolors nudge old orangish parker_brothers phrak1
+!  pulp rasi redhalo rezza rydgel sexcolors shic sickill8 simple_rainbow
+!  solarized splurge swayr tango tangoesque theme2 thwump tlh visibone zenburn
+#include "/home/antenore/.Xcolors/solarized"
 
 !==============================================================================
 ! XPDF

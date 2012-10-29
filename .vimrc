@@ -66,12 +66,12 @@ set ofu=syntaxcomplete#Complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " active coloration
-syntax on            
+syntax enable
 " 256 colors
 set t_Co=256
-" default coloration theme
-colorscheme evening_2
 set background=dark
+" default coloration theme
+colorscheme gardener
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backup
@@ -120,7 +120,7 @@ set colorcolumn=81
 "highlight ColorColumn ctermbg=green
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=black guibg=#592929
   "autocmd BufEnter * match OverLength /\%81v.*/
   autocmd BufEnter * match OverLength /\%81v.\+/
 augroup END
