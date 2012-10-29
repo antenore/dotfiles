@@ -67,13 +67,11 @@ set ofu=syntaxcomplete#Complete
 
 " active coloration
 syntax on            
-" default background
-"set background=dark
 " 256 colors
 set t_Co=256
-set background=light
 " default coloration theme
-colorscheme molokai  
+colorscheme evening_2
+set background=dark
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backup
