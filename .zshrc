@@ -169,7 +169,6 @@ plugins=(git github python)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/games
 #Keychain
 keychain id_rsa
 . ~/.keychain/`uname -n`-sh
