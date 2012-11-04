@@ -126,7 +126,7 @@ URxvt.boldFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
 !==============================================================================
 !Options
 !==============================================================================
-URxvt*termName:         xterm-256color
+URxvt*termName:         rxvt-256color
 URxvt.imLocale:         ch_FR.UTF-8
 URxvt.loginShell:       true
 URxvt.saveLines:        32767

@@ -8,7 +8,7 @@ setopt appendhistory autocd extendedglob
 
 [[ `who am i` != *\) ]] && is_local=yes
  
-case $TERM in rxvt*) TERM=rxvt esac  # urxvt only, TERM value is not recognized
+case $TERM in rxvt*) TERM=rxvt-256color esac  # urxvt only, TERM value is not recognized
                                      # when logging on ssh servers
  
 autoload colors; colors  # so we can use $fg / $bg
@@ -179,4 +179,4 @@ export BROWSER=/usr/bin/firefox
 
 unsetopt correct_all
 setopt correct
-
+alias aptitude="nocorrect aptitude"
