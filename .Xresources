@@ -122,6 +122,8 @@ URxvt.print-pipe:           cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 !URxvt.boldFont: -*-termsyn-bold-r-*-*-14-*-*-*-*-*-*-*
 URxvt.font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
 URxvt.boldFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
+! Fix font space
+!URxvt*letterSpace: -1
 
 !==============================================================================
 !Options
@@ -129,7 +131,7 @@ URxvt.boldFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
 URxvt*termName:         rxvt-256color
 URxvt.imLocale:         ch_FR.UTF-8
 URxvt.loginShell:       true
-URxvt.saveLines:        32767
+URxvt.saveLines:        224000
 URxvt.geometry:         160x50
 URxvt.pastableTabs:     true
 URxvt.boldMode:         false
@@ -156,7 +158,10 @@ URxvt*keysym.C-Tab: \033r
 URxvt.selection.pattern-0: >>>[ ]+(.+)
 URxvt.selection.pattern-1: .+?@.+? .+? %%?[ ]+(.+)
 URxvt.selection.pattern-2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.selection.pattern-3: ( at .*? line \\d+)
+URxvt.selection.pattern-4: ^(/[^:]+):\
 URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/+$2 \\Q$1\\E/
+URxvt.selection-autotransform.1: s/^ at (.*?) line (\\d+)$/:e \\Q$1\\E\\x0d:$2\\x0d/
 URxvt.cutchars: "()*,<>[]{}|''"
 !==============================================================================
 ! Scroll
@@ -191,9 +196,12 @@ URxvt*cursorUnderline:  false
 URxvt.tintColor:            #93d44f 
 URxvt.depth: 32
 URxvt.intensityStyles:      true
-URxvt.background:           [90]#1B1D1E
-URxvt.foreground:           #FFFFFF
-URxvt*cursorColor:      #93d44f
+!URxvt.background:           [90]#1B1D1E
+URxvt.background:           [90]#002b36
+!URxvt.foreground:           #FFFFFF
+URxvt.foreground:           #657b83
+!URxvt*cursorColor:      #93d44f
+URxvt*cursorColor:      #93a1a1
 URxvt.highlightColor:       #0A9DFF
 URxvt*internalBordercolor:  #121212
 URxvt.underlineColor:       #999999
