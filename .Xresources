@@ -17,7 +17,7 @@
 !}}}
 
 ! Make Tk applications slightly less ugly
-*TkTheme: clearlooks
+*TkTheme: clam
 
 ! ---=== XTerm Defaults for a nice mix of Linux console and Konsole ===---
 

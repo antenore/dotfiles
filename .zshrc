@@ -180,3 +180,4 @@ export BROWSER=/usr/bin/firefox
 unsetopt correct_all
 setopt correct
 alias aptitude="nocorrect aptitude"
+
