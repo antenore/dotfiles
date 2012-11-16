@@ -155,13 +155,13 @@ URxvt*keysym.End: \033[4~
 URxvt*keysym.C-BackSpace: \033\010
 URxvt*keysym.C-Tab: \033r
 ! Extend smart selection for the zsh and Python interactive interpreter prompts
-URxvt.selection.pattern-0: >>>[ ]+(.+)
-URxvt.selection.pattern-1: .+?@.+? .+? %%?[ ]+(.+)
-URxvt.selection.pattern-2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt.selection.pattern-3: ( at .*? line \\d+)
-URxvt.selection.pattern-4: ^(/[^:]+):\
-URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/+$2 \\Q$1\\E/
-URxvt.selection-autotransform.1: s/^ at (.*?) line (\\d+)$/:e \\Q$1\\E\\x0d:$2\\x0d/
+URxvt.selection.pattern-0: ([[:word:]]+)
+! Single space at the end of the line!!! Match file name at the end of a path
+URxvt.selection.pattern-1: ^(/[^:]+):\ 
+! Try out:
+! URxvt.selection.pattern-0: ([^"&'()*,;<=>?@[\\\\]^`{|})]+)
+!URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/+$2 \\Q$1\\E/
+!URxvt.selection-autotransform.1: s/^ at (.*?) line (\\d+)$/:e \\Q$1\\E\\x0d:$2\\x0d/
 URxvt.cutchars: "()*,<>[]{}|''"
 !==============================================================================
 ! Scroll
@@ -193,7 +193,7 @@ URxvt*cursorUnderline:  false
 !Colors
 !==============================================================================
 !#include "/home/antenore/.Xdefaults.local"
-URxvt.tintColor:            #93d44f 
+URxvt.tintColor:            #93d44f
 URxvt.depth: 32
 URxvt.intensityStyles:      true
 !URxvt.background:           [90]#1B1D1E
