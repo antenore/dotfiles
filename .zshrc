@@ -18,7 +18,7 @@ autoload colors; colors  # so we can use $fg / $bg
 # ===========
  
 export EDITOR=vim
-export PATH=$PATH:~/bin
+export PATH=~/bin:$PATH
 export PAGER=less
  
  
@@ -169,7 +169,6 @@ plugins=(git github python)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/games
 #Keychain
 keychain id_rsa
 . ~/.keychain/`uname -n`-sh
@@ -180,3 +179,7 @@ export BROWSER=/usr/bin/firefox
 unsetopt correct_all
 setopt correct
 alias aptitude="nocorrect aptitude"
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+
+# to have better support with Midori
+export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"

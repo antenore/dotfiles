@@ -127,7 +127,7 @@ set ignorecase
 
 " Highlight if more then 79 chars
 set colorcolumn=81
-"highlight ColorColumn ctermbg=green
+highlight ColorColumn ctermbg=white
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=black guibg=#592929
