@@ -179,6 +179,7 @@ export BROWSER=/usr/bin/firefox
 unsetopt correct_all
 setopt correct
 alias aptitude="nocorrect aptitude"
+
 export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 
 # to have better support with Midori
