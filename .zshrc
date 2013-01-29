@@ -184,3 +184,6 @@ export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 
 # to have better support with Midori
 export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
+
+# NO IPV6 for JAVA
+export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
