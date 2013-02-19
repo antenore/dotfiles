@@ -12,7 +12,6 @@
 #          BUGS:  ---
 #         NOTES:  ---
 #        AUTHOR:  Antenore Gatta (), 
-#       COMPANY:  IBM Switzerland
 #       VERSION:  1.0
 #       CREATED:  10/20/2012 06:53:53 PM CEST
 #      REVISION:  ---

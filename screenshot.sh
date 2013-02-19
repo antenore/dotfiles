@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 
+
 screenshot() {
 	case $1 in
 	full)
@@ -15,4 +16,5 @@ screenshot() {
 	esac;
 }
 
+[[ ! -d ~/shots/ ]] && mkdir ~/shots/
 screenshot $1
