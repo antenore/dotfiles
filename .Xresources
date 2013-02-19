@@ -67,33 +67,62 @@ UXTerm*bellIsUrgent: true
 
 ! To improve
 Xft.dpi:            96
+Xft.lcdfilter:      lcddefault
 Xft.antialias:      true
 Xft.rgba:           rgb
 Xft.autohint:       false
 Xft.hinting:        true
 Xft.hintstyle:      hintslight
-Xft.lcdfilter:      lcddefault
  
+!==============================================================================
+!Colors
+!==============================================================================
+!#include "/home/antenore/.Xdefaults.local"
+! Installed colors
+!  belge bitmute bleh-1 cloud cloudef colorfulcolors deafened derp digerati
+!  dotshare dwmrob epiphany eqie6 erebus euphrasia fishbone gnometerm gutterslob
+!  hybrid iiamblack insignificato jasonwryan jhvid jwr-dark mikado mikazuki
+!  molokai muzieca nancy nucolors nudge old orangish parker_brothers phrak1
+!  pulp rasi redhalo rezza rydgel sexcolors shic sickill8 simple_rainbow
+!  solarized splurge swayr tango tangoesque theme2 thwump tlh visibone zenburn
+#include "/home/antenore/.Xcolors/solarized"
+
 !==============================================================================
 !Xterm
 !==============================================================================
 XTerm*termName:  xterm-256color
-xterm*font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
-xterm*font1: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
+XTerm*font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XTerm*font1: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
 
-XTerm*background: black
-XTerm*foreground: white
 XTerm*veryBoldColors: 6
 XTerm*pointerColor: red
 XTerm*pointerColorBackground: black
-XTerm*cursorColor: green
-XTerm*internalBorder: 3
+XTerm*cursorColor: #e0e080
 XTerm*loginShell: true
 XTerm*scrollBar: true
 XTerm*scrollKey: true
 XTerm*saveLines: 32768
 XTerm*multiClickTime: 250
 XTerm*scrollTtyOutput: false
+XTerm*AllowIconInput: on
+XTerm*Background: #000000
+XTerm*Border: gray
+XTerm*DeiconifyWarp: off
+XTerm*Foreground: #bcbcbc
+XTerm*InternalBorder: 1
+XTerm*MarginBell: off
+XTerm*MenuFont: fixed8
+XTerm*Mouse: yellow
+XTerm*TitleFont: vtbold
+XTerm*charClass: 33:48,37:48,45-47:48,64:48
+XTerm*colorAttrMode: true
+XTerm*colorMode: true
+XTerm*curses: on
+XTerm*cutNewline: off
+XTerm*jumpScroll: on
+XTerm*multiScroll: on
+XTerm*reverseVideo: on
+XTerm*reverseWrap: off
 
 !##############################################################################
 ! URxvt ---------------------------------------------------------------
@@ -185,35 +214,24 @@ URxvt.tabbed.tab-bg: 10
 URxvt*cursorBlink:      true
 URxvt*cursorUnderline:  false
 
-!==============================================================================
-!Colors
-!==============================================================================
-!#include "/home/antenore/.Xdefaults.local"
-URxvt.tintColor:            #93d44f
-URxvt.depth: 32
+URxvt.depth:                32
 URxvt.intensityStyles:      true
-!URxvt.background:           [90]#1B1D1E
-URxvt.background:           [90]#002b36
-!URxvt.foreground:           #FFFFFF
-URxvt.foreground:           #657b83
-!URxvt*cursorColor:      #93d44f
-URxvt*cursorColor:      #93a1a1
-URxvt.highlightColor:       #0A9DFF
+URxvt.colorIT:              S_magenta
+URxvt.colorBD:              S_green
+URxvt.colorUL:              S_blue
+URxvt.highlightTextColor:   S_base2
 URxvt*internalBordercolor:  #121212
 URxvt.underlineColor:       #999999
-URxvt*colorBD:              #FFFFFF
-URxvt*colorUL:              #93d44f
-URxvt.transparent:          true
 URxvt.shading:              20
+URXVT.borderColor:          S_bgrnd_hi
+URxvt.foreground: #bcbcbc
+URxvt.background: #000000
+URxvt.cursorColor: #e0e080
+URxvt.throughColor: #8080f0
+URxvt.highlightColor: #343434
+URxvt.transparent: true
+URxvt.tintColor: #999999
 
-! Installed colors
-!  belge bitmute bleh-1 cloud cloudef colorfulcolors deafened derp digerati
-!  dotshare dwmrob epiphany eqie6 erebus euphrasia fishbone gnometerm gutterslob
-!  hybrid iiamblack insignificato jasonwryan jhvid jwr-dark mikado mikazuki
-!  molokai muzieca nancy nucolors nudge old orangish parker_brothers phrak1
-!  pulp rasi redhalo rezza rydgel sexcolors shic sickill8 simple_rainbow
-!  solarized splurge swayr tango tangoesque theme2 thwump tlh visibone zenburn
-#include "/home/antenore/.Xcolors/solarized"
 
 !==============================================================================
 ! XPDF
@@ -234,3 +252,46 @@ xpdf*urlCommand: firefox %s
 
 ! Eventually
 !#include "/home/antenore/.Xresources.local"
+
+!==============================================================================
+! XSCREENSAVER
+!==============================================================================
+! xscreensaver ---------------------------------------------------------
+!font settings
+xscreensaver.Dialog.headingFont: -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont: -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont: -*-dina-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont: -*-dina-bold-r-*-*-12-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground: #ffffff
+xscreensaver.Dialog.background: #111111
+xscreensaver.Dialog.topShadowColor: #111111
+xscreensaver.Dialog.bottomShadowColor: #111111
+xscreensaver.Dialog.Button.foreground: #666666
+xscreensaver.Dialog.Button.background: #ffffff
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground: #666666
+xscreensaver.Dialog.text.background: #ffffff
+xscreensaver.Dialog.internalBorderWidth: 24
+xscreensaver.Dialog.borderWidth: 20
+xscreensaver.Dialog.shadowThickness: 2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground: #006aff
+xscreensaver.passwd.thermometer.background: #000000
+xscreensaver.passwd.thermometer.width: 8
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat: %I:%M%P %a %b %d, %Y
+
+!==============================================================================
+! XCLOCK
+!==============================================================================
+xclock*update: 1
+xclock*analog: false
+xclock*foreground: grey40
+xclock*background: black
+xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
+
+! xterm ----------------------------------------------------------------
