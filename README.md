@@ -46,3 +46,6 @@ NOTES:
     vim-powerline
     vim-repeat
 
+    * Icons
+
+     http://sourceforge.net/projects/stlarchicons/files/stlarch_icons-1.2.tar.gz 
