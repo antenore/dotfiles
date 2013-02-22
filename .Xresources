@@ -225,7 +225,8 @@ URxvt.underlineColor:       #999999
 URxvt.shading:              20
 URXVT.borderColor:          S_bgrnd_hi
 URxvt.foreground: #bcbcbc
-URxvt.background: #000000
+!URxvt.background: #000000
+URxvt.background: [90]#002b3
 URxvt.cursorColor: #e0e080
 URxvt.throughColor: #8080f0
 URxvt.highlightColor: #343434
