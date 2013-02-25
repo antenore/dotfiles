@@ -1,16 +1,17 @@
+use_xft yes
+override_utf8_locale yes
 out_to_x no
 out_to_console yes
 update_interval 3.0
 total_run_times 0
 use_spacer none
 default_bar_size 0 6
-#use_xft yes
-#xftfont xft:tamsyn:pixelsize=10
+xftfont xft:tamsyn:pixelsize=10
 cpu_avg_samples 4
 TEXT
 (^i(/usr/share/icons/stlarch_icons/mem1.xbm) $mem) \
 (^i(/usr/share/icons/stlarch_icons/cpu1.xbm) ${cpu}%) \
-(^i(/usr/share/icons/stlarch_icons/clock2.xbm) ${time %H:%M - %a %d/%m/%y - %Vw}) \
+^ca(1, urxvt -e calcurse)(^i(/usr/share/icons/stlarch_icons/clock2.xbm) ${time %H:%M - %a %d/%m/%y - %Vw})^ca() \
 (^i(/usr/share/icons/stlarch_icons/batt1full.xbm) ${battery}) \
 (^i(/usr/share/icons/stlarch_icons/wireless8.xbm) ${wireless_link_bar wlan0}) \
 (^i(/usr/share/icons/stlarch_icons/vol1.xbm) ${execi 1 amixer sget Master,0 | egrep -o '([0-9]+%|\[(on|off)\])' | sed ':a;N;$!ba;s/\n/ /g'})
