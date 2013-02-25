@@ -34,6 +34,11 @@ git pull origin master
 
 NOTES:
 
+   * Requirements
+
+    - Install dzen from git
+    - Install wicd and remove Network Manager
+
    * Installed plugins
 
     $HOME/.vim/autoload:

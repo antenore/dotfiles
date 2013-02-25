@@ -13,5 +13,5 @@ TEXT
 (^i(/usr/share/icons/stlarch_icons/cpu1.xbm) ${cpu}%) \
 ^ca(1, urxvt -e calcurse)(^i(/usr/share/icons/stlarch_icons/clock2.xbm) ${time %H:%M - %a %d/%m/%y - %Vw})^ca() \
 (^i(/usr/share/icons/stlarch_icons/batt1full.xbm) ${battery}) \
-(^i(/usr/share/icons/stlarch_icons/wireless8.xbm) ${wireless_link_bar wlan0}) \
+^ca(1, urxvt -e wicd-curses)(^i(/usr/share/icons/stlarch_icons/wireless8.xbm) ${wireless_link_bar wlan0}) ^ca()\
 (^i(/usr/share/icons/stlarch_icons/vol1.xbm) ${execi 1 amixer sget Master,0 | egrep -o '([0-9]+%|\[(on|off)\])' | sed ':a;N;$!ba;s/\n/ /g'})
