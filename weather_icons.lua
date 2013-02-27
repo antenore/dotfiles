@@ -13,6 +13,7 @@ function conky_weather_icon(icao)
      end
      return "${image ~/pics/weather/none.png -p 220,140}"
 end
+--[[
 /usr/share/icons/Humanity/status/16/stock_weather-cloudy.svg
 /usr/share/icons/Humanity/status/16/stock_weather-few-clouds.svg
 /usr/share/icons/Humanity/status/16/stock_weather-fog.svg
@@ -22,3 +23,4 @@ end
 /usr/share/icons/Humanity/status/16/stock_weather-snow.svg
 /usr/share/icons/Humanity/status/16/stock_weather-storm.svg
 /usr/share/icons/Humanity/status/16/stock_weather-sunny.svg
+]]--
