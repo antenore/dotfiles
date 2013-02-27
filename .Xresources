@@ -224,14 +224,16 @@ URxvt*internalBordercolor:  #121212
 URxvt.underlineColor:       #999999
 URxvt.shading:              20
 URXVT.borderColor:          S_bgrnd_hi
-URxvt.foreground: #bcbcbc
+URxvt.foreground: S_base00
 !URxvt.background: #000000
-URxvt.background: [90]#1B1D1E
-URxvt.cursorColor: #e0e080
+URxvt.background: [90]S_base03
+URxvt.cursorColor: S_base1
 URxvt.throughColor: #8080f0
 URxvt.highlightColor: #343434
 URxvt.transparent: true
 URxvt.tintColor: #999999
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
 
 
 !==============================================================================
