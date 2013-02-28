@@ -94,10 +94,10 @@ XTerm*termName:  xterm-256color
 XTerm*font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
 XTerm*font1: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
 
+XTerm*Border: S_bgrnd_hi
+XTerm*Mouse: yellow
 XTerm*veryBoldColors: 6
 XTerm*pointerColor: red
-XTerm*pointerColorBackground: black
-XTerm*cursorColor: #e0e080
 XTerm*loginShell: true
 XTerm*scrollBar: true
 XTerm*scrollKey: true
@@ -105,14 +105,10 @@ XTerm*saveLines: 32768
 XTerm*multiClickTime: 250
 XTerm*scrollTtyOutput: false
 XTerm*AllowIconInput: on
-XTerm*Background: #000000
-XTerm*Border: gray
 XTerm*DeiconifyWarp: off
-XTerm*Foreground: #bcbcbc
 XTerm*InternalBorder: 1
 XTerm*MarginBell: off
 XTerm*MenuFont: fixed8
-XTerm*Mouse: yellow
 XTerm*TitleFont: vtbold
 XTerm*charClass: 33:48,37:48,45-47:48,64:48
 XTerm*colorAttrMode: true
@@ -216,24 +212,25 @@ URxvt.tabbed.tab-bg: 10
 URxvt*cursorBlink:      true
 URxvt*cursorUnderline:  false
 
-URxvt.depth:                32
-URxvt.intensityStyles:      true
-URxvt.colorIT:              S_magenta
-URxvt.colorBD:              S_green
-URxvt.colorUL:              S_blue
-URxvt.highlightTextColor:   S_base2
-URxvt*internalBordercolor:  #121212
-URxvt.underlineColor:       #999999
-URxvt.shading:              20
-URXVT.borderColor:          S_bgrnd_hi
-URxvt.foreground: #bcbcbc
-!URxvt.background: #000000
-URxvt.background: [90]#1B1D1E
-URxvt.cursorColor: #e0e080
-URxvt.throughColor: #8080f0
-URxvt.highlightColor: #343434
-URxvt.transparent: true
-URxvt.tintColor: #999999
+URxvt.background:               [90]S_base03
+!URxvt.foreground:              S_base0
+!URxvt.cursorColor:             S_base1
+URxvt.pointerColorBackground:   S_base01
+URxvt.pointerColorForeground:   S_base1
+URxvt.depth:                    32
+URxvt.intensityStyles:          true
+URxvt.colorIT:                  S_magenta
+URxvt.colorBD:                  S_green
+URxvt.colorUL:                  S_blue
+URxvt.highlightTextColor:       S_base2
+URxvt*internalBordercolor:      #121212
+URxvt.underlineColor:           #999999
+URxvt.shading:                  20
+URXVT.borderColor:              S_bgrnd_hi
+URxvt.throughColor:             #8080f0
+URxvt.highlightColor:           #343434
+URxvt.transparent:              true
+URxvt.tintColor:                #999999
 
 
 !==============================================================================
