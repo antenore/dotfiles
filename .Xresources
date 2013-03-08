@@ -129,7 +129,7 @@ URxvt.iconFile: /usr/share/icons/elementary/apps/32/terminal.svg
 
 ! URL integration, clipboard and tabbed (shift/ctrl right, left, down, up)
 URxvt.perl-lib: /home/antenore/.urxvt
-URxvt.perl-ext-common:      default,matcher,tabbed,clipboard,searchable-scrollback,digital-clock
+URxvt.perl-ext-common:      default,matcher,tabbed,clipboard,searchable-scrollback
 URxvt.urlLauncher:          xdg-open
 URxvt.matcher.button:       1
 URxvt.matcher.rend.0:       Uline Bold fg8
@@ -183,6 +183,8 @@ URxvt*keysym.C-BackSpace: \033\010
 URxvt*keysym.C-Tab: \033r
 ! Extend smart selection for the zsh and Python interactive interpreter prompts
 URxvt.selection.pattern-0: ([[:word:]]+)
+URxvt.selection.pattern-1: ^(/[^:]+):\ 
+URxvt.selection.pattern-2: \\|([^|]+)\\|
 !URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/+$2 \\Q$1\\E/
 !URxvt.selection-autotransform.1: s/^ at (.*?) line (\\d+)$/:e \\Q$1\\E\\x0d:$2\\x0d/
 URxvt.cutchars: "()*,<>[]{}|''"
