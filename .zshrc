@@ -134,7 +134,7 @@ setopt hash_cmds hash_dirs  # command list cache
 setopt no_bg_nice  # do not nice bg processes
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -187,3 +187,6 @@ export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 
 # NO IPV6 for JAVA
 export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
+[[ -s /home/tmow/.rvm/scripts/rvm ]] && . /home/tmow/.rvm/scripts/rvm # This loads RVM into a shell session.
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
