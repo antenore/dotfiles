@@ -7,26 +7,14 @@
 " https://github.com/tpope/vim-pathogen 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pathogen
+" Pathogen {
 " https://github.com/tpope/vim-pathogen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{
 call pathogen#infect()
 call pathogen#helptags()
-"}}}
+" }
+" General {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Notes
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""{{{
-" TODO:
-"       1. Use functions
-"       2. Use folding style
-" "}}}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{
 " disable arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -67,7 +55,10 @@ set ofu=syntaxcomplete#Complete
 " Prevent Vim from clobbering the scrollback buffer. See
 " (http://www.shallowsky.com/linux/noaltscreen.html)
 " set t_ti= t_te=
- "}}}
+
+" }
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,7 +92,7 @@ set makeef=error.err
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim UI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{
+ "{{{
 " Set terminal title to Vim + filename
 set title        
 " Show (partial) command in the last line of the screen.
@@ -125,14 +116,14 @@ set novisualbell
 " ignore case for searching
 set ignorecase   
 
-" Highlight if more then 79 chars
+" Highlight if more then 80 chars
 set colorcolumn=81
 highlight ColorColumn ctermbg=white
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=black guibg=#592929
-  "autocmd BufEnter * match OverLength /\%81v.*/
-  autocmd BufEnter * match OverLength /\%81v.\+/
+  "autocmd BufEnter * match OverLength /\%82v.*/
+  autocmd BufEnter * match OverLength /\%82v.\+/
 augroup END
 
 " Folding settings
@@ -149,7 +140,7 @@ set foldlevel=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{
+ "{{{
 set ruler
 " Highlight current line
 set cursorline
@@ -188,7 +179,7 @@ set nostartofline
 set listchars=tab:>-,trail:~
 set listchars=tab:>-
 set listchars+=trail:.
-"}}}
+ "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Menu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -256,7 +247,7 @@ inoremap <s-tab> <c-n>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Perl
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{{{
+ "{{{
 let perl_extended_vars=1 " highlight advanced perl vars inside strings
  "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
