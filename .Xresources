@@ -211,7 +211,7 @@ URxvt.scrollTtyKeypress: true
 URxvt.tabbed.tabbar-fg: 7
 URxvt.tabbed.tabbar-bg: 2
 URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 10
+URxvt.tabbed.tab-bg: 14
 !==============================================================================
 !Cursor
 !==============================================================================
