@@ -39,7 +39,7 @@ UXTerm*bellIsUrgent: true
 ! Make the scrollbar look a little less 1980s on all Athena-based VT100s.
 *VT100.scrollbar.background: gray60
 *VT100.scrollbar.foreground: white
-*rightScrollBar: true
+*VT100.rightScrollBar: true
 
 ! More Konsole/Yakuake-like keybindings:
 ! NOTE: in Konsole/Yakuake, bind Ctrl+Backspace to \b
@@ -99,7 +99,7 @@ XTerm*Mouse: yellow
 XTerm*veryBoldColors: 6
 XTerm*pointerColor: red
 XTerm*loginShell: true
-XTerm*scrollBar: true
+XTerm*scrollBar: false
 XTerm*scrollKey: true
 XTerm*saveLines: 32768
 XTerm*multiClickTime: 250
@@ -195,23 +195,37 @@ URxvt.cutchars: "()*,<>[]{}|''"
 !==============================================================================
 ! Scroll
 !==============================================================================
+! First scrollBar 
+!Urxvt.scrollBar: true
+!URxvt.jumpScroll:       true
+! iIf enabled make the scrollbar look a little less 1980s.
+!URxvt*scrollstyle: plain
+!URxvt*scrollBar_right: true
+!URxvt.scrollColor: #c8e7a8
+!! Keep 5K of scrollback and only reset the scroll position on keypresses.
+!URxvt.scrollWithBuffer: true
+!URxvt.scrollTtyOutput: false
+!URxvt.scrollTtyKeypress: true
+! Alternative scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollstyle: plain
+URxvt.scrollBar: false     ! turn off the scroll bar
+                           
 URxvt.jumpScroll:       true
-! Make the scrollbar look a little less 1980s.
-URxvt*scrollstyle: plain
-URxvt*scrollBar_right: true
-URxvt.scrollColor: #c8e7a8
-! Keep 5K of scrollback and only reset the scroll position on keypresses.
-URxvt.scrollWithBuffer: true
-URxvt.scrollTtyOutput: false
-URxvt.scrollTtyKeypress: true
+
+URxvt*secondaryWheel  : true
+URxvt*secondaryScreen : true
+                              
+URxvt*scrollTtyOutput   : false
+URxvt*scrollWithBuffer  : true
+URxvt*scrollTtyKeypress : true
 !==============================================================================
 ! Tabs
 !==============================================================================
 ! tabs
 URxvt.tabbed.tabbar-fg: 7
-URxvt.tabbed.tabbar-bg: 2
+URxvt.tabbed.tabbar-bg: 8
 URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 14
+URxvt.tabbed.tab-bg: 15
 !==============================================================================
 !Cursor
 !==============================================================================
