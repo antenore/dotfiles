@@ -10,8 +10,11 @@
 " Pathogen {
 " https://github.com/tpope/vim-pathogen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype off
 call pathogen#infect()
 call pathogen#helptags()
+filetype plugin indent on   
+syntax on
 " }
 " General {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,11 +40,11 @@ set undolevels=1000
 " read/write a .viminfo file, don't store more than 100
 set viminfo='10,\"100,:20,%,n~/.viminfo 
 " load filetype plugins
-filetype plugin on   
+"filetype plugin indent on   
 " load filetype indents
-filetype indent on   
+"filetype indent on   
 " detect the type of file
-filetype on          
+" filetype on          
 " more powerful backspacing
 set backspace=indent,eol,start  
 " indicates a fast terminal connection.
@@ -132,7 +135,8 @@ set foldmethod=marker
 "deepest fold is 10 levels
 set foldnestmax=10
 "dont fold by default
-set nofoldenable
+"set nofoldenable
+set foldenable
 "this is just what i use
 set foldlevel=1
 
@@ -346,3 +350,4 @@ let g:BASH_AuthorName   = 'Antenore Gatta'
 let g:BASH_Email        = ''
 let g:BASH_Company      = 'IBM Switzerland'
 "}}}
+
