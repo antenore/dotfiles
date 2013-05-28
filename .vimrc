@@ -119,14 +119,14 @@ set novisualbell
 " ignore case for searching
 set ignorecase   
 
-" Highlight if more then 80 chars
-set colorcolumn=81
+" Highlight if more then 88 chars
+set colorcolumn=88
 highlight ColorColumn ctermbg=white
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=black guibg=#592929
   "autocmd BufEnter * match OverLength /\%82v.*/
-  autocmd BufEnter * match OverLength /\%82v.\+/
+  autocmd BufEnter * match OverLength /\%89v.\+/
 augroup END
 
 " Folding settings
