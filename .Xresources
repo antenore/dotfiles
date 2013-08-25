@@ -1,4 +1,4 @@
-!{{{ Quick Reference
+!se02/{{{ Quick Reference
 !
 ! Scrolling:
 ! Scroll Wheel
@@ -72,7 +72,9 @@ Xft.antialias:      true
 Xft.rgba:           rgb
 Xft.autohint:       false
 Xft.hinting:        true
-Xft.hintstyle:      hintslight
+!Xft.hintstyle:      hintslight
+Xft.hintstyle:  hintfull
+
  
 !==============================================================================
 !Colors
@@ -145,12 +147,12 @@ URxvt.print-pipe:           cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 
 !URxvt*font:            xft:Monospace:pixelsize=12
 !URxvt*boldFont:        xft:Monospace:bold:pixelsize=12
-!URxvt*font:            xft:Bitstream\ Vera\ Sans\ Mono:style=Regular:pixelsize=14
-!URxvt*boldFont:        xft:Bitstream\ Vera\ Sans\ Mono:style=Bold:pixelsize=14
+!URxvt*font:            xft:Bitstream\ Vera\ Sans\ Mono:style=Regular:pixelsize=12
+!URxvt*boldFont:        xft:Bitstream\ Vera\ Sans\ Mono:style=Bold:pixelsize=12
 !URxvt.font: -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
 !URxvt.boldFont: -*-termsyn-bold-r-*-*-14-*-*-*-*-*-*-*
-URxvt.font: -*-tamsyn-medium-*-*-*-16-*-*-*-*-*-*-*
-URxvt.boldFont: -*-tamsyn-bold-*-*-*-16-*-*-*-*-*-*-*
+URxvt.font: -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-*-*
+URxvt.boldFont: -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
 !URxvt*font:            xft:Droid\ Sans\ Mono:style=Regular:pixelsize=12
 !URxvt*boldfont:            xft:Droid\ Sans\ Mono:style=Bold:pixelsize=12
 ! Fix font space
@@ -232,7 +234,9 @@ URxvt.tabbed.tab-bg: 15
 URxvt*cursorBlink:      true
 URxvt*cursorUnderline:  false
 
-URxvt.background:               [90]S_base03
+!URxvt.background:               [90]S_base03
+!URxvt.background:               S_base03
+URxvt.background:               rgba:eeee/0000/0043/0054
 !URxvt.foreground:              S_base0
 !URxvt.cursorColor:             S_base1
 URxvt.pointerColorBackground:   S_base01
