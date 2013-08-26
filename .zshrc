@@ -194,4 +194,6 @@ alias jump="ssh -tt zcabbi4s ssh -tt $1"
 
 # KEEP MOTIVATED
 
-randline.sh ~/Dropbox/ENFP-mot.txt
+#randline.sh ~/Dropbox/ENFP-mot.txt
+# Bettter and "built in"
+shuf -n 1 ~/Dropbox/ENFP-mot.txt
