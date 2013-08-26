@@ -191,3 +191,7 @@ export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 alias jump="ssh -tt zcabbi4s ssh -tt $1"
+
+# KEEP MOTIVATED
+
+randline.sh ~/Dropbox/ENFP-mot.txt
