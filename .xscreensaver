@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.15 for tmow on Mon Oct 29 23:10:01 2012.
+# Written by xscreensaver-demo 5.22 for tmow on Sun Aug 25 01:51:53 2013.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -244,6 +244,12 @@ programs:								      \
 - GL: 				hilbert -root				    \n\
 - GL: 				tronbit -root				    \n\
 				unicode -root				    \n\
+				electricsheep --root 1			    \n\
+- GL: 				dnalogo -root				    \n\
+				hexadrop -root				    \n\
+  GL: 				kaleidocycle -root			    \n\
+  GL: 				quasicrystal -root			    \n\
+  GL: 				unknownpleasures -root			    \n\
 
 
 pointerPollTime:    0:00:05
