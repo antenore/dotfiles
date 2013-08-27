@@ -8,10 +8,14 @@ setopt appendhistory autocd extendedglob
 
 [[ `who am i` != *\) ]] && is_local=yes
  
-case $TERM in rxvt*) TERM=rxvt-256color esac  # urxvt only, TERM value is not recognized
-                                     # when logging on ssh servers
+#case $TERM in rxvt*) TERM=rxvt-unicode-256color esac    # urxvt only, TERM value is not recognized
+                                                        # when logging on ssh servers
  
-autoload colors; colors  # so we can use $fg / $bg
+#autoload colors; colors  # so we can use $fg / $bg
+
+# dir_colors
+
+eval `dircolors ~/.dir_colors`
  
  
 # Environment

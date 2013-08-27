@@ -32,7 +32,7 @@ XTerm*bellIsUrgent: true
 UXTerm*bellIsUrgent: true
 
 ! White on Black without being eye-straining.
-*customization: -color
+!*customization: -color
 *VT100*foreground: gray70
 *VT100*background: black
 
@@ -90,8 +90,6 @@ Xft.hintstyle:  hintfull
 
 *foreground:                S_primary
 *background:                S_bgrnd
-*Foreground:                S_primary
-*Background:                S_bgrnd
 *cursorColor:               S_emph
 *pointerColorForeground:    S_emph
 *pointerColorBackground:    S_secondary
@@ -166,7 +164,7 @@ URxvt.boldFont: -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
 !==============================================================================
 !Options
 !==============================================================================
-URxvt*termName:         rxvt-256color
+URxvt*termName:         rxvt-unicode-256color
 URxvt.imLocale:         ch_FR.UTF-8
 URxvt.loginShell:       true
 URxvt.saveLines:        224000
