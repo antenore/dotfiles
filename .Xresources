@@ -65,7 +65,7 @@ UXTerm*bellIsUrgent: true
 
 
 
-! To improve
+! XFT
 Xft.dpi:            96
 Xft.lcdfilter:      lcddefault
 Xft.antialias:      true
@@ -75,11 +75,9 @@ Xft.hinting:        true
 !Xft.hintstyle:      hintslight
 Xft.hintstyle:  hintfull
 
- 
 !==============================================================================
 !Colors
 !==============================================================================
-!#include "/home/antenore/.Xdefaults.local"
 ! Installed colors
 !  belge bitmute bleh-1 cloud cloudef colorfulcolors deafened derp digerati
 !  dotshare dwmrob epiphany eqie6 erebus euphrasia fishbone gnometerm gutterslob
@@ -88,6 +86,19 @@ Xft.hintstyle:  hintfull
 !  pulp rasi redhalo rezza rydgel sexcolors shic sickill8 simple_rainbow
 !  solarized splurge swayr tango tangoesque theme2 thwump tlh visibone zenburn
 #include "/home/antenore/.Xcolors/solarized"
+!#include "/home/antenore/.Xcolors/swayr"
+
+*foreground:                S_primary
+*background:                S_bgrnd
+*Foreground:                S_primary
+*Background:                S_bgrnd
+*cursorColor:               S_emph
+*pointerColorForeground:    S_emph
+*pointerColorBackground:    S_secondary
+*fading:                    40
+*fadeColor:                 S_bgrnd
+
+
 
 !==============================================================================
 !Xterm
@@ -147,14 +158,8 @@ URxvt.print-pipe:           cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 
 !URxvt*font:            xft:Monospace:pixelsize=12
 !URxvt*boldFont:        xft:Monospace:bold:pixelsize=12
-!URxvt*font:            xft:Bitstream\ Vera\ Sans\ Mono:style=Regular:pixelsize=12
-!URxvt*boldFont:        xft:Bitstream\ Vera\ Sans\ Mono:style=Bold:pixelsize=12
-!URxvt.font: -*-termsyn-medium-r-*-*-14-*-*-*-*-*-*-*
-!URxvt.boldFont: -*-termsyn-bold-r-*-*-14-*-*-*-*-*-*-*
 URxvt.font: -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-*-*
 URxvt.boldFont: -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
-!URxvt*font:            xft:Droid\ Sans\ Mono:style=Regular:pixelsize=12
-!URxvt*boldfont:            xft:Droid\ Sans\ Mono:style=Bold:pixelsize=12
 ! Fix font space
 !URxvt*letterSpace: -1
 
@@ -174,7 +179,6 @@ URxvt.xftAntialias:     true
 !URxvt*internalBorder:   3
 ! Set the Urgent hint on bell for console apps without notify-send
 URxvt.urgentOnBell: true
-! More Konsole/Yakuake-like clipboard keybindings
 URxvt.iso14755: false
 URxvt.copyCommand: xclip -i -selection clipboard
 URxvt.pasteCommand: xclip -o -selection clipboard
@@ -234,8 +238,8 @@ URxvt.tabbed.tab-bg: 15
 URxvt*cursorBlink:      true
 URxvt*cursorUnderline:  false
 
-!URxvt.background:               [90]S_base03
-!URxvt.background:               S_base03
+!URxvt.background:               [90]S_bgrnd
+!URxvt.background:               S_primary
 URxvt.background:               rgba:eeee/0000/0043/0054
 !URxvt.foreground:              S_base0
 !URxvt.cursorColor:             S_base1
@@ -252,7 +256,7 @@ URxvt.underlineColor:           #999999
 URxvt.shading:                  20
 URXVT.borderColor:              S_bgrnd_hi
 URxvt.throughColor:             #8080f0
-URxvt.highlightColor:           #343434
+URxvt.highlightColor:           S_bgrnd_hi
 URxvt.transparent:              true
 URxvt.tintColor:                #999999
 
@@ -363,4 +367,4 @@ xclock*foreground: grey40
 xclock*background: black
 xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
 
-! xterm ----------------------------------------------------------------
+!#include "/home/antenore/.Xdefaults.local"

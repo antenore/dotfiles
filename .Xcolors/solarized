@@ -26,6 +26,12 @@
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
+#define S_emph      S_base1
+#define S_primary   S_base0
+#define S_secondary S_base01
+#define S_bgrnd_hi  S_base02
+#define S_bgrnd     S_base03
+
 
 ! Light
 
