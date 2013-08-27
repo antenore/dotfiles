@@ -164,7 +164,11 @@ ZSH_THEME="bira"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github python)
+if uname -v | grep -q Ubuntu; then
+    plugins=(git github python colorize debian)
+else
+    plugins=(git github python colorize archlinux)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
