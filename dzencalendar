@@ -13,8 +13,14 @@ YEAR=`date +'%Y'`
 echo '^bg(#000000)^fg(#111111)'`date +'%A, %d.%m.%Y %H:%M'`
  
 # current month, highlight header and today
-cal -h | sed -r -e "1,2 s/.*/^fg(white)&^fg()/" \
--e "s/(^| )($TODAY)($| )/\1^bg(white)^fg(#000)\2^fg()^bg()\3/"
+if uname -v | grep -q Ubuntu; then
+    cal -h | sed -r -e "1,2 s/.*/^fg(white)&^fg()/" \
+    -e "s/(^| )($TODAY)($| )/\1^bg(white)^fg(#000)\2^fg()^bg()\3/"
+else
+    cal | sed -r -e "1,2 s/.*/^fg(white)&^fg()/" \
+    -e "s/(^| )($TODAY)($| )/\1^bg(white)^fg(#000)\2^fg()^bg()\3/"
+fi
+
 
 # next month, hilight header
 [ $MONTH -eq 12 ] && YEAR=`expr $YEAR + 1`

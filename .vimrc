@@ -16,6 +16,8 @@ call pathogen#helptags()
 filetype plugin indent on   
 syntax on
 " }
+" Leader key to , (commas)
+let mapleader = ","
 " General {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " disable arrow keys
@@ -72,6 +74,13 @@ syntax enable
 set t_Co=256
 set background=dark
 " default coloration theme
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    "let g:solarized_termcolors=256
+    color solarized " Load a colorscheme
+endif
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="high"
+    let g:solarized_visibility="high"
 colorscheme solarized
  "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,6 +240,8 @@ set expandtab
 set smarttab      
 " No wrap lines
 set nowrap        
+set splitright " Puts new vsplit windows to the right of the current
+set splitbelow " Puts new split windows to the bottom of the current
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -306,10 +317,15 @@ command! Wq wq
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
 " Switch window mappings /*{{{*/
-nnoremap <C-Up> :normal <c-r>=SwitchWindow('+')<CR><CR>
-nnoremap <C-Down> :normal <c-r>=SwitchWindow('-')<CR><CR>
-nnoremap <C-Left> :normal <c-r>=SwitchWindow('<')<CR><CR>
-nnoremap <C-Right> :normal <c-r>=SwitchWindow('>')<CR><CR>
+"nnoremap <C-Up> :normal <c-r>=SwitchWindow('+')<CR><CR>
+"nnoremap <C-Down> :normal <c-r>=SwitchWindow('-')<CR><CR>
+"nnoremap <C-Left> :normal <c-r>=SwitchWindow('<')<CR><CR>
+"nnoremap <C-Right> :normal <c-r>=SwitchWindow('>')<CR><CR>
+
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
 
 function! SwitchWindow(dir)
   let this = winnr()
@@ -327,6 +343,19 @@ function! SwitchWindow(dir)
   endif
 endfunction
 "}}}
+"}}}
+" Switching buffer mapping
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+"̣}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetypes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
