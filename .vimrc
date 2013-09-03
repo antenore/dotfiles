@@ -63,6 +63,7 @@ set ofu=syntaxcomplete#Complete
 
 " }
 
+set browsedir  =current   " which directory to use for the file browser
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
@@ -267,7 +268,7 @@ let perl_extended_vars=1 " highlight advanced perl vars inside strings
  "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"-------------------------------------------------------------------------------
 "{{{
 autocmd FileType text setlocal textwidth=80
 
@@ -315,6 +316,32 @@ command! Wq wq
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"-------------------------------------------------------------------------------
+"  some additional hot keys
+"-------------------------------------------------------------------------------
+"    F3   -  call file explorer Ex
+"    F4   -  show tag under curser in the preview window (tagfile must exist!)
+"    F6   -  list all errors           
+"    F7   -  display previous error
+"    F8   -  display next error   
+"    F12   -  write file without confirmation
+"-------------------------------------------------------------------------------
+"
+map   <silent> <F3>    :Explore<CR>
+nmap  <silent> <F4>    :exe ":ptag ".expand("<cword>")<CR>
+map   <silent> <F6>    :copen<CR>
+map   <silent> <F7>    :cp<CR>
+map   <silent> <F8>    :cn<CR>
+map   <silent> <F12>    :write<CR>
+"
+imap  <silent> <F3>    <Esc>:Explore<CR>
+imap  <silent> <F4>    <Esc>:exe ":ptag ".expand("<cword>")<CR>
+imap  <silent> <F6>    <Esc>:copen<CR>
+imap  <silent> <F7>    <Esc>:cp<CR>
+imap  <silent> <F8>    <Esc>:cn<CR>
+imap  <silent> <F12>    <Esc>:write<CR>
+"
+
 "{{{
 " Switch window mappings /*{{{*/
 "nnoremap <C-Up> :normal <c-r>=SwitchWindow('+')<CR><CR>
@@ -375,8 +402,11 @@ au BufEnter,BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,tr
 " Bash Support Plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "{{{
-let g:BASH_AuthorName   = 'Antenore Gatta'
-let g:BASH_Email        = ''
-let g:BASH_Company      = 'IBM Switzerland'
+let g:BASH_MapLeader                = ','
+let g:BASH_DoOnNewLine              = 'yes'
+let g:BASH_LineEndCommColDefault    = 49
+let g:BASH_AuthorName               = 'Antenore Gatta'
+let g:BASH_Email                    = ''
+let g:BASH_Company                  = 'IBM Switzerland'
 "}}}
 
