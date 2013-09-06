@@ -156,8 +156,8 @@ URxvt.print-pipe:           cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 
 !URxvt*font:            xft:Monospace:pixelsize=12
 !URxvt*boldFont:        xft:Monospace:bold:pixelsize=12
-URxvt.font: -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-*-*
-URxvt.boldFont: -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-*-*
+URxvt.font: -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+URxvt.boldFont: -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
 ! Fix font space
 !URxvt*letterSpace: -1
 
@@ -239,6 +239,7 @@ URxvt*cursorUnderline:  false
 !URxvt.background:               [90]S_bgrnd
 !URxvt.background:               S_primary
 URxvt.background:               rgba:eeee/0000/0043/0054
+!.Xcolors/husio      URxvt.background:               rgba:1111/1111/1111/cccc
 !URxvt.foreground:              S_base0
 !URxvt.cursorColor:             S_base1
 URxvt.pointerColorBackground:   S_base01
@@ -366,3 +367,9 @@ xclock*background: black
 xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
 
 !#include "/home/antenore/.Xdefaults.local"
+!Override colors (add *foreground *background *cursorColor i.e.:
+!*background: #121212
+!*foreground: #F6F6F6
+!*cursorColor: #ACEA5C
+!URxvt.background:               rgba:1111/1111/1111/cccc
+!#include "/home/antenore/.Xcolors/iiamblack"
