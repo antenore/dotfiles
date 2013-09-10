@@ -75,14 +75,14 @@ syntax enable
 set t_Co=256
 set background=dark
 " default coloration theme
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+"if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
     "let g:solarized_termcolors=256
-    color solarized " Load a colorscheme
-endif
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="high"
-    let g:solarized_visibility="high"
-colorscheme solarized
+    "color solarized " Load a colorscheme
+"endif
+    "let g:solarized_termtrans=1
+    "let g:solarized_contrast="high"
+    "let g:solarized_visibility="high"
+colorscheme darkspectrum
  "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backup
@@ -131,7 +131,7 @@ set ignorecase
 
 " Highlight if more then 88 chars
 set colorcolumn=88
-highlight ColorColumn ctermbg=white
+highlight ColorColumn ctermbg=red ctermfg=black
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 augroup vimrc_autocmds
   autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=black guibg=#592929
