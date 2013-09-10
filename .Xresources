@@ -34,7 +34,9 @@
 
 
 #include "/home/antenore/.Xcolors/antenore"
-!
+!#include "/home/antenore/.Xcolors/belge"
+
+
 ! -END- Color Section }}} 
 
 ! XFT Section }}}
