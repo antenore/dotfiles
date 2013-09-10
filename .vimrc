@@ -75,14 +75,18 @@ syntax enable
 set t_Co=256
 set background=dark
 " default coloration theme
-"if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    "let g:solarized_termcolors=256
-    "color solarized " Load a colorscheme
-"endif
-    "let g:solarized_termtrans=1
-    "let g:solarized_contrast="high"
-    "let g:solarized_visibility="high"
-colorscheme darkspectrum
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    let g:solarized_termcolors=256
+    color solarized " Load a colorscheme
+endif
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="high"
+    let g:solarized_visibility="high"
+colorscheme solarized
+"colorscheme devbox-dark-256
+"colorscheme fu
+"colorscheme zenburn
+"colorscheme leo
  "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backup

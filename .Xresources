@@ -17,7 +17,7 @@
 ! Some Color Scheme have foreground and background hardcoded
 *foreground:        White
 *background:        Black
-*cursorColor:       Green
+*cursorColor:       Yellow3
 *fading:        40
 *fadeColor:     White
 *customization: -color
@@ -33,8 +33,9 @@
 *VT100.colorULMode:     True
 
 
-#include "/home/antenore/.Xcolors/antenore"
+!#include "/home/antenore/.Xcolors/antenore"
 !#include "/home/antenore/.Xcolors/belge"
+#include "/home/antenore/.Xcolors/solarized"
 
 
 ! -END- Color Section }}} 
@@ -241,4 +242,31 @@ xscreensaver.passwd.thermometer.foreground: #006aff
 xscreensaver.passwd.thermometer.width: 8
 ! -END- XScreenSaver }}}
 
+! XClock Section {{{
+! XCLOCK
+!==============================================================================
+xclock*update: 1
+xclock*analog: false
+xclock*foreground: grey40
+xclock*background: black
+xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
 
+! -END- }}}
+
+! XPDF Section {{{
+!==============================================================================
+
+xpdf*antialias: yes
+xpdf*background: white
+xpdf*enableFreetype: yes
+xpdf*foreground: black
+xpdf*urlCommand: firefox %s
+! -END- }}}
+
+
+! DZEN2 Section {{{
+!==============================================================================
+!dzen2.font:       -*-tamsyn-normal-*-*-*-8-*-*-*-*-*-*-* 
+!dzen2.foreground: #c8e7a8
+!dzen2.background: #1A1A1A
+! -END- }}}
