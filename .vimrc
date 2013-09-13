@@ -413,4 +413,5 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 "}}}
-
+"CSV separator
+let g:csv_delim=':'
