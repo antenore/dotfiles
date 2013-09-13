@@ -75,9 +75,9 @@ Xft.antialias:	true
 Xft.dpi:	96
 Xft.autohint:	false
 Xft.hinting:	true
-Xft.hintstyle:	hintfull
+Xft.hintstyle:	hintslight
 Xft.lcdfilter:	lcddefault
-Xft.rgba:	rgb
+Xft.rgba:	rgba
 
 
 ! -END- XFT Section }}}
@@ -115,6 +115,8 @@ URxvt.transparent:	true
 URxvt.skipBuiltinGlyphs:	True
 URxvt.font:	-*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
 URxvt.boldFont:	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
+!URxvt.font:	xft:tamsyn:pixelsize=9
+!URxvt.boldfont:	xft:bold:tamsyn:pixelsize=9
 URxvt.iconFile:	/usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib:	/home/antenore/.urxvt
 URxvt.perl-ext-common:	default,matcher,tabbed,clipboard,keyboard-select
