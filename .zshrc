@@ -205,3 +205,5 @@ alias jump="ssh -tt zcabbi4s ssh -tt $1"
 #randline.sh ~/Dropbox/ENFP-mot.txt
 # Bettter and "built in"
 shuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
+
+source .zshrc.local

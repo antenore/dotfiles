@@ -40,6 +40,9 @@
 !
 !================================================================================
 
+!Debian
+#define DebianRed #D70A53
+
 ! Some Color Scheme have foreground and background hardcoded
 *foreground:	White
 *background:	Black
@@ -79,7 +82,6 @@ Xft.hintstyle:	hintslight
 Xft.lcdfilter:	lcddefault
 Xft.rgba:	rgba
 
-
 ! -END- XFT Section }}}
 
 ! URxvt section {{{ 
@@ -113,10 +115,14 @@ URxvt.tintColor:	#999999
 URxvt.shading:	20
 URxvt.transparent:	true
 URxvt.skipBuiltinGlyphs:	True
-URxvt.font:	-*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-URxvt.boldFont:	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
+!URxvt.font:	-*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+!URxvt.boldFont:	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=10:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=10:antialias=true:hinting=true
+!URxvt*boldFont: xft:droid sans mono:bold:pixelsize=10:antialias=true:hinting=true
 !URxvt.font:	xft:tamsyn:pixelsize=9
 !URxvt.boldfont:	xft:bold:tamsyn:pixelsize=9
+URxvt.letterSpace: -1
 URxvt.iconFile:	/usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib:	/home/antenore/.urxvt
 URxvt.perl-ext-common:	default,matcher,tabbed,clipboard,keyboard-select
@@ -245,7 +251,7 @@ XCalc.ti.Command.foreground:	White
 
 ! -END- XCalc Section }}}
 
-! XScreenSaver Section {{{
+! XScreenSaver/xlock Section {{{
 xscreensaver.dateFormat:	%I:%M%P %a %b %d, %Y
 xscreensaver.Dialog.background:	#111111
 xscreensaver.Dialog.bodyFont:	-*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
@@ -268,6 +274,93 @@ xscreensaver.passwd.passwdFont:	-*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
 xscreensaver.passwd.thermometer.background:	#000000
 xscreensaver.passwd.thermometer.foreground:	#006aff
 xscreensaver.passwd.thermometer.width:	8
+
+XLock.mode: random
+XLock.erasemode: 
+XLock.erasedelay: 400
+XLock.erasetime: 2
+XLock.allowaccess: off
+XLock.debug: off
+XLock.description: on
+XLock.echokeys: on
+XLock.echokey: *
+XLock.enablesaver: off
+XLock.resetsaver: on
+XLock.grabmouse: on
+XLock.grabserver: off
+XLock.hide: on
+XLock.install: on
+XLock.mousemotion: off
+XLock.mono: off
+XLock.sound: off
+XLock.showdate: on
+XLock.timeelapsed: off
+XLock.usefirst: on
+XLock.verbose: off
+XLock.visual: 
+XLock.nice: 10
+XLock.lockdelay: 0
+XLock.unlockdelay: 0
+XLock.timeout: 30
+XLock.font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XLock.planfont: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XLock.background: White
+XLock.foreground: Black
+XLock.username: Name: 
+XLock.password: Password: 
+XLock.info: Enter password to unlock; select icon to lock.
+XLock.validate: Validating login...
+XLock.invalid: Invalid login.
+XLock.invalidCapsLock: Invalid login, Caps Lock on.
+XLock.attempt:  failed attempt.
+XLock.attempts:  failed attempts.
+XLock.geometry: 
+XLock.icongeometry: 
+XLock.wireframe: off
+XLock.use3d: off
+XLock.delta3d: 1.5
+XLock.none3d: Black
+XLock.right3d: Blue
+XLock.left3d: Red
+XLock.both3d: Magenta
+XLock.program: fortune -s
+XLock.messagesfile: 
+XLock.messagefile: 
+XLock.message: 
+XLock.messagefont: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XLock.logoutButton: -1
+XLock.logoutButtonLabel: Logout
+XLock.logoutButtonHelp: Click here to logout
+XLock.logoutFailedString: Auto-logout failed
+XLock.startCmd: 
+XLock.endCmd: 
+XLock.pipepassCmd: 
+XLock.logoutCmd: 
+XLock.dpmsstandby: -1
+XLock.dpmssuspend: -1
+XLock.dpmsoff: -1
+XLock.mailCmd: 
+XLock.mailIcon: 
+XLock.nomailIcon: 
+XLock.blank.delay: 3000000
+XLock.blank.count: 1
+XLock.blank.cycles: 1
+XLock.blank.size: 1
+XLock.blank.ncolors: 64
+XLock.blank.saturation: 1
+XLock.blank.bitmap: 
+XLock.random.delay: 1
+XLock.random.count: 1
+XLock.random.cycles: 1
+XLock.random.size: 1
+XLock.random.ncolors: 64
+XLock.random.saturation: 1
+XLock.random.bitmap: 
+XLock.random.duration: 60
+XLock.random.modelist: 
+XLock.random.sequential: False
+XLock.random.fullrandom: True
+
 ! -END- XScreenSaver }}}
 
 ! XClock Section {{{
