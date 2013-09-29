@@ -115,14 +115,14 @@ URxvt.tintColor:	#999999
 URxvt.shading:	20
 URxvt.transparent:	true
 URxvt.skipBuiltinGlyphs:	True
-!URxvt.font:	-*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-!URxvt.boldFont:	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=10:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=10:antialias=true:hinting=true
+URxvt.font:	-*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+URxvt.boldFont:	-*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
+!URxvt*font: xft:DejaVu Sans Mono:pixelsize=10:antialias=true:hinting=true
+!URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=10:antialias=true:hinting=true
 !URxvt*boldFont: xft:droid sans mono:bold:pixelsize=10:antialias=true:hinting=true
-!URxvt.font:	xft:tamsyn:pixelsize=9
-!URxvt.boldfont:	xft:bold:tamsyn:pixelsize=9
-URxvt.letterSpace: -1
+!URxvt.font:	xft:tamsyn:pixelsize=9:antialias=true:hinting=true
+!URxvt.boldfont:	xft:bold:tamsyn:pixelsize=9:antialias=true:hinting=true
+!URxvt.letterSpace: -1
 URxvt.iconFile:	/usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib:	/home/antenore/.urxvt
 URxvt.perl-ext-common:	default,matcher,tabbed,clipboard,keyboard-select

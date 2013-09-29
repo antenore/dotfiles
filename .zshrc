@@ -207,3 +207,4 @@ alias jump="ssh -tt zcabbi4s ssh -tt $1"
 shuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
 
 source .zshrc.local
+export RI="--format ansi --width 70"
