@@ -128,7 +128,9 @@ URxvt.perl-lib:	/home/antenore/.urxvt
 URxvt.perl-ext-common:	default,matcher,tabbed,clipboard,keyboard-select
 URxvt.keysym.M-Escape:	perl:keyboard-select:activate
 URxvt.keysym.M-s:	perl:keyboard-select:search
-URxvt.urlLauncher:	xdg-open
+URxvt.keysym.C-Delete:    perl:matcher:last
+URxvt.keysym.M-Delete:    perl:matcher:list
+URxvt.url-launcher: xdg-open
 URxvt.matcher.button:	1
 URxvt.matcher.rend.0:	Uline Bold fg8
 URxvt.print-pipe:	cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
