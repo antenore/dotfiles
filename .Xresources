@@ -66,6 +66,23 @@
 !#include "/home/antenore/.Xcolors/belge"
 #include "/home/antenore/.Xcolors/solarized"
 
+!*.color0: #000000
+!*.color1: #D05656
+!*.color2: #61B961
+!*.color3: #D2B459
+!*.color4: #5D90C9
+!*.color5: #A672BF
+!*.color6: #72B4B5
+!*.color7: #999999
+!*.color8: #555555
+!*.color9: #D05656
+!*.color10: #61B961
+!*.color11: #D2B459
+!*.color12: #5D90C9
+!*.color13: #A672BF
+!*.color14: #72B4B5
+!*.color15: #FFFFFF
+
 
 ! -END- Color Section }}} 
 

@@ -194,7 +194,7 @@ export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 
 # NO IPV6 for JAVA
-export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
+export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 [[ -s /home/tmow/.rvm/scripts/rvm ]] && . /home/tmow/.rvm/scripts/rvm # This loads RVM into a shell session.
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -209,3 +209,4 @@ shuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
 source .zshrc.local
 export RI="--format ansi --width 70"
 export WINEARCH=win32
+wmname LG3D
