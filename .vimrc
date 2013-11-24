@@ -10,10 +10,10 @@ execute pathogen#infect()
 syntax enable
 filetype plugin indent on     " }}}
 " {{{ ===== Files ==================================================================
-set viminfo='10,\"1000,:20,%,n~/.viminfo 
-set backup                   
-set backupdir=~/.vim/backup/ 
-set directory=~/.vim/temp    
+set viminfo='10,\"1000,:20,%,n~/.viminfo
+set backup
+set backupdir=~/.vim/backup/
+set directory=~/.vim/temp
 set makeef=error.err         "}}}
 " {{{ ===== General ================================================================
 set encoding=utf-8
@@ -32,7 +32,7 @@ set ignorecase
 set nocompatible
 set noerrorbells
 set novisualbell
-set printoptions=paper:A4,syntax:y 
+set printoptions=paper:A4,syntax:y
 set report=0                         " tell us when anything is changed via :...
 set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
@@ -61,24 +61,22 @@ set colorcolumn=88
 hi CursorColum ctermbg=grey ctermfg=white
 highlight ColorColumn ctermbg=red ctermfg=white
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-  autocmd BufEnter * match OverLength /\%89v.\+/
-augroup END
+autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufEnter * match OverLength /\%89v.\+/
 
 " Visual Cues
 set cmdheight=2
 set cursorline
   au WinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
-set hlsearch      
-set incsearch     
+set hlsearch
+set incsearch
 set laststatus=2   " always show the status line
 set listchars+=trail:.
 set listchars=tab:>-
 set listchars=tab:>-,trail:~
 set mat=5          " how many tenths of a second to blink matching brackets for
-set modeline      
+set modeline
 set nostartofline  " keep the cursor in the same colon when changing line
 set number
 set ruler
@@ -87,24 +85,10 @@ set showcmd
 set showmatch      " show matching brackets
 set sidescroll=1
 set sidescrolloff=10
-set smartcase     
+set smartcase
 set so=10          " Keep 10 lines (top/bottom) for scope
 set title                           " }}}
-" {{{ ==================== Text Formatting/Layout ==================================
-set fo=rqn     " :h formatoptions 
-set ai            
-set si            
-set cindent       
-set tabstop=4     
-set softtabstop=4 
-set shiftwidth=4  
-set expandtab     
-set smarttab      
-set nowrap        
-set splitright " Puts new vsplit windows to the right of the current
-set splitbelow " Puts new split windows to the bottom of the current
-" }}}
-" {{{ =========================== Mappings =========================================
+" {{{ ===== Mappings ===============================================================
 
 " disable arrow keys
 map <up> <nop>
@@ -149,7 +133,7 @@ nnoremap <Leader>0 :10b<CR>
 set pastetoggle=<F2>
 map <F11> :let &bg = ( &bg = "dark"? "light" : "dark" )<CR>   # shitch dark lingh bg
 " }}}
-" {{{ ============= Bash Support Plugin ============================================
+" {{{ ===== Bash Support Plugin ====================================================
 let g:BASH_MapLeader                = ','
 let g:BASH_DoOnNewLine              = 'yes'
 let g:BASH_LineEndCommColDefault    = 49
@@ -157,5 +141,20 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 " }}}
-" =============================== EOF ==============================================
+" {{{ ===== Text Formatting/Layout =================================================
+"set fo=ctrqn   " :h formatoptions fo-table
+set ai
+set si
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set splitright " Puts new vsplit windows to the right of the current
+set splitbelow " Puts new split windows to the bottom of the current
+set nowrap
+set wm=0       " wrapping margin
+set tw=500       " no autowrap
+" }}}
+" =============================== EOF ===============================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
