@@ -13,7 +13,7 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
-syntax on " }}}
+syntax enable " }}}
 " {{{ ===== Files ==================================================================
 set viminfo='10,\"1000,:20,%,n~/.viminfo
 set backup
@@ -22,7 +22,6 @@ set directory=~/.vim/temp
 set makeef=error.err         "}}}
 " {{{ ===== General ================================================================
 set encoding=utf-8
-syntax on
 let mapleader = ","
 set autoread
 set autowrite
@@ -77,14 +76,14 @@ autocmd BufEnter * match OverLength /\%100v.\+/
 " Visual Cues
 set cmdheight=2
 set cursorline
-hi CursorLine ctermbg=black
-  au WinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
+hi CursorLine term=bold cterm=bold ctermbg=235 guibg=Grey40
+au WinEnter * setlocal cursorline
+au WinLeave * setlocal nocursorline
 set cursorcolumn
-hi CursorColumn ctermbg=black
-"hi CursorColumn ctermbg=yellow
-  au WinEnter * setlocal cursorcolumn
-  au WinLeave * setlocal nocursorcolumn
+"hi CursorColumn ctermbg=235 guibg=Grey40
+hi CursorColumn term=bold cterm=bold ctermbg=235 guibg=Grey40
+au WinEnter * setlocal cursorcolumn
+au WinLeave * setlocal nocursorcolumn
 set hlsearch
 set incsearch
 set laststatus=2   " always show the status line
