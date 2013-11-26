@@ -2,13 +2,18 @@
 " - Pathogen
 " - Solarized
 " - Bash-support
-" - Poerline
+" - Powerline
 "===================================================================================
 
+" {{{ ===== Before everything else =================================================
+set nocompatible
+" }}}
 " {{{ ===== Pathogen ===============================================================
-execute pathogen#infect()
-syntax enable
-filetype plugin indent on     " }}}
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+filetype plugin indent on
+syntax on " }}}
 " {{{ ===== Files ==================================================================
 set viminfo='10,\"1000,:20,%,n~/.viminfo
 set backup
@@ -29,7 +34,6 @@ set browsedir  =current   " which directory to use for the file browser
 set hidden
 set history=2000
 set ignorecase
-set nocompatible
 set noerrorbells
 set novisualbell
 set printoptions=paper:A4,syntax:y
@@ -37,50 +41,65 @@ set report=0                         " tell us when anything is changed via :...
 set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone      " }}}
-" {{{ ===== Folfing ================================================================
-set foldmethod=marker                " }}}
+" {{{ ===== Folding ================================================================
+set foldenable
+set foldmethod=marker
+autocmd FileType sh,zsh,ksh,bash,fish :setlocal foldmethod=syntax
+autocmd FileType sh,zsh,ksh,bash,fish :let g:sh_fold_enabled=4
+autocmd FileType sh,zsh,ksh,bash,fish :let g:is_bash=1
+" }}}
 " {{{ ===== Menus ==================================================================
-set wildmode=longest,list
 set wildmenu
+set wildmode=list:longest,full
 set wildchar=<Tab>                   " }}}
 " {{{ ===== UI =====================================================================
 
 set t_Co=256
 set background=dark
 " Solarized - https://github.com/altercation/solarized
+
 if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-  let g:solarized_termcolors=256    " Default 16
-  let g:solarized_termtrans=1
-  let g:solarized_visibility="high"
-  let g:solarized_hitrail=1
-  colorscheme solarized " Load a colorscheme
+    let g:solarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="normal"
+    let g:solarized_visibility="high"
+    color solarized " Load a colorscheme
 endif
 
 " Highlight if more then 88 chars
-set colorcolumn=88
-hi CursorColum ctermbg=grey ctermfg=white
+set colorcolumn=99
+hi CursorColumn ctermbg=grey ctermfg=white
 highlight ColorColumn ctermbg=red ctermfg=white
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd BufEnter * match OverLength /\%89v.\+/
+autocmd BufEnter * match OverLength /\%100v.\+/
 
 " Visual Cues
 set cmdheight=2
 set cursorline
+hi CursorLine ctermbg=black
   au WinEnter * setlocal cursorline
   au WinLeave * setlocal nocursorline
+set cursorcolumn
+hi CursorColumn ctermbg=black
+"hi CursorColumn ctermbg=yellow
+  au WinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorcolumn
 set hlsearch
 set incsearch
 set laststatus=2   " always show the status line
-set listchars+=trail:.
-set listchars=tab:>-
-set listchars=tab:>-,trail:~
+set list
+"set listchars+=trail:.
+"set listchars=tab:>-
+"set listchars=tab:>-,trail:~
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set mat=5          " how many tenths of a second to blink matching brackets for
 set modeline
 set nostartofline  " keep the cursor in the same colon when changing line
 set number
-set ruler
 set scrolloff=3
+set ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)       " if not vim-airline
 set showcmd
 set showmatch      " show matching brackets
 set sidescroll=1
@@ -114,8 +133,8 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 " Remap ctrl-] to Enter and ctrl-T to esc to make help sane.
-:au filetype help :nnoremap <buffer><CR> <c-]>
-:au filetype help :nnoremap <buffer><BS> <c-T>
+:au FileType help nnoremap <buffer> <CR> <c-]>
+:au FileType help nnoremap <buffer> <BS> <c-T>
 
 " Switching buffer mapping
 nnoremap <Leader>1 :1b<CR>
@@ -130,7 +149,7 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
 " Useful functions keys
-set pastetoggle=<F2>
+set pastetoggle=<F12>
 map <F11> :let &bg = ( &bg = "dark"? "light" : "dark" )<CR>   # shitch dark lingh bg
 " }}}
 " {{{ ===== Bash Support Plugin ====================================================
@@ -142,7 +161,7 @@ let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 " }}}
 " {{{ ===== Text Formatting/Layout =================================================
-"set fo=ctrqn   " :h formatoptions fo-table
+set fo=ctrqn   " :h formatoptions fo-table
 set ai
 set si
 set tabstop=4
@@ -150,6 +169,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+set nojoinspaces
 set splitright " Puts new vsplit windows to the right of the current
 set splitbelow " Puts new split windows to the bottom of the current
 set nowrap
