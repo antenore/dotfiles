@@ -1,56 +1,74 @@
 dotfiles
 ========
 
-0. Disclaimer
+## Description
 
-The following instructions are based on the article of Bob Silverberg
+I keep most of my dotfiles in sync with git on github. After I've tried different approaches, 
+I came across GNU stow, that makes things easier.
 
-http://tux.it/pB
+All the dotfiles and some of my scripts are organized inside folders that acts like packages.
+Executing stow from the dotfile folder, it will create one link in the parent directory, for each 
+file, or folder, found inside the specified "package"
 
-1. Scope
+### Packages (folders)
 
-I use this repo to syncronize configuration files between my *Linux/*BSD hosts.
+Note that this is a work in progress!
 
-The following are the steps to keep the "servers" in sync
+- X
+   - Xresources
+   - xprofile
+   - xscreensaver
+   - xsession
+   - Xcolors
+- colors
+   - solarized
+- conky
+   - .conkyrc
+- init
+   - .initrc
+   - .inputrc
+- scripts
+   - bin
+      - baraction.sh
+      - dmenu-launch
+      - dzencalendar
+      - initscreen.sh
+      - mute.sh
+      - randline.sh
+      - screenshot.sh
+      - weather_icons.lua
+- spectrwm
+   - .spectrwm.conf
+   - .spectrwm_fr_ch.conf
+- top
+   - .toprc
+- urxvt
+   - .urxvt
+- vim
+   - .vim
+   - .vimrc
+- zsh
+   - .zshrc
 
-2. Getting a Copy of the Repo onto Machine 2
+## Usage
 
-2.1 Change to a directory in which you want to put your Git repo. E.g., 
+- Install GNU stow from
 
-cd ~/gitRepos
+        i.e. sudo pacman -S stow
 
-2.2 Clone your GitHub repo to this machine:
+- Clone to ~/dotfiles, and enter the directory.
 
-git clone git@github.com:antenore/dotfiles.git
+        cd ~/dotfiles
 
-2.3 Create a link of the config files
+- Symlink the .file into place with stow. 
 
-rm ~/.zshrc && ln -siv ~/gitRepos/dotfiles/{.zshrc,.vimrc} ~/
+        stow --ignore ".xsession" common home-laptop         # I don't sink .xession at the moment
 
-2.4 Grabbing changes from the GitHub Repo
+## TODO
 
-cd ~/gitRepos/dotfiles
-git pull origin master
+- Write a Makefile
 
-NOTES:
+## License
 
-   * Requirements
+Based on Brian Partridge original work.
 
-    - Install dzen from git
-    - Install wicd and remove Network Manager
-
-   * Installed plugins
-
-    $HOME/.vim/autoload:
-    pathogen.vim
-
-    $HOME/.vim/bundle:
-    python-mode
-    vim-colors-solarized
-    vim-commentary
-    vim-powerline
-    vim-repeat
-
-    * Icons
-
-     http://sourceforge.net/projects/stlarchicons/files/stlarch_icons-1.2.tar.gz 
