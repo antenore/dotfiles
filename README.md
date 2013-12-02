@@ -7,8 +7,8 @@ I keep most of my dotfiles in sync with git on github. After I've tried differen
 I came across GNU stow, that makes things easier.
 
 All the dotfiles and some of my scripts are organized inside folders that acts like packages.
-Executing stow from the dotfile folder, it will create one link in the parent directory, for each 
-file, or folder, found inside the specified "package"
+Executing stow from the dotfile folder, it will create one link in the parent directory foreach 
+file, or folder, found inside the specified "package".
 
 ### Packages (folders)
 
@@ -60,7 +60,7 @@ Note that this is a work in progress!
 
         cd ~/dotfiles
 
-- Symlink the .file into place with stow.
+- Symlink the .file into place with stow (if the dotfiles folder is in the home directory).
 
         stow --ignore ".xsession" X colors conky init \
                                   scripts spectrwm    \
