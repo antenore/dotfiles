@@ -1,0 +1,1 @@
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
