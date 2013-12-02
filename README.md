@@ -50,9 +50,9 @@ Note that this is a work in progress!
 - zsh
    - .zshrc
 
-## Usage
+## Installation
 
-- Install GNU stow from
+- Install [GNU Stow](http://www.gnu.org/software/stow/)
 
         i.e. sudo pacman -S stow
 
@@ -60,9 +60,11 @@ Note that this is a work in progress!
 
         cd ~/dotfiles
 
-- Symlink the .file into place with stow. 
+- Symlink the .file into place with stow.
 
-        stow --ignore ".xsession" common home-laptop         # I don't sink .xession at the moment
+        stow --ignore ".xsession" X colors conky init \
+                                  scripts spectrwm    \
+                                  top urxvt vim zsh          # I don't si .xession at the moment
 
 ## TODO
 
