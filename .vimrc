@@ -78,8 +78,9 @@ autocmd BufEnter * match OverLength /\%100v.\+/
 
 " Visual Cues
 set cmdheight=2
+hi Folded term=bold,underline cterm=bold,underline ctermfg=8 ctermbg=14
 set cursorline
-hi CursorLine term=bold cterm=bold ctermbg=235 guibg=Grey40
+hi CursorLine term=underline,bold cterm=underline,bold ctermbg=235 guibg=Grey40
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
 set cursorcolumn
