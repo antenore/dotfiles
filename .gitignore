@@ -6,6 +6,6 @@
 *~
 *.swp
 *.swo
-.vim/backup/.*
-.vim/view/.*
-.vim/temp/.*
+vim/.vim/backup/.*
+vim/.vim/view/.*
+vim/.vim/temp/.*
