@@ -1,4 +1,6 @@
 "================================ .VIMRC ===========================================
+" Feautures:
+" - Conditional folding
 " - Pathogen
 " - Solarized
 " - Bash-support
@@ -7,19 +9,25 @@
 
 " {{{ ===== Before everything else =================================================
 set nocompatible
+filetype plugin indent on
+set foldenable
+set foldmethod=marker
+au FileType sh let g:sh_fold_enabled=7
+au FileType sh let g:is_bash=1
+au FileType sh set foldmethod=syntax
+syntax enable
 " }}}
 " {{{ ===== Pathogen ===============================================================
-filetype off
 call pathogen#infect()
 call pathogen#helptags()
-filetype plugin indent on
-syntax enable " }}}
+" }}}
 " {{{ ===== Files ==================================================================
 set viminfo='10,\"1000,:20,%,n~/.viminfo
 set backup
 set backupdir=~/.vim/backup/
 set directory=~/.vim/temp
-set makeef=error.err         "}}}
+set makeef=error.err
+" }}}
 " {{{ ===== General ================================================================
 set encoding=utf-8
 let mapleader = ","
@@ -39,18 +47,13 @@ set printoptions=paper:A4,syntax:y
 set report=0                         " tell us when anything is changed via :...
 set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
-set completeopt=longest,menuone      " }}}
-" {{{ ===== Folding ================================================================
-set foldenable
-set foldmethod=marker
-autocmd FileType sh,zsh,ksh,bash,fish :setlocal foldmethod=syntax
-autocmd FileType sh,zsh,ksh,bash,fish :let g:sh_fold_enabled=4
-autocmd FileType sh,zsh,ksh,bash,fish :let g:is_bash=1
+set completeopt=longest,menuone
 " }}}
 " {{{ ===== Menus ==================================================================
 set wildmenu
 set wildmode=list:longest,full
-set wildchar=<Tab>                   " }}}
+set wildchar=<Tab>
+" }}}
 " {{{ ===== UI =====================================================================
 
 set t_Co=256
@@ -88,9 +91,6 @@ set hlsearch
 set incsearch
 set laststatus=2   " always show the status line
 set list
-"set listchars+=trail:.
-"set listchars=tab:>-
-"set listchars=tab:>-,trail:~
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set mat=5          " how many tenths of a second to blink matching brackets for
 set modeline
@@ -105,7 +105,8 @@ set sidescroll=1
 set sidescrolloff=10
 set smartcase
 set so=10          " Keep 10 lines (top/bottom) for scope
-set title                           " }}}
+set title
+" }}}
 " {{{ ===== Mappings ===============================================================
 
 " disable arrow keys
