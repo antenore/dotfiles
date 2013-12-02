@@ -64,7 +64,7 @@ Note that this is a work in progress!
 
         stow --ignore ".xsession" X colors conky init \
                                   scripts spectrwm    \
-                                  top urxvt vim zsh          # I don't si .xession at the moment
+                                  top urxvt vim zsh          # I don't use .xession at the moment
 
 ## TODO
 
