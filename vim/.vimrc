@@ -76,17 +76,17 @@ set t_Co=256
 set background=dark
 " Solarized - https://github.com/altercation/solarized
 
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="high"
-    color solarized " Load a colorscheme
-endif
+"if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    "let g:solarized_termcolors=256
+    "let g:solarized_termtrans=1
+    "let g:solarized_contrast="normal"
+    "let g:solarized_visibility="high"
+    "color solarized " Load a colorscheme
+"endif
+colorscheme neverland
 
 " Highlight if more then 88 chars
 set colorcolumn=99
-hi CursorColumn ctermbg=grey ctermfg=white
 highlight ColorColumn ctermbg=red ctermfg=white
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -95,13 +95,14 @@ autocmd BufEnter * match OverLength /\%100v.\+/
 " Visual Cues
 set cmdheight=2
 "hi Folded term=bold cterm=bold ctermfg=8 ctermbg=14
-hi Folded term=bold cterm=bold ctermfg=cyan ctermbg=black
+"hi Folded term=bold cterm=bold ctermfg=cyan ctermbg=black
 set cursorline
-hi CursorLine term=underline,bold cterm=underline,bold ctermbg=235 ctermfg=NONE guibg=Grey40
+"hi CursorLine term=underline,bold cterm=underline,bold ctermbg=235 ctermfg=NONE guibg=Grey40
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
 set cursorcolumn
-hi CursorColumn term=NONE cterm=NONE ctermbg=235 ctermfg=NONE guibg=Grey40
+"hi CursorColumn term=reverse ctermbg=233
+hi CursorColumn term=reverse ctermbg=234 ctermfg=white
 au WinEnter * setlocal cursorcolumn
 au WinLeave * setlocal nocursorcolumn
 set hlsearch

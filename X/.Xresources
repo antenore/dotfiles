@@ -58,9 +58,9 @@
 *VT100.colorBDMode                            : True
 *VT100.colorULMode                            : True
 
-!#include "/home/antenore/.Xcolors/antenore"
+#include "/home/antenore/.Xcolors/dither"
 !#include "/home/antenore/.Xcolors/belge"
-#include "/home/antenore/.Xcolors/solarized"
+!#include "/home/antenore/.Xcolors/solarized"
 
 !*.color0                                     : #000000
 !*.color1                                     : #D05656
