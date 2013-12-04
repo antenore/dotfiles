@@ -2,9 +2,9 @@
 " Feautures:
 " - Conditional folding
 " - Pathogen
-" - Solarized
+" - Solarized (+ HI cutomizations)
 " - Bash-support
-" - Powerline
+" - Vim-Airline
 "===================================================================================
 
 " {{{ ===== Before everything else =================================================
@@ -34,7 +34,7 @@ let mapleader = ","
 set autoread
 set autowrite
 set backspace=indent,eol,start
-set browsedir  =current   " which directory to use for the file browser
+set browsedir=current   " which directory to use for the file browser
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
@@ -48,6 +48,22 @@ set report=0                         " tell us when anything is changed via :...
 set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone
+" }}}
+" {{{ ===== Text Formatting/Layout =================================================
+set fo=ctrqn   " :h formatoptions fo-table
+set ai
+set si
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set nojoinspaces
+set splitright " Puts new vsplit windows to the right of the current
+set splitbelow " Puts new split windows to the bottom of the current
+set nowrap
+set wm=0       " wrapping margin
+set tw=500       " no autowrap
 " }}}
 " {{{ ===== Menus ==================================================================
 set wildmenu
@@ -120,6 +136,12 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 function! InsertTabWrapper()
@@ -161,21 +183,5 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 " }}}
-" {{{ ===== Text Formatting/Layout =================================================
-set fo=ctrqn   " :h formatoptions fo-table
-set ai
-set si
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-set nojoinspaces
-set splitright " Puts new vsplit windows to the right of the current
-set splitbelow " Puts new split windows to the bottom of the current
-set nowrap
-set wm=0       " wrapping margin
-set tw=500       " no autowrap
-" }}}
-" =============================== EOF ===============================================
+" =============================== EOF ==============================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
