@@ -76,14 +76,16 @@ set t_Co=256
 set background=dark
 " Solarized - https://github.com/altercation/solarized
 
-"if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    "let g:solarized_termcolors=256
-    "let g:solarized_termtrans=1
-    "let g:solarized_contrast="normal"
-    "let g:solarized_visibility="high"
-    "color solarized " Load a colorscheme
-"endif
-colorscheme neverland
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    let g:solarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="normal"
+    let g:solarized_visibility="high"
+    color solarized " Load a colorscheme
+endif
+"colorscheme neverland
+"colorscheme xoria256
+"colorscheme hybrid
 
 " Highlight if more then 88 chars
 set colorcolumn=99
@@ -174,7 +176,7 @@ nnoremap <Leader>0 :10b<CR>
 
 " Useful functions keys
 set pastetoggle=<F12>
-map <F11> :let &bg = ( &bg = "dark"? "light" : "dark" )<CR>   # shitch dark lingh bg
+map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
 " }}}
 " {{{ ===== Bash Support Plugin ====================================================
 let g:BASH_MapLeader                = ','
