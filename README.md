@@ -1,6 +1,8 @@
 dotfiles
 ========
 
+[Screenshot](data/2013-12-12-003608_800x450_scrot.png)
+
 ## Description
 
 I keep most of my dotfiles in sync with git on github. After I've tried different approaches, 
