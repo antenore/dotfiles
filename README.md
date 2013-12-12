@@ -2,6 +2,8 @@ dotfiles
 ========
 
 [Screenshot](data/2013-12-12-003608_800x450_scrot.png)
+file:///home/tmow/dotfiles/data/2013-12-12-003608_800x450_scrot.png
+
 
 ## Description
 
