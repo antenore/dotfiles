@@ -1,0 +1,172 @@
+# I hate this! Why not use the `tput colors` result?
+# Below, there should be one TERM entry for each termtype that is colorizable
+TERM putty-256color
+TERM rxvt-256color
+TERM rxvt-unicode256
+TERM rxvt-unicode-256color
+TERM screen-256color
+TERM xterm-256color
+TERM gnome-256color
+TERM Eterm-256color
+
+# Below are the color init strings for the basic file types. A color init
+# string consists of one or more of the following numeric codes:
+# Attribute codes:
+#NORMAL 00              # global default, no color code at all
+#FILE 00                # normal file, use no color at all
+RESET 0                 # reset to "normal" color
+DIR 38;5;39             # directory
+LINK 38;5;123               # symbolic link (If you set this to 'target' instead of a
+                    # numerical value, the color is as for the file pointed to.)
+MULTIHARDLINK 38;5;224          # regular file with more than one link
+FIFO 48;5;237;38;5;208          # pipe
+SOCK 48;5;237;38;5;175          # socket
+DOOR 48;5;237;38;5;206          # door
+BLK 48;5;237;38;5;227           # block device driver
+CHR 48;5;237;38;5;227           # character device driver
+ORPHAN 48;5;244;38;5;123        # symlink to nonexistent file, or non-stat'able file
+MISSING 48;5;246;38;5;0         # ... and the files they point to
+SETUID 48;5;124;38;5;255        # file that is setuid (u+s)
+SETGID 48;5;160;38;5;0          # file that is setgid (g+s)
+CAPABILITY 48;5;124;38;5;226        # file with capability
+STICKY_OTHER_WRITABLE 48;5;20;38;5;255  # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 48;5;214;38;5;0      # dir that is other-writable (o+w) and not sticky
+STICKY 48;5;75;38;5;0           # dir with the sticky bit set (+t) and not other-writable
+EXEC 38;5;154               # This is for files with execute permission
+
+# List any file extensions like '.gz' or '.tar' that you would like ls
+# to colorize below. Put the extension, a space, and the color init string.
+# (and any comments you want to add after a '#')
+# executables (bright green)
+#.cmd 38;5;154
+#.exe 38;5;154
+#.com 38;5;154
+#.btm 38;5;154
+#.bat 38;5;154
+#.sh  38;5;154
+#.csh 38;5;154
+
+# archives or compressed (bright red)
+.tar 38;5;167
+.tgz 38;5;167
+.arj 38;5;167
+.taz 38;5;167
+.lzh 38;5;167
+.lzma 38;5;167
+.tlz 38;5;167
+.txz 38;5;167
+.zip 38;5;167
+.z   38;5;167
+.Z   38;5;167
+.dz  38;5;167
+.gz  38;5;167
+.lz  38;5;167
+.xz  38;5;167
+.bz2 38;5;167
+.tbz 38;5;167
+.tbz2 38;5;167
+.bz  38;5;167
+.tz  38;5;167
+.deb 38;5;167
+.rpm 38;5;167
+.jar 38;5;167
+.war 38;5;167
+.ear 38;5;167
+.sar 38;5;167
+.rar 38;5;167
+.ace 38;5;167
+.zoo 38;5;167
+.cpio 38;5;167
+.7z  38;5;167
+.rz  38;5;167
+
+# image formats (magenta)
+.jpg 38;5;219
+.jpeg 38;5;219
+.gif 38;5;219
+.bmp 38;5;219
+.pbm 38;5;219
+.pgm 38;5;219
+.ppm 38;5;219
+.tga 38;5;219
+.xbm 38;5;219
+.xpm 38;5;219
+.tif 38;5;219
+.tiff 38;5;219
+.png 38;5;219
+.svg 38;5;219
+.svgz 38;5;219
+.mng 38;5;219
+.pcx 38;5;219
+.gl 38;5;219
+.dl 38;5;219
+.xcf 38;5;219
+.xwd 38;5;219
+.yuv 38;5;219
+.cgm 38;5;219
+.emf 38;5;219
+
+# film formats (darker magenta)
+.mov 38;5;200
+.mpg 38;5;200
+.mpeg 38;5;200
+.m2v 38;5;200
+.mkv 38;5;200
+.webm 38;5;200
+.ogm 38;5;200
+.mp4 38;5;200
+.m4v 38;5;200
+.mp4v 38;5;200
+.vob 38;5;200
+.qt  38;5;200
+.nuv 38;5;200
+.wmv 38;5;200
+.asf 38;5;200
+.rm  38;5;200
+.rmvb 38;5;200
+.flc 38;5;200
+.avi 38;5;200
+.fli 38;5;200
+.flv 38;5;200
+
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.axv 38;5;200
+.anx 38;5;200
+.ogv 38;5;200
+.ogx 38;5;200
+
+# audio formats (yellow, but not too close to device files)
+.aac 38;5;214
+.au 38;5;214
+.flac 38;5;214
+.mid 38;5;214
+.midi 38;5;214
+.mka 38;5;214
+.mp3 38;5;214
+.mpc 38;5;214
+.ogg 38;5;214
+.ra 38;5;214
+.wav 38;5;214
+
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.axa 38;5;214
+.oga 38;5;214
+.spx 38;5;214
+.xspf 38;5;214
+
+# doccuments
+.pdf 38;5;35
+.ps 38;5;35
+.txt 38;5;35
+.patch 38;5;35
+.diff 38;5;35
+.log 38;5;35
+.tex 38;5;35
+.doc 38;5;35
+.odt 38;5;35
+.sxw 38;5;35
+
+*~    38;5;242
+.bak  38;5;242
+.back 38;5;242
+.bkp  38;5;242
