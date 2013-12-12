@@ -107,6 +107,28 @@ set cursorcolumn
 hi CursorColumn term=reverse ctermbg=234 ctermfg=white
 au WinEnter * setlocal cursorcolumn
 au WinLeave * setlocal nocursorcolumn
+if &term =~ "xterm\\|rxvt"
+  " use an orange cursor in insert mode
+  let &t_SI = "\<Esc>]12;white\x7"
+  " use a red cursor otherwise
+  let &t_EI = "\<Esc>]12;orange\x7"
+  silent !echo -ne "\033]12;orange\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+endif
+if &term =~ "xterm\\|rxvt"
+  " solid underscore
+  let &t_SI .= "\<Esc>[6 q"
+  " solid block
+  let &t_EI .= "\<Esc>[6 q"
+  " 1 or 0 -> blinking block
+  " 2 -> solid underscore
+  " 3 -> blinking underscore
+  " 4 -> solid block
+  " 5 -> blinking vertical bar
+  " 6 -> solid vertical bar
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+endif
 set hlsearch
 set incsearch
 set laststatus=2   " always show the status line
@@ -176,7 +198,8 @@ nnoremap <Leader>0 :10b<CR>
 
 " Useful functions keys
 set pastetoggle=<F12>
-map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
+"map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
+map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
 " }}}
 " {{{ ===== Bash Support Plugin ====================================================
 let g:BASH_MapLeader                = ','
