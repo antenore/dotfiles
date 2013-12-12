@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-[Screenshot](data/2013-12-12-003608_800x450_scrot.png)
+![Screenshot](data/2013-12-12-003608_800x450_scrot.png)
 
 
 ## Description
