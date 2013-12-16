@@ -22,3 +22,6 @@
 [submodule "vim/.vim/bundle/neosnippet.vim"]
 	path = vim/.vim/bundle/neosnippet.vim
 	url = git@github.com:Shougo/neosnippet.vim.git
+[submodule "vim/.vim/bundle/pep8"]
+	path = vim/.vim/bundle/pep8
+	url = git@github.com:vim-scripts/pep8.git
