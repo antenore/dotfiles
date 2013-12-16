@@ -83,13 +83,13 @@
 ! XFT Section {{{2
 ! ================================================================================================
 
-Xft.antialias                                 : true
+Xft.antialias§                                : 1
+Xft.autohint                                  : 0
 Xft.dpi                                       : 96
-Xft.autohint                                  : false
-Xft.hinting                                   : true
-Xft.hintstyle                                 : hintslight
+Xft.hinting                                   : 1
+Xft.hintstyle                                 : hintfull
 Xft.lcdfilter                                 : lcddefault
-Xft.rgba                                      : rgba
+Xft.rgba                                      : rgb
 
 ! -END- XFT Section 2}}}
 ! -END- Color Section 1}}}
@@ -113,8 +113,7 @@ URxvt.geometry                                : 160x50
 !URxvt.pointerColorForeground:§Anticolor
 URxvt.depth                                   : 32
 !Can give issues with man, better setting it to false
-!URxvt.intensityStyles                        : true
-URxvt.intensityStyles                         : False
+URxvt.intensityStyles                        : false
 URxvt.highlightColor                          : Yellow3
 URxvt.highlightTextColor                      : Black
 !URxvt.internalBordercolor                    : #121212
@@ -125,9 +124,14 @@ URxvt.tintColor                               : #999999
 URxvt.shading                                 : 20
 URxvt.transparent                             : true
 URxvt.skipBuiltinGlyphs                       : True
-URxvt.font                                    : -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-URxvt.boldFont                                : -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
-!URxvt.letterSpace                            : -1
+URxvt.font                                    : xft:Inconsolata:size=10,xft:DejaVu Sans Mono:pixelsize=12
+URxvt.boldFont                                : xft:Inconsolata:size=10,xft:DejaVu Sans Mono:pixelsize=12
+URxvt.italicFont                              : xft:Inconsolata:size=10,xft:DejaVu Sans Mono:pixelsize=12
+!URxvt.font: xft:DejaVu Sans Mono:pixel
+!URxvt.boldFont                                : xft:Inconsolata:bold:size=10
+!URxvt.font                                    : -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+!URxvt.boldFont                                : -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
+URxvt.letterSpace                             : -2
 URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib                                : /home/antenore/.urxvt
 URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select
@@ -141,7 +145,7 @@ URxvt.matcher.rend.0                          : Uline Bold fg8
 URxvt.print-pipe                              : cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 URxvt.pastableTabs                            : true
 URxvt.boldMode                                : false
-URxvt.xftAntialias                            : true
+!URxvt.xftAntialias                            : true
 URxvt.urgentOnBell                            : true
 URxvt.iso14755                                : false
 URxvt.copyCommand                             : xclip -i -selection clipboard
@@ -374,7 +378,6 @@ XLock.random.fullrandom                       : True
 
 ! -END- XLock 2}}}
 ! -END- XScreenSaver 1}}}
-§
 ! XClock Section {{{ =============================================================================
 ! XCLOCK
 !=================================================================================================

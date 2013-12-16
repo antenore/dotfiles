@@ -72,6 +72,9 @@ set wildchar=<Tab>
 " }}}
 " {{{ ===== UI =====================================================================
 
+" Tabs
+set tabpagemax=15
+set showtabline=2
 set t_Co=256
 set background=dark
 " Solarized - https://github.com/altercation/solarized
@@ -135,7 +138,7 @@ set laststatus=2   " always show the status line
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set mat=5          " how many tenths of a second to blink matching brackets for
-set modeline
+set modeline       " in source settings --> # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 set nostartofline  " keep the cursor in the same colon when changing line
 set number
 set scrolloff=3
@@ -149,7 +152,13 @@ set smartcase
 set so=10          " Keep 10 lines (top/bottom) for scope
 set title
 " }}}
+" {{{ ===== Language specific settings ===========================================================
+" Python
+autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+" }}}
 " {{{ ===== Mappings ===============================================================
+
 
 " disable arrow keys
 map <up> <nop>
@@ -161,7 +170,15 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-" Smart way to move between windows
+" Tabs
+nmap <C-S-t> :tabnew<CR>
+nmap <C-S-n> :tabn<CR>
+nmap <C-S-p> :tabp<CR>
+
+
+map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
+
+"Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -198,7 +215,6 @@ nnoremap <Leader>0 :10b<CR>
 
 " Useful functions keys
 set pastetoggle=<F12>
-"map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
 map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
 " }}}
 " {{{ ===== Bash Support Plugin ====================================================
@@ -221,16 +237,18 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'scheme' : $HOME.'/.gosh_completions'
     \ }
 " neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-S-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-S-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-S-k>     <Plug>(neosnippet_expand_target)
+xmap <C-S-l>     <Plug>(neosnippet_start_unite_snippet_target)
 
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? " SuperTab like snippets behavior.
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+" This brake my Super Tab
+"imap <expr><TAB> neosnippet#expandable_or_jumpable() ? " SuperTab like snippets behavior.
+"\ "\<Plug>(neosnippet_expand_or_jump)"
+"\: pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)"
+"\: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
