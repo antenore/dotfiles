@@ -118,10 +118,10 @@ URxvt.highlightColor                          : Yellow3
 URxvt.highlightTextColor                      : Black
 !URxvt.internalBordercolor                    : #121212
 URxvt.underlineColor                          : Cyan
-!URXVT.borderColor                            : #474747
+URxvt.borderColor                            : #474747
 !URxvt.troughColor                            : #8080f0
 URxvt.tintColor                               : #999999
-URxvt.shading                                 : 20
+URxvt.shading                                 : 0
 URxvt.transparent                             : true
 URxvt.skipBuiltinGlyphs                       : True
 URxvt.font                                    : xft:Inconsolata:size=10,xft:DejaVu Sans Mono:pixelsize=12
