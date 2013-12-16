@@ -41,11 +41,11 @@
 #define DebianRed #D70A53
 
 ! Some Color Scheme have foreground and background hardcoded
-*foreground                                   : White
-*background                                   : Black
-*cursorColor                                  : Yellow
-*fading                                       : 40
-*fadeColor                                    : White
+!*foreground                                   : White
+!*background                                   : Black
+!*cursorColor                                  : Yellow
+!*fading                                       : 40
+!*fadeColor                                    : White
 *customization                                : -color
 
 ! Colored man pages
