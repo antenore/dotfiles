@@ -92,9 +92,12 @@ endif
 
 " Highlight if more then 88 chars
 set colorcolumn=99
-highlight ColorColumn ctermbg=red ctermfg=white
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" highlight ColorColumn term=reverse cterm=reverse ctermbg=red ctermfg=white
+highlight ColorColumn term=reverse cterm=reverse
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight OverLength term=reverse cterm=reverse
+"autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
 autocmd BufEnter * match OverLength /\%100v.\+/
 
 " Visual Cues
