@@ -156,6 +156,7 @@ set title
 " Python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+autocmd BufRead \.psafe highlight Folded term=reverse cterm=reverse
 " }}}
 " {{{ ===== Mappings ===============================================================
 
