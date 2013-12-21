@@ -50,7 +50,6 @@ set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone
 " }}}
 " {{{ ===== Text Formatting/Layout =================================================
-set fo=ctrqn   " :h formatoptions fo-table
 set ai
 set si
 set tabstop=4
@@ -61,9 +60,9 @@ set smarttab
 set nojoinspaces
 set splitright " Puts new vsplit windows to the right of the current
 set splitbelow " Puts new split windows to the bottom of the current
-set nowrap
+set fo=cqn     " :h formatoptions fo-table
 set wm=0       " wrapping margin
-set tw=500       " no autowrap
+set tw=0       " no autowrap
 " }}}
 " {{{ ===== Menus ==================================================================
 set wildmenu
@@ -91,11 +90,11 @@ endif
 "colorscheme hybrid
 
 " Highlight if more then 88 chars
-set colorcolumn=99
-highlight ColorColumn ctermbg=red ctermfg=white
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd BufEnter * match OverLength /\%100v.\+/
+set colorcolumn=81
+highlight ColorColumn term=reverse cterm=reverse
+highlight OverLength term=reverse cterm=reverse
+autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
+autocmd BufEnter * match OverLength /\%82v.\+/
 
 " Visual Cues
 set cmdheight=2
@@ -176,7 +175,6 @@ nmap <C-S-t> :tabnew<CR>
 nmap <C-S-n> :tabn<CR>
 nmap <C-S-p> :tabp<CR>
 
-
 map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
 
 "Smart way to move between windows
@@ -217,6 +215,10 @@ nnoremap <Leader>0 :10b<CR>
 " Useful functions keys
 set pastetoggle=<F12>
 map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
+
+" Insert Date and time 20 Dec 2013 10:39 PM 
+imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
+imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
 " }}}
 " {{{ ===== Bash Support Plugin ====================================================
 let g:BASH_MapLeader                = ','
