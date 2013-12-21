@@ -1,13 +1,13 @@
-"================================ .VIMRC ===========================================
+"================================ .VIMRC =======================================
 " Feautures:
 " - Conditional folding
 " - Pathogen
 " - Solarized (+ HI cutomizations)
 " - Bash-support
 " - Vim-Airline
-"===================================================================================
+"===============================================================================
 
-" {{{ ===== Before everything else =================================================
+" {{{ ===== Before everything else =============================================
 set nocompatible
 filetype plugin indent on
 set foldenable
@@ -17,18 +17,18 @@ au FileType sh let g:is_bash=1
 au FileType sh set foldmethod=syntax
 syntax enable
 " }}}
-" {{{ ===== Pathogen ===============================================================
+" {{{ ===== Pathogen ===========================================================
 call pathogen#infect()
 call pathogen#helptags()
 " }}}
-" {{{ ===== Files ==================================================================
+" {{{ ===== Files ==============================================================
 set viminfo='10,\"1000,:20,%,n~/.viminfo
 set backup
 set backupdir=~/.vim/backup/
 set directory=~/.vim/temp
 set makeef=error.err
 " }}}
-" {{{ ===== General ================================================================
+" {{{ ===== General ============================================================
 set encoding=utf-8
 let mapleader = ","
 set autoread
@@ -49,8 +49,7 @@ set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone
 " }}}
-" {{{ ===== Text Formatting/Layout =================================================
-set fo=ctrqn   " :h formatoptions fo-table
+" {{{ ===== Text Formatting/Layout =============================================
 set ai
 set si
 set tabstop=4
@@ -61,16 +60,16 @@ set smarttab
 set nojoinspaces
 set splitright " Puts new vsplit windows to the right of the current
 set splitbelow " Puts new split windows to the bottom of the current
-set nowrap
-set wm=0       " wrapping margin
-set tw=500       " no autowrap
+set tw=0
+set fo=cqn      " :h formatoptions fo-table
+set wm=0
 " }}}
-" {{{ ===== Menus ==================================================================
+" {{{ ===== Menus ==============================================================
 set wildmenu
 set wildmode=list:longest,full
 set wildchar=<Tab>
 " }}}
-" {{{ ===== UI =====================================================================
+" {{{ ===== UI =================================================================
 
 " Tabs
 set tabpagemax=15
@@ -91,25 +90,19 @@ endif
 "colorscheme hybrid
 
 " Highlight if more then 88 chars
-set colorcolumn=99
-" highlight ColorColumn term=reverse cterm=reverse ctermbg=red ctermfg=white
+set colorcolumn=81
 highlight ColorColumn term=reverse cterm=reverse
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 highlight OverLength term=reverse cterm=reverse
-"autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
-autocmd BufEnter * match OverLength /\%100v.\+/
+"autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
+autocmd BufEnter * match OverLength /\%82v.\+/
 
 " Visual Cues
 set cmdheight=2
-"hi Folded term=bold cterm=bold ctermfg=8 ctermbg=14
-"hi Folded term=bold cterm=bold ctermfg=cyan ctermbg=black
 set cursorline
-"hi CursorLine term=underline,bold cterm=underline,bold ctermbg=235 ctermfg=NONE guibg=Grey40
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
 set cursorcolumn
-"hi CursorColumn term=reverse ctermbg=233
 hi CursorColumn term=reverse ctermbg=234 ctermfg=white
 au WinEnter * setlocal cursorcolumn
 au WinLeave * setlocal nocursorcolumn
@@ -155,12 +148,12 @@ set smartcase
 set so=10          " Keep 10 lines (top/bottom) for scope
 set title
 " }}}
-" {{{ ===== Language specific settings ===========================================================
+" {{{ ===== Language specific settings =======================================================
 " Python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 " }}}
-" {{{ ===== Mappings ===============================================================
+" {{{ ===== Mappings ===========================================================
 
 
 " disable arrow keys
@@ -220,7 +213,7 @@ nnoremap <Leader>0 :10b<CR>
 set pastetoggle=<F12>
 map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
 " }}}
-" {{{ ===== Bash Support Plugin ====================================================
+" {{{ ===== Bash Support Plugin ================================================
 let g:BASH_MapLeader                = ','
 let g:BASH_DoOnNewLine              = 'yes'
 let g:BASH_LineEndCommColDefault    = 49
@@ -263,5 +256,5 @@ let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 let g:vimshell_max_command_history = 90000
 let g:vimshell_scrollback_limit = 5000
 " ̣}}}
-" =============================== EOF ==============================================
+" =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
