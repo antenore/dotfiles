@@ -151,7 +151,6 @@ set title
 " Python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-autocmd BufRead \.psafe highlight Folded term=reverse cterm=reverse
 " }}}
 " {{{ ===== Mappings ===========================================================
 
@@ -259,5 +258,8 @@ let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 let g:vimshell_max_command_history = 90000
 let g:vimshell_scrollback_limit = 5000
 " ̣}}}
+" {{{ ==== Auto Commands ====================================================
+au FileType vsafe silent! call SetVSafeOptions()
+" }}} 
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
