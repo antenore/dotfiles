@@ -6,7 +6,6 @@
 " - Bash-support
 " - Vim-Airline
 "===============================================================================
-
 " {{{ ===== Before everything else =============================================
 set nocompatible
 filetype plugin indent on
@@ -60,7 +59,7 @@ set smarttab
 set nojoinspaces
 set splitright " Puts new vsplit windows to the right of the current
 set splitbelow " Puts new split windows to the bottom of the current
-set fo=cqn     " :h formatoptions fo-table
+"set fo+=qn     " :h formatoptions fo-table
 set wm=0       " wrapping margin
 set tw=0       " no autowrap
 " }}}
@@ -223,7 +222,7 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 " }}}
-" {{{ Vim Shugo stuff
+" {{{ ===== Vim Shugo stuff ====================================================
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
@@ -258,8 +257,8 @@ let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 let g:vimshell_max_command_history = 90000
 let g:vimshell_scrollback_limit = 5000
 " ̣}}}
-" {{{ ==== Auto Commands ====================================================
-au FileType vsafe silent! call SetVSafeOptions()
-" }}} 
+" {{{ ===== Auto Commands ======================================================
+au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
+" }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
