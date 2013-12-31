@@ -25,7 +25,7 @@ bashsupport-help	bashsupport.txt	/*bashsupport-help*
 bashsupport-hotkeys	bashsupport.txt	/*bashsupport-hotkeys*
 bashsupport-io-redir	bashsupport.txt	/*bashsupport-io-redir*
 bashsupport-output	bashsupport.txt	/*bashsupport-output*
-bashsupport-regexp	bashsupport.txt	/*bashsupport-regexp*
+bashsupport-pattern	bashsupport.txt	/*bashsupport-pattern*
 bashsupport-release-notes	bashsupport.txt	/*bashsupport-release-notes*
 bashsupport-run	bashsupport.txt	/*bashsupport-run*
 bashsupport-run-script	bashsupport.txt	/*bashsupport-run-script*
@@ -71,8 +71,11 @@ template-support-Prompt()	templatesupport.txt	/*template-support-Prompt()*
 template-support-SetFormat()	templatesupport.txt	/*template-support-SetFormat()*
 template-support-SetMacro()	templatesupport.txt	/*template-support-SetMacro()*
 template-support-SetPath()	templatesupport.txt	/*template-support-SetPath()*
+template-support-SetProperty()	templatesupport.txt	/*template-support-SetProperty()*
 template-support-SetStyle()	templatesupport.txt	/*template-support-SetStyle()*
 template-support-above	templatesupport.txt	/*template-support-above*
+template-support-adv-files	templatesupport.txt	/*template-support-adv-files*
+template-support-advanced	templatesupport.txt	/*template-support-advanced*
 template-support-api	templatesupport.txt	/*template-support-api*
 template-support-api-access	templatesupport.txt	/*template-support-api-access*
 template-support-api-basic	templatesupport.txt	/*template-support-api-basic*
@@ -92,6 +95,7 @@ template-support-dict	templatesupport.txt	/*template-support-dict*
 template-support-dictionary	templatesupport.txt	/*template-support-dictionary*
 template-support-expandmenu	templatesupport.txt	/*template-support-expandmenu*
 template-support-hash	templatesupport.txt	/*template-support-hash*
+template-support-help-templ	templatesupport.txt	/*template-support-help-templ*
 template-support-indent	templatesupport.txt	/*template-support-indent*
 template-support-insert	templatesupport.txt	/*template-support-insert*
 template-support-intro	templatesupport.txt	/*template-support-intro*
