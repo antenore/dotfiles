@@ -84,6 +84,8 @@ if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"
     let g:solarized_visibility="high"
     color solarized " Load a colorscheme
 endif
+"let g:hybrid_use_Xresources = 1
+"colorscheme hybrid
 "colorscheme neverland
 "colorscheme xoria256
 "colorscheme hybrid

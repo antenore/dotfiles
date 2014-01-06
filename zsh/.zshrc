@@ -7,60 +7,64 @@ setopt appendhistory autocd extendedglob
 
 
 [[ `who am i` != *\) ]] && is_local=yes
- 
+
 #case $TERM in rxvt*) TERM=rxvt-unicode-256color esac    # urxvt only, TERM value is not recognized
                                                         # when logging on ssh servers
- 
+
 #autoload colors; colors  # so we can use $fg / $bg
 
 # dir_colors
 
 eval `dircolors ~/.dir_colors`
- 
- 
+
+
 # Environment
 # ===========
- 
+
 export EDITOR=vim
 export PATH=~/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 export PAGER=less
- 
- 
+
+if [ -f /usr/bin/lsb-release ] ; then
+    # Cannot works everywhere
+    MYDIST=$(/usr/bin/lsb-release -is | tr "[:upper:]" "[:lower:]" | tr -d " ")
+fi
+
 # History
 # =======
- 
+
 export HISTSIZE=100000  # huge history size
 export SAVEHIST=100000  # save all history when quitting
 export HISTFILE=~/.zhistory  # in this file
 setopt share_history  # share history between ttys
 setopt hist_ignore_all_dups  # do not save a command twice
 setopt hist_reduce_blanks  # save the command "echo   plop" as "echo plop"
- 
- 
+
+
 # Completion
 # ==========
- 
+
 autoload compinit; compinit
- 
+
 zstyle ':completion:*' menu yes select  # menu selection
 zstyle ':completion:*' format "$fg_bold[grey]%d$reset_color"  # Categories
                                                               # format
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # List file colors
 zstyle ':completion:*' group-name ''  # Display everything in groups
- 
+
 # Completers list
 zstyle ':completion:*' completer _expand _complete _match _approximate
- 
+
 # Completion cache
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
- 
+
 # Fuzzy completion
 zstyle ':completion:*' matcher-list '+m:{a-z}={A-Z} r:|[._-]=** r:|=**' '' '' \
     '+m:{a-z}={A-Z} r:|[._-]=** r:|=**'
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
- 
+
 # Do not suggest those users
 zstyle -d users
 zstyle ':completion:*:*:*:users' ignored-patterns \
@@ -70,23 +74,23 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
     dictd  gnats  identd  irc  man  messagebus  postfix  proxy  sys  www-data \
     avahi Debian-exim hplip list cupsys haldaemon ntpd proftpd statd \
     dbus ftp hal http
- 
+
 # Do not complete already selected arguments
 zstyle ':completion:*:(rm|kill|diff):*' ignore-line yes
- 
+
 # Nice kill completion
 zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle ':completion:*:*:kill:*:processes' list-colors \
     '=(#b) #([0-9]#)*=0=01;31'
- 
- 
+
+
 # Key mapping
 # ===========
- 
+
 # To know the corresponding string of a key comination, press ctrl + v then the
 # keys. This configuration is for rxvt terminal.
- 
+
 bindkey -e  # emacs style (-v for vi)
 # rxvt
 bindkey '^[[7~' beginning-of-line  # origin
@@ -96,7 +100,7 @@ bindkey '^[Oc' forward-word  # ctrl + right
 bindkey '^[[3^' delete-word  # ctrl + del
 bindkey '^[[3~' delete-char  # del
 bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
- 
+
 # Xterm
 #bindkey '^[[H' beginning-of-line  # origin
 #bindkey '^[[F' end-of-line  # end
@@ -105,15 +109,15 @@ bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
 #bindkey '^[[3;5~' delete-word  # ctrl + del
 #bindkey '^[[3~' delete-char  # del
 #bindkey '^?' backward-delete-word  # ctrl + backspace == ctrl + h
- 
+
 # Search history for a command beginning with the current input. It places the
 # cursor at the beginning of the command line.
 bindkey '^[[A' history-beginning-search-backward  # up
 bindkey '^[[B' history-beginning-search-forward  # down
- 
+
 bindkey '^Z' push-input # stash the current input and pop it to the next
                         # command prompt
- 
+
 # Quick ../../..
 rationalise-dot() {
     if [[ $LBUFFER = *.. ]]; then
@@ -129,12 +133,12 @@ bindkey '.' rationalise-dot
 # do "cd -1" to go back.
 setopt auto_pushd pushd_minus pushd_ignore_dups pushd_silent pushd_to_home \
     auto_cd
- 
+
 setopt no_clobber  # disallow > redirections to an existing file
                    # ( >| to override)
- 
+
 setopt hash_cmds hash_dirs  # command list cache
- 
+
 setopt no_bg_nice  # do not nice bg processes
 
 # Path to your oh-my-zsh configuration.
@@ -147,9 +151,11 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="bira"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if [ -f /usr/bin/vimx ]; then
+    alias vi=/usr/bin/vimx
+    alias vim=/usr/bin/vimx
+fi
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -168,10 +174,26 @@ ZSH_THEME="bira"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-if uname -v | grep -q Ubuntu; then
-    plugins=(git github python colorize debian)
-else
-    plugins=(git github python colorize archlinux)
+
+if [ x"$MYDIST" = "x" ] ; then
+        # Not known (yet) distrib
+        plugins=(git github python colorize)
+    else
+    case "$MYDIST" in
+        fedora)
+            plugins=(git github python colorize yum)
+            ;;
+        archlinux)
+            plugins=(git github python colorize archlinux)
+            ;;
+        ubuntu)
+            plugins=(git github python colorize debian)
+            ;;
+        *)
+            # Not known (yet) distrib
+            plugins=(git github python colorize)
+        ;;
+    esac
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -186,7 +208,6 @@ export BROWSER=/usr/bin/firefox
 
 unsetopt correct_all
 setopt correct
-alias aptitude="nocorrect aptitude"
 
 export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 
