@@ -29,3 +29,6 @@
 	path = vim/.vim/bundle/vim-safe
 	url = git@github.com:antenore/vim-safe.git
 	branch = master
+[submodule "vim/.vim/bundle/vim-yankitute"]
+	path = vim/.vim/bundle/vim-yankitute
+	url = git@github.com:someboddy/vim-yankitute.git
