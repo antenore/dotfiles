@@ -28,6 +28,8 @@ export PAGER=less
 if [ -f /usr/bin/lsb-release ] ; then
     # Cannot works everywhere
     MYDIST=$(/usr/bin/lsb-release -is | tr "[:upper:]" "[:lower:]" | tr -d " ")
+elif [ -f /usr/bin/lsb_release ] ; then
+    MYDIST=$(/usr/bin/lsb_release -is | tr "[:upper:]" "[:lower:]" | tr -d " ")
 fi
 
 # History
@@ -183,7 +185,7 @@ if [ x"$MYDIST" = "x" ] ; then
         fedora)
             plugins=(git github python colorize yum)
             ;;
-        archlinux)
+        arch)
             plugins=(git github python colorize archlinux)
             ;;
         ubuntu)
