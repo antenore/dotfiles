@@ -20,7 +20,6 @@
 !
 !=================================================================================================
 ! }}}
-
 ! General Options {{{1 ===========================================================================
 
 ! Make Tk applications slightly less ugly
@@ -33,7 +32,6 @@
 *VT100*geometry                               : 160x50
 
 ! -END- General Options 1}}}
-
 ! Color section {{{1 =============================================================================
 !
 !=================================================================================================
@@ -94,7 +92,6 @@ Xft.rgba                                      : rgb
 
 ! -END- XFT Section 2}}}
 ! -END- Color Section 1}}}
-
 ! URxvt section {{{1 =============================================================================
 !
 !
@@ -166,8 +163,8 @@ URxvt.tintColor                               : #999999
 URxvt.shading                                 : 0
 URxvt.transparent                             : true
 URxvt.skipBuiltinGlyphs                       : True
-URxvt.font                                    : xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.boldFont                                : xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.font                                    : xft:monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.boldFont                                : xft:monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
 URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
 URxvt.lineSpaces                              : 0
 !URxvt.font: xft:DejaVu Sans Mono:pixel
@@ -223,7 +220,6 @@ URxvt.cursorBlink                             : true
 URxvt.cursorUnderline                         : True
 
 ! -END- URxvt Section 1}}}
-
 ! XTerm Section {{{1 =============================================================================
 !
 ! ================================================================================================
@@ -305,7 +301,6 @@ XCalc.ti.Command.background                   : #777777
 XCalc.ti.Command.foreground                   : White
 
 ! -END- XCalc Section }}}
-
 ! XScreenSaver Section {{{1 ======================================================================
 !
 ! ================================================================================================
@@ -431,7 +426,6 @@ xclock*background                             : black
 xclock*font                                   : -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
 
 ! -END- XClock }}}
-!
 ! XPDF Section {{{ ===============================================================================
 !
 !=================================================================================================
@@ -442,7 +436,6 @@ xpdf*enableFreetype                           : yes
 xpdf*foreground                               : black
 xpdf*urlCommand                               : firefox %s
 ! -END- XPDF }}}
-
 ! DZEN2 Section {{{ ==============================================================================
 !
 !=================================================================================================
