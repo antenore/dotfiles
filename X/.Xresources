@@ -164,9 +164,9 @@ URxvt.tintColor                               : #999999
 URxvt.shading                                 : 0
 URxvt.transparent                             : true
 URxvt.skipBuiltinGlyphs                       : True
-URxvt.font                                    : xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.boldFont                                : xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.font                                    : xft:Monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.boldFont                                : xft:Monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:xft:Monaco:size=10:antialias=true:hinting=true,hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
 URxvt.lineSpaces                              : 0
 !URxvt.font: xft:DejaVu Sans Mono:pixel
 !URxvt.boldFont                                : xft:Inconsolata:bold:size=10
