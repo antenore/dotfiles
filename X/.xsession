@@ -4,4 +4,5 @@ gnome-volume-manager &       # for mounting CDs, USB sticks, and such
 eval `gnome-keyring-daemon`  # SSH/GPG agent
 #exec /usr/bin/spectrwm
 xrdb ~/.Xresources
+urxvt256cd -q -o -f
 exec /usr/local/bin/awesome
