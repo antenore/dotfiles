@@ -5,4 +5,6 @@ gnome-settings-daemon &      # handles themes, starts gnome-screensaver. You may
 gnome-power-manager &        # for laptops and stuff
 gnome-volume-manager &       # for mounting CDs, USB sticks, and such
 eval `gnome-keyring-daemon`  # SSH/GPG agent
-urxvt256cd -q -o -f
+if which urxvt256cd >/dev/null 2>&1; then
+    urxvt256cd -q -o -f
+fi
