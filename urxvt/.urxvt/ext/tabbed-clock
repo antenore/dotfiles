@@ -1,41 +1,5 @@
 #! perl
 
-#:META:X_RESOURCE:tabbar-fg:colour:tab bar foreground colour
-#:META:X_RESOURCE:tabbar-bg:colour:tab bar background colour
-#:META:X_RESOURCE:tab-fg:colour:tab foreground colour
-#:META:X_RESOURCE:tab-bg:colour:tab background colour
-
-=head1 NAME
-
-tabbed - tabbed interface to urxvt
-
-=head1 DESCRIPTION
-
-This transforms the terminal into a tabbar with additional terminals, that
-is, it implements what is commonly referred to as "tabbed terminal". The topmost line
-displays a "[NEW]" button, which, when clicked, will add a new tab, followed by one
-button per tab.
-
-Clicking a button will activate that tab. Pressing B<Shift-Left> and
-B<Shift-Right> will switch to the tab left or right of the current one,
-while B<Shift-Down> creates a new tab. Pressing B<Ctrl-Left> and
-B<Ctrl-Right> will renumber the current tab by moving it to the left or
-to the right.
-
-The tabbar itself can be configured similarly to a normal terminal, but
-with a resource class of C<URxvt.tabbed>. In addition, it supports the
-following four resources (shown with defaults):
-
-   URxvt.tabbed.tabbar-fg: <colour-index, default 3>
-   URxvt.tabbed.tabbar-bg: <colour-index, default 0>
-   URxvt.tabbed.tab-fg:    <colour-index, default 0>
-   URxvt.tabbed.tab-bg:    <colour-index, default 1>
-
-See I<COLOR AND GRAPHICS> in the @@RXVT_NAME@@(1) manpage for valid
-indices.
-
-=cut
-
 sub refresh {
    my ($self) = @_;
 
@@ -292,7 +256,18 @@ sub on_start {
 
    $self->new_tab (@argv);
 
+   $self->{overlay} = $self->overlay (-1, 0, 8, 1, urxvt::OVERLAY_RSTYLE, 0);
+   $self->{timer} = urxvt::timer
+                    ->new
+                    ->start (1 + int urxvt::NOW) # make sure we update "on" the second
+                    ->interval (1)
+                    ->cb (sub {
+                       $self->{overlay}->set (0, 0,
+                          sprintf "%2d:%02d:%02d", (localtime urxvt::NOW)[2,1,0]);
+                    });
+
    ()
+
 }
 
 sub on_configure_notify {
@@ -373,10 +348,6 @@ sub tab_key_press {
             ($self->{tabs}[$idx2], $self->{tabs}[$idx1]);
 
          $self->make_current ($self->{tabs}[$idx2]);
-
-         return 1;
-      } elsif ($keysym == 0x74) {
-         $self->new_tab;
 
          return 1;
       }
