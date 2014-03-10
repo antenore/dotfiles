@@ -77,17 +77,17 @@ set t_Co=256
 set background=dark
 " Solarized - https://github.com/altercation/solarized
 
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
-    let g:solarized_contrast="normal"
-    let g:solarized_visibility="high"
-    color solarized " Load a colorscheme
-endif
+"if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+"    let g:solarized_termcolors=256
+"    let g:solarized_termtrans=1
+"    let g:solarized_contrast="normal"
+"    let g:solarized_visibility="high"
+"    color solarized " Load a colorscheme
+"endif
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
-"colorscheme xoria256
+colorscheme xoria256
 "colorscheme hybrid
 
 " Highlight if more then 88 chars

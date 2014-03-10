@@ -1,375 +1,452 @@
-!se02/{{{ Quick Reference
+! -=################################## Xresource file ##################################=-
+! {{{ Description
+! Load with xrdb .Xresources
+!
+! Add to .xinitrc if you use startx
 !
 ! Scrolling:
 ! Scroll Wheel
 ! Shift-PgUp/PgDn
 !
 ! Copy/Paste:
-! Mouse-Select : Copy to PRIMARY
-! Shift + Mouse-Select: Copy to CLIPBOARD
+! Mouse-Select             :  Copy to PRIMARY
+! Shift + Mouse-Select     :  Copy to CLIPBOARD
 !
-! Middle-Click : Paste from PRIMARY
-! Shift + Middle-Click: Paste from CLIPBOARD
+! Middle-Click             :  Paste from PRIMARY
+! Shift + Middle-Click     :  Paste from CLIPBOARD
 !
-! Ctrl+Shift+V : Paste from CLIPBOARD
-! Ctrl+Alt+Shift+V : Paste from PRIMARY
+! Ctrl+Shift+V             :  Paste from CLIPBOARD
+! Ctrl+Alt+Shift+V         :  Paste from PRIMARY
 !
-!}}}
+!===============================================================================
+! }}}
+! General Options {{{1 =========================================================
 
 ! Make Tk applications slightly less ugly
-*TkTheme: clam
-
-! ---=== XTerm Defaults for a nice mix of Linux console and Konsole ===---
+*TkTheme                                      : clam
 
 ! Operate terminals in utf8 mode whether or not uxterm was called
-*VT100.utf8: 1
+*VT100.utf8                                   : 1
 
 ! Plenty of room for things like Vim :vsplit
-*VT100*geometry: 160x50
+*VT100*geometry                               : 160x50
 
-! Set the Urgent hint on bell for console apps without notify-send
-XTerm*bellIsUrgent: true
-UXTerm*bellIsUrgent: true
-
-! White on Black without being eye-straining.
-!*customization: -color
-*VT100*foreground: gray70
-*VT100*background: black
-
-! Make the scrollbar look a little less 1980s on all Athena-based VT100s.
-*VT100.scrollbar.background: gray60
-*VT100.scrollbar.foreground: white
-*VT100.rightScrollBar: true
-
-! More Konsole/Yakuake-like keybindings:
-! NOTE: in Konsole/Yakuake, bind Ctrl+Backspace to \b
-*VT100.Translations: #override \
-             Shift <Key>Up: scroll-back(1) \n\
-             Shift <Key>Down: scroll-forw(1) \n\
-\
-            ~Ctrl<Key>BackSpace: string(0x08) \n\
-             Ctrl<Key>BackSpace: string(0x1b) string(0x08) \n\
-\
-            ~Ctrl<Key>Tab: string(0x09) \n\
-             Ctrl<Key>Tab: string(0x1b) string("r") \n\
-\
-      ~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD) \n\
-       Meta Shift Ctrl <Key>V: insert-selection(PRIMARY) \n\
-            ~Shift ~Ctrl <Btn2Up>: insert-selection(PRIMARY, CUT_BUFFER0) \n\
-             Shift ~Ctrl <Btn2Up>: insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
-            ~Shift <BtnUp>: select-end(PRIMARY, CUT_BUFFER0) \n\
-             Shift <BtnUp>: select-end(CLIPBOARD, CUT_BUFFER1) \n\
-
-! Make selection of URLs and ebuild names behave more naturally
-*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
-
-
-
-! XFT
-Xft.dpi:            96
-Xft.lcdfilter:      lcddefault
-Xft.antialias:      true
-Xft.rgba:           rgb
-Xft.autohint:       false
-Xft.hinting:        true
-!Xft.hintstyle:      hintslight
-Xft.hintstyle:  hintfull
-
-!==============================================================================
-!Colors
-!==============================================================================
-! Installed colors
-!  belge bitmute bleh-1 cloud cloudef colorfulcolors deafened derp digerati
-!  dotshare dwmrob epiphany eqie6 erebus euphrasia fishbone gnometerm gutterslob
-!  hybrid iiamblack insignificato jasonwryan jhvid jwr-dark mikado mikazuki
-!  molokai muzieca nancy nucolors nudge old orangish parker_brothers phrak1
-!  pulp rasi redhalo rezza rydgel sexcolors shic sickill8 simple_rainbow
-!  solarized splurge swayr tango tangoesque theme2 thwump tlh visibone zenburn
-#include "/home/antenore/.Xcolors/solarized"
-!#include "/home/antenore/.Xcolors/swayr"
-
-*foreground:                S_primary
-*background:                S_bgrnd
-*cursorColor:               S_emph
-*pointerColorForeground:    S_emph
-*pointerColorBackground:    S_secondary
-*fading:                    40
-*fadeColor:                 S_bgrnd
-
-
-
-!==============================================================================
-!Xterm
-!==============================================================================
-XTerm*termName:  xterm-256color
-XTerm*font: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
-XTerm*font1: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
-
-XTerm*Border: S_bgrnd_hi
-XTerm*Mouse: yellow
-XTerm*veryBoldColors: 6
-XTerm*pointerColor: red
-XTerm*loginShell: true
-XTerm*scrollBar: false
-XTerm*scrollKey: true
-XTerm*saveLines: 32768
-XTerm*multiClickTime: 250
-XTerm*scrollTtyOutput: false
-XTerm*AllowIconInput: on
-XTerm*DeiconifyWarp: off
-XTerm*InternalBorder: 1
-XTerm*MarginBell: off
-XTerm*MenuFont: fixed8
-XTerm*TitleFont: vtbold
-XTerm*charClass: 33:48,37:48,45-47:48,64:48
-XTerm*colorAttrMode: true
-XTerm*colorMode: true
-XTerm*curses: on
-XTerm*cutNewline: off
-XTerm*jumpScroll: on
-XTerm*multiScroll: on
-XTerm*reverseVideo: on
-XTerm*reverseWrap: off
-
-!##############################################################################
-! URxvt ---------------------------------------------------------------
-! Author: Several and myself
-!##############################################################################
-
-URxvt.iconFile: /usr/share/icons/elementary/apps/32/terminal.svg
-
-! URL integration, clipboard and tabbed (shift/ctrl right, left, down, up)
-URxvt.perl-lib: /home/antenore/.urxvt
-URxvt.perl-ext-common:      default,matcher,tabbed,clipboard,keyboard-select
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-! The following line overwrites the default Meta-s binding and allows to
-! activate keyboard-select directly in backward search mode:
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.urlLauncher:          xdg-open
-URxvt.matcher.button:       1
-URxvt.matcher.rend.0:       Uline Bold fg8
-URxvt.print-pipe:           cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
-
-!==============================================================================
-!Font
-!==============================================================================
-
-!URxvt*font:            xft:Monospace:pixelsize=12
-!URxvt*boldFont:        xft:Monospace:bold:pixelsize=12
-URxvt.font: -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-URxvt.boldFont: -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
-! Fix font space
-!URxvt*letterSpace: -1
-
-!==============================================================================
-!Options
-!==============================================================================
-URxvt*termName:         rxvt-unicode-256color
-URxvt.imLocale:         ch_FR.UTF-8
-URxvt.loginShell:       true
-URxvt.saveLines:        224000
-URxvt.geometry:         160x50
-URxvt.pastableTabs:     true
-URxvt.boldMode:         false
-URxvt.skipBuiltinGlyphs: true
-!URxvt.inheritPixmap:    true
-URxvt.xftAntialias:     true
-!URxvt*internalBorder:   3
-! Set the Urgent hint on bell for console apps without notify-send
-URxvt.urgentOnBell: true
-URxvt.iso14755: false
-URxvt.copyCommand: xclip -i -selection clipboard
-URxvt.pasteCommand: xclip -o -selection clipboard
-URxvt.keysym.S-C-C: perl:clipboard:copy
-URxvt.keysym.S-C-V: perl:clipboard:paste
-URxvt.keysym.M-v: perl:clipboard:paste_escaped
-! Unbreak zsh keys in URxvt
-URxvt*keysym.Home: \033[1~
-URxvt*keysym.End: \033[4~
-! Match my XTerm additions
-URxvt*keysym.C-BackSpace: \033\010
-URxvt*keysym.C-Tab: \033r
-! Extend smart selection for the zsh and Python interactive interpreter prompts
-URxvt.selection.pattern-0: ([[:word:]]+)
-URxvt.selection.pattern-1: ^(/[^:]+):\ 
-URxvt.selection.pattern-2: \\|([^|]+)\\|
-!URxvt.selection-autotransform.0: s/^([^:[:space:]]+):(\\d+):?$/+$2 \\Q$1\\E/
-!URxvt.selection-autotransform.1: s/^ at (.*?) line (\\d+)$/:e \\Q$1\\E\\x0d:$2\\x0d/
-URxvt.cutchars: "()*,<>[]{}|''"
-!==============================================================================
-! Scroll
-!==============================================================================
-! First scrollBar 
-!Urxvt.scrollBar: true
-!URxvt.jumpScroll:       true
-! iIf enabled make the scrollbar look a little less 1980s.
-!URxvt*scrollstyle: plain
-!URxvt*scrollBar_right: true
-!URxvt.scrollColor: #c8e7a8
-!! Keep 5K of scrollback and only reset the scroll position on keypresses.
-!URxvt.scrollWithBuffer: true
-!URxvt.scrollTtyOutput: false
-!URxvt.scrollTtyKeypress: true
-! Alternative scrollbar style - rxvt (default), plain (most compact), next, or xterm
-URxvt.scrollstyle: plain
-URxvt.scrollBar: false     ! turn off the scroll bar
-                           
-URxvt.jumpScroll:       true
-
-URxvt*secondaryWheel  : true
-URxvt*secondaryScreen : true
-                              
-URxvt*scrollTtyOutput   : false
-URxvt*scrollWithBuffer  : true
-URxvt*scrollTtyKeypress : true
-!==============================================================================
-! Tabs
-!==============================================================================
-! tabs
-URxvt.tabbed.tabbar-fg: 7
-URxvt.tabbed.tabbar-bg: 8
-URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 15
-!==============================================================================
-!Cursor
-!==============================================================================
-URxvt*cursorBlink:      true
-URxvt*cursorUnderline:  false
-
-!URxvt.background:               [90]S_bgrnd
-!URxvt.background:               S_primary
-URxvt.background:               rgba:eeee/0000/0043/0054
-!.Xcolors/husio      URxvt.background:               rgba:1111/1111/1111/cccc
-!URxvt.foreground:              S_base0
-!URxvt.cursorColor:             S_base1
-URxvt.pointerColorBackground:   S_base01
-URxvt.pointerColorForeground:   S_base1
-URxvt.depth:                    32
-URxvt.intensityStyles:          true
-URxvt.colorIT:                  S_magenta
-URxvt.colorBD:                  S_green
-URxvt.colorUL:                  S_blue
-URxvt.highlightTextColor:       S_base2
-URxvt*internalBordercolor:      #121212
-URxvt.underlineColor:           #999999
-URxvt.shading:                  20
-URXVT.borderColor:              S_bgrnd_hi
-URxvt.throughColor:             #8080f0
-URxvt.highlightColor:           S_bgrnd_hi
-URxvt.transparent:              true
-URxvt.tintColor:                #999999
-
-
-!==============================================================================
-! XPDF
-!==============================================================================
-
-xpdf*antialias: yes
-xpdf*background: white
-xpdf*enableFreetype: yes
-xpdf*foreground: black
-xpdf*urlCommand: firefox %s
+! -END- General Options 1}}}
+! Color section {{{1 ===========================================================
 !
-!==============================================================================
-! DZEN2
-!==============================================================================
-!dzen2.font:       -*-tamsyn-normal-*-*-*-8-*-*-*-*-*-*-* 
-!dzen2.foreground: #c8e7a8
-!dzen2.background: #1A1A1A
+!===============================================================================
 
-! Eventually
-!#include "/home/antenore/.Xresources.local"
+!Debian
+#define DebianRed #D70A53
 
-! xcalc ----------------------------------------------------------------
-xcalc*geometry: 200x275
-xcalc.ti.bevel.background: #111111
-xcalc.ti.bevel.screen.background: #000000
-xcalc.ti.bevel.screen.DEG.background: #000000
-xcalc.ti.bevel.screen.DEG.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.GRAD.background: #000000
-xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.RAD.background: #000000
-xcalc.ti.bevel.screen.RAD.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.INV.background: #000000
-xcalc.ti.bevel.screen.INV.foreground: Red
-xcalc.ti.bevel.screen.LCD.background: #000000
-xcalc.ti.bevel.screen.LCD.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.LCD.shadowWidth: 0
-xcalc.ti.bevel.screen.M.background: #000000
-xcalc.ti.bevel.screen.M.foreground: LightSeaGreen
-xcalc.ti.bevel.screen.P.background: #000000
-xcalc.ti.bevel.screen.P.foreground: Yellow
-xcalc.ti.Command.foreground: White
-xcalc.ti.Command.background: #777777
-xcalc.ti.button5.background: Orange3
-xcalc.ti.button19.background: #611161
-xcalc.ti.button18.background: #611161
-xcalc.ti.button20.background: #611111
-!uncomment to change label on division button
-!xcalc.ti.button20.label:      /
-xcalc.ti.button25.background: #722222
-xcalc.ti.button30.background: #833333
-xcalc.ti.button35.background: #944444
-xcalc.ti.button40.background: #a55555
-xcalc.ti.button22.background: #222262
-xcalc.ti.button23.background: #222262
-xcalc.ti.button24.background: #222272
-xcalc.ti.button27.background: #333373
-xcalc.ti.button28.background: #333373
-xcalc.ti.button29.background: #333373
-xcalc.ti.button32.background: #444484
-xcalc.ti.button33.background: #444484
-xcalc.ti.button34.background: #444484
-xcalc.ti.button37.background: #555595
-xcalc.ti.button38.background: #555595
-xcalc.ti.button39.background: #555595
-XCalc*Cursor: hand2
-XCalc*ShapeStyle: rectangle
-!==============================================================================
-! XSCREENSAVER
-!==============================================================================
-! xscreensaver ---------------------------------------------------------
-!font settings
-xscreensaver.Dialog.headingFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont: -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont: -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
-!general dialog box (affects main hostname, username, password text)
-xscreensaver.Dialog.foreground: #ffffff
-xscreensaver.Dialog.background: #111111
-xscreensaver.Dialog.topShadowColor: #111111
-xscreensaver.Dialog.bottomShadowColor: #111111
-xscreensaver.Dialog.Button.foreground: #666666
-xscreensaver.Dialog.Button.background: #ffffff
-!username/password input box and date text colour
-xscreensaver.Dialog.text.foreground: #666666
-xscreensaver.Dialog.text.background: #ffffff
-xscreensaver.Dialog.internalBorderWidth: 24
-xscreensaver.Dialog.borderWidth: 20
-xscreensaver.Dialog.shadowThickness: 2
-!timeout bar (background is actually determined by Dialog.text.background)
-xscreensaver.passwd.thermometer.foreground: #006aff
-xscreensaver.passwd.thermometer.background: #000000
-xscreensaver.passwd.thermometer.width: 8
-!datestamp format--see the strftime(3) manual page for details
-xscreensaver.dateFormat: %I:%M%P %a %b %d, %Y
+! Some Color Scheme have foreground and background hardcoded
+!*foreground                                   : White
+!*background                                   : Black
+!*cursorColor                                  : Yellow
+!*fading                                       : 40
+!*fadeColor                                    : White
+*customization                                : -color
 
-!==============================================================================
+! Colored man pages
+
+!   All/urxvt terminals
+*colorBD                                      : Green3
+*colorUL                                      : Yellow
+*colorIT                                      : Cyan
+!   xterm specific
+*VT100.colorBDMode                            : True
+*VT100.colorULMode                            : True
+
+!#include "/home/antenore/.Xcolors/dither"
+!#include "/home/antenore/.Xcolors/belge"
+#include "/home/antenore/.Xcolors/solarized"
+!#include "/home/antenore/.Xcolors/hybrid"
+
+!*.color0                                     : #000000
+!*.color1                                     : #D05656
+!*.color2                                     : #61B961
+!*.color3                                     : #D2B459
+!*.color4                                     : #5D90C9
+!*.color5                                     : #A672BF
+!*.color6                                     : #72B4B5
+!*.color7                                     : #999999
+!*.color8                                     : #555555
+!*.color9                                     : #D05656
+!*.color10                                    : #61B961
+!*.color11                                    : #D2B459
+!*.color12                                    : #5D90C9
+!*.color13                                    : #A672BF
+!*.color14                                    : #72B4B5
+!*.color15                                    : #FFFFFF
+
+
+! XFT Section {{{2
+! ==============================================================================
+
+Xft.antialias§                                : 1
+Xft.autohint                                  : 0
+Xft.dpi                                       : 96
+Xft.hinting                                   : 1
+Xft.hintstyle                                 : hintfull
+Xft.lcdfilter                                 : lcddefault
+Xft.rgba                                      : rgb
+
+! -END- XFT Section 2}}}
+! -END- Color Section 1}}}
+! URxvt section {{{1 ===========================================================
+!
+!
+!
+!===============================================================================
+
+URxvt.termName                                : rxvt-unicode-256color
+URxvt.imLocale                                : ch_FR.UTF-8
+URxvt.loginShell                              : true
+URxvt.saveLines                               : 90000
+URxvt.geometry                                : 160x50
+!---- Light URxvt (Solarized Light, 11pt) - CALL with urxvt -name LURxvt
+LURxvt.font:                   xft:Anonymous Pro-10
+LURxvt.fading:                 0
+LURxvt.background:             #fdf6e3
+!URxvt.background:              rgba:eeee/0253/0246/0227
+!rgba(253, 246, 227)
+LURxvt.foreground:             #839496
+LURxvt.fadeColor:              #fdf6e3
+LURxvt.cursorColor:            #586e75
+LURxvt.pointerColorBackground: #93a1a1
+LURxvt.pointerColorForeground: #586e75
+LURxvt.color0:                 #073642
+LURxvt.color8:                 #fdf6e3
+LURxvt.color10:                #93a1a1
+LURxvt.color11:                #839496
+LURxvt.color12:                #657b83
+LURxvt.color14:                #586e75
+LURxvt.color7:                 #839496
+!---- Default URxvt (Solarized Dark, 12px)
+!URxvt.background:              rgba:eeee/0043/0054/0000
+URxvt.transparent:             true
+URxvt.shading:                 10
+URxvt.fading:                         30
+!Interesting effect
+!URxvt.blurRadius:                     1x128
+URxvt.background:                     #002b36
+URxvt.foreground:                     #657b83
+URxvt.fadeColor:                      #002b36
+URxvt.cursorColor:                    #93a1a1
+URxvt.pointerColorBackground:         #586e75
+URxvt.pointerColorForeground:         #93a1a1
+URxvt.colorUL:                        #859900
+URxvt.colorBD:                        #268bd2
+URxvt.color0:                         #073642
+URxvt.color8:                         #002b36
+URxvt.color1:                         #dc322f
+URxvt.color9:                         #cb4b16
+URxvt.color2:                         #859900
+URxvt.color10:                        #586e75
+URxvt.color3:                         #b58900
+URxvt.color11:                        #657b83
+URxvt.color4:                         #268bd2
+URxvt.color12:                        #839496
+URxvt.color5:                         #d33682
+URxvt.color13:                        #6c71c4
+URxvt.color6:                         #2aa198
+URxvt.color14:                        #93a1a1
+URxvt.color7:                         #eee8d5
+URxvt.color15:                        #fdf6e3
+!URxvt.background                             : rgba:eeee/0000/0043/0054
+!URxvt.background                             : [80]Black
+!URxvt.foreground                             : White
+!URxvt.pointerColorBackground                 : Color
+!URxvt.pointerColorForeground:§Anticolor
+URxvt.depth                                   : 32
+!Can give issues with man, better setting it to false
+URxvt.intensityStyles                        : false
+URxvt.highlightColor                          : Yellow3
+URxvt.highlightTextColor                      : Black
+!URxvt.internalBordercolor                    : #121212
+URxvt.underlineColor                          : Cyan
+URxvt.borderColor                            : #474747
+!URxvt.troughColor                            : #8080f0
+!URxvt.tintColor                               : #999999
+URxvt.skipBuiltinGlyphs                       : True
+URxvt.font                                    : xft:Monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.boldFont                                : xft:Monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:xft:Monaco:size=10:antialias=true:hinting=true,hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt.lineSpaces                              : 0
+!URxvt.font: xft:DejaVu Sans Mono:pixel
+!URxvt.boldFont                                : xft:Inconsolata:bold:size=10
+!URxvt.font                                    : -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
+!URxvt.boldFont                                : -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
+URxvt.letterSpace                             : -2
+URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
+URxvt.perl-lib                                : /home/antenore/.urxvt
+!URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select
+URxvt.perl-ext-common                         : default,matcher,clipboard,keyboard-select
+URxvt.keysym.M-Escape                         : perl:keyboard-select:activate
+URxvt.keysym.M-s                              : perl:keyboard-select:search
+URxvt.keysym.C-Delete                         : perl:matcher:last
+URxvt.keysym.M-Delete                         : perl:matcher:list
+URxvt.url-launcher                            : xdg-open
+URxvt.matcher.button                          : 1
+URxvt.matcher.rend.0                          : Uline Bold fg8
+URxvt.print-pipe                              : cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
+URxvt.pastableTabs                            : true
+URxvt.boldMode                                : false
+!URxvt.xftAntialias                            : true
+URxvt.urgentOnBell                            : true
+URxvt.iso14755                                : false
+URxvt.copyCommand                             : xclip -i -selection clipboard
+URxvt.pasteCommand                            : xclip -o -selection clipboard
+URxvt.keysym.S-C-C                            : perl:clipboard:copy
+URxvt.keysym.S-C-V                            : perl:clipboard:paste
+URxvt.keysym.S-M-v                            : perl:clipboard:paste_escaped
+! Unbreak zsh keys in URxv
+URxvt.keysym.Home                             : \033[1~
+URxvt.keysym.End                              : \033[4~
+URxvt.keysym.C-BackSpace                      : \033\010
+URxvt.keysym.C-Tab                            : \033r
+!Selection patterns
+URxvt.selection.pattern-0                     : ([[:word:]]+)
+URxvt.selection.pattern-1                     : ^(/[^:]+):\
+URxvt.selection.pattern-2                     : \\|([^|]+)\\|
+URxvt.cutchars                                : "()*,<>[]{}|''"
+URxvt.scrollstyle                             : plain
+URxvt.scrollBar                               : false
+URxvt.jumpScroll                              : true
+URxvt.secondaryWheel                          : true
+URxvt.secondaryScreen                         : true
+URxvt.scrollTtyOutput                         : false
+URxvt.scrollWithBuffer                        : true
+URxvt.scrollTtyKeypress                       : true
+! TABS
+URxvt.tabbed.tabbar-fg                        : 12
+URxvt.tabbed.tabbar-bg                        : 10
+URxvt.tabbed.tab-fg                           : 8
+URxvt.tabbed.tab-bg                           : 12
+URxvt.cursorBlink                             : true
+URxvt.cursorUnderline                         : True
+
+! -END- URxvt Section 1}}}
+! XTerm Section {{{1 ===========================================================
+!
+! ==============================================================================
+
+XTerm.termName                                : xterm-256color
+XTerm.AllowIconInput                          : on
+XTerm.bellIsUrgent                            : true
+XTerm.Border                                  : Grey25
+XTerm.charClass                               : 33:48,37:48,45-47:48,64:48
+XTerm.colorAttrMode                           : true
+XTerm.colorMode                               : true
+XTerm.curses                                  : on
+XTerm.cutNewline                              : off
+XTerm.DeiconifyWarp                           : off
+XTerm.font                                    : -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
+XTerm.font1                                   : -*-tamsyn-bold-*-*-*-12-*-*-*-*-*-*-*
+XTerm.InternalBorder                          : 1
+XTerm.jumpScroll                              : on
+XTerm.loginShell                              : true
+XTerm.MarginBell                              : off
+XTerm.MenuFont                                : fixed8
+XTerm.Mouse                                   : yellow
+XTerm.multiClickTime                          : 250
+XTerm.multiScroll                             : on
+XTerm.pointerColor                            : red
+XTerm.reverseVideo                            : on
+XTerm.reverseWrap                             : off
+XTerm.saveLines                               : 32768
+XTerm.scrollBar                               : false
+XTerm.scrollKey                               : true
+XTerm.scrollTtyOutput                         : false
+XTerm.TitleFont                               : vtbold
+XTerm.veryBoldColors                          : 6
+
+! -END- XTerm Section 1}}}
+! XCalc Section {{{1
+
+XCalc.Cursor                                  : hand2
+XCalc.geometry                                : 200x275
+XCalc.ShapeStyle                              : rectangle
+XCalc.ti.bevel.background                     : #111111
+XCalc.ti.bevel.screen.background              : #000000
+XCalc.ti.bevel.screen.DEG.background          : #000000
+XCalc.ti.bevel.screen.DEG.foreground          : LightSeaGreen
+XCalc.ti.bevel.screen.GRAD.background         : #000000
+XCalc.ti.bevel.screen.GRAD.foreground         : LightSeaGreen
+XCalc.ti.bevel.screen.INV.background          : #000000
+XCalc.ti.bevel.screen.INV.foreground          : Red
+XCalc.ti.bevel.screen.LCD.background          : #000000
+XCalc.ti.bevel.screen.LCD.foreground          : LightSeaGreen
+XCalc.ti.bevel.screen.LCD.shadowWidth         : 0
+XCalc.ti.bevel.screen.M.background            : #000000
+XCalc.ti.bevel.screen.M.foreground            : LightSeaGreen
+XCalc.ti.bevel.screen.P.background            : #000000
+XCalc.ti.bevel.screen.P.foreground            : Yellow
+XCalc.ti.bevel.screen.RAD.background          : #000000
+XCalc.ti.bevel.screen.RAD.foreground          : LightSeaGreen
+XCalc.ti.button18.background                  : #611161
+XCalc.ti.button19.background                  : #611161
+XCalc.ti.button20.background                  : #611111
+XCalc.ti.button22.background                  : #222262
+XCalc.ti.button23.background                  : #222262
+XCalc.ti.button24.background                  : #222272
+XCalc.ti.button25.background                  : #722222
+XCalc.ti.button27.background                  : #333373
+XCalc.ti.button28.background                  : #333373
+XCalc.ti.button29.background                  : #333373
+XCalc.ti.button30.background                  : #833333
+XCalc.ti.button32.background                  : #444484
+XCalc.ti.button33.background                  : #444484
+XCalc.ti.button34.background                  : #444484
+XCalc.ti.button35.background                  : #944444
+XCalc.ti.button37.background                  : #555595
+XCalc.ti.button38.background                  : #555595
+XCalc.ti.button39.background                  : #555595
+XCalc.ti.button40.background                  : #a55555
+XCalc.ti.button5.background                   : Orange3
+XCalc.ti.Command.background                   : #777777
+XCalc.ti.Command.foreground                   : White
+
+! -END- XCalc Section }}}
+! XScreenSaver Section {{{1 ====================================================
+!
+! ==============================================================================
+xscreensaver.dateFormat                       : %I:%M%P %a %b %d, %Y
+xscreensaver.Dialog.background                : #111111
+xscreensaver.Dialog.bodyFont                  : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.borderWidth               : 20
+xscreensaver.Dialog.bottomShadowColor         : #111111
+xscreensaver.Dialog.Button.background         : #ffffff
+xscreensaver.Dialog.buttonFont                : -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.Button.foreground         : #666666
+xscreensaver.Dialog.dateFont                  : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.foreground                : #ffffff
+xscreensaver.Dialog.headingFont               : -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.internalBorderWidth       : 24
+xscreensaver.Dialog.labelFont                 : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.Dialog.shadowThickness           : 2
+xscreensaver.Dialog.text.background           : #ffffff
+xscreensaver.Dialog.text.foreground           : #666666
+xscreensaver.Dialog.topShadowColor            : #111111
+xscreensaver.Dialog.unameFont                 : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont                : -*-tamsyn-bold-*-*-*-17-*-*-*-*-*-*-*
+xscreensaver.passwd.thermometer.background    : #000000
+xscreensaver.passwd.thermometer.foreground    : #006aff
+xscreensaver.passwd.thermometer.width         : 8
+
+! XLock Section {{{2 ===========================================================
+XLock.mode                                    : random
+XLock.erasemode:
+XLock.erasedelay                              : 400
+XLock.erasetime                               : 2
+XLock.allowaccess                             : off
+XLock.debug                                   : off
+XLock.description                             : on
+XLock.echokeys                                : on
+XLock.echokey                                 : *
+XLock.enablesaver                             : off
+XLock.resetsaver                              : on
+XLock.grabmouse                               : on
+XLock.grabserver                              : off
+XLock.hide                                    : on
+XLock.install                                 : on
+XLock.mousemotion                             : off
+XLock.mono                                    : off
+XLock.sound                                   : off
+XLock.showdate                                : on
+XLock.timeelapsed                             : off
+XLock.usefirst                                : on
+XLock.verbose                                 : off
+XLock.visual:
+XLock.nice                                    : 10
+XLock.lockdelay                               : 0
+XLock.unlockdelay                             : 0
+XLock.timeout                                 : 30
+XLock.font                                    : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XLock.planfont                                : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XLock.background                              : White
+XLock.foreground                              : Black
+XLock.username                                : Name:
+XLock.password                                : Password:
+XLock.info                                    : Enter password to unlock; select icon to lock.
+XLock.validate                                : Validating login...
+XLock.invalid                                 : Invalid login.
+XLock.invalidCapsLock                         : Invalid login, Caps Lock on.
+XLock.attempt                                 : failed attempt.
+XLock.attempts                                : failed attempts.
+XLock.geometry:
+XLock.icongeometry:
+XLock.wireframe                               : off
+XLock.use3d                                   : off
+XLock.delta3d                                 : 1.5
+XLock.none3d                                  : Black
+XLock.right3d                                 : Blue
+XLock.left3d                                  : Red
+XLock.both3d                                  : Magenta
+XLock.program                                 : fortune -s
+XLock.messagesfile:
+XLock.messagefile:
+XLock.message:
+XLock.messagefont                             : -*-tamsyn-medium-*-*-*-17-*-*-*-*-*-*-*
+XLock.logoutButton                            : -1
+XLock.logoutButtonLabel                       : Logout
+XLock.logoutButtonHelp                        : Click here to logout
+XLock.logoutFailedString                      : Auto-logout failed
+XLock.startCmd:
+XLock.endCmd:
+XLock.pipepassCmd:
+XLock.logoutCmd:
+XLock.dpmsstandby                             : -1
+XLock.dpmssuspend                             : -1
+XLock.dpmsoff                                 : -1
+XLock.mailCmd:
+XLock.mailIcon:
+XLock.nomailIcon:
+XLock.blank.delay                             : 3000000
+XLock.blank.count                             : 1
+XLock.blank.cycles                            : 1
+XLock.blank.size                              : 1
+XLock.blank.ncolors                           : 64
+XLock.blank.saturation                        : 1
+XLock.blank.bitmap:
+XLock.random.delay                            : 1
+XLock.random.count                            : 1
+XLock.random.cycles                           : 1
+XLock.random.size                             : 1
+XLock.random.ncolors                          : 64
+XLock.random.saturation                       : 1
+XLock.random.bitmap:
+XLock.random.duration                         : 60
+XLock.random.modelist:
+XLock.random.sequential                       : False
+XLock.random.fullrandom                       : True
+
+! -END- XLock 2}}}
+! -END- XScreenSaver 1}}}
+! XClock Section {{{ ===========================================================
 ! XCLOCK
-!==============================================================================
-xclock*update: 1
-xclock*analog: false
-xclock*foreground: grey40
-xclock*background: black
-xclock*font: -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
+!===============================================================================
+xclock*update                                 : 1
+xclock*analog                                 : false
+xclock*foreground                             : grey40
+xclock*background                             : black
+xclock*font                                   : -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
 
-!#include "/home/antenore/.Xdefaults.local"
-!Override colors (add *foreground *background *cursorColor i.e.:
-!*background: #121212
-!*foreground: #F6F6F6
-!*cursorColor: #ACEA5C
-!URxvt.background:               rgba:1111/1111/1111/cccc
-!#include "/home/antenore/.Xcolors/iiamblack"
+! -END- XClock }}}
+! XPDF Section {{{ =============================================================
+!
+!===============================================================================
+
+xpdf*antialias                                : yes
+xpdf*background                               : white
+xpdf*enableFreetype                           : yes
+xpdf*foreground                               : black
+xpdf*urlCommand                               : firefox %s
+! -END- XPDF }}}
+! DZEN2 Section {{{ ============================================================
+!
+!===============================================================================
+!dzen2.font                                   : -*-tamsyn-normal-*-*-*-8-*-*-*-*-*-*-*
+!dzen2.foreground                             : #c8e7a8
+!dzen2.background                             : #1A1A1A
+! -END- DZEN2 }}}

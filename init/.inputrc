@@ -1,4 +1,14 @@
 "\e[A": history-search-backward
 "\e[B": history-search-forward
+# List possible completions instead of ringing bell
 set show-all-if-ambiguous on
 set completion-ignore-case on
+set menu-complete-display-prefix on
+# Cycle through ambiguous completions instead of list
+TAB: menu-complete
+# Ignore case when doing completion
+set completion-ignore-case on
+# Completed dir names have a slash appended
+set mark-directories on
+# List ls -F for completion
+set visible-stats on

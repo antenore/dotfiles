@@ -40,45 +40,11 @@
 #define DebianRed #D70A53
 
 ! Some Color Scheme have foreground and background hardcoded
-!*foreground                                   : White
-!*background                                   : Black
-!*cursorColor                                  : Yellow
-!*fading                                       : 40
-!*fadeColor                                    : White
-*customization                                : -color
-
-! Colored man pages
-
-!   All/urxvt terminals
-*colorBD                                      : Green3
-*colorUL                                      : Yellow
-*colorIT                                      : Cyan
-!   xterm specific
-*VT100.colorBDMode                            : True
-*VT100.colorULMode                            : True
 
 !#include "/home/antenore/.Xcolors/dither"
 !#include "/home/antenore/.Xcolors/belge"
-#include "/home/antenore/.Xcolors/solarized"
+#include "/home/antenore/.Xcolors/raven_m9-dark"
 !#include "/home/antenore/.Xcolors/hybrid"
-
-!*.color0                                     : #000000
-!*.color1                                     : #D05656
-!*.color2                                     : #61B961
-!*.color3                                     : #D2B459
-!*.color4                                     : #5D90C9
-!*.color5                                     : #A672BF
-!*.color6                                     : #72B4B5
-!*.color7                                     : #999999
-!*.color8                                     : #555555
-!*.color9                                     : #D05656
-!*.color10                                    : #61B961
-!*.color11                                    : #D2B459
-!*.color12                                    : #5D90C9
-!*.color13                                    : #A672BF
-!*.color14                                    : #72B4B5
-!*.color15                                    : #FFFFFF
-
 
 ! XFT Section {{{2
 ! ==============================================================================
@@ -104,83 +70,22 @@ URxvt.imLocale                                : ch_FR.UTF-8
 URxvt.loginShell                              : true
 URxvt.saveLines                               : 90000
 URxvt.geometry                                : 160x50
-!---- Light URxvt (Solarized Light, 11pt) - CALL with urxvt -name LURxvt
-LURxvt.font:                   xft:Anonymous Pro-10
-LURxvt.fading:                 0
-LURxvt.background:             #fdf6e3
-!URxvt.background:              rgba:eeee/0253/0246/0227
-!rgba(253, 246, 227)
-LURxvt.foreground:             #839496
-LURxvt.fadeColor:              #fdf6e3
-LURxvt.cursorColor:            #586e75
-LURxvt.pointerColorBackground: #93a1a1
-LURxvt.pointerColorForeground: #586e75
-LURxvt.color0:                 #073642
-LURxvt.color8:                 #fdf6e3
-LURxvt.color10:                #93a1a1
-LURxvt.color11:                #839496
-LURxvt.color12:                #657b83
-LURxvt.color14:                #586e75
-LURxvt.color7:                 #839496
-!---- Default URxvt (Solarized Dark, 12px)
-!URxvt.background:              rgba:eeee/0043/0054/0000
 URxvt.transparent:             true
 URxvt.shading:                 10
 URxvt.fading:                         30
 !Interesting effect
 !URxvt.blurRadius:                     1x128
-URxvt.background:                     #002b36
-URxvt.foreground:                     #657b83
-URxvt.fadeColor:                      #002b36
-URxvt.cursorColor:                    #93a1a1
-URxvt.pointerColorBackground:         #586e75
-URxvt.pointerColorForeground:         #93a1a1
-URxvt.colorUL:                        #859900
-URxvt.colorBD:                        #268bd2
-URxvt.color0:                         #073642
-URxvt.color8:                         #002b36
-URxvt.color1:                         #dc322f
-URxvt.color9:                         #cb4b16
-URxvt.color2:                         #859900
-URxvt.color10:                        #586e75
-URxvt.color3:                         #b58900
-URxvt.color11:                        #657b83
-URxvt.color4:                         #268bd2
-URxvt.color12:                        #839496
-URxvt.color5:                         #d33682
-URxvt.color13:                        #6c71c4
-URxvt.color6:                         #2aa198
-URxvt.color14:                        #93a1a1
-URxvt.color7:                         #eee8d5
-URxvt.color15:                        #fdf6e3
-!URxvt.background                             : rgba:eeee/0000/0043/0054
-!URxvt.background                             : [80]Black
-!URxvt.foreground                             : White
-!URxvt.pointerColorBackground                 : Color
-!URxvt.pointerColorForeground:§Anticolor
 URxvt.depth                                   : 32
 !Can give issues with man, better setting it to false
-URxvt.intensityStyles                        : false
-URxvt.highlightColor                          : Yellow3
-URxvt.highlightTextColor                      : Black
-!URxvt.internalBordercolor                    : #121212
-URxvt.underlineColor                          : Cyan
-URxvt.borderColor                            : #474747
-!URxvt.troughColor                            : #8080f0
-!URxvt.tintColor                               : #999999
+!URxvt.intensityStyles                        : false
 URxvt.skipBuiltinGlyphs                       : True
-URxvt.font                                    : xft:Monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.boldFont                                : xft:Monaco:size=10:antialias=true:hinting=true,xft:Inconsolata:size=10:antialias=true:hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:xft:Monaco:size=10:antialias=true:hinting=true,hinting=true,xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt.lineSpaces                              : 0
-!URxvt.font: xft:DejaVu Sans Mono:pixel
-!URxvt.boldFont                                : xft:Inconsolata:bold:size=10
-!URxvt.font                                    : -*-tamsyn-medium-*-*-*-14-*-*-*-*-*-iso8859-1
-!URxvt.boldFont                                : -*-tamsyn-bold-*-*-*-14-*-*-*-*-*-iso8859-1
-URxvt.letterSpace                             : -2
+URxvt.font                                    : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
+URxvt.boldFont                                : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
+URxvt.italicFont                              : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
 URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib                                : /home/antenore/.urxvt
-URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select
+!URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select
+URxvt.perl-ext-common                         : default,matcher,clipboard,keyboard-select
 URxvt.keysym.M-Escape                         : perl:keyboard-select:activate
 URxvt.keysym.M-s                              : perl:keyboard-select:search
 URxvt.keysym.C-Delete                         : perl:matcher:last
@@ -190,10 +95,8 @@ URxvt.matcher.button                          : 1
 URxvt.matcher.rend.0                          : Uline Bold fg8
 URxvt.print-pipe                              : cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 URxvt.pastableTabs                            : true
-URxvt.boldMode                                : false
-!URxvt.xftAntialias                            : true
+URxvt.xftAntialias                            : true
 URxvt.urgentOnBell                            : true
-URxvt.iso14755                                : false
 URxvt.copyCommand                             : xclip -i -selection clipboard
 URxvt.pasteCommand                            : xclip -o -selection clipboard
 URxvt.keysym.S-C-C                            : perl:clipboard:copy
@@ -218,10 +121,10 @@ URxvt.scrollTtyOutput                         : false
 URxvt.scrollWithBuffer                        : true
 URxvt.scrollTtyKeypress                       : true
 ! TABS
-URxvt.tabbed.tabbar-fg                        : 7
-URxvt.tabbed.tabbar-bg                        : 8
-URxvt.tabbed.tab-fg                           : 0
-URxvt.tabbed.tab-bg                           : 15
+URxvt.tabbed.tabbar-fg                        : 12
+URxvt.tabbed.tabbar-bg                        : 10
+URxvt.tabbed.tab-fg                           : 8
+URxvt.tabbed.tab-bg                           : 12
 URxvt.cursorBlink                             : true
 URxvt.cursorUnderline                         : True
 
@@ -233,15 +136,15 @@ URxvt.cursorUnderline                         : True
 XTerm.termName                                : xterm-256color
 XTerm.AllowIconInput                          : on
 XTerm.bellIsUrgent                            : true
-XTerm.Border                                  : Grey25
+!XTerm.Border                                  : Grey25
 XTerm.charClass                               : 33:48,37:48,45-47:48,64:48
-XTerm.colorAttrMode                           : true
-XTerm.colorMode                               : true
+!XTerm.colorAttrMode                           : true
+!XTerm.colorMode                               : true
 XTerm.curses                                  : on
 XTerm.cutNewline                              : off
 XTerm.DeiconifyWarp                           : off
-XTerm.font                                    : -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
-XTerm.font1                                   : -*-tamsyn-bold-*-*-*-12-*-*-*-*-*-*-*
+XTerm.font                                    : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
+XTerm.font1                                   : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
 XTerm.InternalBorder                          : 1
 XTerm.jumpScroll                              : on
 XTerm.loginShell                              : true
@@ -251,14 +154,14 @@ XTerm.Mouse                                   : yellow
 XTerm.multiClickTime                          : 250
 XTerm.multiScroll                             : on
 XTerm.pointerColor                            : red
-XTerm.reverseVideo                            : on
+!XTerm.reverseVideo                            : on
 XTerm.reverseWrap                             : off
 XTerm.saveLines                               : 32768
 XTerm.scrollBar                               : false
 XTerm.scrollKey                               : true
 XTerm.scrollTtyOutput                         : false
 XTerm.TitleFont                               : vtbold
-XTerm.veryBoldColors                          : 6
+!XTerm.veryBoldColors                          : 6
 
 ! -END- XTerm Section 1}}}
 ! XCalc Section {{{1
