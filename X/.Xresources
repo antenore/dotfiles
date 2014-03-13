@@ -21,34 +21,25 @@
 !===============================================================================
 ! }}}
 ! General Options {{{1 =========================================================
-
 ! Make Tk applications slightly less ugly
 *TkTheme                                      : clam
-
 ! Operate terminals in utf8 mode whether or not uxterm was called
 *VT100.utf8                                   : 1
-
 ! Plenty of room for things like Vim :vsplit
 *VT100*geometry                               : 160x50
-
+*customization                                : -color
 ! -END- General Options 1}}}
 ! Color section {{{1 ===========================================================
 !
 !===============================================================================
-
-!Debian
+#include "/home/antenore/.Xcolors/raven-m9-dark"
+!Debian (lovely)
 #define DebianRed #D70A53
-
-! Some Color Scheme have foreground and background hardcoded
-
-!#include "/home/antenore/.Xcolors/dither"
-!#include "/home/antenore/.Xcolors/belge"
-#include "/home/antenore/.Xcolors/raven_m9-dark"
-!#include "/home/antenore/.Xcolors/hybrid"
-
-! XFT Section {{{2
-! ==============================================================================
-
+!   xterm specific
+*VT100.colorBDMode                            : True
+*VT100.colorULMode                            : True
+! -END- Color Section 1}}}
+! XFT Section {{{1
 Xft.antialias§                                : 1
 Xft.autohint                                  : 0
 Xft.dpi                                       : 96
@@ -56,32 +47,28 @@ Xft.hinting                                   : 1
 Xft.hintstyle                                 : hintfull
 Xft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
-
-! -END- XFT Section 2}}}
-! -END- Color Section 1}}}
+! -END- XFT Section 1}}}
 ! URxvt section {{{1 ===========================================================
-!
-!
-!
-!===============================================================================
-
 URxvt.termName                                : rxvt-unicode-256color
 URxvt.imLocale                                : ch_FR.UTF-8
 URxvt.loginShell                              : true
 URxvt.saveLines                               : 90000
 URxvt.geometry                                : 160x50
-URxvt.transparent:             true
-URxvt.shading:                 10
-URxvt.fading:                         30
-!Interesting effect
-!URxvt.blurRadius:                     1x128
-URxvt.depth                                   : 32
-!Can give issues with man, better setting it to false
-!URxvt.intensityStyles                        : false
+!Colors defined in the theme file raven-m9-dark
+! For transparency enable the following including the foregrounnd background
+!URxvt.transparent                             : true
+URxvt.fading                                  : 05
+!URxvt.shading                                 : 10
+!URxvt.background                              : #002b36
+!URxvt.foreground                              : #657b83
+!URxvt.fadeColor                               : #002b36
+!URxvt.depth                                   : 32
+!URxvt.intensityStyles                         : false
 URxvt.skipBuiltinGlyphs                       : True
-URxvt.font                                    : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
-URxvt.boldFont                                : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
-URxvt.italicFont                              : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
+URxvt.xftAntialias                            : true
+URxvt.font                                    : xft:Inconsolata:size=9:antialias=true:hinting=true
+URxvt.boldFont                                : xft:Inconsolata:size=9:antialias=true:hinting=true
+URxvt.italicFont                              : xft:Inconsolata:size=9:antialias=true:hinting=true
 URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib                                : /home/antenore/.urxvt
 !URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select
@@ -95,7 +82,6 @@ URxvt.matcher.button                          : 1
 URxvt.matcher.rend.0                          : Uline Bold fg8
 URxvt.print-pipe                              : cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 URxvt.pastableTabs                            : true
-URxvt.xftAntialias                            : true
 URxvt.urgentOnBell                            : true
 URxvt.copyCommand                             : xclip -i -selection clipboard
 URxvt.pasteCommand                            : xclip -o -selection clipboard
@@ -107,7 +93,6 @@ URxvt.keysym.Home                             : \033[1~
 URxvt.keysym.End                              : \033[4~
 URxvt.keysym.C-BackSpace                      : \033\010
 URxvt.keysym.C-Tab                            : \033r
-!Selection patterns
 URxvt.selection.pattern-0                     : ([[:word:]]+)
 URxvt.selection.pattern-1                     : ^(/[^:]+):\
 URxvt.selection.pattern-2                     : \\|([^|]+)\\|
@@ -120,41 +105,33 @@ URxvt.secondaryScreen                         : true
 URxvt.scrollTtyOutput                         : false
 URxvt.scrollWithBuffer                        : true
 URxvt.scrollTtyKeypress                       : true
-! TABS
-URxvt.tabbed.tabbar-fg                        : 12
-URxvt.tabbed.tabbar-bg                        : 10
-URxvt.tabbed.tab-fg                           : 8
-URxvt.tabbed.tab-bg                           : 12
+URxvt.tabbed.tabbar-fg                        : 7
+URxvt.tabbed.tabbar-bg                        : 8
+URxvt.tabbed.tab-fg                           : 0
+URxvt.tabbed.tab-bg                           : 15
 URxvt.cursorBlink                             : true
 URxvt.cursorUnderline                         : True
-
 ! -END- URxvt Section 1}}}
 ! XTerm Section {{{1 ===========================================================
-!
-! ==============================================================================
-
 XTerm.termName                                : xterm-256color
 XTerm.AllowIconInput                          : on
 XTerm.bellIsUrgent                            : true
 !XTerm.Border                                  : Grey25
 XTerm.charClass                               : 33:48,37:48,45-47:48,64:48
-!XTerm.colorAttrMode                           : true
-!XTerm.colorMode                               : true
+XTerm.colorAttrMode                           : true
+XTerm.colorMode                               : true
 XTerm.curses                                  : on
 XTerm.cutNewline                              : off
 XTerm.DeiconifyWarp                           : off
-XTerm.font                                    : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
-XTerm.font1                                   : xft:Inconsolata:bold:size=10:antialias=true:hinting=true,hinting=true
+XTerm.font                                    : xft:Inconsolata:size=9:antialias=true:hinting=true
+XTerm.font1                                   : xft:Inconsolata:size=9:antialias=true:hinting=true
 XTerm.InternalBorder                          : 1
-XTerm.jumpScroll                              : on
+!XTerm.jumpScroll                              : on
 XTerm.loginShell                              : true
 XTerm.MarginBell                              : off
 XTerm.MenuFont                                : fixed8
-XTerm.Mouse                                   : yellow
 XTerm.multiClickTime                          : 250
 XTerm.multiScroll                             : on
-XTerm.pointerColor                            : red
-!XTerm.reverseVideo                            : on
 XTerm.reverseWrap                             : off
 XTerm.saveLines                               : 32768
 XTerm.scrollBar                               : false
@@ -162,10 +139,8 @@ XTerm.scrollKey                               : true
 XTerm.scrollTtyOutput                         : false
 XTerm.TitleFont                               : vtbold
 !XTerm.veryBoldColors                          : 6
-
 ! -END- XTerm Section 1}}}
 ! XCalc Section {{{1
-
 XCalc.Cursor                                  : hand2
 XCalc.geometry                                : 200x275
 XCalc.ShapeStyle                              : rectangle
@@ -208,7 +183,6 @@ XCalc.ti.button40.background                  : #a55555
 XCalc.ti.button5.background                   : Orange3
 XCalc.ti.Command.background                   : #777777
 XCalc.ti.Command.foreground                   : White
-
 ! -END- XCalc Section }}}
 ! XScreenSaver Section {{{1 ====================================================
 !
@@ -235,7 +209,6 @@ xscreensaver.passwd.passwdFont                : -*-tamsyn-bold-*-*-*-17-*-*-*-*-
 xscreensaver.passwd.thermometer.background    : #000000
 xscreensaver.passwd.thermometer.foreground    : #006aff
 xscreensaver.passwd.thermometer.width         : 8
-
 ! XLock Section {{{2 ===========================================================
 XLock.mode                                    : random
 XLock.erasemode:
@@ -322,7 +295,6 @@ XLock.random.duration                         : 60
 XLock.random.modelist:
 XLock.random.sequential                       : False
 XLock.random.fullrandom                       : True
-
 ! -END- XLock 2}}}
 ! -END- XScreenSaver 1}}}
 ! XClock Section {{{ ===========================================================
@@ -333,12 +305,10 @@ xclock*analog                                 : false
 xclock*foreground                             : grey40
 xclock*background                             : black
 xclock*font                                   : -*-fixed-*-*-*-*-8-*-*-*-*-*-*-*
-
 ! -END- XClock }}}
 ! XPDF Section {{{ =============================================================
 !
 !===============================================================================
-
 xpdf*antialias                                : yes
 xpdf*background                               : white
 xpdf*enableFreetype                           : yes

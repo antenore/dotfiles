@@ -2,8 +2,8 @@ USRRESOURCES=$HOME/.Xresources
 
 eval $(cat ~/.fehbg)
 xrdb -load $HOME/.Xresources
-#xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
-compton -bcCGf -i 0.8 -e 0.8 --no-fading-openclose --sw-opti
+xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
+#compton -bcCGf -i 0.8 -e 0.8 --no-fading-openclose --sw-opti
 parcellite -d &
 xscreensaver &
 urxvtd -q -f -o
