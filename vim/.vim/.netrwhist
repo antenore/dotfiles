@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/tmow/.urxvt'
 let g:netrw_dirhist_2='/home/tmow/.urxvt/ext'
+let g:netrw_dirhist_3='/home/antenore/software/IBM/awbrepo/main/Puppet/InitScripts'
+let g:netrw_dirhist_4='/home/antenore/software/IBM/awbrepo/main/Puppet/Scripts'

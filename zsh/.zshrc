@@ -151,7 +151,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bira"
-"ZSH_THEME="gnzh"
+#ZSH_THEME="gnzh"
 
 # Example aliases
 
@@ -230,7 +230,7 @@ alias jump="ssh -tt zcabbi4s ssh -tt $1"
 # Bettter and "built in"
 shuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
 
-source .zshrc.local
+source ~/.zshrc.local
 export RI="--format ansi --width 70"
 export WINEARCH=win32
 #wmname LG3D
