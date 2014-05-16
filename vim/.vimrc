@@ -74,32 +74,28 @@ set wildchar=<Tab>
 set tabpagemax=15
 set showtabline=2
 set t_Co=256
+set background=dark
 " Solarized - https://github.com/altercation/solarized
 
 "if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    "let g:solarized_termcolors=256
-    "let g:solarized_termtrans=1
-    "let g:solarized_contrast="normal"
-    "let g:solarized_visibility="high"
-    "color solarized " Load a colorscheme
+"    let g:solarized_termcolors=256
+"    let g:solarized_termtrans=1
+"    let g:solarized_contrast="normal"
+"    let g:solarized_visibility="high"
+"    color solarized " Load a colorscheme
 "endif
-"colorscheme lucius
-"LuciusBlack
-"LuciusDark
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
-"colorscheme xoria256
+colorscheme xoria256
 "colorscheme hybrid
-colorscheme hemisu
-set background=dark
 
 " Highlight if more then 88 chars
 set colorcolumn=81
 highlight ColorColumn term=reverse cterm=reverse
-highlight OverLength term=reverse cterm=reverse
-autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
-autocmd BufEnter * match OverLength /\%82v.\+/
+"highlight OverLength term=reverse cterm=reverse
+"autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
+"autocmd BufEnter * match OverLength /\%82v.\+/
 
 " Visual Cues
 set cmdheight=2
@@ -265,7 +261,11 @@ let g:vimshell_scrollback_limit = 5000
 " ̣}}}
 " {{{ ===== Auto Commands ======================================================
 au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
-au BufEnter *i3/config setlocal filetype=i3
+augroup WinNumber
+    autocmd!
+    autocmd WinEnter * set number
+    autocmd WinLeave * set nonumber
+augroup END
 " }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:

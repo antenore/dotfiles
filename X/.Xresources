@@ -32,12 +32,12 @@
 ! Color section {{{1 ===========================================================
 !
 !===============================================================================
-#include "/home/antenore/.Xcolors/raven-m9-dark"
+#include "/home/antenore/.Xcolors/raven_m9-dark"
 !Debian (lovely)
 #define DebianRed #D70A53
 !   xterm specific
-*VT100.colorBDMode                            : True
-*VT100.colorULMode                            : True
+!*VT100.colorBDMode                            : True
+!*VT100.colorULMode                            : True
 ! -END- Color Section 1}}}
 ! XFT Section {{{1
 Xft.antialias§                                : 1
@@ -47,6 +47,9 @@ Xft.hinting                                   : 1
 Xft.hintstyle                                 : hintfull
 Xft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
+*font xft:Inconsolata:size=9:antialias=true:hinting=true
+*.font xft:Inconsolata:size=9:antialias=true:hinting=true
+*font* xft:Inconsolata:size=9:antialias=true:hinting=true
 ! -END- XFT Section 1}}}
 ! URxvt section {{{1 ===========================================================
 URxvt.termName                                : rxvt-unicode-256color
@@ -69,6 +72,10 @@ URxvt.xftAntialias                            : true
 URxvt.font                                    : xft:Inconsolata:size=9:antialias=true:hinting=true
 URxvt.boldFont                                : xft:Inconsolata:size=9:antialias=true:hinting=true
 URxvt.italicFont                              : xft:Inconsolata:size=9:antialias=true:hinting=true
+! :Bind C-0, C-+ and C-= to activate normal, small, and big font size resp.
+URxvt.keysym.C-0: command:\033]710;xft:Inconsolata:size=9:antialias=true:hinting=true\007
+URxvt.keysym.C-minus: command:\033]710;xft:Inconsolata:size=7:antialias=true:hinting=true\007
+!URxvt.keysym.C-equal: command:\033]710;-*-dina-medium-r-normal--16-*-*-*-*-*-*-*\007
 URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib                                : /home/antenore/.urxvt
 !URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select
