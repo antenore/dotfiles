@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/tmow/.urxvt'
-let g:netrw_dirhist_2='/home/tmow/.urxvt/ext'
-let g:netrw_dirhist_3='/home/antenore/software/IBM/awbrepo/main/Puppet/InitScripts'
-let g:netrw_dirhist_4='/home/antenore/software/IBM/awbrepo/main/Puppet/Scripts'
-let g:netrw_dirhist_5='/home/antenore/software/IBM/unixpuppet/modules/custom/plugins'
-let g:netrw_dirhist_6='/home/antenore/software/IBM/unixpuppet/modules/custom/plugins/facter'
-let g:netrw_dirhist_7='/home/antenore/software/IBM/awbrepo/main/oMenu-final'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/antenore/.pulse/presets'

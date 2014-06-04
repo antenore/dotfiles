@@ -27,7 +27,7 @@
 	url = git@github.com:vim-scripts/pep8.git
 [submodule "vim/.vim/bundle/vim-safe"]
 	path = vim/.vim/bundle/vim-safe
-	url = git@github.com:antenore/vim-safe.git
+	url = https://github.com/antenore/vim-safe.git
 	branch = master
 [submodule "vim/.vim/bundle/vim-yankitute"]
 	path = vim/.vim/bundle/vim-yankitute
