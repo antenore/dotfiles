@@ -89,17 +89,17 @@ set t_Co=256
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
-"colorscheme xoria256
+colorscheme xoria256
 "colorscheme hybrid
-colorscheme hemisu
+"colorscheme hemisu
 set background=dark
 
 " Highlight if more then 88 chars
 set colorcolumn=81
 highlight ColorColumn term=reverse cterm=reverse
-highlight OverLength term=reverse cterm=reverse
-autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
-autocmd BufEnter * match OverLength /\%82v.\+/
+"highlight OverLength term=reverse cterm=reverse
+"autocmd BufEnter * highlight OverLength term=reverse cterm=reverse
+"autocmd BufEnter * match OverLength /\%82v.\+/
 
 " Visual Cues
 set cmdheight=2
@@ -219,7 +219,13 @@ map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
 " Insert Date and time 20 Dec 2013 10:39 PM 
 imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
+
 " }}}
+
+" {{{ ===== Ruby ===============================================================
+au FileType ruby set ts=2 sts=2 et sw=2
+" }}}
+set viminfo='10,\"1000,:20,%,n~/.viminfo
 " {{{ ===== Bash Support Plugin ================================================
 let g:BASH_MapLeader                = ','
 let g:BASH_DoOnNewLine              = 'yes'
@@ -262,7 +268,7 @@ let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! 
 let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 let g:vimshell_max_command_history = 90000
 let g:vimshell_scrollback_limit = 5000
-" ̣}}}
+" }}}
 " {{{ ===== Auto Commands ======================================================
 au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
 au BufEnter *i3/config setlocal filetype=i3

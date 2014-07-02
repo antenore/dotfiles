@@ -32,6 +32,9 @@
 [submodule "vim/.vim/bundle/vim-yankitute"]
 	path = vim/.vim/bundle/vim-yankitute
 	url = git@github.com:someboddy/vim-yankitute.git
+[submodule "vim/.vim/bundle/vim-rails"]
+	path = vim/.vim/bundle/vim-rails
+	url = git@github.com:tpope/vim-rails.git
 [submodule "vim/.vim/bundle/neosnippet-snippets"]
 	path = vim/.vim/bundle/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets.git
+	url = git@github.com:Shougo/neosnippet-snippets.git
