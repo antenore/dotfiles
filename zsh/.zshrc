@@ -95,13 +95,13 @@ zstyle ':completion:*:*:kill:*:processes' list-colors \
 
 bindkey -e  # emacs style (-v for vi)
 # rxvt
-bindkey '^[[7~' beginning-of-line  # origin
-bindkey '^[[8~' end-of-line  # end
-bindkey '^[Od' backward-word  # ctrl + left
-bindkey '^[Oc' forward-word  # ctrl + right
-bindkey '^[[3^' delete-word  # ctrl + del
-bindkey '^[[3~' delete-char  # del
-bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
+#bindkey '^[[7~' beginning-of-line  # origin
+#bindkey '^[[8~' end-of-line  # end
+#bindkey '^[Od' backward-word  # ctrl + left
+#bindkey '^[Oc' forward-word  # ctrl + right
+#bindkey '^[[3^' delete-word  # ctrl + del
+#bindkey '^[[3~' delete-char  # del
+#bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
 
 # Xterm
 #bindkey '^[[H' beginning-of-line  # origin
@@ -111,6 +111,42 @@ bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
 #bindkey '^[[3;5~' delete-word  # ctrl + del
 #bindkey '^[[3~' delete-char  # del
 #bindkey '^?' backward-delete-word  # ctrl + backspace == ctrl + h
+
+#source ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
+autoload zkbd
+function zkbd_file() {
+    [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0
+    [[ -f ~/.zkbd/${TERM}-${DISPLAY}          ]] && printf '%s' ~/".zkbd/${TERM}-${DISPLAY}"          && return 0
+    return 1
+}
+
+[[ ! -d ~/.zkbd ]] && mkdir ~/.zkbd
+keyfile=$(zkbd_file)
+ret=$?
+if [[ ${ret} -ne 0 ]]; then
+    zkbd
+    keyfile=$(zkbd_file)
+    ret=$?
+fi
+if [[ ${ret} -eq 0 ]] ; then
+    source "${keyfile}"
+else
+    printf 'Failed to setup keys using zkbd.\n'
+fi
+unfunction zkbd_file; unset keyfile ret
+
+# setup key accordingly
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+[[ -n "${key[Backspace]}"   ]]  && bindkey  "${key[Backspace]}"   backward-delete-char
+
+
 
 # Search history for a command beginning with the current input. It places the
 # cursor at the beginning of the command line.
@@ -158,6 +194,8 @@ ZSH_THEME="bira"
 if [ -f /usr/bin/vimx ]; then
     alias vi=/usr/bin/vimx
     alias vim=/usr/bin/vimx
+else
+    alias vi=/usr/bin/vim
 fi
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -180,21 +218,21 @@ fi
 
 if [ x"$MYDIST" = "x" ] ; then
         # Not known (yet) distrib
-        plugins=(git github python colorize)
+        plugins=(git github python ruby colored-man tnux sudo systemd svn colorize)
     else
     case "$MYDIST" in
         fedora)
-            plugins=(git github python colorize yum)
+            plugins=(git github pythonruby colored-man tnux sudo systemd svn colorize yum)
             ;;
         arch)
-            plugins=(git github python colorize archlinux)
+            plugins=(git github python tnux sudo systemd svn colorize archlinux)
             ;;
         ubuntu)
-            plugins=(git github python colorize debian)
+            plugins=(git github python tnux sudo systemd svn colorize debian)
             ;;
         *)
             # Not known (yet) distrib
-            plugins=(git github python colorize)
+            plugins=(git github python tnux sudo systemd svn colorize)
         ;;
     esac
 fi

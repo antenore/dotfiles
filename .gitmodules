@@ -38,3 +38,9 @@
 [submodule "vim/.vim/bundle/neosnippet-snippets"]
 	path = vim/.vim/bundle/neosnippet-snippets
 	url = git@github.com:Shougo/neosnippet-snippets.git
+[submodule "vim/.vim/bundle/vim-notes"]
+	path = vim/.vim/bundle/vim-notes
+	url = git@github.com:xolox/vim-notes.git
+[submodule "vim/.vim/bundle/vim-misc"]
+	path = vim/.vim/bundle/vim-misc
+	url = git@github.com:xolox/vim-misc.git

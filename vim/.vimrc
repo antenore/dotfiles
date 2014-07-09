@@ -47,6 +47,7 @@ set report=0                         " tell us when anything is changed via :...
 set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone
+set viminfo='10,\"1000,:20,%,n~/.viminfo
 " }}}
 " {{{ ===== Text Formatting/Layout =============================================
 set ai
@@ -221,11 +222,9 @@ imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
 
 " }}}
-
 " {{{ ===== Ruby ===============================================================
 au FileType ruby set ts=2 sts=2 et sw=2
 " }}}
-set viminfo='10,\"1000,:20,%,n~/.viminfo
 " {{{ ===== Bash Support Plugin ================================================
 let g:BASH_MapLeader                = ','
 let g:BASH_DoOnNewLine              = 'yes'
@@ -268,6 +267,10 @@ let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! 
 let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 let g:vimshell_max_command_history = 90000
 let g:vimshell_scrollback_limit = 5000
+" }}}
+" {{{ ===== notes.vim ==========================================================
+" comma separated paths
+let g:notes_directories = ['~/Notes']
 " }}}
 " {{{ ===== Auto Commands ======================================================
 au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
