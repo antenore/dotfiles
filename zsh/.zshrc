@@ -95,13 +95,13 @@ zstyle ':completion:*:*:kill:*:processes' list-colors \
 
 bindkey -e  # emacs style (-v for vi)
 # rxvt
-bindkey '^[[7~' beginning-of-line  # origin
-bindkey '^[[8~' end-of-line  # end
-bindkey '^[Od' backward-word  # ctrl + left
-bindkey '^[Oc' forward-word  # ctrl + right
-bindkey '^[[3^' delete-word  # ctrl + del
-bindkey '^[[3~' delete-char  # del
-bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
+#bindkey '^[[7~' beginning-of-line  # origin
+#bindkey '^[[8~' end-of-line  # end
+#bindkey '^[Od' backward-word  # ctrl + left
+#bindkey '^[Oc' forward-word  # ctrl + right
+#bindkey '^[[3^' delete-word  # ctrl + del
+#bindkey '^[[3~' delete-char  # del
+#bindkey '^H' backward-delete-word  # ctrl + backspace == ctrl + h
 
 # Xterm
 #bindkey '^[[H' beginning-of-line  # origin
@@ -119,6 +119,22 @@ bindkey '^[[B' history-beginning-search-forward  # down
 
 bindkey '^Z' push-input # stash the current input and pop it to the next
                         # command prompt
+
+# Automatically calculated
+autoload zkbd
+~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
+
+[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
+[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
+[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
+[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 
 # Quick ../../..
 rationalise-dot() {
@@ -219,7 +235,7 @@ export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 
 # NO IPV6 for JAVA
 #export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
+#export _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true"
 [[ -s /home/tmow/.rvm/scripts/rvm ]] && . /home/tmow/.rvm/scripts/rvm # This loads RVM into a shell session.
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -235,3 +251,6 @@ source ~/.zshrc.local
 export RI="--format ansi --width 70"
 export WINEARCH=win32
 #wmname LG3D
+
+# bind backspace
+#bindkey '' backward-delete-char
