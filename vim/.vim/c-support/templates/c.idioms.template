@@ -1,14 +1,12 @@
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.function ==
-void<CURSOR>
-|?FUNCTION_NAME| (  )
+void<CURSOR> |?FUNCTION_NAME| (  )
 {
 <SPLIT>	return ;
 }		/* -----  end of function |FUNCTION_NAME|  ----- */
 $%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 == idioms.function-static ==
-static void<CURSOR>
-|?FUNCTION_NAME| (  )
+static void<CURSOR> |?FUNCTION_NAME| (  )
 {
 <SPLIT>	return ;
 }		/* -----  end of static function |FUNCTION_NAME|  ----- */

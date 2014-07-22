@@ -263,6 +263,15 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 " }}}
+" {{{ ===== C Support Plugin ================================================
+let g:C_MapLeader                   = ','
+let g:C_ObjExtension                = ".o"
+let g:C_ExeExtension                = ""
+let g:C_CCompiler                   = "gcc"
+let g:C_CplusCompiler               = "g++"
+let g:C_Man                         = "man"
+
+" }}}
 " {{{ ===== Vim Shugo stuff ====================================================
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
