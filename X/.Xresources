@@ -32,7 +32,8 @@
 ! Color section {{{1 ===========================================================
 !
 !===============================================================================
-#include "/home/antenore/.Xcolors/raven-m9-dark"
+!#include "/home/antenore/.Xcolors/raven_m9-dark"
+#include "/home/antenore/.Xcolors/gruvy"
 !Debian (lovely)
 #define DebianRed #D70A53
 !   xterm specific
@@ -40,7 +41,7 @@
 *VT100.colorULMode                            : True
 ! -END- Color Section 1}}}
 ! XFT Section {{{1
-Xft.antialias§                                : 1
+Xft.antialias                                 : 1
 Xft.autohint                                  : 0
 Xft.dpi                                       : 96
 Xft.hinting                                   : 1
@@ -67,9 +68,12 @@ URxvt.fading                                  : 05
 URxvt.skipBuiltinGlyphs                       : True
 URxvt.xftAntialias                            : true
 !URxvt.font                                    : xft:Source Code Pro:size=9:antialias=true:hinting=slight
-URxvt.font                                    : xft:Inconsolata:size=10:antialias=true:hinting=slight
-URxvt.boldFont                                : xft:Inconsolata:size=10:antialias=true:hinting=slight
-URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:hinting=slight
+!URxvt.font                                    : xft:Inconsolata:size=10:antialias=true:hinting=slight
+!URxvt.boldFont                                : xft:Inconsolata:size=10:antialias=true:hinting=slight
+!URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:hinting=slight
+URxvt.font                                    : xft:Terminus:autohint=true
+URxvt.boldFont                                : xft:Terminus:autohint=true
+URxvt.italicFont                              : xft:Terminus:autohint=true
 URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
 URxvt.perl-lib                                : /home/antenore/.urxvt
 !URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select,url-select
@@ -102,7 +106,7 @@ URxvt.keysym.C-Tab                            : \033r
 URxvt.selection.pattern-0                     : ([[:word:]]+)
 URxvt.selection.pattern-1                     : ^(/[^:]+):\
 URxvt.selection.pattern-2                     : \\|([^|]+)\\|
-URxvt.cutchars                                : "()*,<>[]{}|''"
+URxvt.cutchars                                : "`\"\'&()*,;<=>?@[]^{|}"
 URxvt.scrollstyle                             : plain
 URxvt.scrollBar                               : false
 URxvt.jumpScroll                              : true

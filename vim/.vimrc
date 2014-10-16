@@ -69,6 +69,11 @@ set wildmenu
 set wildmode=list:longest,full
 set wildchar=<Tab>
 " }}}
+" {{{ ===== Airline ============================================================
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0 "change 0 to 1 if you have a powerline font
+"set laststatus=2
+" }}}
 " {{{ ===== UI =================================================================
 
 " Tabs
@@ -90,7 +95,20 @@ set t_Co=256
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
-colorscheme xoria256
+"colorscheme xoria256
+"colorscheme wombat256
+colorscheme gruvbox
+let g:gruvbox_termcolors = 256
+if !has("gui_running")
+   let g:gruvbox_italic=0
+endif
+  nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+  nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+  nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+
+  nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+  nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+  nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 "colorscheme hybrid
 "colorscheme hemisu
 set background=dark
@@ -144,7 +162,7 @@ set nostartofline  " keep the cursor in the same colon when changing line
 set number
 set scrolloff=3
 set ruler
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)       " if not vim-airline
+"set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)       " if not vim-airline
 set showcmd
 set showmatch      " show matching brackets
 set sidescroll=1
@@ -217,9 +235,12 @@ nnoremap <Leader>0 :10b<CR>
 set pastetoggle=<F12>
 map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
 
-" Insert Date and time 20 Dec 2013 10:39 PM 
+" Insert Date and time 20 Dec 2013 10:39 PM
 imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
+
+"for unhighlighing the selections
+nmap <Space>x :let @/=''<CR>
 
 " }}}
 " {{{ ===== Ruby ===============================================================
@@ -232,6 +253,27 @@ let g:BASH_LineEndCommColDefault    = 49
 let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
+" }}}
+" {{{ ===== C Support Plugin ================================================
+let g:C_MapLeader = ','
+let g:C_ObjExtension = ".o"
+let g:C_ExeExtension = ""
+let g:C_CCompiler = "gcc"
+let g:C_CplusCompiler = "g++"
+let g:C_Man = "man"
+" }}}
+" {{{ ===== Omni ===============================================================
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd VimEnter * wincmd w
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 " {{{ ===== Vim Shugo stuff ====================================================
 " Neocomplcache
