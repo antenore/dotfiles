@@ -171,7 +171,7 @@ set smartcase
 set so=10          " Keep 10 lines (top/bottom) for scope
 set title
 " }}}
-" {{{ ===== Language specific settings =======================================================
+" {{{ ===== Language specific settings =========================================
 " Python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
@@ -254,7 +254,7 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'IBM Switzerland'
 " }}}
-" {{{ ===== C Support Plugin ================================================
+" {{{ ===== C Support Plugin ===================================================
 let g:C_MapLeader = ','
 let g:C_ObjExtension = ".o"
 let g:C_ExeExtension = ""
