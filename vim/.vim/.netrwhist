@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/antenore/.pulse/presets'
-let g:netrw_dirhist_2='/home/antenore/.dotfiles/vim/.vim/bundle/vim-safe'
-let g:netrw_dirhist_3='/home/antenore/.dotfiles/vim/.vim/bundle/vim-safe/ftplugin'
+let g:netrw_dirhist_cnt =0

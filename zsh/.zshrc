@@ -1,6 +1,7 @@
 # I keep the following just to avoid wizards
 # Lines configured by zsh-newuser-install
 setopt appendhistory autocd extendedglob
+setopt KSH_GLOB
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 # End of lines added by compinstall

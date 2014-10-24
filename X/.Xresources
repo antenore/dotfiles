@@ -32,7 +32,9 @@
 ! Color section {{{1 ===========================================================
 !
 !===============================================================================
-#include "/home/antenore/.Xcolors/raven_m9-dark"
+!#include "/home/antenore/.Xcolors/raven_m9-dark"
+!#include "/home/antenore/.Xcolors/LuciusBlack"
+#include "/home/antenore/.Xcolors/Luciano"
 !Debian (lovely)
 #define DebianRed #D70A53
 !   xterm specific

@@ -1,7 +1,6 @@
 "================================ .VIMRC =======================================
 " Feautures:
-" - Conditional folding
-" - Pathogen
+" - Conditional folding " - Pathogen
 " - Solarized (+ HI cutomizations)
 " - Bash-support
 " - Vim-Airline
@@ -63,6 +62,15 @@ set splitbelow " Puts new split windows to the bottom of the current
 set wm=0       " wrapping margin
 set tw=0       " no autowrap
 " }}}
+" {{{ ===== Text Highlighting ==================================================
+highlight LeadingTab ctermbg=blue guibg=blue
+highlight LeadingSpace ctermbg=darkgreen guibg=darkgreen
+highlight EvilSpace ctermbg=darkred guibg=darkred
+au Syntax * syn match LeadingTab /^\t\+/
+au Syntax * syn match LeadingSpace /^\ \+/
+au Syntax * syn match EvilSpace /\(^\t*\)\@<!\t\+/ " tabs not preceeded by tabs
+au Syntax * syn match EvilSpace /[ \t]\+$/ " trailing space
+" }}}
 " {{{ ===== Menus ==============================================================
 set wildmenu
 set wildmode=list:longest,full
@@ -87,7 +95,9 @@ set background=dark
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
-colorscheme xoria256
+colorscheme lucius
+  LuciusBlack
+"colorscheme xoria256
 "colorscheme hybrid
 
 " Highlight if more then 88 chars
@@ -272,6 +282,10 @@ let g:C_CplusCompiler               = "g++"
 let g:C_Man                         = "man"
 
 " }}}
+" {{{ ===== Other commands =====================================================
+command! Thtml :%!tidy -q -i --show-errors 0
+command! Txml  :%!tidy -q -i --show-errors 0 -xml
+" }}}
 " {{{ ===== Vim Shugo stuff ====================================================
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -314,6 +328,43 @@ augroup WinNumber
     autocmd WinEnter * set number
     autocmd WinLeave * set nonumber
 augroup END
+" }}}
+" {{{ ===== Ruby foldings ======================================================
+fun! FoldSomething(lnum)
+  let line1=getline(a:lnum)
+  let line2=getline(a:lnum+1)
+  if line1=~'^\s\+#\s[A-Z]\+'
+    return 1
+   if line2=~'^\s\+when'
+     return ">1"
+   elseif line2=~'^$'
+     return 0
+   elseif foldlevel(a:lnum-1)==2
+     return 1
+   endif
+ elseif line1=~'^#\s[A-Z][a-z]'
+   return ">2"
+  endif
+endfun
+
+au FileType rb set foldmethod=expr
+au FileType rb set foldexpr=FoldSomething(v:lnum)
+"au FileType rb set foldcolumn=3
+"function! RubyMethodFold(line)
+  "let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
+"
+  "for synid in stack
+    "if GetSynString(GetSynDict(synid)) ==? "rubyMethodBlock" || GetSynString(GetSynDict(synid)) ==? "rubyDefine" || GetSynString(GetSynDict(synid)) ==? "rubyDocumentation"
+      "return 1
+    "endif
+  "endfor
+"
+  "return 0
+"endfunction
+"
+"au FileType rb set foldexpr=RubyMethodFold(v:lnum)
+"au FileType rb set foldmethod=expr
+
 " }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:

@@ -1,0 +1,1 @@
+csv.vmb: call delete('/home/antenore/.vim/ftplugin/csv.vim')|call delete('/home/antenore/.vim/doc/ft-csv.txt')|call delete('/home/antenore/.vim/syntax/csv.vim')|call delete('/home/antenore/.vim/ftdetect/csv.vim')|call delete('/home/antenore/.vim/plugin/csv.vim')
