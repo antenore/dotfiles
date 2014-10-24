@@ -1,0 +1,21 @@
+! Luciano Xresources color theme based on Lucius
+!   https://github.com/jonathanfilip/lucius
+*background:  #121212
+*foreground:  #d7d7d7
+*cursorColor: #87afd7
+*color0:      #121212
+*color1:      #ff5f5f
+*color2:      #afd787
+*color3:      #d7d7af
+*color4:      #87d7ff
+*color5:      #d7afd7
+*color6:      #87d7af
+*color7:      #d7d7d7
+*color8:      #303030
+*color9:      #ff8787
+*color10:     #d7ffaf
+*color11:     #ffffd7
+*color12:     #afffff
+*color13:     #ffd7ff
+*color14:     #afffd7
+*color15:     #eeeeee

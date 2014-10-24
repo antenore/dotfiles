@@ -64,6 +64,15 @@ set splitbelow " Puts new split windows to the bottom of the current
 set wm=0       " wrapping margin
 set tw=0       " no autowrap
 " }}}
+" {{{ ===== Text Highlighting ==================================================
+highlight LeadingTab ctermbg=blue guibg=blue
+highlight LeadingSpace ctermbg=darkgreen guibg=darkgreen
+highlight EvilSpace ctermbg=darkred guibg=darkred
+au Syntax * syn match LeadingTab /^\t\+/
+au Syntax * syn match LeadingSpace /^\ \+/
+au Syntax * syn match EvilSpace /\(^\t*\)\@<!\t\+/ " tabs not preceeded by tabs
+au Syntax * syn match EvilSpace /[ \t]\+$/ " trailing space
+" }}}
 " {{{ ===== Menus ==============================================================
 set wildmenu
 set wildmode=list:longest,full
@@ -80,38 +89,37 @@ let g:airline_powerline_fonts = 0 "change 0 to 1 if you have a powerline font
 set tabpagemax=15
 set showtabline=2
 set t_Co=256
+set background=dark
 " Solarized - https://github.com/altercation/solarized
 
 "if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    "let g:solarized_termcolors=256
-    "let g:solarized_termtrans=1
-    "let g:solarized_contrast="normal"
-    "let g:solarized_visibility="high"
-    "color solarized " Load a colorscheme
+"    let g:solarized_termcolors=256
+"    let g:solarized_termtrans=1
+"    let g:solarized_contrast="normal"
+"    let g:solarized_visibility="high"
+"    color solarized " Load a colorscheme
 "endif
-"colorscheme lucius
-"LuciusBlack
-"LuciusDark
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
 "colorscheme xoria256
 "colorscheme wombat256
-colorscheme gruvbox
-let g:gruvbox_termcolors = 256
-if !has("gui_running")
-   let g:gruvbox_italic=0
-endif
-  nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-  nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-  nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-
-  nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-  nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-  nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+"colorscheme gruvbox
+"  let g:gruvbox_termcolors = 256
+"  if !has("gui_running")
+"     let g:gruvbox_italic=0
+"  endif
+"    nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+"    nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+"    nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+"
+"    nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+"    nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+"    nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 "colorscheme hybrid
 "colorscheme hemisu
-set background=dark
+colorscheme lucius
+  LuciusBlack
 
 " Highlight if more then 88 chars
 set colorcolumn=81
@@ -162,7 +170,7 @@ set nostartofline  " keep the cursor in the same colon when changing line
 set number
 set scrolloff=3
 set ruler
-"set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)       " if not vim-airline
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)       " if not vim-airline
 set showcmd
 set showmatch      " show matching brackets
 set sidescroll=1
@@ -246,21 +254,64 @@ nmap <Space>x :let @/=''<CR>
 " {{{ ===== Ruby ===============================================================
 au FileType ruby set ts=2 sts=2 et sw=2
 " }}}
+" {{{ ===== Vim To MD and Back ( MARKDOWN) =====================================
+function! VO2MD()
+  let lines = []
+  let was_body = 0
+  for line in getline(1,'$')
+    if line =~ '^\t*[^:\t]'
+      let indent_level = len(matchstr(line, '^\t*'))
+      if was_body " <= remove this line to have body lines separated
+        call add(lines, '')
+      endif " <= remove this line to have body lines separated
+      call add(lines, substitute(line, '^\(\t*\)\([^:\t].*\)', '\=repeat("#", indent_level + 1)." ".submatch(2)', ''))
+      call add(lines, '')
+      let was_body = 0
+    else
+      call add(lines, substitute(line, '^\t*: ', '', ''))
+      let was_body = 1
+    endif
+  endfor
+  silent %d _
+  call setline(1, lines)
+endfunction
+
+function! MD2VO()
+  let lines = []
+  for line in getline(1,'$')
+    if line =~ '^\s*$'
+      continue
+    endif
+    if line =~ '^#\+'
+      let indent_level = len(matchstr(line, '^#\+')) - 1
+      call add(lines, substitute(line, '^#\(#*\) ', repeat("\<Tab>", indent_level), ''))
+    else
+      call add(lines, substitute(line, '^', repeat("\<Tab>", indent_level) . ': ', ''))
+    endif
+  endfor
+  silent %d _
+  call setline(1, lines)
+endfunction
+" }}}
 " {{{ ===== Bash Support Plugin ================================================
 let g:BASH_MapLeader                = ','
 let g:BASH_DoOnNewLine              = 'yes'
 let g:BASH_LineEndCommColDefault    = 49
 let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
-let g:BASH_Company                  = 'IBM Switzerland'
+let g:BASH_Company                  = 'Simbiosi.org'
 " }}}
 " {{{ ===== C Support Plugin ===================================================
-let g:C_MapLeader = ','
-let g:C_ObjExtension = ".o"
-let g:C_ExeExtension = ""
-let g:C_CCompiler = "gcc"
-let g:C_CplusCompiler = "g++"
-let g:C_Man = "man"
+let g:C_MapLeader                   = ','
+let g:C_ObjExtension                = ".o"
+let g:C_ExeExtension                = ""
+let g:C_CCompiler                   = "gcc"
+let g:C_CplusCompiler               = "g++"
+let g:C_Man                         = "man"
+" }}}
+" {{{ ===== Other commands =====================================================
+command! Thtml :%!tidy -q -i --show-errors 0
+command! Txml  :%!tidy -q -i --show-errors 0 -xml
 " }}}
 " {{{ ===== Omni ===============================================================
 set omnifunc=syntaxcomplete#Complete
@@ -314,9 +365,61 @@ let g:vimshell_scrollback_limit = 5000
 " comma separated paths
 let g:notes_directories = ['~/Notes']
 " }}}
+" {{{ ===== NERDTree ===========================================================
+" Open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"Open NERDTree
+map <F10> :NERDTreeToggle<CR>
+"Close vim if the only window left open is a NERDTree?
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" }}}
 " {{{ ===== Auto Commands ======================================================
 au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
 au BufEnter *i3/config setlocal filetype=i3
+augroup WinNumber
+    autocmd!
+    autocmd WinEnter * set number
+    autocmd WinLeave * set nonumber
+augroup END
+" }}}
+" {{{ ===== Ruby foldings ======================================================
+fun! FoldSomething(lnum)
+  let line1=getline(a:lnum)
+  let line2=getline(a:lnum+1)
+  if line1=~'^\s\+#\s[A-Z]\+'
+    return 1
+   if line2=~'^\s\+when'
+     return ">1"
+   elseif line2=~'^$'
+     return 0
+   elseif foldlevel(a:lnum-1)==2
+     return 1
+   endif
+ elseif line1=~'^#\s[A-Z][a-z]'
+   return ">2"
+  endif
+endfun
+
+au FileType rb set foldmethod=expr
+au FileType rb set foldexpr=FoldSomething(v:lnum)
+"au FileType rb set foldcolumn=3
+"function! RubyMethodFold(line)
+  "let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
+"
+  "for synid in stack
+    "if GetSynString(GetSynDict(synid)) ==? "rubyMethodBlock" || GetSynString(GetSynDict(synid)) ==? "rubyDefine" || GetSynString(GetSynDict(synid)) ==? "rubyDocumentation"
+      "return 1
+    "endif
+  "endfor
+"
+  "return 0
+"endfunction
+"
+"au FileType rb set foldexpr=RubyMethodFold(v:lnum)
+"au FileType rb set foldmethod=expr
+
 " }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:

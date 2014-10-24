@@ -33,7 +33,9 @@
 !
 !===============================================================================
 !#include "/home/antenore/.Xcolors/raven_m9-dark"
-#include "/home/antenore/.Xcolors/gruvy"
+!#include "/home/antenore/.Xcolors/gruvy"
+!#include "/home/antenore/.Xcolors/LuciusBlack"
+#include "/home/antenore/.Xcolors/Luciano"
 !Debian (lovely)
 #define DebianRed #D70A53
 !   xterm specific
@@ -48,6 +50,9 @@ Xft.hinting                                   : 1
 Xft.hintstyle                                 : hintfull
 Xft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
+*font xft:Inconsolata:size=9:antialias=true:hinting=true
+*.font xft:Inconsolata:size=9:antialias=true:hinting=true
+*font* xft:Inconsolata:size=9:antialias=true:hinting=true
 ! -END- XFT Section 1}}}
 ! URxvt section {{{1 ===========================================================
 URxvt.termName                                : rxvt-unicode-256color
