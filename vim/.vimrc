@@ -1,6 +1,7 @@
 "================================ .VIMRC =======================================
 " Feautures:
-" - Conditional folding " - Pathogen
+" - Conditional folding
+" - Pathogen
 " - Solarized (+ HI cutomizations)
 " - Bash-support
 " - Vim-Airline
@@ -76,6 +77,11 @@ set wildmenu
 set wildmode=list:longest,full
 set wildchar=<Tab>
 " }}}
+" {{{ ===== Airline ============================================================
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 0 "change 0 to 1 if you have a powerline font
+"set laststatus=2
+" }}}
 " {{{ ===== UI =================================================================
 
 " Tabs
@@ -95,10 +101,24 @@ set background=dark
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
+"colorscheme xoria256
+"colorscheme wombat256
+"colorscheme gruvbox
+"  let g:gruvbox_termcolors = 256
+"  if !has("gui_running")
+"     let g:gruvbox_italic=0
+"  endif
+"    nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+"    nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+"    nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+"
+"    nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+"    nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+"    nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+"colorscheme hybrid
+"colorscheme hemisu
 colorscheme lucius
   LuciusBlack
-"colorscheme xoria256
-"colorscheme hybrid
 
 " Highlight if more then 88 chars
 set colorcolumn=81
@@ -222,11 +242,18 @@ nnoremap <Leader>0 :10b<CR>
 set pastetoggle=<F12>
 map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>
 
-" Insert Date and time 20 Dec 2013 10:39 PM 
+" Insert Date and time 20 Dec 2013 10:39 PM
 imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>
 imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
+
+"for unhighlighing the selections
+nmap <Space>x :let @/=''<CR>
+
 " }}}
-" {{{ ===== Vim To MD and Back =================================================
+" {{{ ===== Ruby ===============================================================
+au FileType ruby set ts=2 sts=2 et sw=2
+" }}}
+" {{{ ===== Vim To MD and Back ( MARKDOWN) =====================================
 function! VO2MD()
   let lines = []
   let was_body = 0
@@ -280,11 +307,23 @@ let g:C_ExeExtension                = ""
 let g:C_CCompiler                   = "gcc"
 let g:C_CplusCompiler               = "g++"
 let g:C_Man                         = "man"
-
 " }}}
 " {{{ ===== Other commands =====================================================
 command! Thtml :%!tidy -q -i --show-errors 0
 command! Txml  :%!tidy -q -i --show-errors 0 -xml
+" }}}
+" {{{ ===== Omni ===============================================================
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+autocmd VimEnter * wincmd w
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 " {{{ ===== Vim Shugo stuff ====================================================
 " Neocomplcache
@@ -320,9 +359,24 @@ let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! 
 let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
 let g:vimshell_max_command_history = 90000
 let g:vimshell_scrollback_limit = 5000
-" ̣}}}
+" }}}
+" {{{ ===== notes.vim ==========================================================
+" comma separated paths
+let g:notes_directories = ['~/Notes']
+" }}}
+" {{{ ===== NERDTree ===========================================================
+" Open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"Open NERDTree
+map <F10> :NERDTreeToggle<CR>
+"Close vim if the only window left open is a NERDTree?
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" }}}
 " {{{ ===== Auto Commands ======================================================
 au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
+au BufEnter *i3/config setlocal filetype=i3
 augroup WinNumber
     autocmd!
     autocmd WinEnter * set number
