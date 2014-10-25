@@ -1,0 +1,51 @@
+! vim: ft=xdefaults
+
+#define c00 #282A2E
+#define c01 #A54242
+#define c02 #8C9440
+#define c03 #DE935F
+#define c04 #5F819D
+#define c05 #85678F
+#define c06 #5E8D87
+#define c07 #8D8F8D
+#define c08 #373B41
+#define c09 #CC6666
+#define c10 #B5BD68
+#define c11 #F0C674
+#define c12 #81A2BE
+#define c13 #B294BB
+#define c14 #8ABEB7
+#define c15 #C5C8C6
+#define cFG #969896
+#define cBG #1D1F21
+
+! black
+*color0: c00
+*color8: c08
+! red
+*color1: c01
+*color9: c09
+! green
+*color2: c02
+*color10: c10
+! yellow
+*color3: c03
+*color11: c11
+! blue
+*color4: c04
+*color12: c12
+! magenta
+*color5: c05
+*color13: c13
+! cyan
+*color6: c06
+*color14: c14
+! white
+*color7: c07
+*color15: c15
+
+*foreground: cFG
+*background: cBG
+
+*cursorColor: cFG
+*colorBD: c15

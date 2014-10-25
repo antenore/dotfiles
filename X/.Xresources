@@ -35,7 +35,8 @@
 !#include "/home/antenore/.Xcolors/raven_m9-dark"
 !#include "/home/antenore/.Xcolors/gruvy"
 !#include "/home/antenore/.Xcolors/LuciusBlack"
-#include "/home/antenore/.Xcolors/Luciano"
+!#include "/home/antenore/.Xcolors/Luciano"
+#include "/home/antenore/.Xcolors/hydra"
 !Debian (lovely)
 #define DebianRed #D70A53
 !   xterm specific
