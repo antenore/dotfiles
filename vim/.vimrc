@@ -118,8 +118,10 @@ set background=dark
 "    nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 "colorscheme hybrid
 "colorscheme hemisu
-colorscheme lucius
-  LuciusBlack
+"colorscheme lucius
+"  LuciusBlack
+
+colorscheme hydra
 
 " Highlight if more then 88 chars
 set colorcolumn=81

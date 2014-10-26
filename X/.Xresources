@@ -35,12 +35,17 @@
 !#include "/home/antenore/.Xcolors/raven_m9-dark"
 !#include "/home/antenore/.Xcolors/gruvy"
 !#include "/home/antenore/.Xcolors/LuciusBlack"
-#include "/home/antenore/.Xcolors/Luciano"
+!#include "/home/antenore/.Xcolors/Luciano"
+#include "/home/antenore/.Xcolors/hydra"
 !Debian (lovely)
 #define DebianRed #D70A53
-!   xterm specific
+! MAN (xterm and generic)
 *VT100.colorBDMode                            : True
 *VT100.colorULMode                            : True
+*VT100.veryBoldColors: 6
+!*colorBD: red
+!*colorIT: cyan
+!*colorUL: yellow
 ! -END- Color Section 1}}}
 ! XFT Section {{{1
 Xft.antialias                                 : 1
