@@ -2,12 +2,12 @@
 §  User Macros
 § =============================================================
 
-SetMacro( 'AUTHOR',      'YOUR NAME' )
-SetMacro( 'AUTHORREF',   '' )
-SetMacro( 'COMPANY',     '' )
-SetMacro( 'COPYRIGHT',   '' )
-SetMacro( 'EMAIL',       '' )
-SetMacro( 'LICENSE',     '' )
+SetMacro( 'AUTHOR',      'Antenore Gatta' )
+SetMacro( 'AUTHORREF',   'agat' )
+SetMacro( 'COMPANY',     'IBM Switzerland' )
+SetMacro( 'COPYRIGHT',   'Antenore Gatta' )
+SetMacro( 'EMAIL',       'agat@ch.ibm.com' )
+SetMacro( 'LICENSE',     'GPLv3' )
 SetMacro( 'ORGANIZATION','' )
 
 SetFormat( 'DATE', '%x' )

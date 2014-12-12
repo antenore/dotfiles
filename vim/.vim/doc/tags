@@ -1,3 +1,5 @@
+Bash_ResetMapLeader()	bashsupport.txt	/*Bash_ResetMapLeader()*
+Bash_SetMapLeader()	bashsupport.txt	/*Bash_SetMapLeader()*
 bash-support	bashsupport.txt	/*bash-support*
 bashsupport	bashsupport.txt	/*bashsupport*
 bashsupport-Ctrl-j	bashsupport.txt	/*bashsupport-Ctrl-j*
@@ -124,7 +126,9 @@ mmtemplates#core#InsertTemplate()	templatesupport.txt	/*mmtemplates#core#InsertT
 mmtemplates#core#JumpToTag()	templatesupport.txt	/*mmtemplates#core#JumpToTag()*
 mmtemplates#core#NewLibrary()	templatesupport.txt	/*mmtemplates#core#NewLibrary()*
 mmtemplates#core#ReadTemplates()	templatesupport.txt	/*mmtemplates#core#ReadTemplates()*
+mmtemplates#core#ResetMapleader()	templatesupport.txt	/*mmtemplates#core#ResetMapleader()*
 mmtemplates#core#Resource()	templatesupport.txt	/*mmtemplates#core#Resource()*
+mmtemplates#core#SetMapleader()	templatesupport.txt	/*mmtemplates#core#SetMapleader()*
 template-support	templatesupport.txt	/*template-support*
 template-support-IncludeFile()	templatesupport.txt	/*template-support-IncludeFile()*
 template-support-MenuShortcut()	templatesupport.txt	/*template-support-MenuShortcut()*
@@ -138,6 +142,7 @@ template-support-SetProperty()	templatesupport.txt	/*template-support-SetPropert
 template-support-SetStyle()	templatesupport.txt	/*template-support-SetStyle()*
 template-support-above	templatesupport.txt	/*template-support-above*
 template-support-adv-files	templatesupport.txt	/*template-support-adv-files*
+template-support-adv-styles	templatesupport.txt	/*template-support-adv-styles*
 template-support-advanced	templatesupport.txt	/*template-support-advanced*
 template-support-api	templatesupport.txt	/*template-support-api*
 template-support-api-access	templatesupport.txt	/*template-support-api-access*
