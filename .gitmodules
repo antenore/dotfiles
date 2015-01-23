@@ -47,3 +47,6 @@
 [submodule "vim/.vim/bundle/gruvbox"]
 	path = vim/.vim/bundle/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "nerdtree.git"]
+	path = /home/antenore/.dotfiles/vim/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
