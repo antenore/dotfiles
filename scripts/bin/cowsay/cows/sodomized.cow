@@ -1,0 +1,13 @@
+$the_cow =
+<<"EOC";
+     t             _
+      t           (_)
+       t ^__^      / \\
+         (oo)\\____/_\\ \\
+         (__)\\       ) /
+             ||----w ((
+             ||     ||>>
+EOC
+
+$the_cow =~ s/oo/$eyes/g;
+$the_cow =~ s/t/$thoughts/g;

@@ -1,0 +1,5 @@
+## Backup old initramfs nouveau image ##
+mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img
+
+## Create new initramfs image ##
+dracut /boot/initramfs-$(uname -r).img $(uname -r)

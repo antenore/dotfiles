@@ -1,0 +1,9 @@
+#!/bin/sh
+#set -x
+cd `dirname "$0"`
+
+#Workaround for eclipse bug with unity, menus don't appear
+export UBUNTU_MENUPROXY=0
+
+#Workaround for gtk bug in natty, load custom gtk lib. Should be safe on other platforms
+LD_PRELOAD="$LD_PRELOAD `pwd`/libnotesgtkfix.so" `pwd`/notes.bin $*

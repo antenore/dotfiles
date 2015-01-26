@@ -1,0 +1,1 @@
+nohup urxvt256c -tr -sh 50 &
