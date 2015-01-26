@@ -49,6 +49,14 @@ set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone
 set viminfo='10,\"1000,:20,%,n~/.viminfo
 " }}}
+" {{{ ===== Functions =============================================
+"A mapping to make a backup of the current file.
+function! WriteBackup()
+  let l:fname = expand('%:p') . '__' . strftime('%Y%m%d%H%M')
+  silent execute 'write' l:fname
+  echomsg 'Wrote' l:fname
+endfunction
+" }}}
 " {{{ ===== Text Formatting/Layout =============================================
 set ai
 set si
@@ -384,6 +392,11 @@ augroup WinNumber
     autocmd!
     autocmd WinEnter * set number
     autocmd WinLeave * set nonumber
+augroup END
+"Security DB ---> BSC Prilly
+augroup sdb
+    au BufEnter *.sdb call WriteBackup()
+    "au BufLeave *.sdb call Destroy_XML_Menu()
 augroup END
 " }}}
 " {{{ ===== Ruby foldings ======================================================

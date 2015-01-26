@@ -9,3 +9,8 @@
 vim/.vim/backup/.*
 vim/.vim/view/.*
 vim/.vim/temp/.*
+scripts/bin/BSNI*
+scripts/bin/fw*
+scripts/bin/EMPTY-fw*
+scripts/bin/zadmi*
+scripts/bin/sas.sh
