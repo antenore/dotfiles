@@ -1,59 +1,77 @@
 #!/bin/bash
-#set -x
+# This is a sample .xinitrc file (to be executed with xinit or startx)
 
-# Logging
-
-exec > >(tee ~/logs/xinit.$$.log)
-exec 2>&1
-
-export BROWSER=firefox
-
-# Make sure this is before the 'exec' command or it won't be sourced.
-[ -f ~/.xprofile ] && source ~/.xprofile
-
-mydisplays=1
-[[ $(xrandr | grep -c " connected ") -eq 2 ]] && mydisplays=2
-[[ $(xrandr | grep -c " connected ") -eq 1 ]] && mydisplays=1
-
-# Fonts
-
-. /etc/profile.d/infinality-settings.sh
-xset +fp /usr/share/fonts/local
-xset +fp ~/.fonts
-xset fp rehash
-
-# Dbus fix
-if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
-    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        [ -x "$f" ] && ; "$f"
+    done
+    unset f
 fi
 
-# Gtk themes 
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# font bullshit
+xset +fp $HOME/.fonts
+xset fp rehash
 
-# Dropbox
-dropboxd &
+# source the Xresources for the terminal
+xrdb -merge ~/.Xresources &
 
-#DEFAULT_SESSION=/usr/bin/awesome
-DEFAULT_SESSION=/usr/bin/i3
-#DEFAULT_SESSION=/usr/bin/spectrwm
+#color profiles
+xcalib -d :0 ~/.color/icc/271S4.icm
 
-case $1 in
-    spectrwm)
-        exec /usr/bin/spectrwm ;;
-    openbox)
-        exec openbox-session ;;
-    awesome)
-        exec awesome ;;
-    i3)
-        if [[ -f ~/.i3/config.$mydisplays ]] ; then
-            exec i3 -c ~/.i3/config.$mydisplays
-        else
-            #default
-            exec i3
-        fi
-        ;;
-    *)
-        exec $DEFAULT_SESSION ;;
+# Ctrl-Alt-Backspace kills the X session
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# sets your keyboard to 'us' keymap
+#setxkbmap us &
+
+# caps lock to backspace
+#setxkbmap -option caps:backspace
+
+# read Xmodmap file - please edit it first
+#xmodmap ~/.Xmodmap &
+
+# helpful to have keycombos set - see also ~/.xbindkeysrc (catwm has its own!)
+#xbindkeys -f ~/.xbindkeysrc &
+
+## DPMS monitor setting (standby suspend off)(seconds)
+xset dpms 300 600 900 &
+
+## for who the bell tolls (percent;pitch;duration)
+## test with xset q | grep bell
+xset b 100 400 100
+
+# make the cursor point in the 'right' direction
+xsetroot -cursor_name left_ptr &
+
+# set a wallpaper
+#hsetroot -tile /foo/bar/image.png &
+eval $(cat ~/.fehbg)
+
+# candy - pick one or none
+#xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
+
+# Stuff I need running
+eval `gnome-keyring-daemon`  # SSH/GPG agent
+urxvt256c-mld -q -o -f
+parcellite -d &
+xscreensaver &
+savtray &
+
+AWT_TOOLKIT=XToolkit ; export AWT_TOOLKIT
+JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
+_JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; export _JAVA_OPTIONS
+JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
+IRONIC_WM_NAME="LG3D" ; export IRONIC_WM_NAME
+
+
+DEFAULTSESSION=i3
+
+case "$1" in
+    openbox) exec openbox-session ;;
+    xfce) exec xfce4-session ;;
+    gnome3) exec gnome-session ;;
+    lxde) exec lxsession ;;
+    i3) exec i3;;
+    spectrwm) exec spectrwm;;
+    *) exec $DEFAULTSESSION ;;
 esac
-
-#export DE=openbox
