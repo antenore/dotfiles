@@ -22,7 +22,7 @@ eval `dircolors ~/.dir_colors`
 # ===========
 
 export EDITOR=vim
-export PATH=~/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
+export PATH=~/bin:/usr/local/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 export PAGER=less
 
 if [ -f /usr/bin/lsb-release ] ; then

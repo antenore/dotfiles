@@ -50,3 +50,6 @@
 [submodule "nerdtree.git"]
 	path = /home/antenore/.dotfiles/vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim-csv.git"]
+	path = /home/antenore/.dotfiles/vim/.vim/bundle/vim-csv.git
+	url = git@github.com:chrisbra/csv.vim.git

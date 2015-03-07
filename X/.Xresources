@@ -65,6 +65,9 @@ URxvt.imLocale                                : ch_FR.UTF-8
 URxvt.loginShell                              : true
 URxvt.saveLines                               : 90000
 URxvt.geometry                                : 160x50
+! To let ctrl bindings work properly
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 !Colors defined in the theme file raven-m9-dark
 ! For transparency enable the following including the foregrounnd background
 !URxvt.transparent                             : true
@@ -84,10 +87,14 @@ URxvt.xftAntialias                            : true
 URxvt.font                                    : xft:Terminus:autohint=true
 URxvt.boldFont                                : xft:Terminus:autohint=true
 URxvt.italicFont                              : xft:Terminus:autohint=true
-URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/terminal.svg
+URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/utilities-terminal.svg
 URxvt.perl-lib                                : /home/antenore/.urxvt
 !URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select,url-select
-URxvt.perl-ext-common                         : default,matcher,clipboard,keyboard-select,url-select
+URxvt.perl-ext-common                         : default,matcher,clipboard,keyboard-select,url-select,font-size
+URxvt.keysym.M-Up                             : perl:font-size:increase
+URxvt.keysym.M-Down                           : perl:font-size:decrease
+URxvt.keysym.M-S-Up                           : perl:font-size:incglobal
+URxvt.keysym.M-S-Down                         : perl:font-size:decglobal
 URxvt.keysym.M-Escape                         : perl:keyboard-select:activate
 URxvt.keysym.M-s                              : perl:keyboard-select:search
 URxvt.keysym.C-Delete                         : perl:matcher:last
