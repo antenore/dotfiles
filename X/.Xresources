@@ -36,7 +36,8 @@
 !#include "/home/antenore/.Xcolors/gruvy"
 !#include "/home/antenore/.Xcolors/LuciusBlack"
 !#include "/home/antenore/.Xcolors/Luciano"
-#include "/home/antenore/.Xcolors/hydra"
+!#include "/home/antenore/.Xcolors/hydra"
+#include "/home/antenore/.Xcolors/solarized"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)

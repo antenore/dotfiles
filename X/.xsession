@@ -53,15 +53,20 @@ eval $(cat ~/.fehbg)
 # Stuff I need running
 eval `gnome-keyring-daemon`  # SSH/GPG agent
 urxvt256c-mld -q -o -f
-parcellite -d &
+#parcellite -d &
+gpaste daemon-reexec
 xscreensaver &
 savtray &
 
-AWT_TOOLKIT=XToolkit ; export AWT_TOOLKIT
-JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
-_JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; export _JAVA_OPTIONS
-JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
-IRONIC_WM_NAME="LG3D" ; export IRONIC_WM_NAME
+AWT_TOOLKIT=XToolkit
+export AWT_TOOLKIT
+#AWT_TOOLKIT=MToolkit ; export AWT_TOOLKIT
+#_JAVA_AWT_WM_NONREPARENTING=1; export _JAVA_AWT_WM_NONREPARENTING
+#_JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; export _JAVA_OPTIONS
+_JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true" ; export _JAVA_OPTIONS
+#IRONIC_WM_NAME="LG3D" ; export IRONIC_WM_NAME
+
+#wmname LG3D
 
 
 DEFAULTSESSION=i3

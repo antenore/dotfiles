@@ -46,7 +46,7 @@
 
 *background:              S_base03
 *foreground:              S_base0
-*fading:                  20
+*fading:                  40
 *fadeColor:               S_base03
 *cursorColor:             S_base1
 *pointerColorBackground:  S_base01
@@ -60,12 +60,11 @@
 *color5:                  S_magenta
 *color6:                  S_cyan
 *color7:                  S_base2
-*color9:                  S_orange
 *color8:                  S_base03
+*color9:                  S_orange
 *color10:                 S_base01
 *color11:                 S_base00
 *color12:                 S_base0
 *color13:                 S_violet
 *color14:                 S_base1
 *color15:                 S_base3
-

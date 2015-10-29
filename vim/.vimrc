@@ -30,6 +30,9 @@ set makeef=error.err
 " {{{ ===== General ============================================================
 set encoding=utf-8
 let mapleader = ","
+"with clipboard=autoselect visual selection should go automatically into primary
+"in case of needs I can user registers "+y
+set clipboard=autoselect
 set autoread
 set autowrite
 set backspace=indent,eol,start
@@ -88,8 +91,10 @@ set wildchar=<Tab>
 " }}}
 " {{{ ===== Airline ============================================================
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 0 "change 0 to 1 if you have a powerline font
-"set laststatus=2
+let g:airline_powerline_fonts=1
+" set laststatus=2
 " }}}
 " {{{ ===== UI =================================================================
 
@@ -100,13 +105,16 @@ set t_Co=256
 set background=dark
 " Solarized - https://github.com/altercation/solarized
 
-"if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-"    let g:solarized_termcolors=256
-"    let g:solarized_termtrans=1
-"    let g:solarized_contrast="normal"
-"    let g:solarized_visibility="high"
-"    color solarized " Load a colorscheme
-"endif
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    "let g:solarized_termcolors=256
+    "let g:solarized_termtrans=1
+    let g:solarized_contrast='high'
+    let g:solarized_visibility='normal'
+    "let g:solarized_bold=0
+    "let g:solarized_underline=0
+    "let g:solarized_italic=0
+    color solarized " Load a colorscheme
+endif
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
@@ -129,7 +137,7 @@ set background=dark
 "colorscheme lucius
 "  LuciusBlack
 
-colorscheme hydra
+"colorscheme hydra
 
 " Highlight if more then 88 chars
 set colorcolumn=81
@@ -193,6 +201,7 @@ set title
 " Python
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+autocmd BufRead *.c,*h set cindent ts=8 st=8 sw=8 noexpandtab
 " }}}
 " {{{ ===== Mappings ===========================================================
 
@@ -394,10 +403,27 @@ augroup WinNumber
     autocmd WinLeave * set nonumber
 augroup END
 "Security DB ---> BSC Prilly
-augroup sdb
-    au BufEnter *.sdb call WriteBackup()
+"augroup sdb
+    "au BufEnter *.sdb call WriteBackup()
     "au BufLeave *.sdb call Destroy_XML_Menu()
-augroup END
+"augroup END
+" }}}
+" {{{ ===== Mutt ===============================================================
+au BufRead /tmp/mutt-* set tw=72
+" }}}
+" {{{ ===== Syntastic ======================================================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_no_include_search = 1
+let g:syntastic_c_no_default_include_dirs = 1
+let g:syntastic_c_checkers = ['gcc']
 " }}}
 " {{{ ===== Ruby foldings ======================================================
 fun! FoldSomething(lnum)
