@@ -103,18 +103,13 @@ set tabpagemax=15
 set showtabline=2
 set t_Co=256
 set background=dark
-" Solarized - https://github.com/altercation/solarized
-
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    "let g:solarized_termcolors=256
-    "let g:solarized_termtrans=1
-    let g:solarized_contrast='high'
-    let g:solarized_visibility='normal'
-    "let g:solarized_bold=0
-    "let g:solarized_underline=0
-    "let g:solarized_italic=0
-    color solarized " Load a colorscheme
-endif
+    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+        color solarized                 " load a colorscheme
+    endif
+        let g:solarized_termtrans=1
+        let g:solarized_termcolors=256
+        let g:solarized_contrast="high"
+        let g:solarized_visibility="high"
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
@@ -152,10 +147,10 @@ set cursorline
 au WinEnter * setlocal cursorline
 au WinLeave * setlocal nocursorline
 set cursorcolumn
-hi CursorColumn term=reverse ctermbg=234 ctermfg=white
+"hi CursorColumn term=reverse ctermbg=234 ctermfg=white
 au WinEnter * setlocal cursorcolumn
 au WinLeave * setlocal nocursorcolumn
-if &term =~ "xterm\\|rxvt"
+if &term =~ "xterm\\|rxvt\\|screen-it\\|screen"
   " use an orange cursor in insert mode
   let &t_SI = "\<Esc>]12;white\x7"
   " use a red cursor otherwise
@@ -164,7 +159,7 @@ if &term =~ "xterm\\|rxvt"
   " reset cursor when vim exits
   autocmd VimLeave * silent !echo -ne "\033]112\007"
 endif
-if &term =~ "xterm\\|rxvt"
+if &term =~ "xterm\\|rxvt\\|screen-it\\|screen"
   " solid underscore
   let &t_SI .= "\<Esc>[6 q"
   " solid block
@@ -272,6 +267,43 @@ nmap <Space>x :let @/=''<CR>
 " }}}
 " {{{ ===== Ruby ===============================================================
 au FileType ruby set ts=2 sts=2 et sw=2
+" }}}
+" {{{ ===== Ruby foldings ======================================================
+fun! FoldSomething(lnum)
+  let line1=getline(a:lnum)
+  let line2=getline(a:lnum+1)
+  if line1=~'^\s\+#\s[A-Z]\+'
+    return 1
+   if line2=~'^\s\+when'
+     return ">1"
+   elseif line2=~'^$'
+     return 0
+   elseif foldlevel(a:lnum-1)==2
+     return 1
+   endif
+ elseif line1=~'^#\s[A-Z][a-z]'
+   return ">2"
+  endif
+endfun
+
+au FileType rb set foldmethod=expr
+au FileType rb set foldexpr=FoldSomething(v:lnum)
+"au FileType rb set foldcolumn=3
+"function! RubyMethodFold(line)
+  "let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
+"
+  "for synid in stack
+    "if GetSynString(GetSynDict(synid)) ==? "rubyMethodBlock" || GetSynString(GetSynDict(synid)) ==? "rubyDefine" || GetSynString(GetSynDict(synid)) ==? "rubyDocumentation"
+      "return 1
+    "endif
+  "endfor
+"
+  "return 0
+"endfunction
+"
+"au FileType rb set foldexpr=RubyMethodFold(v:lnum)
+"au FileType rb set foldmethod=expr
+
 " }}}
 " {{{ ===== Vim To MD and Back ( MARKDOWN) =====================================
 function! VO2MD()
@@ -404,8 +436,8 @@ augroup WinNumber
 augroup END
 "Security DB ---> BSC Prilly
 "augroup sdb
-    "au BufEnter *.sdb call WriteBackup()
-    "au BufLeave *.sdb call Destroy_XML_Menu()
+" au BufEnter *.sdb call WriteBackup()
+" au BufLeave *.sdb call Destroy_XML_Menu()
 "augroup END
 " }}}
 " {{{ ===== Mutt ===============================================================
@@ -420,28 +452,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_c_check_header = 1
-let g:syntastic_c_no_include_search = 1
-let g:syntastic_c_no_default_include_dirs = 1
-let g:syntastic_c_checkers = ['gcc']
-" }}}
-" {{{ ===== Ruby foldings ======================================================
-fun! FoldSomething(lnum)
-  let line1=getline(a:lnum)
-  let line2=getline(a:lnum+1)
-  if line1=~'^\s\+#\s[A-Z]\+'
-    return 1
-   if line2=~'^\s\+when'
-     return ">1"
-   elseif line2=~'^$'
-     return 0
-   elseif foldlevel(a:lnum-1)==2
-     return 1
-   endif
- elseif line1=~'^#\s[A-Z][a-z]'
-   return ">2"
-  endif
-endfun
 
 au FileType rb set foldmethod=expr
 au FileType rb set foldexpr=FoldSomething(v:lnum)

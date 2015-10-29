@@ -1,5 +1,15 @@
+/Content.IE?/	vimtips.txt	/*\/Content.IE?\/*
+Absolutely-essential	vimtips.txt	/*Absolutely-essential*
 Bash_ResetMapLeader()	bashsupport.txt	/*Bash_ResetMapLeader()*
 Bash_SetMapLeader()	bashsupport.txt	/*Bash_SetMapLeader()*
+Best-Global-combined-with-substitute	vimtips.txt	/*Best-Global-combined-with-substitute*
+C	vimtips.txt	/*C*
+C	vimtips.txt	/*C*
+C	vimtips.txt	/*C*
+N	vimtips.txt	/*N*
+N	vimtips.txt	/*N*
+N	vimtips.txt	/*N*
+N	vimtips.txt	/*N*
 bash-support	bashsupport.txt	/*bash-support*
 bashsupport	bashsupport.txt	/*bashsupport*
 bashsupport-Ctrl-j	bashsupport.txt	/*bashsupport-Ctrl-j*
@@ -53,6 +63,9 @@ bashsupport-usage-vim	bashsupport.txt	/*bashsupport-usage-vim*
 bashsupport-windows	bashsupport.txt	/*bashsupport-windows*
 bashsupport-xterm	bashsupport.txt	/*bashsupport-xterm*
 bashsupport.txt	bashsupport.txt	/*bashsupport.txt*
+best-global	vimtips.txt	/*best-global*
+best-searching	vimtips.txt	/*best-searching*
+best-substitution	vimtips.txt	/*best-substitution*
 c-support	csupport.txt	/*c-support*
 csupport	csupport.txt	/*csupport*
 csupport-c++	csupport.txt	/*csupport-c++*
@@ -197,3 +210,4 @@ template-support-templ-visual	templatesupport.txt	/*template-support-templ-visua
 template-support-templates	templatesupport.txt	/*template-support-templates*
 template-support-visual	templatesupport.txt	/*template-support-visual*
 templatesupport.txt	templatesupport.txt	/*templatesupport.txt*
+vimtips.txt	vimtips.txt	/*vimtips.txt*
