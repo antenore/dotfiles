@@ -377,7 +377,7 @@ autocmd VimEnter * wincmd w
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
-" {{{ ===== Vim Shugo stuff ====================================================
+" {{{ ===== Vim Shougo stuff ====================================================
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
@@ -385,14 +385,12 @@ let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'scheme' : $HOME.'/.gosh_completions'
     \ }
 " neosnippet
 imap <C-S-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-S-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-S-k>     <Plug>(neosnippet_expand_target)
-xmap <C-S-l>     <Plug>(neosnippet_start_unite_snippet_target)
 
 " This brake my Super Tab
 "imap <expr><TAB> neosnippet#expandable_or_jumpable() ? " SuperTab like snippets behavior.
@@ -406,11 +404,6 @@ xmap <C-S-l>     <Plug>(neosnippet_start_unite_snippet_target)
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-" Vim-shell
-let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! ")." "'
-let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
-let g:vimshell_max_command_history = 90000
-let g:vimshell_scrollback_limit = 5000
 " }}}
 " {{{ ===== notes.vim ==========================================================
 " comma separated paths
