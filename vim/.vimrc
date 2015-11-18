@@ -92,8 +92,7 @@ set wildchar=<Tab>
 " {{{ ===== Airline ============================================================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
-let g:airline_powerline_fonts = 0 "change 0 to 1 if you have a powerline font
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1 "change 0 to 1 if you have a powerline font
 " set laststatus=2
 " }}}
 " {{{ ===== UI =================================================================
@@ -103,13 +102,13 @@ set tabpagemax=15
 set showtabline=2
 set t_Co=256
 set background=dark
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        color solarized                 " load a colorscheme
-    endif
-        let g:solarized_termtrans=1
-        let g:solarized_termcolors=256
-        let g:solarized_contrast="high"
-        let g:solarized_visibility="high"
+if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+  color solarized                 " load a colorscheme
+endif
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
@@ -226,16 +225,16 @@ map <C-l> <C-W>l
 
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     endif
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <s-tab> <c-n>
 
 " Remap ctrl-] to Enter and ctrl-T to esc to make help sane.
 :au FileType help nnoremap <buffer> <CR> <c-]>
@@ -352,14 +351,6 @@ let g:BASH_AuthorName               = 'Antenore Gatta'
 let g:BASH_Email                    = ''
 let g:BASH_Company                  = 'Simbiosi.org'
 " }}}
-" {{{ ===== C Support Plugin ===================================================
-let g:C_MapLeader                   = ','
-let g:C_ObjExtension                = ".o"
-let g:C_ExeExtension                = ""
-let g:C_CCompiler                   = "gcc"
-let g:C_CplusCompiler               = "g++"
-let g:C_Man                         = "man"
-" }}}
 " {{{ ===== Other commands =====================================================
 command! Thtml :%!tidy -q -i --show-errors 0
 command! Txml  :%!tidy -q -i --show-errors 0 -xml
@@ -374,36 +365,6 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd VimEnter * wincmd w
-" Remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-" }}}
-" {{{ ===== Vim Shougo stuff ====================================================
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
-" neosnippet
-imap <C-S-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-S-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-S-k>     <Plug>(neosnippet_expand_target)
-
-" This brake my Super Tab
-"imap <expr><TAB> neosnippet#expandable_or_jumpable() ? " SuperTab like snippets behavior.
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
 " }}}
 " {{{ ===== notes.vim ==========================================================
 " comma separated paths
@@ -419,6 +380,9 @@ map <F10> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " }}}
+" {{{ ===== Tagbar =============================================================
+nmap <F8> :TagbarToggle<CR>
+" }}}
 " {{{ ===== Auto Commands ======================================================
 au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
 au BufEnter *i3/config setlocal filetype=i3
@@ -427,43 +391,11 @@ augroup WinNumber
     autocmd WinEnter * set number
     autocmd WinLeave * set nonumber
 augroup END
-"Security DB ---> BSC Prilly
-"augroup sdb
-" au BufEnter *.sdb call WriteBackup()
-" au BufLeave *.sdb call Destroy_XML_Menu()
-"augroup END
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 " {{{ ===== Mutt ===============================================================
 au BufRead /tmp/mutt-* set tw=72
-" }}}
-" {{{ ===== Syntastic ======================================================
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-au FileType rb set foldmethod=expr
-au FileType rb set foldexpr=FoldSomething(v:lnum)
-"au FileType rb set foldcolumn=3
-"function! RubyMethodFold(line)
-  "let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
-"
-  "for synid in stack
-    "if GetSynString(GetSynDict(synid)) ==? "rubyMethodBlock" || GetSynString(GetSynDict(synid)) ==? "rubyDefine" || GetSynString(GetSynDict(synid)) ==? "rubyDocumentation"
-      "return 1
-    "endif
-  "endfor
-"
-  "return 0
-"endfunction
-"
-"au FileType rb set foldexpr=RubyMethodFold(v:lnum)
-"au FileType rb set foldmethod=expr
-
 " }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
