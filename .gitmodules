@@ -68,3 +68,24 @@
 [submodule "vim/.vim/bundle/puppet"]
 	path = vim/.vim/bundle/puppet
 	url = git://github.com/rodjek/vim-puppet.git
+[submodule "vim/.vim/bundle/tlib_vim"]
+	path = vim/.vim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/.vim/bundle/vim-addon-mw-utils"]
+	path = vim/.vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/.vim/bundle/vim-snipmate"]
+	path = vim/.vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/.vim/bundle/vim-snippets"]
+	path = vim/.vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/.vim/bundle/command-t"]
+	path = vim/.vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "vim/.vim/bundle/minibufexpl"]
+	path = vim/.vim/bundle/minibufexpl
+	url = git@github.com:fholgado/minibufexpl.vim.git
+[submodule "vim/.vim/bundle/tagbar"]
+	path = vim/.vim/bundle/tagbar
+	url = git@github.com:majutsushi/tagbar.git
