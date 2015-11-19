@@ -7,6 +7,7 @@
 " - Vim-Airline
 "===============================================================================
 " {{{ ===== Before everything else =============================================
+" Vim automatically resets the 'cp' option if it finds a personal vimrc file
 set nocompatible
 filetype plugin indent on
 set foldenable
@@ -378,24 +379,34 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <F10> :NERDTreeToggle<CR>
 "Close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
+let NERDTreeShowLineNumbers=0
 " }}}
 " {{{ ===== Tagbar =============================================================
 nmap <F8> :TagbarToggle<CR>
-" }}}
-" {{{ ===== Auto Commands ======================================================
-au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
-au BufEnter *i3/config setlocal filetype=i3
-augroup WinNumber
-    autocmd!
-    autocmd WinEnter * set number
-    autocmd WinLeave * set nonumber
-augroup END
-" Remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+let g:tagbar_show_linenumbers=0
+let g:tagbar_width=65
+let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:tagbar_indent=1
+let g:tagbar_autopreview=0
 " }}}
 " {{{ ===== Mutt ===============================================================
 au BufRead /tmp/mutt-* set tw=72
+" }}}
+" {{{ ===== Mini Buffer Explorer ===============================================
+" }}}
+" {{{ ===== Folding template ===================================================
+" }}}
+" {{{ ===== Auto Commands ======================================================
+let excludeft = ['tagbar']
+au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
+au BufEnter *i3/config setlocal filetype=i3
+augroup WinNumber
+  autocmd!
+  autocmd BufWinEnter,WinEnter * if index(excludeft, &ft) <0 | set number
+  autocmd BufWinLeave,WinLeave * set nonumber
+augroup END
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
