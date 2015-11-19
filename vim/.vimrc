@@ -383,11 +383,17 @@ let NERDTreeShowLineNumbers=0
 " }}}
 " {{{ ===== Tagbar =============================================================
 nmap <F8> :TagbarToggle<CR>
+" Open tagbar with supported files
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 let g:tagbar_show_linenumbers=0
 let g:tagbar_width=65
 let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:tagbar_indent=1
 let g:tagbar_autopreview=0
+" Open Tagbar automatically inside vim
+" autocmd FileType * nested :call tagbar#autoopen(0)
+" Open Tagbar automatically in the current tab
+" autocmd BufEnter * nested :call tagbar#autoopen(0)
 " }}}
 " {{{ ===== Mutt ===============================================================
 au BufRead /tmp/mutt-* set tw=72
@@ -395,6 +401,9 @@ au BufRead /tmp/mutt-* set tw=72
 " {{{ ===== Mini Buffer Explorer ===============================================
 " }}}
 " {{{ ===== Folding template ===================================================
+" }}}
+" {{{ ===== Mutt ===============================================================
+au BufRead /tmp/mutt-* set tw=72
 " }}}
 " {{{ ===== Auto Commands ======================================================
 let excludeft = ['tagbar']
@@ -405,6 +414,9 @@ augroup WinNumber
   autocmd BufWinEnter,WinEnter * if index(excludeft, &ft) <0 | set number
   autocmd BufWinLeave,WinLeave * set nonumber
 augroup END
+"autocmd FileType nerdtree set nonumber
+"autocmd FileType tagbar set nonumber
+"autocmd FileType minibufexpl set nonumber
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
