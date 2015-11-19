@@ -391,11 +391,24 @@ augroup WinNumber
     autocmd WinEnter * set number
     autocmd WinLeave * set nonumber
 augroup END
+autocmd FileType nerdtree set nonumber
+autocmd FileType tagbar set nonumber
+autocmd FileType minibufexpl set nonumber
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 " {{{ ===== Mutt ===============================================================
 au BufRead /tmp/mutt-* set tw=72
+" }}}
+" {{{ ===== Tagbar =============================================================
+" Open tagbar with supported files
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+" Open Tagbar automatically inside vim
+" autocmd FileType * nested :call tagbar#autoopen(0)
+" Open Tagbar automatically in the current tab
+" autocmd BufEnter * nested :call tagbar#autoopen(0)
+" }}}
+" {{{ ===== Empty Entry ========================================================
 " }}}
 " =============================== EOF ==========================================
 " vim:set ts=2 sts=2 sw=2 expandtab:
