@@ -71,12 +71,6 @@
 [submodule "vim/.vim/bundle/vim-addon-mw-utils"]
 	path = vim/.vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim/.vim/bundle/vim-snipmate"]
-	path = vim/.vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-[submodule "vim/.vim/bundle/vim-snippets"]
-	path = vim/.vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 [submodule "vim/.vim/bundle/command-t"]
 	path = vim/.vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
