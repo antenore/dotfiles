@@ -83,3 +83,9 @@
 [submodule "vim/.vim/bundle/vim-misc"]
 	path = vim/.vim/bundle/vim-misc
 	url = git@github.com:xolox/vim-misc.git
+[submodule "vim/.vim/bundle/neocomplete"]
+	path = vim/.vim/bundle/neocomplete
+	url = git@github.com:Shougo/neocomplete.vim.git
+[submodule "vim/.vim/bundle/neosnippet"]
+	path = vim/.vim/bundle/neosnippet
+	url = git@github.com:Shougo/neosnippet.vim.git
