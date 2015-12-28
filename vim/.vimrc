@@ -533,6 +533,10 @@ augroup END
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 " }}}
+" {{{ ===== VimSafe ============================================================
+" Defined in the plugin
+"set conceallevel=1
+" }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}
 " =============================== EOF ==========================================
