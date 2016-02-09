@@ -479,8 +479,8 @@ endif
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php =
-"\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.php =
+\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:neocomplete#sources#omni#input_patterns.c =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 "let g:neocomplete#sources#omni#input_patterns.cpp =
@@ -536,6 +536,35 @@ autocmd BufWritePre * :%s/\s\+$//e
 " {{{ ===== VimSafe ============================================================
 " Defined in the plugin
 "set conceallevel=1
+" }}}
+" {{{ ===== Doxygen Plugin======================================================
+let g:DoxygenToolkit_authorName= "Antenore Gatta"
+let g:DoxygenToolkit_licenseTag= "Copyright (C) 2014-2016 Antenore Gatta, Giovanni Panozzo\<enter>\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "This program is free software; you can redistribute it and/or modify\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "it under the terms of the GNU General Public License as published by\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "the Free Software Foundation; either version 2 of the License, or\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "(at your option) any later version.\<enter>\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "This program is distributed in the hope that it will be useful,\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "but WITHOUT ANY WARRANTY; without even the implied warranty of\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "GNU General Public License for more details.\<enter>\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "You should have received a copy of the GNU General Public License\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "along with this program; if not, write to the Free Software\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "Foundation, Inc., 51 Franklin Street, Fifth Floor,\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "Boston, MA  02110-1301, USA.\<enter>\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "In addition, as a special exception, the copyright holders give\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "permission to link the code of portions of this program with the\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "OpenSSL library under certain conditions as described in each\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "individual source file, and distribute linked combinations\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "including the two.\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "You must obey the GNU General Public License in all respects\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "for all of the code used other than OpenSSL.\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you modify file(s) with this exception, you may extend this exception\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "to your version of the file(s), but you are not obligated to do so.\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you do not wish to do so, delete this exception statement from your\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "version.\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you delete this exception statement from all source\<enter>"
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "files in the program, then also delete it here.\<enter>"
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}
