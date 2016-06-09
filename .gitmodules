@@ -86,3 +86,6 @@
 [submodule "vim/.vim/bundle/neosnippet"]
 	path = vim/.vim/bundle/neosnippet
 	url = git@github.com:Shougo/neosnippet.vim.git
+[submodule "vim/.vim/bundle/command-t"]
+	path = vim/.vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git
