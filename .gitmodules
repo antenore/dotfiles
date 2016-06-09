@@ -71,9 +71,6 @@
 [submodule "vim/.vim/bundle/vim-addon-mw-utils"]
 	path = vim/.vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim/.vim/bundle/command-t"]
-	path = vim/.vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule "vim/.vim/bundle/minibufexpl"]
 	path = vim/.vim/bundle/minibufexpl
 	url = git@github.com:fholgado/minibufexpl.vim.git
