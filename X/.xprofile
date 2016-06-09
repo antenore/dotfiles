@@ -7,3 +7,4 @@ xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
 parcellite -d &
 xscreensaver &
 urxvtd -q -f -o
+setxkbmap -model pc105 -layout "ch" -variant "fr" -option "grp:alt_shift_toggle"

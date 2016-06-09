@@ -15,7 +15,8 @@ setopt appendhistory autocd extendedglob
 
 # dir_colors
 
-eval `dircolors ~/.dir_colors`
+#eval `dircolors ~/.dir_colors`
+export CLICOLOR=1
 
 
 # Environment
@@ -168,12 +169,6 @@ ZSH_THEME="bira"
 
 # Example aliases
 
-if [ -f /usr/bin/vimx ]; then
-    alias vi=/usr/bin/vimx
-    alias vim=/usr/bin/vimx
-else
-    alias vi=/usr/bin/vim
-fi
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -243,7 +238,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 #randline.sh ~/Dropbox/ENFP-mot.txt
 # Bettter and "built in"
-shuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
+gshuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
 
 source ~/.zshrc.local
 export RI="--format ansi --width 70"

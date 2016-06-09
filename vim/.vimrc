@@ -396,7 +396,9 @@ let g:easytags_suppress_ctags_warning = 1
 
 let g:tagbar_show_linenumbers=0
 let g:tagbar_width=65
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+" DO NOT SPECIFY THE CTAGS BINARY. tagbar detect automatically the one to use
+" on FreeBSD we use extags (detected)
+"let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:tagbar_indent=1
 let g:tagbar_autopreview=0
 " Open Tagbar automatically inside vim

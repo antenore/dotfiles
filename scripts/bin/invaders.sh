@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 #
 # ANSI color scheme script featuring Space Invaders
 #

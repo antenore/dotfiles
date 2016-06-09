@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.23 for tmow on Fri Dec  6 22:10:38 2013.
+# Written by xscreensaver-demo 5.34 for tmow on Fri May 20 20:16:29 2016.
 # http://www.jwz.org/xscreensaver/
 
 timeout:	0:10:00
@@ -251,6 +251,27 @@ programs:								      \
   GL: 				quasicrystal -root			    \n\
   GL: 				unknownpleasures -root			    \n\
   GL: 				geodesic -root				    \n\
+				xaos -root -autopilot -nogui -delay 10000     \
+				  -maxframerate 30 -incoloring -1	      \
+				  -outcoloring -1			    \n\
+				xdaliclock -root -font BUILTIN3 -cycle	    \n\
+				xearth -nofork -ncolors 50 -night 3 -pos      \
+				  sunrel/38/-30 -wait 0			    \n\
+				xmountains -b -M -Z 0 -r 1		    \n\
+	    "XMountains (top)" 	xmountains -b -M -Z 0 -r 1 -m		    \n\
+				xplanet -vroot -wait 1 -timewarp 400	      \
+				  -label -origin moon			    \n\
+-				xsnow -bg SkyBlue3 -solidbg		    \n\
+  GL: 				fireflies -root				    \n\
+				binaryring -root			    \n\
+  GL: 				cityflow -root				    \n\
+  GL: 				geodesicgears -root			    \n\
+  GL: 				projectiveplane -root			    \n\
+  GL: 				romanboy -root				    \n\
+				tessellimage -root			    \n\
+  GL: 				winduprobot -root			    \n\
+  GL: 				splitflap -root				    \n\
+				testx11 -root				    \n\
 
 
 pointerPollTime:    0:00:05
@@ -261,4 +282,5 @@ GetViewPortIsFullOfLies:False
 procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
+authWarningSlack:   20
 
