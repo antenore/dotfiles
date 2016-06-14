@@ -77,6 +77,7 @@ case "$1" in
     gnome3) exec gnome-session ;;
     lxde) exec lxsession ;;
     i3) exec i3;;
+    mate) exec /usr/bin/mate-session ;;
     spectrwm) exec spectrwm;;
     *) exec $DEFAULTSESSION ;;
 esac

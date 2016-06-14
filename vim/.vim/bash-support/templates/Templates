@@ -8,11 +8,13 @@ SetMacro( 'COMPANY',     'IBM Switzerland' )
 SetMacro( 'COPYRIGHT',   'Antenore Gatta' )
 SetMacro( 'EMAIL',       'agat@ch.ibm.com' )
 SetMacro( 'LICENSE',     'GPLv3' )
-SetMacro( 'ORGANIZATION','' )
+SetMacro( 'ORGANIZATION','IBM Switzerland' )
 
 SetFormat( 'DATE', '%x' )
 SetFormat( 'TIME', '%H:%M' )
 SetFormat( 'YEAR', '%Y' )
+SetFormat( 'W', '%W' )
+SetFormat( 'YY', '%y' )
 
 SetStyle( 'default' )
 
