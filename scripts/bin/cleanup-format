@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+clang-format36 -style="{BasedOnStyle: llvm, IndentWidth: 8, AllowShortFunctionsOnASingleLine: None, KeepEmptyLinesAtTheStartOfBlocks: false}" "$@"
