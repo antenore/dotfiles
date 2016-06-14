@@ -1,12 +1,12 @@
-#!/bin/bash - 
+#!/bin/bash -
 #===============================================================================
 #
 #          FILE: json.sh
-# 
-#         USAGE: ./json.sh 
-# 
-#   DESCRIPTION: 
-# 
+#
+#         USAGE: ./json.sh
+#
+#   DESCRIPTION: This is not my work, I don't remember from where I took it
+#
 #       OPTIONS: ---
 #  REQUIREMENTS: ---
 #          BUGS: ---
@@ -120,7 +120,7 @@ parse_array () {
       do
         parse_value "$1" "$index"
         index=$((index+1))
-        ary="$ary""$value" 
+        ary="$ary""$value"
         read -r token
         case "$token" in
           ']') break ;;
@@ -155,7 +155,7 @@ parse_object () {
         esac
         read -r token
         parse_value "$1" "$key"
-        obj="$obj$key:$value"        
+        obj="$obj$key:$value"
         read -r token
         case "$token" in
           '}') break ;;

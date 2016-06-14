@@ -36,8 +36,8 @@ fi
 # History
 # =======
 
-export HISTSIZE=100000  # huge history size
-export SAVEHIST=100000  # save all history when quitting
+export HISTSIZE=200000  # huge history size
+export SAVEHIST=200000  # save all history when quitting
 export HISTFILE=~/.zhistory  # in this file
 setopt share_history  # share history between ttys
 setopt hist_ignore_all_dups  # do not save a command twice
@@ -179,10 +179,10 @@ ZSH_THEME="bira"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -194,7 +194,7 @@ if [ x"$MYDIST" = "x" ] ; then
     else
     case "$MYDIST" in
         fedora)
-            plugins=(git github pythonruby colored-man tnux sudo systemd svn colorize yum)
+            plugins=(nmap colored-man-pages dnf fedora git-remote-branch textastic history zsh_reload compleat gem gpg-agent mercurial svn tmux emoji-clock git python svn-fast-info battery catimg emotty git-extras tmuxinator cp encode64 git-flow systemadmin systemd fancy-ctrl-z github pip git-hubflow)
             ;;
         arch)
             plugins=(git github python tnux sudo systemd svn colorize archlinux)
@@ -208,6 +208,8 @@ if [ x"$MYDIST" = "x" ] ; then
         ;;
     esac
 fi
+
+
 
 source $ZSH/oh-my-zsh.sh
 

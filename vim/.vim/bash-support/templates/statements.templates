@@ -44,8 +44,7 @@ until <CURSOR> ; do
 while <CURSOR> ; do
 <SPLIT>done
 == Statements.function == map:sfu, shortcut:f  ==
-|?FUNCTION_NAME| ()
-{
+|?FUNCTION_NAME| () {
 <CURSOR><SPLIT>
 }	# ----------  end of function |FUNCTION_NAME|  ----------
 == ENDTEMPLATE ==
