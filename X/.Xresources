@@ -32,12 +32,12 @@
 ! Color section {{{1 ===========================================================
 !
 !===============================================================================
-!#include "/home/antenore/.Xcolors/raven_m9-dark"
-!#include "/home/antenore/.Xcolors/gruvy"
-!#include "/home/antenore/.Xcolors/LuciusBlack"
-!#include "/home/antenore/.Xcolors/Luciano"
-!#include "/home/antenore/.Xcolors/hydra"
-#include "/home/antenore/.Xcolors/solarized"
+!#include "/home/tmow/.Xcolors/raven_m9-dark"
+!#include "/home/tmow/.Xcolors/gruvy"
+!#include "/home/tmow/.Xcolors/LuciusBlack"
+!#include "/home/tmow/.Xcolors/Luciano"
+!#include "/home/tmow/.Xcolors/hydra"
+#include "/home/tmow/.Xcolors/gruvbox-dark.xresources"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)
@@ -62,7 +62,7 @@ Xft.rgba                                      : rgb
 ! -END- XFT Section 1}}}
 ! URxvt section {{{2 ===========================================================
 URxvt.termName                                : rxvt-unicode-256color
-URxvt.imLocale                                : ch_FR.UTF-8
+URxvt.imLocale                                : en_US.UTF-8
 URxvt.loginShell                              : true
 URxvt.saveLines                               : 90000
 URxvt.geometry                                : 160x50
@@ -85,13 +85,16 @@ URxvt.xftAntialias                            : true
 !URxvt.font                                    : xft:Inconsolata:size=10:antialias=true:hinting=slight
 !URxvt.boldFont                                : xft:Inconsolata:size=10:antialias=true:hinting=slight
 !URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:hinting=slight
-URxvt.font                                    : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false
-URxvt.boldFont                                : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false:style=bold
-URxvt.italicFont                              : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false:style=italic
+URxvt.font                                    : -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
+URxvt.boldFont                                : -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
+URxvt.italicFont                              : -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
+!URxvt.font                                    : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false
+!URxvt.boldFont                                : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false:style=bold
+!URxvt.italicFont                              : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false:style=italic
 ! Fix font space
 URxvt.letterSpace:                            : -1
 URxvt.iconFile                                : /usr/share/icons/elementary/apps/32/utilities-terminal.svg
-URxvt.perl-lib                                : /home/antenore/.urxvt
+URxvt.perl-lib                                : /home/tmow/.urxvt
 !URxvt.perl-ext-common                         : default,matcher,tabbed,clipboard,keyboard-select,url-select
 URxvt.perl-ext-common                         : default,matcher,clipboard,keyboard-select,url-select,font-size
 URxvt.keysym.M-Up                             : perl:font-size:increase

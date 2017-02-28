@@ -16,7 +16,7 @@ xset fp rehash
 xrdb -merge ~/.Xresources &
 
 #color profiles
-xcalib -d :0 ~/.color/icc/271S4.icm
+#xcalib -d :0 ~/.color/icc/271S4.icm
 
 # Ctrl-Alt-Backspace kills the X session
 setxkbmap -option terminate:ctrl_alt_bksp
@@ -49,14 +49,17 @@ eval $(cat ~/.fehbg)
 
 # candy - pick one or none
 #xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
+compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 
 # Stuff I need running
-eval `gnome-keyring-daemon`  # SSH/GPG agent
-urxvt256c-mld -q -o -f
+#eval `gnome-keyring-daemon`  # SSH/GPG agent
+eval `keychain --eval --agents ssh,gpg id_rsa`
+#urxvt256c-mld -q -o -f
 #parcellite -d &
-gpaste daemon-reexec
+gpaste-client daemon-reexec
 xscreensaver &
-savtray &
+# Screen layout
+~/.screenlayout/home.sh
 
 AWT_TOOLKIT=XToolkit
 export AWT_TOOLKIT
@@ -69,7 +72,7 @@ _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true" ; export _JAVA_OPTIONS
 #wmname LG3D
 
 
-DEFAULTSESSION=i3
+DEFAULTSESSION=xfce4-session
 
 case "$1" in
     openbox) exec openbox-session ;;

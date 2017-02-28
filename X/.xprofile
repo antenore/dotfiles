@@ -2,9 +2,7 @@ USRRESOURCES=$HOME/.Xresources
 
 eval $(cat ~/.fehbg)
 xrdb -load $HOME/.Xresources
-xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
+#xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
 #compton -bcCGf -i 0.8 -e 0.8 --no-fading-openclose --sw-opti
-parcellite -d &
-xscreensaver &
-urxvtd -q -f -o
+compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 setxkbmap -model pc105 -layout "ch" -variant "fr" -option "grp:alt_shift_toggle"

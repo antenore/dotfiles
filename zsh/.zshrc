@@ -204,7 +204,7 @@ if [ x"$MYDIST" = "x" ] ; then
             ;;
         *)
             # Not known (yet) distrib
-            plugins=(git github python tnux sudo systemd svn colorize)
+            plugins=(git github python sudo svn colorize ssh-agent git-remote-branch history zsh_reload compleat gpg-agent tmux git-flow )
         ;;
     esac
 fi
@@ -215,8 +215,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 #Keychain
-keychain id_rsa
-. ~/.keychain/`uname -n`-sh
+#keychain id_rsa
+#. ~/.keychain/`uname -n`-sh
+eval `keychain --eval --agents ssh,gpg id_rsa`
 
 # Default browser
 export BROWSER=/usr/bin/firefox
@@ -240,7 +241,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 #randline.sh ~/Dropbox/ENFP-mot.txt
 # Bettter and "built in"
-gshuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
+#gshuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
+shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
 
 source ~/.zshrc.local
 export RI="--format ansi --width 70"

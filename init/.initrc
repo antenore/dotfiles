@@ -1,10 +1,13 @@
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
 . /etc/profile.d/infinality-settings.sh
-xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
+#xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
+compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 gnome-settings-daemon &      # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
 gnome-power-manager &        # for laptops and stuff
 gnome-volume-manager &       # for mounting CDs, USB sticks, and such
-eval `gnome-keyring-daemon`  # SSH/GPG agent
+gpaste-client daemon-reexec
+#eval `gnome-keyring-daemon`  # SSH/GPG agent
+eval `keychain --eval --agents ssh,gpg id_rsa`
 if which urxvt256cd >/dev/null 2>&1; then
     urxvt256cd -q -o -f
 fi

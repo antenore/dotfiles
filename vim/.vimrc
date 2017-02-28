@@ -104,20 +104,24 @@ let g:airline_powerline_fonts = 1 "change 0 to 1 if you have a powerline font
 set tabpagemax=15
 set showtabline=2
 "set t_Co=256
-set background=dark
-if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-  "let g:solarized_termtrans=1
-  "let g:solarized_termcolors=256
-  "let g:solarized_contrast="high"
-  "let g:solarized_visibility="high"
-  color solarized                 " load a colorscheme
-endif
+"SOL set background=dark
+"SOL if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+  "SOL "let g:solarized_termtrans=1
+  "SOL "let g:solarized_termcolors=256
+  "SOL "let g:solarized_contrast="high"
+  "SOL "let g:solarized_visibility="high"
+  "SOL color solarized                 " load a colorscheme
+"SOL endif
+
 "let g:hybrid_use_Xresources = 1
 "colorscheme hybrid
 "colorscheme neverland
 "colorscheme xoria256
 "colorscheme wombat256
-"colorscheme gruvbox
+colorscheme gruvbox
+let g:gruvbox_termcolors=16
+set background=dark
+
 "  let g:gruvbox_termcolors = 256
 "  if !has("gui_running")
 "     let g:gruvbox_italic=0
@@ -414,12 +418,10 @@ let g:tagbar_autopreview=0
 au BufRead /tmp/mutt-* set tw=72
 " }}}
 " {{{ ===== Shougo/neo* plugins ================================================
-" NEOCOMPLETE
-let g:neocomplete#enable_at_startup=1
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
