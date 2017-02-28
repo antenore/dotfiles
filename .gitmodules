@@ -12,16 +12,16 @@
 	url = https://github.com/Shougo/vimshell.vim.git
 [submodule "vim/.vim/bundle/vimproc.vim"]
 	path = vim/.vim/bundle/vimproc.vim
-	url = git@github.com:Shougo/vimproc.vim.git
+	url = https://github.com/Shougo/vimproc.vim.git
 [submodule "vim/.vim/bundle/unite.vim"]
 	path = vim/.vim/bundle/unite.vim
 	url = https://github.com/Shougo/unite.vim.git
 [submodule "vim/.vim/bundle/neocomplcache.vim"]
 	path = vim/.vim/bundle/neocomplcache.vim
-	url = git@github.com:Shougo/neocomplcache.vim.git
+	url = https://github.com/Shougo/neocomplcache.vim.git
 [submodule "vim/.vim/bundle/neosnippet.vim"]
 	path = vim/.vim/bundle/neosnippet.vim
-	url = git@github.com:Shougo/neosnippet.vim.git
+	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule "vim/.vim/bundle/pep8"]
 	path = vim/.vim/bundle/pep8
 	url = https://github.com/nvie/vim-pep8.git
@@ -37,7 +37,7 @@
 	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/.vim/bundle/neosnippet-snippets"]
 	path = vim/.vim/bundle/neosnippet-snippets
-	url = git@github.com:Shougo/neosnippet-snippets.git
+	url = https://github.com/Shougo/neosnippet-snippets.git
 [submodule "vim/.vim/bundle/vim-notes"]
 	path = vim/.vim/bundle/vim-notes
 	url = https://github.com/xolox/vim-notes.git
@@ -46,7 +46,7 @@
 	url = https://github.com/morhetz/gruvbox.git
 [submodule "vim-csv.git"]
 	path = /home/antenore/.dotfiles/vim/.vim/bundle/vim-csv.git
-	url = git@github.com:chrisbra/csv.vim.git
+	url = https://github.com/chrisbra/csv.vim.git
 [submodule "vim/.vim/bundle/nerdtree"]
 	path = vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -71,21 +71,18 @@
 [submodule "vim/.vim/bundle/vim-addon-mw-utils"]
 	path = vim/.vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim/.vim/bundle/minibufexpl"]
-	path = vim/.vim/bundle/minibufexpl
-	url = git@github.com:fholgado/minibufexpl.vim.git
 [submodule "vim/.vim/bundle/tagbar"]
 	path = vim/.vim/bundle/tagbar
-	url = git@github.com:majutsushi/tagbar.git
+	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/.vim/bundle/vim-misc"]
 	path = vim/.vim/bundle/vim-misc
-	url = git@github.com:xolox/vim-misc.git
+	url = https://github.com/xolox/vim-misc.git
 [submodule "vim/.vim/bundle/neocomplete"]
 	path = vim/.vim/bundle/neocomplete
-	url = git@github.com:Shougo/neocomplete.vim.git
+	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "vim/.vim/bundle/neosnippet"]
 	path = vim/.vim/bundle/neosnippet
-	url = git@github.com:Shougo/neosnippet.vim.git
+	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule "vim/.vim/bundle/command-t"]
 	path = vim/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
@@ -95,3 +92,9 @@
 [submodule "vim/.vim/bundle/vim-snippets"]
 	path = vim/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "vim/.vim/bundle/minibufexpl"]
+	path = vim/.vim/bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "vim/.vim/bundle/gruvbox.git"]
+	path = vim/.vim/bundle/gruvbox.git
+	url = https://github.com/morhetz/gruvbox.git
