@@ -1,6 +1,3 @@
-# fonts
-
-# font for window titles. ISO 10646 = Unicode
 #font -*-anorexia-medium-*-*-*-11-*-*-*-*-*-iso10646-1
 font pango:Monaco, Icons 8
 
@@ -9,21 +6,13 @@ floating_modifier Mod4
 new_window none
 new_float 1pixel
 
-# colors
-
-#class                  border  backgr. text
-client.focused          #121212 #101010 #9e8a8e
-client.focused_inactive #101010 #191919 #999999
-client.unfocused        #101010 #191919 #999999
-client.urgent           #cd989a #cd989a #2e3436
-
 client.background       #1d1d1d
 
 # keybinds
 # start a terminal
 
 #bindsym Mod4+Return exec /usr/local/bin/st -e tmux
-bindsym Mod4+Return exec /usr/local/bin/st -e tmux
+bindsym Mod4+Return exec /usr/local/bin/st -e tmux attach
 bindsym Mod4+Shift+Return exec /usr/local/bin/st
 # kill focused window
 bindsym Mod4+Shift+c kill
@@ -44,10 +33,10 @@ bindsym Mod4+Up focus up
 bindsym Mod4+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+l move left
-bindsym Mod4+Shift+k move down
-bindsym Mod4+Shift+i move up
-bindsym Mod4+Shift+j move right
+bindsym Mod4+Shift+h move left
+bindsym Mod4+Shift+j move down
+bindsym Mod4+Shift+k move up
+bindsym Mod4+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym Mod4+Shift+Left move left
@@ -61,12 +50,12 @@ bindsym Mod4+h split h
 bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen
+bindsym Mod4+f fullscreen toggle
 
 # change container layout (stacked, tabbed, default)
 bindsym Mod4+s layout stacking
 bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout default
+bindsym Mod4+e layout toggle split
 
 # toggle tiling / floating
 bindsym Mod4+Shift+space floating toggle
@@ -83,100 +72,122 @@ bindsym Mod4+a focus parent
 # Switch back to most recent workspace
 workspace_auto_back_and_forth yes
 
+# move the currently focused window to the scratchpad
+bindsym Mod1+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod1+minus scratchpad show
+
 # Each workspace its own screen
-workspace 1 output LVDS1
-workspace 2 output LVDS1
-workspace 3 output LVDS1
-workspace 4 output LVDS1
+workspace "1: Mail"   output LVDS1
+workspace "2: Files"  output LVDS1
+workspace "3: Office" output LVDS1
+workspace "4: DevDoc" output LVDS1
 workspace 5 output LVDS1
 workspace 6 output LVDS1
-workspace "11: terms" output VGA1
-workspace "12:" output VGA1
-workspace "13:" output VGA1
-workspace "14:" output VGA1
-workspace "15:" output VGA1
-workspace "16:" output VGA1
-workspace "17:" output VGA1
-workspace "18:" output VGA1
-workspace "19:" output VGA1
-workspace "20: web" output VGA1
+workspace 7 output LVDS1
+workspace 8 output LVDS1
+workspace 9 output LVDS1
+workspace 10 output LVDS1
+workspace "11: Terms"     output VGA1
+workspace "12: Debug"     output VGA1
+workspace "13: Remmina"   output VGA1
+workspace "14: Gimp"      output VGA1
+workspace 15              output VGA1
+workspace 16              output VGA1
+workspace 17              output VGA1
+workspace 18              output VGA1
+workspace "19: Incognito" output VGA1
+workspace "20: Web"       output VGA1
 # switch to workspace
-bindsym Mod4+1 workspace 1: main
-bindsym Mod4+2 workspace 2
-bindsym Mod4+3 workspace 3
-bindsym Mod4+4 workspace 4
-bindsym Mod4+5 workspace 5
-bindsym Mod4+6 workspace 6
-bindsym Mod4+F1 workspace "11: terms"
-bindsym Mod4+F2 workspace "12:"
-bindsym Mod4+F3 workspace "13:"
-bindsym Mod4+F4 workspace "14:"
-bindsym Mod4+F5 workspace "15:"
-bindsym Mod4+F6 workspace "16:"
-bindsym Mod4+F7 workspace "17:"
-bindsym Mod4+F8 workspace "18:"
-bindsym Mod4+F9 workspace "19:"
-bindsym Mod4+F10 workspace "20: web"
+bindsym Mod4+1   workspace "1: Mail"
+bindsym Mod4+2   workspace "2: Files"
+bindsym Mod4+3   workspace "3: Office"
+bindsym Mod4+4   workspace "4: DevDoc"
+bindsym Mod4+5   workspace 5
+bindsym Mod4+6   workspace 6
+bindsym Mod4+7   workspace 7
+bindsym Mod4+8   workspace 8
+bindsym Mod4+9   workspace 9
+bindsym Mod4+10  workspace 10
+bindsym Mod4+F1  workspace "11: Terms"
+bindsym Mod4+F2  workspace "12: Debug"
+bindsym Mod4+F3  workspace "13: Remmina"
+bindsym Mod4+F4  workspace "14: Gimp"
+bindsym Mod4+F5  workspace 15
+bindsym Mod4+F6  workspace 16
+bindsym Mod4+F7  workspace 17
+bindsym Mod4+F8  workspace 18
+bindsym Mod4+F9  workspace "19: Incognito"
+bindsym Mod4+F10 workspace "20: Web"
 
 # move focused container to workspace
-bindsym Mod4+Shift+1  move workspace "1: main"
-bindsym Mod4+Shift+2  move workspace 2
-bindsym Mod4+Shift+3  move workspace 3
-bindsym Mod4+Shift+4  move workspace 4
-bindsym Mod4+Shift+5  move workspace 5
-bindsym Mod4+Shift+6  move workspace 6
-bindsym Mod4+Shift+F1 move workspace "11: terms"
-bindsym Mod4+Shift+F2 move workspace "12:"
-bindsym Mod4+Shift+F3 move workspace "13:"
-bindsym Mod4+Shift+F4 move workspace "14:"
-bindsym Mod4+Shift+F5 move workspace "15:"
-bindsym Mod4+Shift+F6 move workspace "16:"
-bindsym Mod4+Shift+F7 move workspace "17:"
-bindsym Mod4+Shift+F8 move workspace "18:"
-bindsym Mod4+Shift+F9 move workspace "19:"
-bindsym Mod4+Shift+F10  move workspace "20: web"
+bindsym Mod4+Shift+1   move workspace "1: Mail"
+bindsym Mod4+Shift+2   move workspace "2: Files"
+bindsym Mod4+Shift+3   move workspace "3: Office"
+bindsym Mod4+Shift+4   move workspace "4: DevDoc"
+bindsym Mod4+Shift+5   move workspace 5
+bindsym Mod4+Shift+6   move workspace 6
+bindsym Mod4+Shift+7   move workspace 7
+bindsym Mod4+Shift+8   move workspace 8
+bindsym Mod4+Shift+9   move workspace 9
+bindsym Mod4+Shift+10  move workspace 10
+bindsym Mod4+Shift+F1  move workspace "11: Terms"
+bindsym Mod4+Shift+F2  move workspace "12: Debug"
+bindsym Mod4+Shift+F3  move workspace "13: Remmina"
+bindsym Mod4+Shift+F4  move workspace "14: Gimp"
+bindsym Mod4+Shift+F5  move workspace 15
+bindsym Mod4+Shift+F6  move workspace 16
+bindsym Mod4+Shift+F7  move workspace 17
+bindsym Mod4+Shift+F8  move workspace 18
+bindsym Mod4+Shift+F9  move workspace "19: Incognito"
+bindsym Mod4+Shift+F10 move workspace "20: Web"
+
+# Reload config
+bindsym Mod4+Shift+i reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+q exit
+bindsym Mod4+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # They resize the border in the direction you pressed, e.g.
-        # when pressing left, the window is resized so that it has
-        # more space on its left
+# They resize the border in the direction you pressed, e.g.
+# when pressing left, the window is resized so that it has
+# more space on its left
 
-        bindsym l               resize shrink left 10 px or 10 ppt
-        bindsym Shift+l         resize grow   left 10 px or 10 ppt
+    bindsym l               resize shrink left 10 px or 10 ppt
+    bindsym Shift+l         resize grow   left 10 px or 10 ppt
 
-        bindsym k               resize shrink down 10 px or 10 ppt
-        bindsym Shift+k         resize grow   down 10 px or 10 ppt
+    bindsym k               resize shrink down 10 px or 10 ppt
+    bindsym Shift+k         resize grow   down 10 px or 10 ppt
 
-        bindsym i               resize shrink up 10 px or 10 ppt
-        bindsym Shift+i         resize grow   up 10 px or 10 ppt
+    bindsym i               resize shrink up 10 px or 10 ppt
+    bindsym Shift+i         resize grow   up 10 px or 10 ppt
 
-        bindsym j       resize shrink right 10 px or 10 ppt
-        bindsym Shift+j resize grow   right 10 px or 10 ppt
+    bindsym j       resize shrink right 10 px or 10 ppt
+    bindsym Shift+j resize grow   right 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink left 10 px or 10 ppt
-        bindsym Shift+Left  resize grow   left 10 px or 10 ppt
+# same bindings, but for the arrow keys
+    bindsym Left        resize shrink left 10 px or 10 ppt
+    bindsym Shift+Left  resize grow   left 10 px or 10 ppt
 
-        bindsym Down        resize shrink down 10 px or 10 ppt
-        bindsym Shift+Down  resize grow   down 10 px or 10 ppt
+    bindsym Down        resize shrink down 10 px or 10 ppt
+    bindsym Shift+Down  resize grow   down 10 px or 10 ppt
 
-        bindsym Up          resize shrink up 10 px or 10 ppt
-        bindsym Shift+Up    resize grow   up 10 px or 10 ppt
+    bindsym Up          resize shrink up 10 px or 10 ppt
+    bindsym Shift+Up    resize grow   up 10 px or 10 ppt
 
-        bindsym Right       resize shrink right 10 px or 10 ppt
-        bindsym Shift+Right resize grow   right 10 px or 10 ppt
+    bindsym Right       resize shrink right 10 px or 10 ppt
+    bindsym Shift+Right resize grow   right 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym Mod4+r mode "resize"
@@ -185,38 +196,43 @@ bindsym Mod4+r mode "resize"
 bindsym 0xff61 exec scrot  ~/Images/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
 
 # Sound
-
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Browser
-
 bindsym XF86HomePage exec luakit
 bindsym XF86Mail exec luakit -u myopera.com
 
+# File manager
+bindsym Mod4+Shift+f exec st -e ranger
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Automatically putting clients on specific workspaces
+assign [class="Claws-mail"] → "1: Mail"
+assign [title="ranger"] → "2: Files"
+assign [title="Devhelp — Assistant"] → "4: DevDoc"
+assign [class="st-256color"] → "11: Terms"
+assign [class="Remmina"] → "13: Remmina"
+assign [class="Waterfox"] → "20: Web"
 
 bar {
-    mode dock
+  mode dock
     status_command i3status -c /home/tmow/.i3/i3status.conf
     position bottom
-    #font -*-anorexia-medium-*-*-*-11-*-*-*-*-*-*-*
-    #font pango:DejaVu Sans Mono, Icons 8
     font pango:Monaco 9
     workspace_buttons yes
     colors {
-        background #101010
-        statusline #999999
-        focused_workspace #825969 #191919
-        active_workspace #825969 #101010
-        inactive_workspace #9a878f #191919
-        urgent_workspace #2e3436 #9a878f
+        separator #928374
+        background #282828
+        statusline #ebdbb2
+        focused_workspace #689d6a #689d6a #282828
+        active_workspace #1d2021 #1d2021 #928374
+        inactive_workspace #32302f #32302f #928374
+        urgent_workspace #cc241d #cc241d #ebdbb2
     }
 }
 
-#assign application to workspace
-assign [class="Firefox"] → "20: web"
-assign [class="Opera"] → "20: web"
+client.focused #689d6a #689d6a #282828 #282828
+client.focused_inactive #1d2021 #1d2021 #928374 #282828
+client.unfocused #32302f #32302f #928374 #282828
+client.urgent #cc241d #cc241d #ebdbb2 #282828
