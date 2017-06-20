@@ -98,3 +98,12 @@
 [submodule "vim/.vim/bundle/gruvbox.git"]
 	path = vim/.vim/bundle/gruvbox.git
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "vim/.vim/bundle/vim-racer"]
+	path = vim/.vim/bundle/vim-racer
+	url = https://github.com/ebfe/vim-racer
+[submodule "vim/.vim/bundle/rust.vim.git"]
+	path = vim/.vim/bundle/rust.vim.git
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/.vim/bundle/vim-dues"]
+	path = vim/.vim/bundle/vim-dues
+	url = https://github.com/ajmwagar/vim-dues.git
