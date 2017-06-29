@@ -118,8 +118,15 @@ set showtabline=2
 "colorscheme neverland
 "colorscheme xoria256
 "colorscheme wombat256
-colorscheme gruvbox
-let g:gruvbox_termcolors=16
+
+"gruvbox
+"colorscheme gruvbox
+"let g:gruvbox_termcolors=16
+
+" https://github.com/ajmwagar/vim-deus
+colors deus
+set termguicolors
+
 set background=dark
 
 "  let g:gruvbox_termcolors = 256
@@ -580,6 +587,14 @@ set tags+=~/.vim/tags/glib
 let g:devhelpSearch=1
 let g:devhelpAssistant=1
 let g:devhelpSearchKey = '<S-F5>'
+" }}}
+" {{{ ===== Rust plugins and settings===========================================
+let g:racer_cmd = "/home/tmow/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}

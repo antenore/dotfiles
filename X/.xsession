@@ -59,7 +59,7 @@ eval `keychain --eval --agents ssh,gpg id_rsa`
 gpaste-client daemon-reexec
 xscreensaver &
 # Screen layout
-~/.screenlayout/home.sh
+~/.screenlayout/home-single.sh
 
 AWT_TOOLKIT=XToolkit
 export AWT_TOOLKIT

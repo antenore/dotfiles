@@ -61,7 +61,8 @@ compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 # Stuff I need running
 #eval `gnome-keyring-daemon`  # SSH/GPG agent
 xscreensaver &
-savtray &
+nm-applet &
+#savtray &
 
 AWT_TOOLKIT=XToolkit
 export AWT_TOOLKIT

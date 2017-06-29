@@ -201,8 +201,8 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Browser
-bindsym XF86HomePage exec luakit
-bindsym XF86Mail exec luakit -u myopera.com
+bindsym XF86HomePage exec firefox
+bindsym XF86Mail exec claws-mail
 
 # File manager
 bindsym Mod4+Shift+f exec st -e ranger

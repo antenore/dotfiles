@@ -1,20 +1,26 @@
 § =============================================================
-§  User Macros
+§  Interface Version
+§
+§  enable advanced features
 § =============================================================
 
-SetMacro( 'AUTHOR',      'Antenore Gatta' )
-SetMacro( 'AUTHORREF',   'agat' )
-SetMacro( 'COMPANY',     'IBM Switzerland' )
-SetMacro( 'COPYRIGHT',   'Antenore Gatta' )
-SetMacro( 'EMAIL',       'agat@ch.ibm.com' )
-SetMacro( 'LICENSE',     'GPLv3' )
-SetMacro( 'ORGANIZATION','IBM Switzerland' )
+InterfaceVersion ( "1.0" )
+
+§ =============================================================
+§  Settings
+§ =============================================================
+
+SetMacro( 'AUTHOR',       'YOUR NAME' )
+SetMacro( 'AUTHORREF',    '' )
+SetMacro( 'EMAIL',        '' )
+SetMacro( 'ORGANIZATION', '' )
+SetMacro( 'COMPANY',      '' )
+SetMacro( 'COPYRIGHT',    'Copyright (c) |YEAR|, |AUTHOR|' )
+SetMacro( 'LICENSE',      'GNU General Public License' )
 
 SetFormat( 'DATE', '%x' )
-SetFormat( 'TIME', '%H:%M' )
+SetFormat( 'TIME', '%X' )
 SetFormat( 'YEAR', '%Y' )
-SetFormat( 'W', '%W' )
-SetFormat( 'YY', '%y' )
 
 SetStyle( 'default' )
 
@@ -43,3 +49,20 @@ IncludeFile( 'shelloptions.templates'    )
 IncludeFile( 'io-redirection.templates'  )
 IncludeFile( 'patternmatching.templates' )
 
+§ =============================================================
+§  Help
+§
+§  help English:
+§  - pick up the word under the cursor
+§  - delete non-word characters before calling the help
+§  - the word is always included in the URL in lowercase,
+§    which seems to work better
+§ =============================================================
+
+SetMacro( 'HelpPathEnglish', 'http://en.wiktionary.org/wiki/' )
+
+== HELP: Help.English == map:he, sc:e ==
+|Word( '' )|
+|Substitute( '\W', '', 'g' )|
+|Browser( '|HelpPathEnglish||PICK:l|' )|
+== ENDTEMPLATE ==
