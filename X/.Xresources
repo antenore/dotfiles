@@ -85,10 +85,11 @@ URxvt.xftAntialias                            : true
 !URxvt.font                                    : xft:Inconsolata:size=10:antialias=true:hinting=slight
 !URxvt.boldFont                                : xft:Inconsolata:size=10:antialias=true:hinting=slight
 !URxvt.italicFont                              : xft:Inconsolata:size=10:antialias=true:hinting=slight
-URxvt.font                                    : -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
-URxvt.boldFont                                : -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
-URxvt.italicFont                              : -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
+!URxvt.font                                    : -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
+!URxvt.boldFont                                : -*-terminus-bold-r-normal-*-12-*-*-*-*-*-*-*
+!URxvt.italicFont                              : -*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
 !URxvt.font                                    : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false
+URxvt.font                                     : xft:Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true
 !URxvt.boldFont                                : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false:style=bold
 !URxvt.italicFont                              : xft:Inconsolata:pixelsize=12:lcdfilter=lcddefault:hintstyle=hintfull:hinting=true:rgba=rgb:antialias=true:autohint=false:style=italic
 ! Fix font space
@@ -361,216 +362,226 @@ xpdf*urlCommand                               : firefox %s
 ! https://davedavenport.github.io/rofi/
 !
 !===============================================================================
-! Enabled modi
-rofi.modi:                           window,run,ssh
-! Window opacity
-rofi.opacity:                        100
-! Window width
+! "Enabled modi" Set from: XResources
+rofi.modi:                           window,run,drun,ssh,keys
+! "Window width" Set from: XResources
 rofi.width:                          50
-! Number of lines
+! "Number of lines" Set from: XResources
 rofi.lines:                          15
-! Number of columns
+! "Number of columns" Set from: XResources
 rofi.columns:                        1
-! Font to use
-rofi.font:                           mono 12
-! Color scheme for normal row
-rofi.color-normal:                   #002b37, #819396, #002b37, #003642, #819396
-! Color scheme for urgent row
-rofi.color-urgent:                   #002b37, #da4281, #002b37, #003642, #da4281
-! Color scheme for active row
-rofi.color-active:                   #002b37, #008ed4, #002b37, #003642, #008ed4
-! Color scheme window
-rofi.color-window:                   #002b37, #002b37, #003642
-! Border width
+! "Font to use" Set from: XResources
+rofi.font:                           Mono 12
+! "Color scheme for normal row" Set from: XResources
+rofi.color-normal:                   argb:0fdf6e3, #44ebdbb2, argb:0eee8d5, argb:0586e75, #ebdbb2
+! "Color scheme for urgent row" Set from: XResources
+rofi.color-urgent:                   argb:0fdf6e3, #dc322f, argb:0eee8d5, argb:0dc322f, #fdf6e3
+! "Color scheme for active row" Set from: XResources
+rofi.color-active:                   argb:0fdf6e3, #268bd2, argb:0eee8d5, argb:0268bd2, #fdf6e3
+! "Color scheme window" Set from: XResources
+rofi.color-window:                   argb:ee282828, #282828, #000000
+! "Border width" Set from: XResources
 rofi.bw:                             1
-! Location on screen
+! "Location on screen" Set from: XResources
 rofi.location:                       0
-! Padding
+! "Padding" Set from: XResources
 rofi.padding:                        5
-! Y-offset relative to location
+! "Y-offset relative to location" Set from: XResources
 rofi.yoffset:                        0
-! X-offset relative to location
+! "X-offset relative to location" Set from: XResources
 rofi.xoffset:                        0
-! Always show number of lines
+! "Always show number of lines" Set from: XResources
 rofi.fixed-num-lines:                false
-! Terminal to use
-rofi.terminal:                       rofi-sensible-terminal
-! Ssh client to use
+! "Terminal to use" Set from: XResources
+rofi.terminal:                       /usr/local/bin/st
+! "Ssh client to use" Set from: XResources
 rofi.ssh-client:                     ssh
-! Ssh command to execute
-rofi.ssh-command:                    {terminal} -e {ssh-client} {host}
-! Run command to execute
+! "Ssh command to execute" Set from: XResources
+rofi.ssh-command:                    {terminal} -e tmux attach \; new-window {ssh-client} {host} \; detach -P
+! "Run command to execute" Set from: XResources
 rofi.run-command:                    {cmd}
-! Command to get extra run targets
+! "Command to get extra run targets" Set from: XResources
 rofi.run-list-command:
-! Run command to execute that runs in shell
+! "Run command to execute that runs in shell" Set from: XResources
 rofi.run-shell-command:              {terminal} -e {cmd}
-! Command executed on accep-entry-custom for window modus
+! "Command executed on accep-entry-custom for window modus" Set from: XResources
 rofi.window-command:                 xkill -id {window}
-! Disable history in run/ssh
+! "Disable history in run/ssh" Set from: XResources
 rofi.disable-history:                false
-! Use levenshtein sorting
+! "Use levenshtein sorting" Set from: XResources
 rofi.levenshtein-sort:               false
-! Set case-sensitivity
+! "Set case-sensitivity" Set from: XResources
 rofi.case-sensitive:                 false
-! Enable sidebar-mode
+! "Cycle through the results list" Set from: Default
+! rofi.cycle:                          true
+! "Enable sidebar-mode" Set from: XResources
 rofi.sidebar-mode:                   false
-! Row height (in chars)
+! "Row height (in chars)" Set from: XResources
 rofi.eh:                             1
-! Enable auto select mode
+! "Enable auto select mode" Set from: XResources
 rofi.auto-select:                    false
-! Parse hosts file for ssh mode
+! "Parse hosts file for ssh mode" Set from: XResources
 rofi.parse-hosts:                    false
-! Parse known_hosts file for ssh mode
+! "Parse known_hosts file for ssh mode" Set from: XResources
 rofi.parse-known-hosts:              true
-! Set the modi to combine in combi mode
+! "Set the modi to combine in combi mode" Set from: XResources
 rofi.combi-modi:                     window,run
-! Do a more fuzzy matching
-rofi.fuzzy:                          false
-! Use glob matching
-rofi.glob:                           false
-! Use regex matching
-rofi.regex:                          false
-! Tokenize input string
+! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
+! rofi.matching:                       normal
+! "Tokenize input string" Set from: XResources
 rofi.tokenize:                       true
-! Monitor id to show on
+! "Monitor id to show on" Set from: XResources
 rofi.m:                              -1
-! Margin between rows
+! "Margin between rows" Set from: XResources
 rofi.line-margin:                    2
-! Pre-set filter
+! "Padding within rows" Set from: Default
+! rofi.line-padding:                   1
+! "Pre-set filter" Set from: XResources
 rofi.filter:
-! Separator style (none, dash, solid)
+! "Separator style (none, dash, solid)" Set from: XResources
 rofi.separator-style:                dash
-! Hide scroll-bar
+! "Hide scroll-bar" Set from: XResources
 rofi.hide-scrollbar:                 false
-! Fullscreen
+! "Fullscreen" Set from: XResources
 rofi.fullscreen:                     false
-! Fake transparency
+! "Fake transparency" Set from: XResources
 rofi.fake-transparency:              false
-! DPI
+! "DPI" Set from: XResources
 rofi.dpi:                            -1
-! Threads to use for string matching
+! "Threads to use for string matching" Set from: XResources
 rofi.threads:                        1
-! Scrollbar width
+! "Scrollbar width" Set from: XResources
 rofi.scrollbar-width:                8
-! Scrolling method. (0: Page, 1: Centered)
+! "Scrolling method. (0: Page, 1: Centered)" Set from: XResources
 rofi.scroll-method:                  0
-! Background to use for fake transparency. (background or screenshot)
+! "Background to use for fake transparency. (background or screenshot)" Set from: XResources
 rofi.fake-background:                screenshot
-! Pidfile location
+! "Window Format. w (desktop name), t (title), n (name), r (role), c (class)" Set from: Default
+! rofi.window-format:                  {w}   {c}   {t}
+! "Click outside the window to exit" Set from: Default
+! rofi.click-to-exit:                  true
+! "Indicate how it match by underlining it." Set from: Default
+! rofi.show-match:                     true
+! "Pidfile location" Set from: XResources
 rofi.pid:                            /run/user/1000/rofi.pid
-! Keybinding
+! "Paste primary selection" Set from: XResources
 rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
-! Keybinding
+! "Paste clipboard" Set from: XResources
 rofi.kb-secondary-paste:             Control+v,Insert
-! Keybinding
+! "Clear input line" Set from: XResources
 rofi.kb-clear-line:                  Control+u
-! Keybinding
+! "Beginning of line" Set from: XResources
 rofi.kb-move-front:                  Control+a
-! Keybinding
+! "End of line" Set from: XResources
 rofi.kb-move-end:                    Control+e
-! Keybinding
+! "Move back one word" Set from: XResources
 rofi.kb-move-word-back:              Alt+b
-! Keybinding
+! "Move forward one word" Set from: XResources
 rofi.kb-move-word-forward:           Alt+f
-! Keybinding
+! "Move back one char" Set from: XResources
 rofi.kb-move-char-back:              Left,Control+b
-! Keybinding
+! "Move forward one char" Set from: XResources
 rofi.kb-move-char-forward:           Right,Control+f
-! Keybinding
+! "Delete previous word" Set from: XResources
 rofi.kb-remove-word-back:            Control+Alt+h
-! Keybinding
+! "Delete next word" Set from: XResources
 rofi.kb-remove-word-forward:         Control+Alt+d
-! Keybinding
+! "Delete next char" Set from: XResources
 rofi.kb-remove-char-forward:         Delete,Control+d
-! Keybinding
+! "Delete previous char" Set from: XResources
 rofi.kb-remove-char-back:            BackSpace,Control+h
-! Keybinding
+! "Delete till the end of line" Set from: Default
+! rofi.kb-remove-to-eol:               Control+k
+! "Delete till the start of line" Set from: Default
+! rofi.kb-remove-to-sol:               Control+u
+! "Accept entry" Set from: XResources
 rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
-! Keybinding
+! "Use entered text as command (in ssh/run modi)" Set from: XResources
 rofi.kb-accept-custom:               Control+Return,Shift+Return
-! Keybinding
-rofi.kb-mode-next:                   Shift+Right,Control+Tab
-! Keybinding
-rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
-! Keybinding
-rofi.kb-toggle-case-sensitivity:     grave,dead_grave
-! Keybinding
+! "Use alternate accept command." Set from: Default
+! rofi.kb-accept-alt:                  Shift+Return
+! "Delete entry from history" Set from: XResources
 rofi.kb-delete-entry:                Shift+Delete
-! Keybinding
+! "Switch to the next mode." Set from: XResources
+rofi.kb-mode-next:                   Shift+Right,Control+Tab
+! "Switch to the previous mode." Set from: XResources
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
+! "Go to the previous column" Set from: XResources
 rofi.kb-row-left:                    Control+Page_Up
-! Keybinding
+! "Go to the next column" Set from: XResources
 rofi.kb-row-right:                   Control+Page_Down
-! Keybinding
+! "Select previous entry" Set from: XResources
 rofi.kb-row-up:                      Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab
-! Keybinding
+! "Select next entry" Set from: XResources
 rofi.kb-row-down:                    Down,Control+n
-! Keybinding
+! "Go to next row, if one left, accept it, if no left next mode." Set from: XResources
 rofi.kb-row-tab:                     Tab
-! Keybinding
+! "Go to the previous page" Set from: XResources
 rofi.kb-page-prev:                   Page_Up
-! Keybinding
+! "Go to the next page" Set from: XResources
 rofi.kb-page-next:                   Page_Down
-! Keybinding
+! "Go to the first entry" Set from: XResources
 rofi.kb-row-first:                   Home,KP_Home
-! Keybinding
+! "Go to the last entry" Set from: XResources
 rofi.kb-row-last:                    End,KP_End
-! Keybinding
+! "Set selected item as input text" Set from: XResources
 rofi.kb-row-select:                  Control+space
-! Keybinding
-rofi.kb-cancel:                      Escape,Control+bracketleft
-! Keybinding
-rofi.kb-custom-1:                    Alt+1
-! Keybinding
-rofi.kb-custom-2:                    Alt+2
-! Keybinding
-rofi.kb-custom-3:                    Alt+3
-! Keybinding
-rofi.kb-custom-4:                    Alt+4
-! Keybinding
-rofi.kb-custom-5:                    Alt+5
-! Keybinding
-rofi.kb-custom-6:                    Alt+6
-! Keybinding
-rofi.kb-custom-7:                    Alt+7
-! Keybinding
-rofi.kb-custom-8:                    Alt+8
-! Keybinding
-rofi.kb-custom-9:                    Alt+9
-! Keybinding
-rofi.kb-custom-10:                   Alt+0
-! Keybinding
-rofi.kb-custom-11:                   Alt+Shift+1
-! Keybinding
-rofi.kb-custom-12:                   Alt+Shift+2
-! Keybinding
-rofi.kb-custom-13:                   Alt+Shift+3
-! Keybinding
-rofi.kb-custom-14:                   Alt+Shift+4
-! Keybinding
-rofi.kb-custom-15:                   Alt+Shift+5
-! Keybinding
-rofi.kb-custom-16:                   Alt+Shift+6
-! Keybinding
-rofi.kb-custom-18:                   Alt+Shift+8
-! Keybinding
-rofi.kb-custom-17:                   Alt+Shift+7
-! Keybinding
-rofi.kb-custom-19:                   Alt+Shift+9
-! Keybinding
+! "Take a screenshot of the rofi window" Set from: XResources
 rofi.kb-screenshot:                  Alt+Shift+S
-! Keybinding
+! "Toggle case sensitivity" Set from: XResources
+rofi.kb-toggle-case-sensitivity:     grave,dead_grave
+! "Toggle sort" Set from: XResources
 rofi.kb-toggle-sort:                 Alt+grave
-! The display name of this browser
+! "Quit rofi" Set from: XResources
+rofi.kb-cancel:                      Escape,Control+bracketleft
+! "Custom keybinding 1" Set from: XResources
+rofi.kb-custom-1:                    Alt+1
+! "Custom keybinding 2" Set from: XResources
+rofi.kb-custom-2:                    Alt+2
+! "Custom keybinding 3" Set from: XResources
+rofi.kb-custom-3:                    Alt+3
+! "Custom keybinding 4" Set from: XResources
+rofi.kb-custom-4:                    Alt+4
+! "Custom Keybinding 5" Set from: XResources
+rofi.kb-custom-5:                    Alt+5
+! "Custom keybinding 6" Set from: XResources
+rofi.kb-custom-6:                    Alt+6
+! "Custom Keybinding 7" Set from: XResources
+rofi.kb-custom-7:                    Alt+7
+! "Custom keybinding 8" Set from: XResources
+rofi.kb-custom-8:                    Alt+8
+! "Custom keybinding 9" Set from: XResources
+rofi.kb-custom-9:                    Alt+9
+! "Custom keybinding 10" Set from: XResources
+rofi.kb-custom-10:                   Alt+0
+! "Custom keybinding 11" Set from: XResources
+rofi.kb-custom-11:                   Alt+Shift+1
+! "Custom keybinding 12" Set from: XResources
+rofi.kb-custom-12:                   Alt+Shift+2
+! "Csutom keybinding 13" Set from: XResources
+rofi.kb-custom-13:                   Alt+Shift+3
+! "Custom keybinding 14" Set from: XResources
+rofi.kb-custom-14:                   Alt+Shift+4
+! "Custom keybinding 15" Set from: XResources
+rofi.kb-custom-15:                   Alt+Shift+5
+! "Custom keybinding 16" Set from: XResources
+rofi.kb-custom-16:                   Alt+Shift+6
+! "Custom keybinding 17" Set from: XResources
+rofi.kb-custom-17:                   Alt+Shift+7
+! "Custom keybinding 18" Set from: XResources
+rofi.kb-custom-18:                   Alt+Shift+8
+! "Custom Keybinding 19" Set from: XResources
+rofi.kb-custom-19:                   Alt+Shift+9
+! "The display name of this browser" Set from: XResources
 rofi.display-ssh:
-! The display name of this browser
+! "The display name of this browser" Set from: XResources
 rofi.display-run:
-! The display name of this browser
+! "The display name of this browser" Set from: XResources
 rofi.display-drun:
-! The display name of this browser
+! "The display name of this browser" Set from: XResources
 rofi.display-window:
-! The display name of this browser
+! "The display name of this browser" Set from: XResources
 rofi.display-windowcd:
-! The display name of this browser
+! "The display name of this browser" Set from: XResources
 rofi.display-combi:
-! -END- XPDF }}}
+! -END- Rofi }}}

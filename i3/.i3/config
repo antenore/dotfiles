@@ -16,9 +16,11 @@ bindsym Mod4+Return exec /usr/local/bin/st -e tmux attach
 bindsym Mod4+Shift+Return exec /usr/local/bin/st
 # kill focused window
 bindsym Mod4+Shift+c kill
-# start dmenu
-bindsym Mod4+p exec dmenu_run -fn  "-*-anorexia-medium-*-*-*-11-*-*-*-*-*-*-*" -nb "#101010" -nf "#999999" -sb "#191919" -sf "#825969" -b
-bindsym Mod4+Shift+p exec i3-dmenu-desktop
+bindsym Mod4+p exec rofi -show run
+bindsym Mod4+Shift+p exec rofi -show drun
+bindsym Mod4+Shift+l exec ~/bin/ilock.sh
+bindsym Mod4+o exec rofi -show ssh
+bindsym Mod4+Tab exec rofi -show window
 
 # change focus
 #bindsym Mod4+j focus right
@@ -33,12 +35,6 @@ bindsym Mod4+Up focus up
 bindsym Mod4+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+h move left
-bindsym Mod4+Shift+j move down
-bindsym Mod4+Shift+k move up
-bindsym Mod4+Shift+l move right
-
-# alternatively, you can use the cursor keys:
 bindsym Mod4+Shift+Left move left
 bindsym Mod4+Shift+Down move down
 bindsym Mod4+Shift+Up move up
@@ -53,6 +49,7 @@ bindsym Mod4+v split v
 bindsym Mod4+f fullscreen toggle
 
 # change container layout (stacked, tabbed, default)
+
 bindsym Mod4+s layout stacking
 bindsym Mod4+w layout tabbed
 bindsym Mod4+e layout toggle split
@@ -67,7 +64,7 @@ bindsym Mod4+space focus mode_toggle
 bindsym Mod4+a focus parent
 
 # focus the child container
-#bindsym Mod1+d focus child
+bindsym Mod1+d focus child
 
 # Switch back to most recent workspace
 workspace_auto_back_and_forth yes
@@ -196,9 +193,9 @@ bindsym Mod4+r mode "resize"
 bindsym 0xff61 exec scrot  ~/Images/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
 
 # Sound
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Browser
 bindsym XF86HomePage exec firefox

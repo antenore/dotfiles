@@ -120,11 +120,11 @@ set showtabline=2
 "colorscheme wombat256
 
 "gruvbox
-"colorscheme gruvbox
-"let g:gruvbox_termcolors=16
+colorscheme gruvbox
+let g:gruvbox_termcolors=16
 
 " https://github.com/ajmwagar/vim-deus
-colors deus
+"colors deus
 set termguicolors
 
 set background=dark
@@ -595,6 +595,19 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+" }}}
+" {{{ ===== Syntastic ===========================================================
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_c_checkers = ['syntastic-c-clang_check']
+let g:syntastic_sh_checkers = ['syntastic-sh-shellcheck']
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}

@@ -107,3 +107,6 @@
 [submodule "vim/.vim/bundle/vim-dues"]
 	path = vim/.vim/bundle/vim-dues
 	url = https://github.com/ajmwagar/vim-dues.git
+[submodule "vim/.vim/bundle/vim-syntastic"]
+	path = vim/.vim/bundle/vim-syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
