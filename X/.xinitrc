@@ -56,7 +56,7 @@ eval $(cat ~/.fehbg)
 
 # candy - pick one or none
 #xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
-compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
+#compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 
 # Stuff I need running
 #eval `gnome-keyring-daemon`  # SSH/GPG agent

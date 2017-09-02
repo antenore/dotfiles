@@ -49,7 +49,7 @@ eval $(cat ~/.fehbg)
 
 # candy - pick one or none
 #xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
-compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
+#compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 
 # Stuff I need running
 #eval `gnome-keyring-daemon`  # SSH/GPG agent
@@ -60,6 +60,8 @@ gpaste-client daemon-reexec
 xscreensaver &
 # Screen layout
 ~/.screenlayout/home-single.sh
+# Dropbox
+~/.dropbox-dist/dropboxd &
 
 AWT_TOOLKIT=XToolkit
 export AWT_TOOLKIT
@@ -72,7 +74,7 @@ _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true" ; export _JAVA_OPTIONS
 #wmname LG3D
 
 
-DEFAULTSESSION=xfce4-session
+DEFAULTSESSION=openbox-session
 
 case "$1" in
     openbox) exec openbox-session ;;
@@ -82,5 +84,7 @@ case "$1" in
     i3) exec i3;;
     mate) exec /usr/bin/mate-session ;;
     spectrwm) exec spectrwm;;
+    e16) exec e16;;
+    ENLIGHTENMENT) enlightenment_start;;
     *) exec $DEFAULTSESSION ;;
 esac
