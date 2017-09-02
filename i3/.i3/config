@@ -211,6 +211,7 @@ assign [title="Devhelp — Assistant"] → "4: DevDoc"
 assign [class="st-256color"] → "11: Terms"
 assign [class="Remmina"] → "13: Remmina"
 assign [class="Waterfox"] → "20: Web"
+assign [class="Firefox"] → "20: Web"
 
 bar {
   mode dock
