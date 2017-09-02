@@ -1,7 +1,7 @@
 [[ -f ~/.Xresources ]] && xrdb ~/.Xresources
 . /etc/profile.d/infinality-settings.sh
 #xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
-compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
+#compton -bcCGf --shadow-red 0.2 --shadow-green 0.3 --shadow-blue 0.2
 gnome-settings-daemon &      # handles themes, starts gnome-screensaver. You may have to use gconf to disable it setting the background.
 gnome-power-manager &        # for laptops and stuff
 gnome-volume-manager &       # for mounting CDs, USB sticks, and such
