@@ -609,6 +609,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_c_checkers = ['syntastic-c-clang_check']
 let g:syntastic_sh_checkers = ['syntastic-sh-shellcheck']
 " }}}
+" {{{ ===== LaTeX ==============================================================
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+" }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}
 " =============================== EOF ==========================================
