@@ -74,7 +74,7 @@ _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true" ; export _JAVA_OPTIONS
 #wmname LG3D
 
 
-DEFAULTSESSION=openbox-session
+DEFAULTSESSION=dwm
 
 case "$1" in
     openbox) exec openbox-session ;;
@@ -82,6 +82,7 @@ case "$1" in
     gnome3) exec gnome-session ;;
     lxde) exec lxsession ;;
     i3) exec i3;;
+    i3) exec /usr/local/bin/dwm;;
     mate) exec /usr/bin/mate-session ;;
     spectrwm) exec spectrwm;;
     e16) exec e16;;
