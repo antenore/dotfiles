@@ -154,3 +154,6 @@
 [submodule "vim/.vim/bundle/vim-deus"]
 	path = vim/.vim/bundle/vim-deus
 	url = https://github.com/ajmwagar/vim-deus.git
+[submodule "vim/.vim/bundle/syntax"]
+	path = vim/.vim/bundle/syntax
+	url = https://github.com/mboughaba/i3config.vim.git
