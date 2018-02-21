@@ -147,3 +147,9 @@
 	path = vim/.vim/bundle/vim-syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
         ignore = dirty
+[submodule "vim/.vim/bundle/vim-markdown.git"]
+	path = vim/.vim/bundle/vim-markdown.git
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/.vim/bundle/vim-deus"]
+	path = vim/.vim/bundle/vim-deus
+	url = https://github.com/ajmwagar/vim-deus.git
