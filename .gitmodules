@@ -68,10 +68,6 @@
 	path = vim/.vim/bundle/puppet
 	url = git://github.com/rodjek/vim-puppet.git
         ignore = dirty
-[submodule "vim/.vim/bundle/tlib_vim"]
-	path = vim/.vim/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim.git
-        ignore = dirty
 [submodule "vim/.vim/bundle/vim-addon-mw-utils"]
 	path = vim/.vim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
