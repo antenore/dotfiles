@@ -18,14 +18,6 @@
 	path = vim/.vim/bundle/unite.vim
 	url = https://github.com/Shougo/unite.vim.git
         ignore = dirty
-[submodule "vim/.vim/bundle/neocomplcache.vim"]
-	path = vim/.vim/bundle/neocomplcache.vim
-	url = https://github.com/Shougo/neocomplcache.vim.git
-        ignore = dirty
-[submodule "vim/.vim/bundle/neosnippet.vim"]
-	path = vim/.vim/bundle/neosnippet.vim
-	url = https://github.com/Shougo/neosnippet.vim.git
-        ignore = dirty
 [submodule "vim/.vim/bundle/pep8"]
 	path = vim/.vim/bundle/pep8
 	url = https://github.com/nvie/vim-pep8.git
@@ -43,10 +35,6 @@
 [submodule "vim/.vim/bundle/vim-rails"]
 	path = vim/.vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
-        ignore = dirty
-[submodule "vim/.vim/bundle/neosnippet-snippets"]
-	path = vim/.vim/bundle/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets.git
         ignore = dirty
 [submodule "vim/.vim/bundle/vim-notes"]
 	path = vim/.vim/bundle/vim-notes
@@ -99,14 +87,6 @@
 [submodule "vim/.vim/bundle/vim-misc"]
 	path = vim/.vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
-        ignore = dirty
-[submodule "vim/.vim/bundle/neocomplete"]
-	path = vim/.vim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
-        ignore = dirty
-[submodule "vim/.vim/bundle/neosnippet"]
-	path = vim/.vim/bundle/neosnippet
-	url = https://github.com/Shougo/neosnippet.vim.git
         ignore = dirty
 [submodule "vim/.vim/bundle/command-t"]
 	path = vim/.vim/bundle/command-t
