@@ -1,7 +1,3 @@
-[submodule "vim/.vim/bundle/vim-airline"]
-	path = vim/.vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
-        ignore = dirty
 [submodule "vim/.vim/bundle/vim-colors-solarized"]
 	path = vim/.vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
@@ -157,3 +153,9 @@
 [submodule "vim/.vim/bundle/syntax"]
 	path = vim/.vim/bundle/syntax
 	url = https://github.com/mboughaba/i3config.vim.git
+[submodule "vim/.vim/bundle/vim-puppet"]
+	path = vim/.vim/bundle/vim-puppet
+	url = git://github.com/rodjek/vim-puppet.git
+[submodule "vim/.vim/bundle/vim-surround"]
+	path = vim/.vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
