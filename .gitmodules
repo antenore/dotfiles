@@ -24,10 +24,6 @@
 	url = https://github.com/antenore/vim-safe.git
         ignore = dirty
 	branch = master
-[submodule "vim/.vim/bundle/vim-yankitute"]
-	path = vim/.vim/bundle/vim-yankitute
-	url = https://github.com/idanarye/vim-yankitute.git
-        ignore = dirty
 [submodule "vim/.vim/bundle/vim-rails"]
 	path = vim/.vim/bundle/vim-rails
 	url = https://github.com/tpope/vim-rails.git
