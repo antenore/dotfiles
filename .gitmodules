@@ -84,10 +84,6 @@
 	path = vim/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
         ignore = dirty
-[submodule "vim/.vim/bundle/vim-snipmate"]
-	path = vim/.vim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-        ignore = dirty
 [submodule "vim/.vim/bundle/vim-snippets"]
 	path = vim/.vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
