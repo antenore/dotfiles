@@ -1,14 +1,14 @@
 "===============================================================================
 "
 "          File:  mmtemplates#core.vim
-" 
+"
 "   Description:  Template engine: Core.
 "
 "                 Maps & Menus - Template Engine
-" 
+"
 "   VIM Version:  7.0+
 "        Author:  Wolfgang Mehner, wolfgang-mehner@web.de
-"  Organization:  
+"  Organization:
 "       Version:  see variable g:Templates_Version below
 "       Created:  30.08.2011
 "      Revision:  11.02.2013
@@ -81,6 +81,7 @@ let s:StandardMacros = {
 			\ 'SUFFIX'         : '',
 			\ 'TIME'           : '%X',
 			\ 'YEAR'           : '%Y',
+			\ 'WEEK'           : '%U',
 			\ }
 "
 "----------------------------------------------------------------------
@@ -316,7 +317,7 @@ endfunction    " ----------  end of function s:GetNormalizedPath  ----------
 "
 ""----------------------------------------------------------------------
 "  s:UserInput : Input after a highlighted prompt.   {{{2
-"  
+"
 "  3. argument : optional completion
 "  4. argument : optional list, if the 3. argument is 'customlist'
 "
@@ -857,7 +858,7 @@ let s:FileReadNameSpace = {
 function! s:SetFormat ( name, replacement )
 	"
 	" check for valid name
-	if a:name !~ 'TIME\|DATE\|YEAR'
+	if a:name !~ 'TIME\|DATE\|YEAR\|WEEK'
 		call s:ErrorMsg ( 'Can not set the format of: '.a:name )
 		return
 	endif
@@ -1043,7 +1044,7 @@ function! s:IncludeFile ( templatefile, ... )
 			"  state: command
 			" ==================================================
 			"
-			" empty line? 
+			" empty line?
 			if empty ( line )
 				continue
 			endif
@@ -1577,7 +1578,7 @@ function! s:CheckStdTempl ( cmds, text, calls )
 		if ! empty ( m_flag ) | let m_flag = ':'.m_flag | endif
 		"
 		" insert a normal macro
-		let text = s:LiteralReplacement ( text, 
+		let text = s:LiteralReplacement ( text,
 					\ mlist[0], ms.m_name.m_flag.me, 'g' )
 		"
 	endwhile
@@ -2602,6 +2603,7 @@ function! mmtemplates#core#InsertTemplate ( library, t_name, ... ) range
 	let s:t_runtime.macros[ 'DATE' ]     = strftime( s:library.macros[ 'DATE' ] )
 	let s:t_runtime.macros[ 'TIME' ]     = strftime( s:library.macros[ 'TIME' ] )
 	let s:t_runtime.macros[ 'YEAR' ]     = strftime( s:library.macros[ 'YEAR' ] )
+	let s:t_runtime.macros[ 'WEEK' ]     = strftime( s:library.macros[ 'WEEK' ] )
 	"
 	" handle folds internally (and save the state)
 	if &foldenable
@@ -3323,7 +3325,7 @@ function! mmtemplates#core#ChooseStyle ( library, style )
 	" pick the style
 	if a:style == '!pick'
 		try
-			let style = s:UserInput( 'Style (currently '.t_lib.current_style.') : ', '', 
+			let style = s:UserInput( 'Style (currently '.t_lib.current_style.') : ', '',
 						\ 'customlist', t_lib.styles )
 		catch /Template:UserInputAborted/
 			return

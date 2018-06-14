@@ -188,26 +188,26 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-if [ x"$MYDIST" = "x" ] ; then
-        # Not known (yet) distrib
-        plugins=(git github python ruby colored-man tnux sudo systemd svn colorize)
-    else
-    case "$MYDIST" in
-        fedora)
-            plugins=(nmap colored-man-pages dnf fedora git-remote-branch textastic history zsh_reload compleat gem gpg-agent mercurial svn tmux emoji-clock git python svn-fast-info battery catimg emotty git-extras tmuxinator cp encode64 git-flow systemadmin systemd fancy-ctrl-z github pip git-hubflow)
-            ;;
-        arch)
-            plugins=(git github python tnux sudo systemd svn colorize archlinux)
-            ;;
-        ubuntu)
-            plugins=(git github python tnux sudo systemd svn colorize debian)
-            ;;
-        *)
-            # Not known (yet) distrib
-            plugins=(git github python sudo svn colorize ssh-agent git-remote-branch history zsh_reload compleat gpg-agent tmux git-flow )
+cmn_plugins=(battery catimg colored-man colored-man-pages colorize compleat cp \
+    dnf emoji-clock emoji emotty encode64 fancy-ctrl-z gemcw git git-extras git-flow \
+    github git-hubflow git-remote-branch gpg-agent history mercurial nmap pip \
+    python ruby ssh-agent sudo svn svn-fast-info systemadmin systemd textastic \
+    tmux tmuxinator zsh_reload)
+case "$MYDIST" in
+    fedora)
+        plugins=(${cmn_plugins[@]} fedora)
         ;;
-    esac
-fi
+    arch)
+        plugins=(${cmn_plugins[@]} archlinux)
+        ;;
+    ubuntu)
+        plugins=(${cmn_plugins[@]} ubuntu)
+        ;;
+    *)
+        # Not known (yet) distrib
+        plugins=(${cmn_plugins[@]})
+        ;;
+esac
 
 
 
@@ -242,9 +242,20 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #randline.sh ~/Dropbox/ENFP-mot.txt
 # Bettter and "built in"
 #gshuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
-shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+if which shuffle >/dev/null 2>&1 ; then
+    shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+elif which shuf >/dev/null 2>&1; then
+    shuf ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+
+fi
 
 source ~/.zshrc.local
 export RI="--format ansi --width 70"
 export WINEARCH=win32
 #wmname LG3D
+
+PATH="/home/antenore/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/antenore/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/antenore/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/antenore/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/antenore/perl5"; export PERL_MM_OPT;

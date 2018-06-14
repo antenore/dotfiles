@@ -1,14 +1,14 @@
 "===============================================================================
 "
 "          File:  mmtemplates#core.vim
-" 
+"
 "   Description:  Template engine: Core.
 "
 "                 Maps & Menus - Template Engine
-" 
+"
 "   VIM Version:  7.0+
 "        Author:  Wolfgang Mehner, wolfgang-mehner@web.de
-"  Organization:  
+"  Organization:
 "       Version:  see variable g:Templates_Version below
 "       Created:  30.08.2011
 "      Revision:  30.09.2015
@@ -269,6 +269,7 @@ let s:StandardMacros = {
 			\ 'DATE_PRETTY3'   : '%x',
 			\ 'TIME'           : '%X',
 			\ 'TIME_PRETTY'    : '%X',
+			\ 'WEEK'           : '%U',
 			\ 'YEAR'           : '%Y',
 			\ 'YEAR_PRETTY'    : '%Y',
 			\ 'TIME_LOCALE'    : '',
@@ -573,7 +574,7 @@ endfunction    " ----------  end of function s:GetNormalizedPath  ----------
 "
 "----------------------------------------------------------------------
 "  s:UserInput : Input after a highlighted prompt.   {{{2
-"  
+"
 "  3. argument : optional completion
 "  4. argument : optional list, if the 3. argument is 'customlist'
 "
@@ -1449,7 +1450,7 @@ function! s:SetFormat ( name, replacement )
 	if a:name !~ s:library.regex_file.MacroName
 		call s:ErrorMsg ( 'Macro name must be a valid identifier: '.a:name )
 		return
-	elseif a:name !~ '^\%(TIME.*\|DATE.*\|YEAR.*\)'
+	elseif a:name !~ '^\%(TIME.*\|DATE.*\|YEAR.*\|WEEK.*\)'
 		call s:ErrorMsg ( 'Can not set the format of: '.a:name )
 		return
 	elseif a:name == 'TIME_LOCALE'
@@ -1709,7 +1710,7 @@ function! s:IncludeFile ( templatefile, ... )
 			"  state: command
 			" ==================================================
 			"
-			" empty line? 
+			" empty line?
 			if empty ( line )
 				continue
 			endif
@@ -3414,6 +3415,7 @@ function! s:RenewStdMacros ( to_list, from_list )
 	let a:to_list[ 'DATE_PRETTY3' ]  = strftime( a:from_list[ 'DATE_PRETTY3' ] )
 	let a:to_list[ 'TIME' ]          = strftime( a:from_list[ 'TIME' ] )
 	let a:to_list[ 'TIME_PRETTY' ]   = strftime( a:from_list[ 'TIME_PRETTY' ] )
+	let a:to_list[ 'WEEK' ]          = strftime( a:from_list[ 'WEEK' ] )
 	let a:to_list[ 'YEAR' ]          = strftime( a:from_list[ 'YEAR' ] )
 	let a:to_list[ 'YEAR_PRETTY' ]   = strftime( a:from_list[ 'YEAR_PRETTY' ] )
 
@@ -4648,7 +4650,7 @@ function! mmtemplates#core#ChooseStyle ( library, style )
 	" pick the style
 	if a:style == '!pick'
 		try
-			let style = s:UserInput( 'Style (currently '.t_lib.current_style.') : ', '', 
+			let style = s:UserInput( 'Style (currently '.t_lib.current_style.') : ', '',
 						\ 'customlist', t_lib.styles )
 		catch /Template:UserInputAborted/
 			return

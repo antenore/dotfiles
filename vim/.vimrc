@@ -12,7 +12,7 @@ set nocompatible
 filetype plugin indent on
 set foldenable
 set foldmethod=marker
-au FileType sh let g:sh_fold_enabled=7
+"au FileType sh let g:sh_fold_enabled=7
 au FileType sh let g:is_bash=1
 au FileType sh set foldmethod=syntax
 syntax enable
@@ -52,7 +52,6 @@ set report=0                         " tell us when anything is changed via :...
 set undolevels=1000
 set ofu=syntaxcomplete#Complete      " Omni completion
 set completeopt=longest,menuone
-set viminfo='10,\"1000,:20,%,n~/.viminfo
 " }}}
 " {{{ ===== Functions ==========================================================
 "A mapping to make a backup of the current file.
@@ -93,10 +92,13 @@ set wildmode=list:longest,full
 set wildchar=<Tab>
 " }}}
 " {{{ ===== Airline ============================================================
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#branch#enabled = 1
-let g:airline_powerline_fonts = 1 "change 0 to 1 if you have a powerline font
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline_powerline_fonts = 1 "change 0 to 1 if you have a powerline font
 " set laststatus=2
+"let g:airline#extensions#disable_rtp_load = 1
+" If things goes nasty
+let g:airline_extensions = []
 " }}}
 " {{{ ===== UI =================================================================
 
@@ -236,7 +238,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 " function! InsertTabWrapper()
@@ -423,111 +424,6 @@ let g:tagbar_autopreview=0
 " }}}
 " {{{ ===== Mutt ===============================================================
 au BufRead /tmp/mutt-* set tw=72
-" }}}
-" {{{ ===== Shougo/neo* plugins ================================================
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary. (I don't use both, but who knows?)
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior (not recommended.)
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" :
-" \ neocomplete#start_manual_complete()
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.php =
-\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-let g:neocomplete#sources#omni#input_patterns.c =
-\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-"let g:neocomplete#sources#omni#input_patterns.cpp =
-"\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-"let g:neocomplete#sources#omni#input_patterns.perl =
-"\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
-" For smart TAB completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"        \ <SID>check_back_space() ? "\<TAB>" :
-"        \ neocomplete#start_manual_complete()
-"  function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1]  =~ '\s'
-"  endfunction"}}}
-
-" NEOSNIPPET
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets' behavior.
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
- \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" Enable snipMate compatibility feature.
-" let g:neosnippet#enable_snipmate_compatibility = 1
-
 " }}}
 " {{{ ===== Auto Commands ======================================================
 let excludeft = ['tagbar']

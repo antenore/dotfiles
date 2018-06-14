@@ -10,17 +10,18 @@ InterfaceVersion ( "1.0" )
 §  Settings
 § =============================================================
 
-SetMacro( 'AUTHOR',       'YOUR NAME' )
-SetMacro( 'AUTHORREF',    '' )
-SetMacro( 'EMAIL',        '' )
-SetMacro( 'ORGANIZATION', '' )
-SetMacro( 'COMPANY',      '' )
+SetMacro( 'AUTHOR',       'Antenore Gatta' )
+SetMacro( 'AUTHORREF',    'agat' )
+SetMacro( 'EMAIL',        'agat@ch.ibm.com' )
+SetMacro( 'ORGANIZATION', 'IBM Switzerland' )
+SetMacro( 'COMPANY',      'IBM Switzerland' )
 SetMacro( 'COPYRIGHT',    'Copyright (c) |YEAR|, |AUTHOR|' )
 SetMacro( 'LICENSE',      'GNU General Public License' )
 
 SetFormat( 'DATE', '%x' )
 SetFormat( 'TIME', '%X' )
-SetFormat( 'YEAR', '%Y' )
+SetFormat( 'YEAR', '%y' )
+SetFormat( 'WEEK', '%U' )
 
 SetStyle( 'default' )
 
