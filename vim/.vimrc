@@ -304,15 +304,15 @@ au FileType rb set foldmethod=expr
 au FileType rb set foldexpr=FoldSomething(v:lnum)
 "au FileType rb set foldcolumn=3
 "function! RubyMethodFold(line)
-  "let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
+"  let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
 "
-  "for synid in stack
-    "if GetSynString(GetSynDict(synid)) ==? "rubyMethodBlock" || GetSynString(GetSynDict(synid)) ==? "rubyDefine" || GetSynString(GetSynDict(synid)) ==? "rubyDocumentation"
-      "return 1
-    "endif
-  "endfor
+" for synid in stack
+"   if GetSynString(GetSynDict(synid)) ==? "rubyMethodBlock" || GetSynString(GetSynDict(synid)) ==? "rubyDefine" || GetSynString(GetSynDict(synid)) ==? "rubyDocumentation"
+"     return 1
+"   endif
+" endfor
 "
-  "return 0
+" return 0
 "endfunction
 "
 "au FileType rb set foldexpr=RubyMethodFold(v:lnum)
