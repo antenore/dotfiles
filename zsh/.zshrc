@@ -23,7 +23,7 @@ export CLICOLOR=1
 # ===========
 
 export EDITOR=vim
-export PATH=~/bin:/usr/local/bin:$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
+export PATH=~/bin:/usr/local/bin:$(ruby -r rubygems -e "puts Gem.user_dir")/bin:$PATH
 export PAGER=less
 
 if [ -f /usr/bin/lsb-release ] ; then
@@ -242,12 +242,12 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #randline.sh ~/Dropbox/ENFP-mot.txt
 # Bettter and "built in"
 #gshuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
-if which shuffle >/dev/null 2>&1 ; then
-    shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
-elif which shuf >/dev/null 2>&1; then
-    shuf ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
-
-fi
+#if which shuffle >/dev/null 2>&1 ; then
+#    shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+#elif which shuf >/dev/null 2>&1; then
+#    shuf ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+#
+#fi
 
 source ~/.zshrc.local
 export RI="--format ansi --width 70"

@@ -1,17 +1,17 @@
 "===============================================================================
 "
 "          File:  mmtemplates#core.vim
-"
+" 
 "   Description:  Template engine: Core.
 "
 "                 Maps & Menus - Template Engine
-"
+" 
 "   VIM Version:  7.0+
 "        Author:  Wolfgang Mehner, wolfgang-mehner@web.de
-"  Organization:
+"  Organization:  
 "       Version:  see variable g:Templates_Version below
 "       Created:  30.08.2011
-"      Revision:  30.09.2015
+"      Revision:  14.04.2017
 "       License:  Copyright (c) 2012-2016, Wolfgang Mehner
 "                 This program is free software; you can redistribute it and/or
 "                 modify it under the terms of the GNU General Public License as
@@ -42,7 +42,7 @@ if &cp || ( exists('g:Templates_Version') && g:Templates_Version != 'searching' 
 	finish
 endif
 "
-let s:Templates_Version = '1.0'     " version number of this script; do not change
+let s:Templates_Version = '1.1alpha'     " version number of this script; do not change
 "
 "----------------------------------------------------------------------
 "  --- Find Newest Version ---   {{{2
@@ -269,7 +269,6 @@ let s:StandardMacros = {
 			\ 'DATE_PRETTY3'   : '%x',
 			\ 'TIME'           : '%X',
 			\ 'TIME_PRETTY'    : '%X',
-			\ 'WEEK'           : '%U',
 			\ 'YEAR'           : '%Y',
 			\ 'YEAR_PRETTY'    : '%Y',
 			\ 'TIME_LOCALE'    : '',
@@ -280,6 +279,8 @@ let s:StandardMacros = {
 "----------------------------------------------------------------------
 "
 let s:StandardProperties = {
+			\ 'Templates::LanguageMode' : 'default',
+			\
 			\ 'Templates::EditTemplates::Map'   : 're',
 			\ 'Templates::RereadTemplates::Map' : 'rr',
 			\ 'Templates::SetupWizard::Map'     : 'rw',
@@ -574,7 +575,7 @@ endfunction    " ----------  end of function s:GetNormalizedPath  ----------
 "
 "----------------------------------------------------------------------
 "  s:UserInput : Input after a highlighted prompt.   {{{2
-"
+"  
 "  3. argument : optional completion
 "  4. argument : optional list, if the 3. argument is 'customlist'
 "
@@ -1012,7 +1013,7 @@ function! s:AddTemplate ( type, name, settings, lines )
 					\ }
 		let s:library.templates[ name.'!!menu' ] = {
 					\ 'filetypes' : s:t_runtime.use_filetypes,
-					\ 'visual'    : -1 != stridx ( a:lines, '<SPLIT>' ),
+					\ 'visual'    : match ( a:lines, '<SPLIT>\|<SHIFT>' ) >= 0,
 					\ 'map'       : '',
 					\ 'entry'     : 1,
 					\ 'mname'     : '',
@@ -1450,7 +1451,7 @@ function! s:SetFormat ( name, replacement )
 	if a:name !~ s:library.regex_file.MacroName
 		call s:ErrorMsg ( 'Macro name must be a valid identifier: '.a:name )
 		return
-	elseif a:name !~ '^\%(TIME.*\|DATE.*\|YEAR.*\|WEEK.*\)'
+	elseif a:name !~ '^\%(TIME.*\|DATE.*\|YEAR.*\)'
 		call s:ErrorMsg ( 'Can not set the format of: '.a:name )
 		return
 	elseif a:name == 'TIME_LOCALE'
@@ -1701,16 +1702,16 @@ function! s:IncludeFile ( templatefile, ... )
 	let filelines = readfile( templatefile )
 	"
 	for line in filelines
-		"
-		let firstchar = line[0]
-		"
+
+		let firstchar = matchstr( line, '^.\?' )
+
 		" which state
 		if state == 'command'
 			" ==================================================
 			"  state: command
 			" ==================================================
 			"
-			" empty line?
+			" empty line? 
 			if empty ( line )
 				continue
 			endif
@@ -3415,7 +3416,6 @@ function! s:RenewStdMacros ( to_list, from_list )
 	let a:to_list[ 'DATE_PRETTY3' ]  = strftime( a:from_list[ 'DATE_PRETTY3' ] )
 	let a:to_list[ 'TIME' ]          = strftime( a:from_list[ 'TIME' ] )
 	let a:to_list[ 'TIME_PRETTY' ]   = strftime( a:from_list[ 'TIME_PRETTY' ] )
-	let a:to_list[ 'WEEK' ]          = strftime( a:from_list[ 'WEEK' ] )
 	let a:to_list[ 'YEAR' ]          = strftime( a:from_list[ 'YEAR' ] )
 	let a:to_list[ 'YEAR_PRETTY' ]   = strftime( a:from_list[ 'YEAR_PRETTY' ] )
 
@@ -3437,15 +3437,41 @@ function! s:InsertIntoBuffer ( text, placement, indentation, flag_mode )
 	"
 	let placement   = a:placement
 	let indentation = a:indentation
-	"
-	if a:flag_mode != 'v'
+	let retabbing   = 0
+	let lang_mode = s:library.properties[ 'Templates::LanguageMode' ]
+
+	let text = a:text
+
+	let has_split = match( text, '<SPLIT>' ) >= 0
+	let has_shift = match( text, '<SHIFT>' ) >= 0
+
+	if a:flag_mode == 'v' && ! has_split && ! has_shift
+		call s:ErrorMsg ( 'Tag <SPLIT> or <SHIFT> missing in template.' )
+	endif
+
+	if lang_mode == 'python'
+		let indentation = 0
+		let retabbing   = 1
+
+		if placement =~ '^\%(start\|above\|below\)$'
+			if a:flag_mode == 'v'
+				let first_line = getline("'<")
+			else
+				let first_line = getline(".")
+			endif
+			let indent_spaces = matchstr ( first_line, '^\s\+' )
+			let text = substitute( text, "[^\n]\\+", indent_spaces.'&', 'g' )
+		endif
+	endif
+
+	if a:flag_mode != 'v' || ! ( has_split || has_shift )
 		" --------------------------------------------------
 		"  command and insert mode
 		" --------------------------------------------------
-		"
-		" remove the split point
-		let text = substitute( a:text, '\V'.'<SPLIT>', '', 'g' )
-		"
+
+		" remove the split and shift tags
+		let text = substitute( text, '\V'.'<SPLIT>\|<SHIFT>', '', 'g' )
+
 		if placement == 'below'
 			"
 			exe ':'.s:t_runtime.range[1]
@@ -3509,28 +3535,24 @@ function! s:InsertIntoBuffer ( text, placement, indentation, flag_mode )
 			throw 'Template:Insert:unknown placement "'.placement.'"'
 		endif
 		"
-	elseif a:flag_mode == 'v'
+	elseif a:flag_mode == 'v' && has_split
 		" --------------------------------------------------
 		"  visual mode
 		" --------------------------------------------------
-		"
-		" remove the jump targets (2nd type)
-		let text = substitute( a:text, regex.JumpTagType2, '', 'g' )
-		"
+
+		" remove the jump targets (2nd type) and the split tags
+		let text = substitute( text, regex.JumpTagType2, '', 'g' )
+		let text = substitute( text, '\V'.'<SHIFT>', '', 'g' )
+
 		" TODO: Is the behaviour well-defined?
 		" Suggestion: The line might include a cursor and a split and nothing else.
-		if match( text, '<SPLIT>' ) >= 0
-			if match( text, '<SPLIT>\s*\n' ) >= 0
-				let part = split ( text, '\s*<SPLIT>\s*\n', 1 )
-			else
-				let part = split ( text, '<SPLIT>', 1 )
-			endif
-			let part[1] = part[1][ 0: -2 ]  " remove trailing '\n'
+		if match( text, '<SPLIT>\s*\n' ) >= 0
+			let part = split ( text, '\s*<SPLIT>\s*\n', 1 )
 		else
-			let part = [ "", text[ 0: -2 ] ]  " remove trailing '\n'
-			echomsg 'tag <SPLIT> missing in template.'
+			let part = split ( text, '<SPLIT>', 1 )
 		endif
-		"
+		let part[1] = part[1][ 0: -2 ]  " remove trailing '\n'
+
 		" 'visual' and placement 'insert':
 		"   <part0><marked area><part1>
 		" part0 and part1 can consist of several lines
@@ -3558,11 +3580,52 @@ function! s:InsertIntoBuffer ( text, placement, indentation, flag_mode )
 			let pos1 = line("'<") - len(split( part[0], '\n' ))
 			let pos2 = line("'>") + len(split( part[1], '\n' ))
 		elseif placement =~ '^\%(start\|above\|append\)$'
-			throw 'Template:Insert:usage in split mode not allowed for placement "'.placement.'"'
+			throw 'Template:Insert:usage with tag <SPLIT> not allowed for template placement "'.placement.'"'
 		else
 			throw 'Template:Insert:unknown placement "'.placement.'"'
 		endif
 		"
+	elseif a:flag_mode == 'v' && has_shift
+		" --------------------------------------------------
+		"  visual mode (shift)
+		" --------------------------------------------------
+
+		" remove the jump targets (2nd type) and the split tags
+		let text = substitute( text, regex.JumpTagType2, '', 'g' )
+		let text = substitute( text, '\V'.'<SPLIT>', '', 'g' )
+
+		if match( text, '\%(\_^\|\n\)\s*<SHIFT>\s*\n' ) >= 0
+			let cursor_on_shift_line = 0
+		elseif match( text, '\%(\_^\|\n\)\s*<CURSOR><SHIFT>\s*\n' ) >= 0
+					\ || match( text, '\%(\_^\|\n\)\s*<SHIFT><CURSOR>\s*\n' ) >= 0
+			let cursor_on_shift_line = 1
+			let text = substitute( text, '\V'.'<CURSOR>', '', 'g' )
+		else
+			throw 'Template:Insert:the <SHIFT> tag must appear alone on the line, or with the cursor tag'
+		endif
+
+		let part = split ( text, '\s*<SHIFT>\s*\n', 1 )
+		let part[1] = part[1][ 0: -2 ]  " remove trailing '\n'
+
+		if placement == 'below'
+			if cursor_on_shift_line
+				normal! g'<I<CURSOR>
+			endif
+
+			silent '<,'>normal >>
+			if part[0] != ''
+				silent '<put! = part[0]
+			endif
+			if part[1] != ''
+				silent '>put = part[1]
+			endif
+			let pos1 = line("'<") - len(split( part[0], '\n' ))
+			let pos2 = line("'>") + len(split( part[1], '\n' ))
+		elseif placement =~ '^\%(start\|above\|insert\|append\)$'
+			throw 'Template:Insert:usage with tag <SHIFT> not allowed for template placement "'.placement.'"'
+		else
+			throw 'Template:Insert:unknown placement "'.placement.'"'
+		endif
 	endif
 	"
 	" proper indenting
@@ -3570,9 +3633,14 @@ function! s:InsertIntoBuffer ( text, placement, indentation, flag_mode )
 		silent exe ":".pos1
 		silent exe "normal! ".( pos2-pos1+1 )."=="
 	endif
-	"
+
+	" retab
+	if retabbing
+		silent exe pos1.','.pos2.'retab'
+	endif
+
 	return [ pos1, pos2 ]
-	"
+
 endfunction    " ----------  end of function s:InsertIntoBuffer  ----------
 "
 "----------------------------------------------------------------------
@@ -3845,7 +3913,7 @@ function! s:DoCreateMap ( map, mode, report )
 		endif
 	endif
 
-	return empty ( mapinfo )
+	return empty ( mapinfo ) || mapinfo =~ 'mmtemplates#core#'
 endfunction    " ----------  end of function s:DoCreateMap  ----------
 " }}}2
 "----------------------------------------------------------------------
@@ -4390,10 +4458,11 @@ function! s:CreateSpecialsMenus ( styles_only )
 			if ! empty ( e_map )
 				let entry_compl .= '<TAB>'.map_ldr.mmtemplates#core#EscapeMenu( e_map, 'right' )
 			endif
-			exe 'anoremenu <silent> '.s:t_runtime.root_menu.specials_menu.entry_compl.' '.cmd
+			exe 'anoremenu <silent> '.s:t_runtime.root_menu.specials_menu.entry_compl.'           '.cmd
+			exe 'inoremenu <silent> '.s:t_runtime.root_menu.specials_menu.entry_compl.' <Esc><Esc>'.cmd
 		endfor
 	endif
-	"
+
 	" ==================================================
 	"  create a menu for all the styles
 	" ==================================================
@@ -4405,13 +4474,15 @@ function! s:CreateSpecialsMenus ( styles_only )
 	else               | let entry_styles = s:InsertShortcut ( '.choose\ style', sc_style, 0 ).'<TAB>'.map_style
 	endif
 	call s:CreateSubmenu ( specials_menu.entry_styles, s:StandardPriority )
-	"
+
 	" add entries for all styles
 	for s in s:library.styles
 		exe 'anoremenu <silent> '.s:t_runtime.root_menu.specials_menu.'.choose\ style.&'.s
 					\ .' :call mmtemplates#core#ChooseStyle('.s:t_runtime.lib_name.','.string(s).')<CR>'
+		exe 'inoremenu <silent> '.s:t_runtime.root_menu.specials_menu.'.choose\ style.&'.s
+					\ .' <Esc><Esc>:call mmtemplates#core#ChooseStyle('.s:t_runtime.lib_name.','.string(s).')<CR>'
 	endfor
-	"
+
 endfunction    " ----------  end of function s:CreateSpecialsMenus  ----------
 " }}}2
 "----------------------------------------------------------------------
@@ -4650,7 +4721,7 @@ function! mmtemplates#core#ChooseStyle ( library, style )
 	" pick the style
 	if a:style == '!pick'
 		try
-			let style = s:UserInput( 'Style (currently '.t_lib.current_style.') : ', '',
+			let style = s:UserInput( 'Style (currently '.t_lib.current_style.') : ', '', 
 						\ 'customlist', t_lib.styles )
 		catch /Template:UserInputAborted/
 			return
@@ -4785,11 +4856,11 @@ function! mmtemplates#core#Resource ( library, mode, ... )
 		"
 		" get
 		if resource == 'list'
-			return [ get( t_lib.resources, 'list!'.key ), '' ]
+			return [ get( t_lib.resources, 'list!'.key ), has_key( t_lib.resources, 'list!'.key ) ? '' : 'List "'.key.'" does not exist.' ]
 		elseif resource == 'macro'
-			return [ get( t_lib.macros, key ), '' ]
+			return [ get( t_lib.macros, key ), has_key( t_lib.macros, key ) ? '' : 'Macro "'.key.'" does not exist.' ]
 		elseif resource == 'path'
-			return [ get( t_lib.resources, 'path!'.key ), '' ]
+			return [ get( t_lib.resources, 'path!'.key ),  has_key( t_lib.resources, 'path!'.key ) ? '' : 'Path "'.key.'" does not exist.' ]
 		elseif resource == 'property'
 			if has_key ( t_lib.properties, key )
 				return [ t_lib.properties[ key ], '' ]
@@ -4881,10 +4952,10 @@ function! mmtemplates#core#ChangeSyntax ( library, category, ... )
 			return s:ErrorMsg ( 'Not enough arguments for '.a:category.'.' )
 		elseif a:0 == 1
 			let t_lib.regex_settings.CommentStart = a:1
-			let t_lib.regex_settings.CommentHint  = a:1[0]
+			let t_lib.regex_settings.CommentHint  = matchstr( a:1, '^.\?' )
 		elseif a:0 == 2
 			let t_lib.regex_settings.CommentStart = a:1
-			let t_lib.regex_settings.CommentHint  = a:2[0]
+			let t_lib.regex_settings.CommentHint  = matchstr( a:2, '^.\?' )
 		endif
 		"
 		call s:UpdateFileReadRegex ( t_lib.regex_file, t_lib.regex_settings, t_lib.interface )
@@ -5168,7 +5239,7 @@ function! mmtemplates#core#AddCustomTemplateFiles ( library, temp_list, list_nam
 			call s:ErrorMsg ( 'The entry of '.a:list_name.' with index '.i.' does not contain a file name.' )
 			continue
 		elseif ! filereadable ( file_name )
-			call s:ErrorMsg ( 'The entry of '.a:list_name.' with index '.i.' does not name a readable file.' )
+			call s:ErrorMsg ( 'The entry of '.a:list_name.' with index '.i.' does not name a readable file:', '  '.file_name )
 			continue
 		endif
 		"

@@ -16,10 +16,55 @@ set foldmethod=marker
 au FileType sh let g:is_bash=1
 au FileType sh set foldmethod=syntax
 syntax enable
+set encoding=utf-8
+set pyxversion=3
 " }}}
-" {{{ ===== Pathogen ===========================================================
-call pathogen#infect()
-call pathogen#helptags()
+" {{{ ===== Plug ===============================================================
+"Preload variables -= START =-
+let g:ale_completion_enabled = 1
+"Preload variables -= END =-
+ if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'ajmwagar/vim-deus'
+Plug 'altercation/vim-colors-solarized'
+Plug 'antenore/vim-safe'
+Plug 'chrisbra/csv.vim'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'godlygeek/tabular'
+Plug 'honza/vim-snippets'
+Plug 'majutsushi/tagbar'
+Plug 'mboughaba/i3config.vim'
+Plug 'morhetz/gruvbox'
+Plug 'nvie/vim-pep8'
+Plug 'plasticboy/vim-markdown'
+Plug 'rodjek/vim-puppet'
+Plug 'rust-lang/rust.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'scrooloose/nerdtree'
+Plug 'SirVer/ultisnips'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-surround'
+"Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+Plug 'wincent/command-t'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+
+call plug#end()
 " }}}
 " {{{ ===== Files ==============================================================
 set viminfo='10,\"1000,:20,%,n~/.viminfo
@@ -29,7 +74,6 @@ set directory=~/.vim/temp
 set makeef=error.err
 " }}}
 " {{{ ===== General ============================================================
-set encoding=utf-8
 let mapleader = ","
 "with clipboard=autoselect visual selection should go automatically into primary
 "in case of needs I can user registers "+y
@@ -49,9 +93,10 @@ set noerrorbells
 set novisualbell
 set printoptions=paper:A4,syntax:y
 set report=0                         " tell us when anything is changed via :...
+set undofile                " Save undos after file closes
+set undodir=$HOME/.vim/undo " where to save undo histories
 set undolevels=1000
-set ofu=syntaxcomplete#Complete      " Omni completion
-set completeopt=longest,menuone
+set undoreload=10000        " number of lines to save for undo
 " }}}
 " {{{ ===== Functions ==========================================================
 "A mapping to make a backup of the current file.
@@ -105,6 +150,9 @@ let g:airline_extensions = []
 " Tabs
 set tabpagemax=15
 set showtabline=2
+
+set termguicolors
+
 "set t_Co=256
 "SOL set background=dark
 "SOL if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
@@ -122,12 +170,12 @@ set showtabline=2
 "colorscheme wombat256
 
 "gruvbox
+let g:gruvbox_guisp_fallback = "bg"
 colorscheme gruvbox
-let g:gruvbox_termcolors=16
+"let g:gruvbox_termcolors=16
 
 " https://github.com/ajmwagar/vim-deus
 "colors deus
-set termguicolors
 
 set background=dark
 
@@ -278,6 +326,11 @@ imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>
 "for unhighlighing the selections
 nmap <Space>x :let @/=''<CR>
 
+" Spelling
+map <F5> :setlocal spell! spelllang=en_us<CR>
+set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
+autocmd Filetype markdown setlocal spell
+
 " }}}
 " {{{ ===== Ruby ===============================================================
 au FileType ruby set ts=2 sts=2 et sw=2
@@ -358,6 +411,53 @@ function! MD2VO()
   call setline(1, lines)
 endfunction
 " }}}
+" {{{ ===== ALE ================================================================
+"let g:ale_linters = {'c': ['clang-check', 'gcc', 'make', 'uncrustify']}
+let g:ale_sign_column_always = 0
+let g:ale_set_highlights = 0
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_completion_enabled = 0
+let g:ale_linters = {
+			\	'c':['gcc'],
+			\}
+let g:ale_linters_explicit = 0
+"nmap <silent> <C-h> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-l> <Plug>(ale_next_wrap)
+""" ale-c-options
+let g:ale_c_build_dir_names = ['build']
+let g:ale_c_parse_compile_commands = 1
+"" '-g -gdwarf-2 -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -std=c99 -ffunction-sections -fdata-sections -Wall'
+"let g:ale_c_clang_options = '-g -gdwarf-2 -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -std=c99 -ffunction-sections -fdata-sections -Wall'
+"let g:ale_c_gcc_executable = 'arm-none-eabi-gcc'
+"let g:ale_c_gcc_options = '-g -gdwarf-2 -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -std=c99 -ffunction-sections -fdata-sections -Wall'
+let g:ale_lint_on_text_changed = 1
+" let g:ale_open_list = 'on_save'
+let g:ale_open_list = 0
+let g:ale_set_quickfix=1
+
+autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 0
+let g:ale_c_uncrustify_options = '-c ~/.uncrustify.cfg -l C --replace'
+"https://github.com/richq/cmake-lint
+let g:ale_cmake_cmakelint_options = '--filter=-linelength'
+"nmap <F8> <Plug>(ale_fix)
+"nnoremap <C-F11> <Plug>(ale_fix)
+nnoremap <C-F9> :ALEFix<CR>
+nnoremap <leader>rr :%s/$//g<CR>
+nnoremap <leader>rt :%s/\r//g<CR>
+nnoremap <leader>re ::%s/\s\+$//<CR>
+let g:ale_fixers = {
+			\ 'c': [
+			\ 'uncrustify',
+			\ 'remove_trailing_lines',
+			\ 'trim_whitespace',
+			\ ],
+			\ 'cmake': [
+			\ 'remove_trailing_lines',
+			\ 'trim_whitespace',
+			\ ]
+			\ }
+" }}}
 " {{{ ===== Bash Support Plugin ================================================
 let g:BASH_MapLeader                = ','
 let g:BASH_DoOnNewLine              = 'yes'
@@ -369,17 +469,6 @@ let g:BASH_Company                  = 'IBM Switzerland'
 " {{{ ===== Other commands =====================================================
 command! Thtml :%!tidy -q -i --show-errors 0
 command! Txml  :%!tidy -q -i --show-errors 0 -xml
-" }}}
-" {{{ ===== Omni ===============================================================
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-autocmd VimEnter * wincmd w
 " }}}
 " {{{ ===== notes.vim ==========================================================
 " comma separated paths
@@ -400,6 +489,8 @@ nmap <F8> :TagbarToggle<CR>
 " Open tagbar with supported files
 autocmd VimEnter * nested :call tagbar#autoopen(1)
 set tags=./tags;,~/.vimtags,~/vim/tags
+let g:easytags_cmd = '/usr/bin/ctags'
+let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
@@ -410,7 +501,6 @@ let g:tagbar_show_linenumbers=0
 let g:tagbar_width=65
 " DO NOT SPECIFY THE CTAGS BINARY. tagbar detect automatically the one to use
 " on FreeBSD we use extags (detected)
-"let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:tagbar_indent=1
 let g:tagbar_autopreview=0
 " Open Tagbar automatically inside vim
@@ -446,7 +536,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " }}}
 " {{{ ===== Doxygen Plugin======================================================
 let g:DoxygenToolkit_authorName= "Antenore Gatta"
-let g:DoxygenToolkit_licenseTag= "Copyright (C) 2014-2016 Antenore Gatta, Giovanni Panozzo\<enter>\<enter>"
+let g:DoxygenToolkit_licenseTag= "Copyright (C) 2014-2019 Antenore Gatta, Giovanni Panozzo\<enter>\<enter>"
 let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "This program is free software; you can redistribute it and/or modify\<enter>"
 let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "it under the terms of the GNU General Public License as published by\<enter>"
 let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "the Free Software Foundation; either version 2 of the License, or\<enter>"
@@ -492,22 +582,17 @@ au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 " }}}
-" {{{ ===== Syntastic ===========================================================
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_c_checkers = ['syntastic-c-clang_check']
-let g:syntastic_sh_checkers = ['syntastic-sh-shellcheck']
-" }}}
 " {{{ ===== LaTeX ==============================================================
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+" }}}
+" {{{ ===== Deoplete ===========================================================
+let g:deoplete#enable_at_startup = 1
+" }}}
+" {{{ ===== UltiSnip ===========================================================
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}

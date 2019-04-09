@@ -9,78 +9,37 @@
 # <CURSOR>
 #-------------------------------------------------------------------------------
 == Comments.function == map:cfu, sc:f ==
+#---  FUNCTION  ----------------------------------------------------------------
+#          NAME:  |?FUNCTION_NAME|
+#   DESCRIPTION:  <CURSOR>
+#    PARAMETERS:  
+#       RETURNS:  
 #-------------------------------------------------------------------------------
-#
-# Private Function: |?FUNCTION_NAME|
-#
-# Description:
-#   <CURSOR>
-#
-# Synopsis:
-# >  |?FUNCTION_NAME|
-#
-# Arguments:
-#
-# Output:
-#
-# Examples:
-#
-# Dependencies:
-#
-# Returns:
-#   0 - Success
-#
-# Constraint:
-#  None
-#
 == Comments.file header == start, map:ch ==
-#!/bin/bash -
-
-# --------------------------------------------------------------------------
-#
-# Public Script: |FILENAME|
-#
-# Title:
-#
-# Category:
-#    Public interface
-#
-# Synopsis:
-# >     ./|FILENAME|
-#
-# Description:
-#
-# Usage:
-# >     ./|FILENAME|
-#
-# where:
-# >         -h  Help
-#
-# Examples:
-# >   ./|FILENAME|
-#
-# Exit Codes:
-#   0  - OK
-#
-# Author:
-#   |AUTHOR| (|AUTHORREF|), |EMAIL|
-#
-# Copyright: |ORGANIZATION|
-#
-# Created:
-#   |DATE| |TIME|
-#
-
-#==== REVISION LOG =============================================================
-#    DATE     |   TAG    |   WHO      |   VERSION    |   DESCRIPTION
 #===============================================================================
-# |DATE|  |   N/A    | |AUTHORREF|       |   1.0 |YEAR|W|WEEK|    | Creation
-#==== END REVISION LOG==========================================================
-
-<CURSOR>
+#
+#          FILE: |FILENAME|
+#
+#         USAGE: ./|FILENAME|
+#
+#   DESCRIPTION: <CURSOR>
+#
+#       OPTIONS: ---
+#  REQUIREMENTS: ---
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: |AUTHOR| (|AUTHORREF|), |EMAIL|
+#  ORGANIZATION: |ORGANIZATION|
+#       CREATED: |DATE| |TIME|
+#      REVISION:  ---
+#===============================================================================
+== Comments.shebang == start, map:csh ==
+#!|BASH_INTERPRETER| -
 == ENDTEMPLATE ==
 
 § -------------------------------------------------------------
+
+== SEP: Comments.sep-date-time ==
 
 == Comments.date == insert, map:cd, sc:d ==
 |DATE|<CURSOR>

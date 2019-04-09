@@ -100,3 +100,4 @@ scripts/bin/update_rubygems
 scripts/bin/vpn
 scripts/bin/zadmi*
 vim/tags
+vim/.vim/plugged/*
