@@ -417,7 +417,7 @@ let g:ale_sign_column_always = 0
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 let g:ale_linters = {
 			\	'c':['gcc'],
 			\}
@@ -484,16 +484,22 @@ map <F10> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowLineNumbers=0
 " }}}
+" {{{ ===== CTags ==============================================================
+set tags+=~/.vim/tags/gtk2
+set tags+=~/.vim/tags/gtk3
+set tags+=~/.vim/tags/glib
+set tags+=./tags
+" }}}
 " {{{ ===== Easytags & Tagbar ==================================================
 nmap <F8> :TagbarToggle<CR>
 " Open tagbar with supported files
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+" autocmd VimEnter * nested :call tagbar#autoopen(1)
 set tags=./tags;,~/.vimtags,~/vim/tags
 let g:easytags_cmd = '/usr/bin/ctags'
 let g:tagbar_ctags_bin='/usr/bin/ctags'
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
+let g:easytags_dynamic_files = 1
 let g:easytags_resolve_links = 1
 let g:easytags_suppress_ctags_warning = 1
 
@@ -562,11 +568,6 @@ let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you do not w
 let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "version.\<enter>"
 let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you delete this exception statement from all source\<enter>"
 let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "files in the program, then also delete it here.\<enter>"
-" }}}
-" {{{ ===== CTags ==============================================================
-set tags+=~/.vim/tags/gtk2
-set tags+=~/.vim/tags/gtk3
-set tags+=~/.vim/tags/glib
 " }}}
 " {{{ ===== Devhelp ============================================================
 " cp /usr/share/doc/devhelp/devhelp.vim ~/.vim/plugin
