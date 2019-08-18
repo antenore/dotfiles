@@ -413,6 +413,7 @@ endfunction
 " }}}
 " {{{ ===== ALE ================================================================
 "let g:ale_linters = {'c': ['clang-check', 'gcc', 'make', 'uncrustify']}
+let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_column_always = 0
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '>>'
@@ -433,7 +434,7 @@ let g:ale_c_parse_compile_commands = 1
 "let g:ale_c_gcc_options = '-g -gdwarf-2 -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -std=c99 -ffunction-sections -fdata-sections -Wall'
 let g:ale_lint_on_text_changed = 1
 " let g:ale_open_list = 'on_save'
-let g:ale_open_list = 0
+let g:ale_open_list = 1
 let g:ale_set_quickfix=1
 
 autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 0
@@ -487,7 +488,7 @@ let NERDTreeShowLineNumbers=0
 " {{{ ===== Easytags & Tagbar ==================================================
 nmap <F8> :TagbarToggle<CR>
 " Open tagbar with supported files
-autocmd VimEnter * nested :call tagbar#autoopen(1)
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
 set tags=./tags;,~/.vimtags,~/vim/tags
 let g:easytags_cmd = '/usr/bin/ctags'
 let g:tagbar_ctags_bin='/usr/bin/ctags'
