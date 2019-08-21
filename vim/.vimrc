@@ -72,6 +72,7 @@ set backup
 set backupdir=~/.vim/backup/
 set directory=~/.vim/temp
 set makeef=error.err
+let g:netrw_home=$XDG_CACHE_HOME.'/vim'
 " }}}
 " {{{ ===== General ============================================================
 let mapleader = ","

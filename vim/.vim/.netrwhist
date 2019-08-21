@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/tmow/dotfiles/vim/.vim/bundle/vim-safe/ftplugin'
-let g:netrw_dirhist_2='/home/tmow/Software/Remmina.FreeRDP'
-let g:netrw_dirhist_3='/home/tmow/Software/Remmina.FreeRDP/remmina'
-let g:netrw_dirhist_4='/home/tmow/Software/Remmina.FreeRDP/remmina/src'
-let g:netrw_dirhist_5='/home/tmow/Software/Remmina.my/remmina-plugins/rdp'
-let g:netrw_dirhist_6='/home/tmow/.Xcolors'
-let g:netrw_dirhist_7='/home/antenore/software/IBM/awbrepo/main/Puppet/Scripts'
