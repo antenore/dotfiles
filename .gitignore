@@ -101,3 +101,6 @@ scripts/bin/vpn
 scripts/bin/zadmi*
 vim/tags
 vim/.vim/plugged/*
+scripts/bin/create_cert.sh
+scripts/bin/resdockerfile.sh
+scripts/bin/sync_stats_via_php.py
