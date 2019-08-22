@@ -45,8 +45,10 @@ tmux_conf_new_session_prompt=true
 tmux_conf_theme_24b_colour=true
 
 # window style
-tmux_conf_theme_window_fg='#FBF1C7'
-tmux_conf_theme_window_bg='#1D2021'
+#tmux_conf_theme_window_fg='#FBF1C7'
+#mux_conf_theme_window_bg='#1D2021'
+tmux_conf_theme_window_fg='default'
+tmux_conf_theme_window_bg='default'
 
 # highlight focused pane (tmux >= 2.1), possible values are:
 #   - true
@@ -54,7 +56,8 @@ tmux_conf_theme_window_bg='#1D2021'
 tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
-tmux_conf_theme_focused_pane_fg='#FBF1C7'
+tmux_conf_theme_focused_pane_fg='default'
+#tmux_conf_theme_focused_pane_fg='#FBF1C7'
 tmux_conf_theme_focused_pane_bg='#83A59B'               # light blue
 
 # pane border style, possible values are:
@@ -294,116 +297,3 @@ tmux_conf_copy_to_os_clipboard=true
 
 # move status line to top
 set -g status-position top
-
-# ORIGINAL SETTINGS TO CHECK
-#   # allow terminal scrolling
-#   #set-option -g terminal-overrides 'xterm*:smcup@:rmcup@'
-#
-#   # with mouse (click on pretty little boxes)
-#   #set -g mouse-select-window on
-#
-#
-#   #set -g mouse-select-pane on
-#   set -g pane-border-fg black
-#   set -g pane-active-border-fg brightred
-#   #set -g pane-active-border-attr blink
-#   # resize panes with mouse (drag borders)
-#   #set -g mouse-select-pane on
-#   #set -g mouse-resize-pane on
-#   setw -g aggressive-resize on
-#   # Resize bindings (vim like)
-#   # pane border
-#   set-option -g pane-border-fg white #base2
-#   set-option -g pane-active-border-fg brightcyan #base1
-#
-#   # status line
-#   set -g status-justify left
-#   set -g status-bg default
-#   set -g status-fg colour12
-#   set -g status-interval 2
-#
-#   # messaging
-#   set -g message-fg black
-#   set -g message-bg yellow
-#   set -g message-command-fg blue
-#   set -g message-command-bg black
-#
-#   # Fix Terminfo
-#   set-option -g set-titles on
-#   set-option -g set-titles-string '[#S:#I #H] #W'
-#
-#   #window mode
-#   setw -g mode-bg colour6
-#   setw -g mode-fg colour0
-#
-#   # Status bar
-#   # Refresh the status bar every 30 seconds.
-#   set-option -g status-interval 30
-#   set-option -g status-justify centre
-#
-#   setw -g window-status-format "#[fg=black, bg=blue] #[fg=#b4b4b4, bg=blue] #I #[fg=blue, bg=black]#W#[fg=#b4b4b4]"
-#   setw -g window-status-current-format "#[fg=black, bg=#a35b66] #[fg=#d5d5d5, bg=#a35b66] #I #[fg=#a35b66, bg=black]#W#[fg=#b4b4b4]"
-#   set -g status-position top    # Most often your ice are everthere :-)
-#   set -g status-justify left
-#   set-option -g status-left "#[fg=blue,bg=black]"
-#   set-option -g status-right "#[fg=red,bg=black]"
-#
-#   # vim like bindings
-#   bind V send-keys "0v\$"
-#   unbind p
-#   bind p paste-buffer
-#
-#   # loud or quiet?
-#   set-option -g visual-activity on
-#   set-option -g visual-bell off
-#   set-option -g visual-silence off
-#   set-window-option -g monitor-activity on
-#   set-option -g bell-action none
-#
-#   # some key-binding changes
-#   bind x kill-pane
-#   bind X next-layout
-#   bind Z previous-layout
-#
-#   #### COLOUR (Solarized 256)
-#
-#   # default statusbar colors
-#   set-option -g status-bg colour235 #base02
-#   set-option -g status-fg colour136 #yellow
-#   set-option -g status-attr default
-#
-#   # default window title colors
-#   set-window-option -g window-status-fg colour244 #base0
-#   set-window-option -g window-status-bg default
-#   #set-window-option -g window-status-attr dim
-#
-#   # active window title colors
-#   set-window-option -g window-status-current-fg colour166 #orange
-#   set-window-option -g window-status-current-bg default
-#   #set-window-option -g window-status-current-attr bright
-#
-#   # pane border
-#   set-option -g pane-border-fg colour235 #base02
-#   set-option -g pane-active-border-fg colour240 #base01
-#
-#   # message text
-#   set-option -g message-bg colour235 #base02
-#   set-option -g message-fg colour166 #orange
-#
-#   # pane number display
-#   set-option -g display-panes-active-colour colour33 #blue
-#   set-option -g display-panes-colour colour166 #orange
-#
-#   # clock
-#   set-window-option -g clock-mode-colour colour64 #green
-#
-#   # bell
-#   set-window-option -g window-status-bell-style fg=colour235,bg=colour160 #base02, red
-#
-#   # title off
-#   set -g set-titles off
-#
-#   #
-#   source "/usr/share/tmux/powerline-base.conf"
-#   source "/usr/share/tmux/powerline.conf"
-#   source "/usr/share/tmux/powerline_tmux_2.1_plus.conf"
