@@ -1,16 +1,22 @@
 dotfiles
 ========
 
-![Screenshot](data/2013-12-12-003608_800x450_scrot.png)
+![Screenshot](data/plasma-i3-gaps_201908.png)
+
+* i3-gaps + Plasma + compton
+* [#1994 – Steampunk Wallpaper – 4000×2915](https://www.hdwallpaper.nu/wp-content/uploads/2015/02/229976.jpg)
+* gruvbox color scheme
+* Breeze Dark
+* ranger, zsh, vim with Plug
 
 
 ## Description
 
-I keep most of my dotfiles in sync with git on github. After I've tried different approaches, 
+I keep most of my dotfiles in sync with git on github. After I've tried different approaches,
 I came across GNU stow, that makes things easier.
 
 All the dotfiles and some of my scripts are organized inside folders that acts like packages.
-Executing stow from the dotfile folder, it will create one link in the parent directory foreach 
+Executing stow from the dotfile folder, it will create one link in the parent directory foreach
 file, or folder, found inside the specified "package".
 
 ### Packages (folders)
