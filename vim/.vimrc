@@ -495,11 +495,7 @@ set tags+=./tags
 " {{{ ===== Easytags & Tagbar ==================================================
 nmap <F8> :TagbarToggle<CR>
 " Open tagbar with supported files
-<<<<<<< HEAD
-" autocmd VimEnter * nested :call tagbar#autoopen(1)
-=======
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
->>>>>>> ad8c74a5210309618bfb747b17858c061ea35fa3
 set tags=./tags;,~/.vimtags,~/vim/tags
 let g:easytags_cmd = '/usr/bin/ctags'
 let g:tagbar_ctags_bin='/usr/bin/ctags'

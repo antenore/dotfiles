@@ -3,7 +3,7 @@ rofi.modi: window,run,ssh,drun
 /* rofi.lines: 15 */
 /* rofi.columns: 1 */
 /* rofi.font: mono 18 */
-rofi.font: mono 18
+rofi.font: mono 14
 /* rofi.bw: 1 */
 /* rofi.location: 0 */
 /* rofi.padding: 5 */
