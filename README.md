@@ -1,7 +1,7 @@
 dotfiles
 ========
 
-![Screenshot](data/plasma-i3-gaps_201908.png)
+![Screenshot](data/plasma-i3-gaps_2nd-round_201908.png)
 
 * i3-gaps + Plasma + compton
 * [#1994 – Steampunk Wallpaper – 4000×2915](https://www.hdwallpaper.nu/wp-content/uploads/2015/02/229976.jpg)
