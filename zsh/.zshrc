@@ -125,6 +125,11 @@ bindkey -e  # emacs style (-v for vi)
 [[ -n "${key[Backspace]}"   ]]  && bindkey  "${key[Backspace]}"   backward-delete-char
 
 
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+# Uncomment the following line to automatically update without prompting.
+DISABLE_UPDATE_PROMPT="true"
 
 # Search history for a command beginning with the current input. It places the
 # cursor at the beginning of the command line.
@@ -180,7 +185,7 @@ ZSH_THEME="bira"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+#DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -218,7 +223,10 @@ source $ZSH/oh-my-zsh.sh
 #Keychain
 #keychain id_rsa
 #. ~/.keychain/`uname -n`-sh
-eval `keychain --eval --agents ssh,gpg id_rsa`
+#eval `keychain --eval --agents ssh,gpg id_rsa`
+
+# Command line calculator
+autoload -Uz zcalc
 
 # Default browser
 export BROWSER=/usr/bin/firefox

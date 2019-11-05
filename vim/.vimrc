@@ -30,18 +30,18 @@ let g:ale_completion_enabled = 1
 endif
 call plug#begin('~/.vim/plugged')
 
-Plug 'roxma/nvim-yarp'
+Plug 'ervandew/supertab'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py' }
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ajmwagar/vim-deus'
 Plug 'altercation/vim-colors-solarized'
 Plug 'antenore/vim-safe'
 Plug 'chrisbra/csv.vim'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'godlygeek/tabular'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'mboughaba/i3config.vim'
@@ -50,9 +50,7 @@ Plug 'nvie/vim-pep8'
 Plug 'plasticboy/vim-markdown'
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
-Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -282,11 +280,11 @@ nmap <C-S-p> :tabp<CR>
 
 map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
 
-"Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+"Smart way to move between windows INCOMPATIBLE WITH Ultisnip
+"map <C-j> <C-W>j
+"map <C-k> <C-W>k
+"map <C-h> <C-W>h
+"map <C-l> <C-W>l
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
 " function! InsertTabWrapper()
@@ -421,7 +419,8 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-			\	'c':['gcc'],
+			\	'c':['clang'],
+      \ 'cpp': ['clang'],
 			\}
 let g:ale_linters_explicit = 0
 "nmap <silent> <C-h> <Plug>(ale_previous_wrap)
@@ -589,13 +588,16 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 " }}}
-" {{{ ===== Deoplete ===========================================================
-let g:deoplete#enable_at_startup = 1
-" }}}
 " {{{ ===== UltiSnip ===========================================================
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}

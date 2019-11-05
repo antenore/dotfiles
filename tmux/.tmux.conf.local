@@ -272,6 +272,8 @@ tmux_conf_theme_clock_style='24'
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
 tmux_conf_copy_to_os_clipboard=true
+# Workaround, see https://github.com/tmux/tmux/issues/1407
+set-option -g set-clipboard off
 
 
 # -- user customizations -------------------------------------------------------
@@ -297,3 +299,5 @@ tmux_conf_copy_to_os_clipboard=true
 
 # move status line to top
 set -g status-position top
+bind -n C-x setw synchronize-panes on
+bind -n M-x setw synchronize-panes off

@@ -51,14 +51,14 @@
 ! XFT Section {{{1
 Xft.antialias                                 : 1
 Xft.autohint                                  : 0
-Xft.dpi                                       : 82
+Xft.dpi                                       : 96
 Xft.hinting                                   : 1
-Xft.hintstyle                                 : hintfull
-Xft.lcdfilter                                 : lcddefault
+Xft.hintstyle                                 : hintslight
+aft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
-*font xft:Inconsolata for Powerline:pixelsize=9:antialias=true:autohint=true
-*.font xft:Inconsolata for Powerline:pixelsize=9:antialias=true:autohint=true
-*font* xft:Inconsolata for Powerline:pixelsize=9:antialias=true:autohint=true
+*font Inconsolata:size=12:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
+*.font Inconsolata:size=12:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
+*font* Inconsolata:size=12:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
 ! -END- XFT Section 1}}}
 ! XTerm Section {{{1 ===========================================================
 XTerm.termName                                : xterm-256color
