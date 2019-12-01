@@ -37,7 +37,8 @@
 !#include "/home/tmow/.Xcolors/LuciusBlack"
 !#include "/home/tmow/.Xcolors/Luciano"
 !#include "/home/tmow/.Xcolors/hydra"
-#include "/home/tmow/.Xcolors/gruvbox-dark.xresources"
+!#include "/home/tmow/.Xcolors/gruvbox-dark.xresources"
+#include "/home/tmow/.Xcolors/nord.xresources"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)
@@ -56,9 +57,9 @@ Xft.hinting                                   : 1
 Xft.hintstyle                                 : hintfull
 Xft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
-*font xft:Inconsolata for Powerline:pixelsize=16:antialias=true:autohint=true
-*.font xft:Inconsolata for Powerline:pixelsize=16:antialias=true:autohint=true
-*font* xft:Inconsolata for Powerline:pixelsize=16:antialias=true:autohint=true
+*font xft:Inconsolata for Powerline:pixelsize=18:antialias=true:autohint=true
+*.font xft:Inconsolata for Powerline:pixelsize=18:antialias=true:autohint=true
+*font* xft:Inconsolata for Powerline:pixelsize=18:antialias=true:autohint=true
 ! -END- XFT Section 1}}}
 ! XTerm Section {{{1 ===========================================================
 XTerm.termName                                : xterm-256color
