@@ -40,12 +40,14 @@ Plug 'ajmwagar/vim-deus'
 Plug 'altercation/vim-colors-solarized'
 Plug 'antenore/vim-safe'
 Plug 'chrisbra/csv.vim'
-Plug 'fholgado/minibufexpl.vim'
+"Plug 'fholgado/minibufexpl.vim'
 Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'mboughaba/i3config.vim'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+"Plug 'lifepillar/vim-gruvbox8'
 Plug 'nvie/vim-pep8'
 Plug 'plasticboy/vim-markdown'
 Plug 'rodjek/vim-puppet'
@@ -157,11 +159,11 @@ set termguicolors
 "set t_Co=256
 "SOL set background=dark
 "SOL if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-  "SOL "let g:solarized_termtrans=1
-  "SOL "let g:solarized_termcolors=256
-  "SOL "let g:solarized_contrast="high"
-  "SOL "let g:solarized_visibility="high"
-  "SOL color solarized                 " load a colorscheme
+"SOL "let g:solarized_termtrans=1
+"SOL "let g:solarized_termcolors=256
+"SOL "let g:solarized_contrast="high"
+"SOL "let g:solarized_visibility="high"
+"SOL color solarized                 " load a colorscheme
 "SOL endif
 
 "let g:hybrid_use_Xresources = 1
@@ -171,15 +173,19 @@ set termguicolors
 "colorscheme wombat256
 
 "gruvbox
-let g:gruvbox_guisp_fallback = "bg"
-let g:gruvbox_contrast_dark = "hard"
-colorscheme gruvbox
+set background=dark
+"let g:gruvbox_guisp_fallback = "bg"
+"let g:gruvbox_contrast_dark = "hard"
+"let g:gruvbox_transp_bg = 1
+"let g:gruvbox_plugin_hi_groups = 1
+"colorscheme gruvbox8_hard
+"colorscheme gruvbox
+colorscheme nord
 "let g:gruvbox_termcolors=16
 
 " https://github.com/ajmwagar/vim-deus
 "colors deus
 
-set background=dark
 
 "  let g:gruvbox_termcolors = 256
 "  if !has("gui_running")
@@ -422,7 +428,7 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 0
 let g:ale_linters = {
-			\	'c':['gcc'],
+			\	'c':['clang'],
 			\}
 let g:ale_linters_explicit = 0
 "nmap <silent> <C-h> <Plug>(ale_previous_wrap)
