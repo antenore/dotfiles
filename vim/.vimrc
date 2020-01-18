@@ -1,22 +1,17 @@
-"================================ .VIMRC =======================================
-" Feautures:
-" - Conditional folding
-" - Pathogen
-" - Solarized (+ HI cutomizations)
-" - Bash-support
-" - Vim-Airline
-"===============================================================================
+set encoding=utf-8
+scriptencoding utf-8
 " {{{ ===== Before everything else =============================================
 " Vim automatically resets the 'cp' option if it finds a personal vimrc file
-set nocompatible
+"set nocompatible
 filetype plugin indent on
 set foldenable
 set foldmethod=marker
 "au FileType sh let g:sh_fold_enabled=7
-au FileType sh let g:is_bash=1
-au FileType sh set foldmethod=syntax
+augroup bash_match
+  au FileType sh let g:is_bash=1
+  au FileType sh set foldmethod=syntax
+augroup END
 syntax enable
-set encoding=utf-8
 set pyxversion=3
 " }}}
 " {{{ ===== Plug ===============================================================
@@ -26,7 +21,9 @@ let g:ale_completion_enabled = 1
  if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup plug_install
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
 endif
 call plug#begin('~/.vim/plugged')
 
@@ -77,7 +74,7 @@ set makeef=error.err
 let g:netrw_home=$XDG_CACHE_HOME.'/vim'
 " }}}
 " {{{ ===== General ============================================================
-let mapleader = ","
+let mapleader = ','
 "with clipboard=autoselect visual selection should go automatically into primary
 "in case of needs I can user registers "+y
 set clipboard=autoselect
@@ -110,8 +107,8 @@ function! WriteBackup()
 endfunction
 " }}}
 " {{{ ===== Text Formatting/Layout =============================================
-set ai
-set si
+set autoindent
+set smartindent
 " TEST-03-12-2015 set tabstop=4
 set tabstop=8
 set softtabstop=4
@@ -122,17 +119,19 @@ set nojoinspaces
 set splitright " Puts new vsplit windows to the right of the current
 set splitbelow " Puts new split windows to the bottom of the current
 "set fo+=qn     " :h formatoptions fo-table
-set wm=0       " wrapping margin
-set tw=0       " no autowrap
+set wrapmargin=0       " wrapping margin
+set textwidth=0       " no autowrap
 " }}}
 " {{{ ===== Text Highlighting ==================================================
 highlight LeadingTab ctermbg=blue guibg=blue
 highlight LeadingSpace ctermbg=darkgreen guibg=darkgreen
 highlight EvilSpace ctermbg=darkred guibg=darkred
-au Syntax * syn match LeadingTab /^\t\+/
-au Syntax * syn match LeadingSpace /^\ \+/
-au Syntax * syn match EvilSpace /\(^\t*\)\@<!\t\+/ " tabs not preceeded by tabs
-au Syntax * syn match EvilSpace /[ \t]\+$/ " trailing space
+augroup syn_clean
+  au Syntax * syn match LeadingTab /^\t\+/
+  au Syntax * syn match LeadingSpace /^\ \+/
+  au Syntax * syn match EvilSpace /\(^\t*\)\@<!\t\+/ " tabs not preceeded by tabs
+  au Syntax * syn match EvilSpace /[ \t]\+$/ " trailing space
+augroup END
 " }}}
 " {{{ ===== Menus ==============================================================
 set wildmenu
@@ -215,22 +214,25 @@ highlight ColorColumn term=reverse cterm=reverse
 " Visual Cues
 set cmdheight=2
 set cursorline
-au WinEnter * setlocal cursorline
-au WinLeave * setlocal nocursorline
 set cursorcolumn
-"hi CursorColumn term=reverse ctermbg=234 ctermfg=white
-au WinEnter * setlocal cursorcolumn
-au WinLeave * setlocal nocursorcolumn
-if &term =~ "xterm\\|rxvt\\|screen-it\\|screen"
+augroup cursor_comd
+  au WinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+  au WinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorcolumn
+augroup END
+if &term =~? "xterm\\|rxvt\\|screen-it\\|screen"
   " use an orange cursor in insert mode
   let &t_SI = "\<Esc>]12;white\x7"
   " use a red cursor otherwise
   let &t_EI = "\<Esc>]12;orange\x7"
   silent !echo -ne "\033]12;orange\007"
   " reset cursor when vim exits
-  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  augroup vim_exit
+    autocmd VimLeave * silent !echo -ne "\033]112\007"
+augroup END
 endif
-if &term =~ "xterm\\|rxvt\\|screen-it\\|screen"
+if &term =~? "xterm\\|rxvt\\|screen-it\\|screen"
   " solid underscore
   let &t_SI .= "\<Esc>[6 q"
   " solid block
@@ -241,14 +243,13 @@ if &term =~ "xterm\\|rxvt\\|screen-it\\|screen"
   " 4 -> solid block
   " 5 -> blinking vertical bar
   " 6 -> solid vertical bar
-  autocmd VimLeave * silent !echo -ne "\033]112\007"
 endif
 set hlsearch
 set incsearch
 set laststatus=2   " always show the status line
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-set mat=5          " how many tenths of a second to blink matching brackets for
+set matchtime=5          " how many tenths of a second to blink matching brackets for
 set modeline       " in source settings --> # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
 set nostartofline  " keep the cursor in the same colon when changing line
 set number
@@ -260,14 +261,16 @@ set showmatch      " show matching brackets
 set sidescroll=1
 set sidescrolloff=10
 set smartcase
-set so=10          " Keep 10 lines (top/bottom) for scope
+set scrolloff=10          " Keep 10 lines (top/bottom) for scope
 set title
 " }}}
 " {{{ ===== Language specific settings =========================================
 " Python
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-autocmd BufRead *.c,*h set cindent ts=8 st=8 sw=8 noexpandtab
+augroup python_conf
+  autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+  autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+  autocmd BufRead *.c,*h set cindent ts=8 st=8 sw=8 noexpandtab
+augroup END
 " }}}
 " {{{ ===== Mappings ===========================================================
 
@@ -308,8 +311,10 @@ map <C-l> <C-W>l
 " inoremap <s-tab> <c-n>
 
 " Remap ctrl-] to Enter and ctrl-T to esc to make help sane.
-:au FileType help nnoremap <buffer> <CR> <c-]>
-:au FileType help nnoremap <buffer> <BS> <c-T>
+augroup remapping
+  :au FileType help nnoremap <buffer> <CR> <c-]>
+  :au FileType help nnoremap <buffer> <BS> <c-T>
+augroup END
 
 " Switching buffer mapping
 nnoremap <Leader>1 :1b<CR>
@@ -337,32 +342,36 @@ nmap <Space>x :let @/=''<CR>
 " Spelling
 map <F5> :setlocal spell! spelllang=en_us<CR>
 set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
-autocmd Filetype markdown setlocal spell
+augroup mrkd_grp
+  autocmd Filetype markdown setlocal spell
+augroup END
 
 " }}}
 " {{{ ===== Ruby ===============================================================
-au FileType ruby set ts=2 sts=2 et sw=2
+augroup ruby_grp
+  au FileType ruby set ts=2 sts=2 et sw=2
+  au FileType rb set foldmethod=expr
+  au FileType rb set foldexpr=FoldSomething(v:lnum)
+augroup END
 " }}}
 " {{{ ===== Ruby foldings ======================================================
 fun! FoldSomething(lnum)
   let line1=getline(a:lnum)
   let line2=getline(a:lnum+1)
-  if line1=~'^\s\+#\s[A-Z]\+'
+  if line1 =~# '^\s\+#\s[A-Z]\+'
     return 1
-   if line2=~'^\s\+when'
-     return ">1"
-   elseif line2=~'^$'
+   if line2 =~# '^\s\+when'
+     return '>1'
+   elseif line2 =~# '^$'
      return 0
    elseif foldlevel(a:lnum-1)==2
      return 1
    endif
- elseif line1=~'^#\s[A-Z][a-z]'
-   return ">2"
+ elseif line1 =~# '^#\s[A-Z][a-z]'
+   return '>2'
   endif
 endfun
 
-au FileType rb set foldmethod=expr
-au FileType rb set foldexpr=FoldSomething(v:lnum)
 "au FileType rb set foldcolumn=3
 "function! RubyMethodFold(line)
 "  let stack = synstack(a:line, (match(getline(a:line), '^\s*\zs'))+1)
@@ -385,7 +394,7 @@ function! VO2MD()
   let lines = []
   let was_body = 0
   for line in getline(1,'$')
-    if line =~ '^\t*[^:\t]'
+    if line =~# '^\t*[^:\t]'
       let indent_level = len(matchstr(line, '^\t*'))
       if was_body " <= remove this line to have body lines separated
         call add(lines, '')
@@ -405,10 +414,10 @@ endfunction
 function! MD2VO()
   let lines = []
   for line in getline(1,'$')
-    if line =~ '^\s*$'
+    if line =~# '^\s*$'
       continue
     endif
-    if line =~ '^#\+'
+    if line =~# '^#\+'
       let indent_level = len(matchstr(line, '^#\+')) - 1
       call add(lines, substitute(line, '^#\(#*\) ', repeat("\<Tab>", indent_level), ''))
     else
@@ -445,7 +454,9 @@ let g:ale_lint_on_text_changed = 1
 let g:ale_open_list = 1
 let g:ale_set_quickfix=1
 
-autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 0
+augroup ale_cmake
+  autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 0
+augroup END
 let g:ale_c_uncrustify_options = '-c ~/.uncrustify.cfg -l C --replace'
 "https://github.com/richq/cmake-lint
 let g:ale_cmake_cmakelint_options = '--filter=-linelength'
@@ -485,12 +496,14 @@ let g:notes_directories = ['~/Notes']
 " }}}
 " {{{ ===== NERDTree ===========================================================
 " Open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup nerd_open
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  "Close vim if the only window left open is a NERDTree?
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 "Open NERDTree
 map <F10> :NERDTreeToggle<CR>
-"Close vim if the only window left open is a NERDTree?
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeShowLineNumbers=0
 " }}}
 " {{{ ===== Easytags & Tagbar ==================================================
@@ -522,55 +535,61 @@ let g:tagbar_autopreview=0
 " {{{ ===== Folding template ===================================================
 " }}}
 " {{{ ===== Mutt ===============================================================
-au BufRead /tmp/mutt-* set tw=72
+augroup mutt_grp
+  au BufRead /tmp/mutt-* set tw=72
+augroup END
 " }}}
 " {{{ ===== Auto Commands ======================================================
-let excludeft = ['tagbar']
-au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
-au BufEnter *i3/config setlocal filetype=i3
-augroup WinNumber
-  autocmd!
+augroup number_ft
   autocmd BufWinEnter,WinEnter * if index(excludeft, &ft) <0 | set number
   autocmd BufWinLeave,WinLeave * set nonumber
+augroup END
+let excludeft = ['tagbar']
+augroup WinNumber
+  au BufNewFile,BufRead * setlocal formatoptions-=t formatoptions-=c
+  au BufEnter *i3/config setlocal filetype=i3
+  autocmd!
 augroup END
 "autocmd FileType nerdtree set nonumber
 "autocmd FileType tagbar set nonumber
 "autocmd FileType minibufexpl set nonumber
 " Remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
+augroup trim_space
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 " }}}
 " {{{ ===== VimSafe ============================================================
 " Defined in the plugin
 "set conceallevel=1
 " }}}
 " {{{ ===== Doxygen Plugin======================================================
-let g:DoxygenToolkit_authorName= "Antenore Gatta"
-let g:DoxygenToolkit_licenseTag= "Copyright (C) 2014-2019 Antenore Gatta, Giovanni Panozzo\<enter>\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "This program is free software; you can redistribute it and/or modify\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "it under the terms of the GNU General Public License as published by\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "the Free Software Foundation; either version 2 of the License, or\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "(at your option) any later version.\<enter>\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "This program is distributed in the hope that it will be useful,\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "but WITHOUT ANY WARRANTY; without even the implied warranty of\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "GNU General Public License for more details.\<enter>\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "You should have received a copy of the GNU General Public License\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "along with this program; if not, write to the Free Software\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "Foundation, Inc., 51 Franklin Street, Fifth Floor,\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "Boston, MA  02110-1301, USA.\<enter>\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "In addition, as a special exception, the copyright holders give\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "permission to link the code of portions of this program with the\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "OpenSSL library under certain conditions as described in each\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "individual source file, and distribute linked combinations\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "including the two.\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "You must obey the GNU General Public License in all respects\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "for all of the code used other than OpenSSL.\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you modify file(s) with this exception, you may extend this exception\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "to your version of the file(s), but you are not obligated to do so.\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you do not wish to do so, delete this exception statement from your\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "version.\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "If you delete this exception statement from all source\<enter>"
-let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . "files in the program, then also delete it here.\<enter>"
+let g:DoxygenToolkit_authorName= 'Antenore Gatta'
+let g:DoxygenToolkit_licenseTag= 'Copyright (C) 2014-2020 Antenore Gatta, Giovanni Panozzo\<enter>\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is free software; you can redistribute it and/or modify\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'it under the terms of the GNU General Public License as published by\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'the Free Software Foundation; either version 2 of the License, or\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . '(at your option) any later version.\<enter>\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is distributed in the hope that it will be useful,\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'but WITHOUT ANY WARRANTY; without even the implied warranty of\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'GNU General Public License for more details.\<enter>\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You should have received a copy of the GNU General Public License\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'along with this program; if not, write to the Free Software\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Foundation, Inc., 51 Franklin Street, Fifth Floor,\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Boston, MA  02110-1301, USA.\<enter>\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'In addition, as a special exception, the copyright holders give\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'permission to link the code of portions of this program with the\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'OpenSSL library under certain conditions as described in each\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'individual source file, and distribute linked combinations\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'including the two.\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You must obey the GNU General Public License in all respects\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'for all of the code used other than OpenSSL.\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you modify file(s) with this exception, you may extend this exception\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'to your version of the file(s), but you are not obligated to do so.\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you do not wish to do so, delete this exception statement from your\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'version.\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you delete this exception statement from all source\<enter>'
+let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'files in the program, then also delete it here.\<enter>'
 " }}}
 " {{{ ===== CTags ==============================================================
 set tags+=~/.vim/tags/gtk2
@@ -584,24 +603,26 @@ let g:devhelpAssistant=1
 let g:devhelpSearchKey = '<S-F5>'
 " }}}
 " {{{ ===== Rust plugins and settings===========================================
-let g:racer_cmd = "/home/tmow/.cargo/bin/racer"
+let g:racer_cmd = '/home/tmow/.cargo/bin/racer'
 let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
+augroup rust_grp
+  au FileType rust nmap gd <Plug>(rust-def)
+  au FileType rust nmap gs <Plug>(rust-def-split)
+  au FileType rust nmap gx <Plug>(rust-def-vertical)
+  au FileType rust nmap <leader>gd <Plug>(rust-doc)
+augroup END
 " }}}
 " {{{ ===== LaTeX ==============================================================
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
+let g:tex_flavor = 'latex'
 " }}}
 " {{{ ===== Deoplete ===========================================================
 let g:deoplete#enable_at_startup = 1
 " }}}
 " {{{ ===== UltiSnip ===========================================================
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-b>'
+let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}
