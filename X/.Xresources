@@ -32,12 +32,12 @@
 ! Color section {{{1 ===========================================================
 !
 !===============================================================================
-!#include "/home/tmow/.Xcolors/raven_m9-dark"
-!#include "/home/tmow/.Xcolors/gruvy"
-!#include "/home/tmow/.Xcolors/LuciusBlack"
-!#include "/home/tmow/.Xcolors/Luciano"
-!#include "/home/tmow/.Xcolors/hydra"
-#include "/home/tmow/.Xcolors/gruvbox-dark.xresources"
+!#include "/home/antenore/.Xcolors/raven_m9-dark"
+!#include "/home/antenore/.Xcolors/gruvy"
+!#include "/home/antenore/.Xcolors/LuciusBlack"
+!#include "/home/antenore/.Xcolors/Luciano"
+!#include "/home/antenore/.Xcolors/hydra"
+#include "/home/antenore/.Xcolors/gruvbox-dark.xresources"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)
@@ -56,9 +56,9 @@ Xft.hinting                                   : 1
 Xft.hintstyle                                 : hintslight
 aft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
-*font Inconsolata:size=12:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
-*.font Inconsolata:size=12:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
-*font* Inconsolata:size=12:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
+*font Inconsolata Nerd Font Mono:size=10:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
+*.font Inconsolata Nerd Font Mono:size=10:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
+*font* Inconsolata Nerd Font Mono:size=10:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=false:autohint=false
 ! -END- XFT Section 1}}}
 ! XTerm Section {{{1 ===========================================================
 XTerm.termName                                : xterm-256color
@@ -71,8 +71,8 @@ XTerm.colorMode                               : true
 XTerm.curses                                  : on
 XTerm.cutNewline                              : off
 XTerm.DeiconifyWarp                           : off
-XTerm.font                                    : xft:Inconsolata for Powerline:pixelsize=9:antialias=true:autohint=true
-XTerm.font1                                   : xft:Inconsolata for Powerline:pixelsize=9:antialias=true:autohint=true
+XTerm.font                                    : xft:Inconsolata Nerd Font Mono:pixelsize=10:antialias=true:autohint=true
+XTerm.font1                                   : xft:Inconsolata Nerd Font Mono:pixelsize=10:antialias=true:autohint=true
 XTerm.InternalBorder                          : 1
 !XTerm.jumpScroll                              : on
 XTerm.loginShell                              : true

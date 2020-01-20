@@ -55,6 +55,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
+Plug 'mattn/webapi-vim'
 "Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'wincent/command-t'
@@ -598,6 +599,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" }}}
+" {{{ ===== Rust ========================================================
+
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}
