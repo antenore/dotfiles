@@ -30,10 +30,15 @@ let g:ale_completion_enabled = 1
 endif
 call plug#begin('~/.vim/plugged')
 
+Plug 'roxma/nvim-yarp'
 Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py' }
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimshell.vim'
+Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ajmwagar/vim-deus'
 Plug 'altercation/vim-colors-solarized'
@@ -51,10 +56,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'SirVer/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
+Plug 'mattn/webapi-vim'
 Plug 'mattn/webapi-vim'
 "Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
@@ -420,7 +427,7 @@ let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
-			\	'c':['clang'],
+			\	'c':['gcc'],
       \ 'cpp': ['clang'],
 			\}
 let g:ale_linters_explicit = 0
