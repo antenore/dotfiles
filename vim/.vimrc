@@ -27,41 +27,47 @@ let g:ale_completion_enabled = 1
 endif
 call plug#begin('~/.vim/plugged')
 
-Plug 'roxma/nvim-yarp'
-"Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/vimshell.vim'
-Plug 'ajmwagar/vim-deus'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'MarcWeber/vim-addon-mw-utils'       " SnipMate depends on vim-addon-mw-utils
+" fuzzy finder
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/vim-hug-neovim-rpc'         " Needed by yarp
+  Plug 'roxma/nvim-yarp'                  " Vim library needed by deoplete, denite
+endif
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}  " Async exec library for Vim
+Plug 'Shougo/deol.nvim'                     " Vim shell replacement
+"Plug 'altercation/vim-colors-solarized'
 Plug 'antenore/vim-safe'
 Plug 'chrisbra/csv.vim'
 "Plug 'fholgado/minibufexpl.vim'
-Plug 'godlygeek/tabular'
-Plug 'honza/vim-snippets'
+Plug 'godlygeek/tabular'                  " Needed by vim-markdown (and me :- )
+Plug 'honza/vim-snippets'                 " snippets for ultisnip, snipmate and neosnippet
+Plug 'SirVer/ultisnips'
 Plug 'majutsushi/tagbar'
 Plug 'mboughaba/i3config.vim'
 "Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 "Plug 'lifepillar/vim-gruvbox8'
 Plug 'nvie/vim-pep8'
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'            " Needs tabular
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
-"Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim'               " Autocomplete, need pynvim
 Plug 'scrooloose/nerdtree'
-Plug 'SirVer/ultisnips'
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'                 " :G*
+Plug 'shumphrey/fugitive-gitlab.vim'      " :Gbrowse
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
-"Plug 'vim-syntastic/syntastic'
 Plug 'w0rp/ale'
 Plug 'wincent/command-t'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 " }}}
@@ -145,7 +151,10 @@ set wildchar=<Tab>
 " set laststatus=2
 "let g:airline#extensions#disable_rtp_load = 1
 " If things goes nasty
-let g:airline_extensions = []
+"let g:airline_extensions = []
+let g:airline_theme='base16_nord'
+let g:airline#extensions#fugitiveline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 " }}}
 " {{{ ===== UI =================================================================
 
@@ -617,12 +626,16 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = 'latex'
 " }}}
 " {{{ ===== Deoplete ===========================================================
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 " }}}
 " {{{ ===== UltiSnip ===========================================================
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-b>'
 let g:UltiSnipsJumpBackwardTrigger='<c-z>'
+" }}}
+" {{{ ===== fugitive / Gitlab===================================================
+let g:fugitive_gitlab_domains = ['https://www.gitlab.com']
+source ~/.gitlabtoken.vimrc
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}
