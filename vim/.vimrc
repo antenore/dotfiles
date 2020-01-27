@@ -51,7 +51,7 @@ Plug 'mboughaba/i3config.vim'
 Plug 'arcticicestudio/nord-vim'
 "Plug 'lifepillar/vim-gruvbox8'
 Plug 'nvie/vim-pep8'
-Plug 'plasticboy/vim-markdown'            " Needs tabular
+Plug 'gabrielelana/vim-markdown'            " Needs tabular
 Plug 'rodjek/vim-puppet'
 Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim'               " Autocomplete, need pynvim
@@ -68,6 +68,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 " }}}
@@ -81,6 +82,8 @@ let g:netrw_home=$XDG_CACHE_HOME.'/vim'
 " }}}
 " {{{ ===== General ============================================================
 let mapleader = ','
+"Let vim automatically load .vimrc found on folders
+set exrc
 "with clipboard=autoselect visual selection should go automatically into primary
 "in case of needs I can user registers "+y
 set clipboard=autoselect
@@ -299,27 +302,16 @@ nmap <C-S-t> :tabnew<CR>
 nmap <C-S-n> :tabn<CR>
 nmap <C-S-p> :tabp<CR>
 
-map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
+"map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
 
 "Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-" MULTIPURPOSE TAB KEY
-" Indent if we're at the beginning of a line. Else, do completion.
-" function! InsertTabWrapper()
-"     let col = col('.') - 1
-"     if !col || getline('.')[col - 1] !~ '\k'
-"         return "\<tab>"
-"     else
-"         return "\<c-p>"
-"     endif
-" endfunction
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-" inoremap <s-tab> <c-n>
 
 " Remap ctrl-] to Enter and ctrl-T to esc to make help sane.
+
 augroup remapping
   :au FileType help nnoremap <buffer> <CR> <c-]>
   :au FileType help nnoremap <buffer> <BS> <c-T>
@@ -336,6 +328,10 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
+
+" Resizing splits
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Useful functions keys
 set pastetoggle=<F12>
@@ -447,6 +443,8 @@ let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 0
 let g:ale_linters = {
 			\	'c':['clang'],
+			\	'rust':['rls'],
+			\	'markdown':['mdl'],
 			\}
 let g:ale_linters_explicit = 0
 "nmap <silent> <C-h> <Plug>(ale_previous_wrap)
@@ -636,6 +634,21 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " {{{ ===== fugitive / Gitlab===================================================
 let g:fugitive_gitlab_domains = ['https://www.gitlab.com']
 source ~/.gitlabtoken.vimrc
+" }}}
+" {{{ ===== Markdown ===========================================================
+" mappings are local to markdown buffers
+"
+"     <Space> (NORMAL_MODE) switch status of things:
+"         Cases
+"             A list item * item becomes a check list item * [ ] item
+"             A check list item * [ ] item becomes a checked list item * [x] item
+"             A checked list item * [x] item becomes a list item * item
+"         Can be changed with g:markdown_mapping_switch_status = '<Leader>s
+"     <Leader>ft (NORMAL_MODE) format the current table
+"     <Leader>e (NORMAL_MODE, VISUAL_MODE) :MarkdownEditCodeBlock edit the current code block in another buffer with a guessed file type. The guess is based on the start of the range for VISUAL_MODE. If it's not possible to guess (you are not in a recognizable code block like a fenced code block) then the default is markdown. If it's not possible to guess and the current range is a single line and the line is empty then a new code block is created. It's asked to the user the file type of the new code block. The default file type is markdown.
+"
+let g:markdown_enable_folding = 1
+
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}

@@ -299,5 +299,5 @@ set-option -g set-clipboard off
 
 # move status line to top
 set -g status-position top
-bind -n C-x setw synchronize-panes on
-bind -n M-x setw synchronize-panes off
+bind -n C-X setw synchronize-panes on
+bind -n M-X setw synchronize-panes off
