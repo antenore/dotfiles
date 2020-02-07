@@ -1,0 +1,289 @@
+# i3 config file (v4)
+
+################################################################################
+# General Options
+################################################################################
+font pango:Monaco, Icons 11
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+################################################################################
+# Appearance
+################################################################################
+
+# Gaps
+gaps inner 10
+gaps outer 0
+#smart_gaps on
+
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $orange #D65D0E
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+set $white #fbf1c7
+
+# class                 border  backgr. text    indicator child_border
+client.background       $bg
+#client.focused          #1d1d1d #928374 #1d2021 #1d1d1d
+#client.focused_inactive #1d1d1d #1d2021 #928374 #ebdbb2
+#client.unfocused        #32302f #32302f #928374 #282828
+#client.urgent           #cc241d #cc241d #ebdbb2 #282828
+client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+new_window none
+new_float 1pixel
+hide_edge_borders both
+
+## bar {
+##     # In hide mode is nice but with Sametime blinking it's just awful
+##     #mode hide
+##     mode dock
+##     #hidden_state hide
+##     #modifier Mod4
+##     status_command i3status -c ~/.i3/i3status.conf
+##     position bottom
+##     font pango:Inconsolata Nerd Font 10
+##     workspace_buttons yes
+##     colors {
+##         # bar background color
+##         background $bg
+##         # text color used for blocks that do not have a color specified.
+##         statusline $yellow
+##         # workspaces section
+##         #                    border  backgr. text
+##         focused_workspace    $orange $orange $darkgray
+##         inactive_workspace   $darkgray $darkgray $yellow
+##         active_workspace     $darkgray $darkgray $yellow
+##         urgent_workspace     $red $red $bg
+##     }
+## }
+################################################################################
+# i3wm Command (quit, reload, etc)
+################################################################################
+# Reload config
+bindsym Mod4+Shift+i reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Mod4+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+q exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+################################################################################
+# Key Bindings
+################################################################################
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+# enter fullscreen mode for the focused container
+bindsym Mod4+f fullscreen toggle
+# change container layout (stacked, tabbed, default)
+bindsym Mod4+s layout stacking
+bindsym Mod4+w layout tabbed
+bindsym Mod4+e layout toggle split
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+# focus the parent container
+bindsym Mod4+a focus parent
+# focus the child container
+bindsym Mod1+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod1+Shift+minus move scratchpad
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+
+bindsym Mod1+minus scratchpad show
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod4+h split h
+# split in vertical orientation
+bindsym Mod4+v split v
+
+################################################################################
+# Workspaces
+################################################################################
+# Switch back to most recent workspace
+workspace_auto_back_and_forth yes
+# Each workspace its own screen
+workspace "1: Mail"       output eDP-1
+workspace "2: Files"      output eDP-1
+workspace "3: Incognito"  output eDP-1
+workspace "4: DevDoc"     output eDP-1
+workspace 5               output eDP-1
+workspace 6               output eDP-1
+workspace 7               output eDP-1
+workspace 8               output eDP-1
+workspace 9               output eDP-1
+workspace 10              output eDP-1
+workspace "11: Terms"     output HDMI-2
+workspace "12: Intranet"     output HDMI-2
+workspace "13: Remmina"   output HDMI-2
+workspace "14: Office"    output HDMI-2
+workspace 15              output HDMI-2
+workspace 16              output HDMI-2
+workspace 17              output HDMI-2
+workspace 18              output HDMI-2
+workspace "19: Ref"       output HDMI-2
+workspace "20: Harden"       output HDMI-2
+# switch to workspace
+bindsym Mod4+1   workspace "1: Mail"
+bindsym Mod4+2   workspace "2: Files"
+bindsym Mod4+3   workspace "3: Incognito"
+bindsym Mod4+4   workspace "4: DevDoc"
+bindsym Mod4+5   workspace 5
+bindsym Mod4+6   workspace 6
+bindsym Mod4+7   workspace 7
+bindsym Mod4+8   workspace 8
+bindsym Mod4+9   workspace 9
+bindsym Mod4+10  workspace 10
+bindsym Mod4+F1  workspace "11: Terms"
+bindsym Mod4+F2  workspace "12: Intranet"
+bindsym Mod4+F3  workspace "13: Remmina"
+bindsym Mod4+F4  workspace "14: Office"
+bindsym Mod4+F5  workspace 15
+bindsym Mod4+F6  workspace 16
+bindsym Mod4+F7  workspace 17
+bindsym Mod4+F8  workspace 18
+bindsym Mod4+F9  workspace "19: Ref"
+bindsym Mod4+F10 workspace "20: Harden"
+
+# move focused container to workspace
+bindsym Mod4+Shift+1   move workspace "1: Mail"
+bindsym Mod4+Shift+2   move workspace "2: Files"
+bindsym Mod4+Shift+3   move workspace "3: Incognito"
+bindsym Mod4+Shift+4   move workspace "4: DevDoc"
+bindsym Mod4+Shift+5   move workspace 5
+bindsym Mod4+Shift+6   move workspace 6
+bindsym Mod4+Shift+7   move workspace 7
+bindsym Mod4+Shift+8   move workspace 8
+bindsym Mod4+Shift+9   move workspace 9
+bindsym Mod4+Shift+10  move workspace 10
+bindsym Mod4+Shift+F1  move workspace "11: Terms"
+bindsym Mod4+Shift+F2  move workspace "12: Intranet"
+bindsym Mod4+Shift+F3  move workspace "13: Remmina"
+bindsym Mod4+Shift+F4  move workspace "14: Office"
+bindsym Mod4+Shift+F5  move workspace 15
+bindsym Mod4+Shift+F6  move workspace 16
+bindsym Mod4+Shift+F7  move workspace 17
+bindsym Mod4+Shift+F8  move workspace 18
+bindsym Mod4+Shift+F9  move workspace "19: Ref"
+bindsym Mod4+Shift+F10 move workspace "20: Harden"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym l               resize shrink left 10 px or 10 ppt
+        bindsym Shift+l     resize grow   left 10 px or 10 ppt
+
+        bindsym k           resize shrink down 10 px or 10 ppt
+        bindsym Shift+k     resize grow   down 10 px or 10 ppt
+
+        bindsym i           resize shrink up 10 px or 10 ppt
+        bindsym Shift+i     resize grow   up 10 px or 10 ppt
+
+        bindsym j           resize shrink right 10 px or 10 ppt
+        bindsym Shift+j     resize grow   right 10 px or 10 ppt
+
+        bindsym Left        resize shrink left 10 px or 10 ppt
+        bindsym Shift+Left  resize grow   left 10 px or 10 ppt
+
+        bindsym Down        resize shrink down 10 px or 10 ppt
+        bindsym Shift+Down  resize grow   down 10 px or 10 ppt
+
+        bindsym Up          resize shrink up 10 px or 10 ppt
+        bindsym Shift+Up    resize grow   up 10 px or 10 ppt
+
+        bindsym Right       resize shrink right 10 px or 10 ppt
+        bindsym Shift+Right resize grow   right 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym Mod4+r mode "resize"
+
+# start a terminal
+bindsym Mod4+Return exec /usr/local/bin/st -e tmux attach
+bindsym Mod4+Shift+Return exec /usr/local/bin/st
+bindsym Mod4+Shift+c kill
+bindsym Mod4+p exec rofi -show run -location 1 -width 360x600 -xoffset 0 -yoffset 305 -lines 24
+bindsym Mod4+Shift+p exec rofi -show drun -location 1 -width 360x600 -xoffset 0 -yoffset 305 -lines 24
+bindsym Mod4+Shift+l exec ~/bin/ilock.sh
+bindsym Mod4+o exec rofi -show ssh
+bindsym Mod4+Tab exec rofi -show window
+bindsym Mod4+k exec GDK_DPI_SCALE=0.5 gkbd-keyboard-display -g 1
+# Screenshot
+bindsym 0xff61 exec scrot  ~/Images/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
+
+# Sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+# Browser
+bindsym XF86HomePage exec firefox -P IBM
+bindsym XF86Mail exec ibm-notes9
+
+# File manager
+bindsym Mod4+Shift+f exec /usr/local/bin/st -e ranger
+
+# Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
+exec --no-startup-id wmctrl -c Plasma
+for_window [title="Desktop — Plasma"] kill, floating enable
+
+# wallpaper
+exec --no-startup-id feh --bg-fill /home/antenore/Pictures/wallpaper.jpg
+exec --no-startup-id dropbox start
+
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 0
+# Automatically putting clients on specific workspaces.
+assign [class="IBM Notes"] → "1: Mail"
+assign [title="Screenshot Tool"] → "1: Mail"
+assign [title="ranger"] → "11: Terms"
+assign [title="thunar"] → "2: Files"
+assign [title="Devhelp — Assistant"] → "4: DevDoc"
+assign [class="st-256color"] → "11: Terms"
+assign [class="Remmina"] → "13: Remmina"
+assign [class="libreoffice"] → "14: Office"
+assign [class="Claws-mail"] → "20: Harden"
+#assign [class="Firefox"] → "20: Harden"
+#assign [class="IBM Firefox"] → "12: Intranet"
+for_window [title=".*\(Private Browsing\).*"] move to workspace "3: Incognito"
+# autostartup
+#exec --no-startup-id /usr/libexec/gsd-xsettings
+#exec_always --no-startup-id gnome-power-statistics
+#exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+#exec --no-startup-id gnome-flashback
+#exec --no-startup-id /usr/libexec/notification-daemon
+
+# focus
+## Avoid tiling popups, dropdown windows from plasma
+# for the first time, manually resize them, i3 will remember the setting for floating windows
+for_window [class="plasmashell"] floating enable
+for_window [class="Plasma"] floating enable, border none
+for_window [title="plasma-desktop"] floating enable, border none
+for_window [title="win7"] floating enable, border none
+for_window [class="krunner"] floating enable, border none
+for_window [class="Kmix"] floating enable, border none
+for_window [class="Klipper"] floating enable, border none
+for_window [class="Plasmoidviewer"] floating enable, border none
+focus_on_window_activation none
