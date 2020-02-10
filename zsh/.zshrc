@@ -191,7 +191,7 @@ COMPLETION_WAITING_DOTS="true"
 cmn_plugins=(battery catimg colored-man colored-man-pages colorize compleat cp \
     dnf emoji-clock emoji emotty encode64 fancy-ctrl-z gemcw git git-extras git-flow \
     github git-hubflow git-remote-branch gpg-agent history mercurial nmap pip \
-    python ruby ssh-agent sudo svn svn-fast-info systemadmin systemd textastic \
+    python ruby rust ssh-agent sudo svn svn-fast-info systemadmin systemd textastic \
     tmux tmuxinator zsh_reload)
 case "$MYDIST" in
     fedora)
