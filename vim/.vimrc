@@ -53,6 +53,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'nvie/vim-pep8'
 Plug 'gabrielelana/vim-markdown'            " Needs tabular
 Plug 'rodjek/vim-puppet'
+Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'Shougo/deoplete.nvim'               " Autocomplete, need pynvim
 Plug 'scrooloose/nerdtree'
@@ -81,7 +82,7 @@ set makeef=error.err
 let g:netrw_home=$XDG_CACHE_HOME.'/vim'
 " }}}
 " {{{ ===== General ============================================================
-let mapleader = ','
+let g:mapleader = ','
 "Let vim automatically load .vimrc found on folders
 set exrc
 "with clipboard=autoselect visual selection should go automatically into primary
@@ -441,11 +442,20 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 0
+let g:ale_puppet_puppetlint_executable = '/home/antenore/bin/puppet-lint'
 let g:ale_linters = {
-			\	'c':['clang'],
-			\	'rust':['rls'],
-			\	'markdown':['mdl'],
-			\}
+  \	'c': ['clang'],
+  \	'rust': ['rls'],
+  \	'markdown': ['mdl'],
+  \ 'json': ['fixjson'],
+  \ 'puppet': ['puppetlint'],
+  \ 'vim': ['vint'],
+  \ 'javascript': ['standard'],}
+let g:ale_fixers = {
+  \ 'json': ['fixjson'],
+  \ 'puppet': ['puppetlint'],
+  \ 'vim': ['vint'],
+  \ 'javascript': ['standard'],}
 let g:ale_linters_explicit = 0
 "nmap <silent> <C-h> <Plug>(ale_previous_wrap)
 "nmap <silent> <C-l> <Plug>(ale_next_wrap)
@@ -460,6 +470,8 @@ let g:ale_lint_on_text_changed = 1
 " let g:ale_open_list = 'on_save'
 let g:ale_open_list = 1
 let g:ale_set_quickfix=1
+" puppet-lint options
+let g:ale_puppet_puppetlint_options="--no-puppet_url_without_modules-check"
 
 augroup ale_cmake
   autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 0
@@ -473,6 +485,7 @@ nnoremap <C-F9> :ALEFix<CR>
 nnoremap <leader>rr :%s/$//g<CR>
 nnoremap <leader>rt :%s/\r//g<CR>
 nnoremap <leader>re ::%s/\s\+$//<CR>
+let g:ale_json_fixjson_executable = 'fixjson'
 let g:ale_fixers = {
 			\ 'c': [
 			\ 'uncrustify',
@@ -482,7 +495,10 @@ let g:ale_fixers = {
 			\ 'cmake': [
 			\ 'remove_trailing_lines',
 			\ 'trim_whitespace',
-			\ ]
+			\ ],
+      \ 'json': [
+      \ 'fixjson',
+      \ ]
 			\ }
 " }}}
 " {{{ ===== Bash Support Plugin ================================================
@@ -518,8 +534,8 @@ nmap <F8> :TagbarToggle<CR>
 " Open tagbar with supported files
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
 set tags=./tags;,~/.vimtags,~/vim/tags
-let g:easytags_cmd = '/usr/bin/ctags'
-let g:tagbar_ctags_bin='/usr/bin/ctags'
+let g:easytags_cmd = '/usr/local/bin/ctags'
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 2
@@ -647,7 +663,8 @@ source ~/.gitlabtoken.vimrc
 "     <Leader>ft (NORMAL_MODE) format the current table
 "     <Leader>e (NORMAL_MODE, VISUAL_MODE) :MarkdownEditCodeBlock edit the current code block in another buffer with a guessed file type. The guess is based on the start of the range for VISUAL_MODE. If it's not possible to guess (you are not in a recognizable code block like a fenced code block) then the default is markdown. If it's not possible to guess and the current range is a single line and the line is empty then a new code block is created. It's asked to the user the file type of the new code block. The default file type is markdown.
 "
-let g:markdown_enable_folding = 1
+"let g:markdown_enable_folding = 1
+let g:vim_markdown_folding_disabled= 1
 
 " }}}
 " {{{ ===== Empty Entry ========================================================
