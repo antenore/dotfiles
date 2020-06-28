@@ -45,8 +45,6 @@ tmux_conf_new_session_prompt=true
 tmux_conf_theme_24b_colour=true
 
 # window style
-#tmux_conf_theme_window_fg='#FBF1C7'
-#mux_conf_theme_window_bg='#1D2021'
 tmux_conf_theme_window_fg='default'
 tmux_conf_theme_window_bg='default'
 
@@ -57,7 +55,6 @@ tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-#tmux_conf_theme_focused_pane_fg='#FBF1C7'
 tmux_conf_theme_focused_pane_bg='#83A59B'               # light blue
 
 # pane border style, possible values are:
@@ -75,17 +72,17 @@ tmux_conf_theme_pane_active_indicator='#83A59B'         # light blue
 
 # status line style
 tmux_conf_theme_message_fg='#3C3836'                    # black
-tmux_conf_theme_message_bg='#D79921'                    # neutral_yellow
+tmux_conf_theme_message_bg='#D79921'                    # yellow
 tmux_conf_theme_message_attr='bold'
 
 # status line command style (<prefix> : Escape)
-tmux_conf_theme_message_command_fg='#D79921'            # neutral_yellow
+tmux_conf_theme_message_command_fg='#D79921'            # yellow
 tmux_conf_theme_message_command_bg='#1D2021'            # black
 tmux_conf_theme_message_command_attr='bold'
 
 # window modes style
 tmux_conf_theme_mode_fg='#1D2021'                       # black
-tmux_conf_theme_mode_bg='#D79921'                       # neutral_yellow
+tmux_conf_theme_mode_bg='#D79921'                       # yellow
 tmux_conf_theme_mode_attr='bold'
 
 # status line style
@@ -127,7 +124,7 @@ tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_z
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_window_status_current_fg='#3C3836'      # black
-tmux_conf_theme_window_status_current_bg='#D65D0E'      # neutral orange
+tmux_conf_theme_window_status_current_bg='#D65D0E'      # light blue
 tmux_conf_theme_window_status_current_attr='bold'
 #tmux_conf_theme_window_status_current_format='#I #W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -139,12 +136,12 @@ tmux_conf_theme_window_status_activity_bg='#3C3836'
 tmux_conf_theme_window_status_activity_attr='underscore'
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg='#D79921'         # neutral_yellow
+tmux_conf_theme_window_status_bell_fg='#D79921'         # yellow
 tmux_conf_theme_window_status_bell_bg='#1D2021'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#D65D0E'      # neutral orange
+tmux_conf_theme_window_status_last_fg='#D65D0E'      # light orange
 tmux_conf_theme_window_status_last_bg='#3C3836'
 tmux_conf_theme_window_status_last_attr='none'
 
@@ -187,7 +184,7 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_stat
 
 # status left style
 tmux_conf_theme_status_left_fg='#1D2021,#FBF1C7,#FBF1C7'  # black, white , white
-tmux_conf_theme_status_left_bg='#D79921,#B16286,#83A59B'  # neutral_yellow, pink, white blue
+tmux_conf_theme_status_left_bg='#D79921,#B16286,#83A59B'  # yellow, pink, white blue
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
@@ -302,9 +299,3 @@ set -g status-position top
 bind -n C-X setw synchronize-panes on
 bind -n M-X setw synchronize-panes off
 
-# List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-#set -g @plugin "arcticicestudio/nord-tmux"
-set -g @plugin 'dracula/tmux'
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run -b '~/.tmux/plugins/tpm/tpm'
