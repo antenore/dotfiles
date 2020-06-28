@@ -198,7 +198,7 @@ cmn_plugins=(battery catimg colored-man-pages colorize compleat cp dnf \
     emoji-clock emoji emotty encode64 fancy-ctrl-z git git-extras git-flow \
     github git-hubflow git-remote-branch gpg-agent history mercurial nmap pip \
     python ruby ssh-agent sudo svn svn-fast-info systemadmin systemd textastic \
-    tmux tmuxinator zsh_reload)
+    tmux tmuxinator zsh_reload zsh-syntax-highlighting zsh-autosuggestions)
 case "$MYDIST" in
     fedora)
         plugins=(${cmn_plugins[@]} fedora)

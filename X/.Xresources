@@ -37,7 +37,9 @@
 !#include "/home/antenore/.Xcolors/LuciusBlack"
 !#include "/home/antenore/.Xcolors/Luciano"
 !#include "/home/antenore/.Xcolors/hydra"
-#include "/home/antenore/.Xcolors/gruvbox-dark.xresources"
+!include "/home/antenore/.Xcolors/gruvbox-dark.xresources"
+!#include "/home/antenore/.Xcolors/nord"
+#include "/home/antenore/.Xcolors/dracula"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)
