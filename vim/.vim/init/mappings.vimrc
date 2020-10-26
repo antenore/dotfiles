@@ -1,10 +1,10 @@
 " $HOME/.im/init/mappings.vimrc
 
 " disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>

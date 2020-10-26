@@ -26,10 +26,22 @@ set pyxversion=3
 let g:ale_completion_enabled = 1
 " }}}
 " {{{ ===== Files ==============================================================
-set viminfo='10,\"1000,:20,%,n~/.viminfo
+silent !mkdir ~/.cache/vim > /dev/null 2>&1
+set viminfo='100,\"1000,:100,%,n~/.cache/vim/.viminfo
+" backup directory.
+set backupdir=~/.cache/vim//
 set backup
-set backupdir=~/.vim/backup/
-set directory=~/.vim/temp
+
+" swap directory.
+set directory=~/.cache/vim//
+set swapfile
+
+" undo directory.
+set undodir=~/.cache/vim//
+set undofile
+set undolevels=1000
+set undoreload=10000        " number of lines to save for undo
+
 set makeef=error.err
 set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 let g:netrw_home=$XDG_CACHE_HOME.'/vim'
@@ -37,6 +49,9 @@ let g:netrw_home=$XDG_CACHE_HOME.'/vim'
 set tags+=~/.vim/tags/gtk2
 set tags+=~/.vim/tags/gtk3
 set tags+=~/.vim/tags/glib
+
+runtime ftplugin/man.vim
+
 " }}}
 " {{{ ===== VIMRC Functions ====================================================
 source $HOME/.vim/init/functions.vimrc  " Functions

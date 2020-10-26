@@ -19,12 +19,35 @@ set ignorecase
 set noerrorbells
 set novisualbell
 set printoptions=paper:A4,syntax:y
+" Enable error files & error jumping.
 set report=0                         " tell us when anything is changed via :...
-set undofile                " Save undos after file closes
-set undodir=$HOME/.vim/undo " where to save undo histories
-set undolevels=1000
-set undoreload=10000        " number of lines to save for undo
 set wildmenu
+" stuff to ignore when tab completing
+set wildignore+=*.o,*.obj,*~,*.egg-info/**,node_modules/**,dist/**,build/**
 set wildmode=list:longest,full
+" ignore case (mostly for rediculous camel-cased idioms).
+set wildignorecase
 set wildchar=<Tab>
 set grepprg=grep\ -nH\ $*
+
+" file extensions to append.
+set suffixesadd+=.c
+set suffixesadd+=.css
+set suffixesadd+=.ex
+set suffixesadd+=.go
+set suffixesadd+=.h
+set suffixesadd+=.html
+set suffixesadd+=.js
+set suffixesadd+=.json
+set suffixesadd+=.md
+set suffixesadd+=.php
+set suffixesadd+=.phpt
+set suffixesadd+=.pl
+set suffixesadd+=py
+set suffixesadd+=.rb
+set suffixesadd+=.rs
+set suffixesadd+=.scss
+set suffixesadd+=.swift
+set suffixesadd+=.sh
+set suffixesadd+=.xml
+set suffixesadd+=.zsh

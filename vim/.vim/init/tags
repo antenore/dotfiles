@@ -1,142 +1,151 @@
 !_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
-<C-D><C-D>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>$/;"	m	language:Vim
-<C-F9>	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <C-F9> :ALEFix<CR>$/;"	m	language:Vim
-<C-h>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-h> <C-W>h$/;"	m	language:Vim
-<C-j>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-j> <C-W>j$/;"	m	language:Vim
-<C-k>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-k> <C-W>k$/;"	m	language:Vim
-<C-l>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-l> <C-W>l$/;"	m	language:Vim
-<C-S-n>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <C-S-n> :tabn<CR>$/;"	m	language:Vim
-<C-S-p>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <C-S-p> :tabp<CR>$/;"	m	language:Vim
-<C-S-t>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <C-S-t> :tabnew<CR>$/;"	m	language:Vim
-<C-T><C-T>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>$/;"	m	language:Vim
-<down>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <down> <nop>$/;"	m	language:Vim
-<down>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <down> <nop>$/;"	m	language:Vim
-<F10>	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^map <F10> :NERDTreeToggle<CR>$/;"	m	language:Vim
-<F11>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>$/;"	m	language:Vim
-<F5>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <F5> :setlocal spell! spelllang=en_us<CR>$/;"	m	language:Vim
-<F8>	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nmap <F8> :TagbarToggle<CR>$/;"	m	language:Vim
-<Leader>+	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3\/2)<CR>$/;"	m	language:Vim
-<Leader>-	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2\/3)<CR>$/;"	m	language:Vim
-<Leader>0	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>0 :10b<CR>$/;"	m	language:Vim
-<Leader>1	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>1 :1b<CR>$/;"	m	language:Vim
-<Leader>2	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>2 :2b<CR>$/;"	m	language:Vim
-<Leader>3	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>3 :3b<CR>$/;"	m	language:Vim
-<Leader>4	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>4 :4b<CR>$/;"	m	language:Vim
-<Leader>5	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>5 :5b<CR>$/;"	m	language:Vim
-<Leader>6	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>6 :6b<CR>$/;"	m	language:Vim
-<Leader>7	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>7 :7b<CR>$/;"	m	language:Vim
-<Leader>8	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>8 :8b<CR>$/;"	m	language:Vim
-<Leader>9	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>9 :9b<CR>$/;"	m	language:Vim
-<leader>re	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <leader>re ::%s\/\\s\\+$\/\/<CR>$/;"	m	language:Vim
-<leader>rr	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <leader>rr :%s\/$/;"	m	language:Vim
-<leader>rt	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <leader>rt :%s\/\\r\/\/g<CR>$/;"	m	language:Vim
-<left>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <left> <nop>$/;"	m	language:Vim
-<left>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <left> <nop>$/;"	m	language:Vim
-<right>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <right> <nop>$/;"	m	language:Vim
-<right>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <right> <nop>$/;"	m	language:Vim
-<Space>x	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <Space>x :let @\/=''<CR>$/;"	m	language:Vim
-<up>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <up> <nop>$/;"	m	language:Vim
-<up>	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <up> <nop>$/;"	m	language:Vim
-ale_cmake	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup ale_cmake$/;"	a	language:Vim
-bash_match	/data/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup bash_match$/;"	a	language:Vim
-FoldSomething	/data/home/antenore/.dotfiles/vim/.vim/init/functions.vimrc	/^fun! FoldSomething(lnum)$/;"	f	language:Vim
-g:airline#extensions#ale#enabled	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
-g:airline#extensions#ale#enabled	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
-g:airline#extensions#fugitiveline#enabled	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#fugitiveline#enabled = 1$/;"	v	language:Vim
-g:airline#extensions#tabline#enabled	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#tabline#enabled = 1$/;"	v	language:Vim
-g:airline_powerline_fonts	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
-g:airline_theme	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_theme='dracula'$/;"	v	language:Vim
-g:ale_cmake_cmakelint_options	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_cmake_cmakelint_options = '--filter=-linelength'$/;"	v	language:Vim
-g:ale_completion_enabled	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_completion_enabled = 0$/;"	v	language:Vim
-g:ale_c_build_dir_names	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_c_build_dir_names = ['build']$/;"	v	language:Vim
-g:ale_c_parse_compile_commands	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_c_parse_compile_commands = 1$/;"	v	language:Vim
-g:ale_c_uncrustify_options	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_c_uncrustify_options = '-c ~\/.uncrustify.cfg -l C --replace'$/;"	v	language:Vim
-g:ale_fixers	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_fixers = {$/;"	v	language:Vim
-g:ale_fixers	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_fixers = {$/;"	v	language:Vim
-g:ale_json_fixjson_executable	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_json_fixjson_executable = 'fixjson'$/;"	v	language:Vim
-g:ale_linters	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linters = {$/;"	v	language:Vim
-g:ale_linters_explicit	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linters_explicit = 0$/;"	v	language:Vim
-g:ale_linter_aliases	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linter_aliases = {'ps1': 'powershell'}$/;"	v	language:Vim
-g:ale_lint_on_text_changed	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_lint_on_text_changed = 1$/;"	v	language:Vim
-g:ale_open_list	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_open_list = 1$/;"	v	language:Vim
-g:ale_puppet_puppetlint_executable	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_puppet_puppetlint_executable = '\/home\/antenore\/bin\/puppet-lint'$/;"	v	language:Vim
-g:ale_puppet_puppetlint_options	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_puppet_puppetlint_options='--no-puppet_url_without_modules-check'$/;"	v	language:Vim
-g:ale_set_highlights	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_highlights = 0$/;"	v	language:Vim
-g:ale_set_quickfix	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_quickfix=1$/;"	v	language:Vim
-g:ale_sign_column_always	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sign_column_always = 0$/;"	v	language:Vim
-g:ale_sign_error	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sign_error = '>>'$/;"	v	language:Vim
-g:ale_sign_warning	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sign_warning = '--'$/;"	v	language:Vim
-g:BASH_AuthorName	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_AuthorName               = 'Antenore Gatta'$/;"	v	language:Vim
-g:BASH_Company	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_Company                  = 'IBM Switzerland'$/;"	v	language:Vim
-g:BASH_DoOnNewLine	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_DoOnNewLine              = 'yes'$/;"	v	language:Vim
-g:BASH_Email	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_Email                    = 'agatt@ch.ibm.com'$/;"	v	language:Vim
-g:BASH_LineEndCommColDefault	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_LineEndCommColDefault    = 49$/;"	v	language:Vim
-g:BASH_MapLeader	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_MapLeader                = ','$/;"	v	language:Vim
-g:deoplete#enable_at_startup	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:deoplete#enable_at_startup = 1$/;"	v	language:Vim
-g:devhelpAssistant	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpAssistant=1$/;"	v	language:Vim
-g:devhelpSearch	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpSearch=1$/;"	v	language:Vim
-g:devhelpSearchKey	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpSearchKey = '<S-F5>'$/;"	v	language:Vim
-g:DoxygenToolkit_authorName	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_authorName= 'Antenore Gatta'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . '(at your option) any later version.\\<enter>\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'along with this program; if not, write to the Free Software\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Boston, MA  02110-1301, USA.\\<enter>\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'but WITHOUT ANY WARRANTY; without even the implied warranty of\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'files in the program, then also delete it here.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'for all of the code used other than OpenSSL.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Foundation, Inc., 51 Franklin Street, Fifth Floor,\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'GNU General Public License for more details.\\<enter>\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you delete this exception statement from all source\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you do not wish to do so, delete this exception statement from your\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you modify file(s) with this exception, you may extend this exception\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'In addition, as a special exception, the copyright holders give\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'including the two.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'individual source file, and distribute linked combinations\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'it under the terms of the GNU General Public License as published by\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'OpenSSL library under certain conditions as described in each\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'permission to link the code of portions of this program with the\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'the Free Software Foundation; either version 2 of the License, or\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is distributed in the hope that it will be useful,\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is free software; you can redistribute it and\/or modify\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'to your version of the file(s), but you are not obligated to do so.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'version.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You must obey the GNU General Public License in all respects\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You should have received a copy of the GNU General Public License\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag= 'Copyright (C) 2014-2020 Antenore Gatta, Giovanni Panozzo\\<enter>\\<enter>'$/;"	v	language:Vim
-g:dracula_colorterm	/data/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_colorterm = 0$/;"	v	language:Vim
-g:dracula_italic	/data/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_italic = 0$/;"	v	language:Vim
-g:easytags_async	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_async = 1$/;"	v	language:Vim
-g:easytags_cmd	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_cmd = '\/usr\/local\/bin\/ctags'$/;"	v	language:Vim
-g:easytags_dynamic_files	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim
-g:easytags_events	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_events = ['BufReadPost', 'BufWritePost']$/;"	v	language:Vim
-g:easytags_resolve_links	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
-g:easytags_suppress_ctags_warning	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_suppress_ctags_warning = 1$/;"	v	language:Vim
-g:excludeft	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:excludeft = ['tagbar']$/;"	v	language:Vim
-g:fugitive_gitlab_domains	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:fugitive_gitlab_domains = ['https:\/\/www.gitlab.com']$/;"	v	language:Vim
-g:mapleader	/data/home/antenore/.dotfiles/vim/.vim/init/general.vimrc	/^let g:mapleader = ','$/;"	v	language:Vim
-g:NERDTreeShowLineNumbers	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:NERDTreeShowLineNumbers=0$/;"	v	language:Vim
-g:notes_directories	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:notes_directories = ['~\/Notes']$/;"	v	language:Vim
-g:racer_cmd	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:racer_cmd = '\/home\/tmow\/.cargo\/bin\/racer'$/;"	v	language:Vim
-g:racer_experimental_completer	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:racer_experimental_completer = 1$/;"	v	language:Vim
-g:tagbar_autopreview	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_autopreview=0$/;"	v	language:Vim
-g:tagbar_ctags_bin	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_ctags_bin='\/usr\/local\/bin\/ctags'$/;"	v	language:Vim
-g:tagbar_indent	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_indent=1$/;"	v	language:Vim
-g:tagbar_show_linenumbers	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_show_linenumbers=0$/;"	v	language:Vim
-g:tagbar_width	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_width=65$/;"	v	language:Vim
-g:tex_flavor	/data/home/antenore/.dotfiles/vim/.vim/init/latex.vimrc	/^let g:tex_flavor = 'latex'$/;"	v	language:Vim
-g:UltiSnipsExpandTrigger	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsExpandTrigger='<tab>'$/;"	v	language:Vim
-g:UltiSnipsJumpBackwardTrigger	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsJumpBackwardTrigger='<c-z>'$/;"	v	language:Vim
-g:UltiSnipsJumpForwardTrigger	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsJumpForwardTrigger='<c-b>'$/;"	v	language:Vim
-g:vim_markdown_folding_disabled	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:vim_markdown_folding_disabled= 1$/;"	v	language:Vim
-MD2VO	/data/home/antenore/.dotfiles/vim/.vim/init/functions.vimrc	/^function! MD2VO()$/;"	f	language:Vim
-nerd_open	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup nerd_open$/;"	a	language:Vim
+<C-D><C-D>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <silent> <C-D><C-D> <C-R>=strftime("%e %b %Y")<CR>$/;"	m	language:Vim
+<C-F9>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <C-F9> :ALEFix<CR>$/;"	m	language:Vim
+<C-h>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-h> <C-W>h$/;"	m	language:Vim
+<C-j>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-j> <C-W>j$/;"	m	language:Vim
+<C-k>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-k> <C-W>k$/;"	m	language:Vim
+<C-l>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <C-l> <C-W>l$/;"	m	language:Vim
+<C-S-n>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <C-S-n> :tabn<CR>$/;"	m	language:Vim
+<C-S-p>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <C-S-p> :tabp<CR>$/;"	m	language:Vim
+<C-S-t>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <C-S-t> :tabnew<CR>$/;"	m	language:Vim
+<C-T><C-T>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <silent> <C-T><C-T> <C-R>=strftime("%l:%M %p")<CR>$/;"	m	language:Vim
+<down>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <down> <nop>$/;"	m	language:Vim
+<down>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    map <down> <nop>$/;"	m	language:Vim
+<Down>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    nnoremap <silent> <Down>  :call animate#window_delta_height(-10)<CR>$/;"	m	language:Vim
+<F10>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^map <F10> :NERDTreeToggle<CR>$/;"	m	language:Vim
+<F11>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <F11> :let &bg = ( &bg == 'dark'? 'light' : 'dark' )<CR>$/;"	m	language:Vim
+<F5>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^map <F5> :setlocal spell! spelllang=en_us<CR>$/;"	m	language:Vim
+<F8>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nmap <F8> :TagbarToggle<CR>$/;"	m	language:Vim
+<Leader>+	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3\/2)<CR>$/;"	m	language:Vim
+<Leader>-	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2\/3)<CR>$/;"	m	language:Vim
+<Leader>0	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>0 :10b<CR>$/;"	m	language:Vim
+<Leader>1	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>1 :1b<CR>$/;"	m	language:Vim
+<Leader>2	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>2 :2b<CR>$/;"	m	language:Vim
+<Leader>3	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>3 :3b<CR>$/;"	m	language:Vim
+<Leader>4	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>4 :4b<CR>$/;"	m	language:Vim
+<Leader>5	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>5 :5b<CR>$/;"	m	language:Vim
+<Leader>6	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>6 :6b<CR>$/;"	m	language:Vim
+<Leader>7	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>7 :7b<CR>$/;"	m	language:Vim
+<Leader>8	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>8 :8b<CR>$/;"	m	language:Vim
+<Leader>9	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nnoremap <Leader>9 :9b<CR>$/;"	m	language:Vim
+<Leader><Enter>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <silent> <Leader><Enter> :call fzf#run({$/;"	m	language:Vim
+<leader>re	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <leader>re ::%s\/\\s\\+$\/\/<CR>$/;"	m	language:Vim
+<leader>rr	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <leader>rr :%s\/$/;"	m	language:Vim
+<leader>rt	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^nnoremap <leader>rt :%s\/\\r\/\/g<CR>$/;"	m	language:Vim
+<left>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <left> <nop>$/;"	m	language:Vim
+<left>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    map <left> <nop>$/;"	m	language:Vim
+<Left>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    nnoremap <silent> <Left>  :call animate#window_delta_width(10)<CR>$/;"	m	language:Vim
+<right>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <right> <nop>$/;"	m	language:Vim
+<right>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    map <right> <nop>$/;"	m	language:Vim
+<Right>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    nnoremap <silent> <Right> :call animate#window_delta_width(-10)<CR>$/;"	m	language:Vim
+<Space>x	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^nmap <Space>x :let @\/=''<CR>$/;"	m	language:Vim
+<up>	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^imap <up> <nop>$/;"	m	language:Vim
+<up>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    map <up> <nop>$/;"	m	language:Vim
+<Up>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>$/;"	m	language:Vim
+ale_cmake	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup ale_cmake$/;"	a	language:Vim
+buffer_lines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buffer_lines()$/;"	f	language:Vim
+buflist	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buflist()$/;"	f	language:Vim
+bufopen	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:bufopen(e)$/;"	f	language:Vim
+FZFLines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! FZFLines call fzf#run({$/;"	c	language:Vim
+g:airline#extensions#ale#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
+g:airline#extensions#ale#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
+g:airline#extensions#fugitiveline#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#fugitiveline#enabled = 1$/;"	v	language:Vim
+g:airline#extensions#tabline#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#tabline#enabled = 1$/;"	v	language:Vim
+g:airline_powerline_fonts	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
+g:airline_theme	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_theme='dracula'$/;"	v	language:Vim
+g:ale_cmake_cmakeformat_executable	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_cmake_cmakeformat_executable = '\/home\/antenore\/.local\/bin\/cmake-format'$/;"	v	language:Vim
+g:ale_cmake_cmakelint_options	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_cmake_cmakelint_options = '--filter=-linelength'$/;"	v	language:Vim
+g:ale_completion_enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_completion_enabled = 0$/;"	v	language:Vim
+g:ale_c_build_dir_names	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_c_build_dir_names = ['build']$/;"	v	language:Vim
+g:ale_c_parse_compile_commands	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_c_parse_compile_commands = 1$/;"	v	language:Vim
+g:ale_c_uncrustify_options	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_c_uncrustify_options = '-c ~\/.uncrustify.cfg -l C --replace'$/;"	v	language:Vim
+g:ale_echo_msg_error_str	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_echo_msg_error_str = 'E'$/;"	v	language:Vim
+g:ale_echo_msg_format	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'$/;"	v	language:Vim
+g:ale_echo_msg_warning_str	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_echo_msg_warning_str = 'W'$/;"	v	language:Vim
+g:ale_fixers	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_fixers = {$/;"	v	language:Vim
+g:ale_json_fixjson_executable	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_json_fixjson_executable = 'fixjson'$/;"	v	language:Vim
+g:ale_linters	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linters = {$/;"	v	language:Vim
+g:ale_linters_explicit	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linters_explicit = 1$/;"	v	language:Vim
+g:ale_linter_aliases	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linter_aliases = {$/;"	v	language:Vim
+g:ale_lint_on_text_changed	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_lint_on_text_changed = 1$/;"	v	language:Vim
+g:ale_open_list	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_open_list = 1$/;"	v	language:Vim
+g:ale_puppet_puppetlint_executable	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_puppet_puppetlint_executable = '\/home\/antenore\/bin\/puppet-lint'$/;"	v	language:Vim
+g:ale_puppet_puppetlint_options	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_puppet_puppetlint_options='--no-puppet_url_without_modules-check'$/;"	v	language:Vim
+g:ale_set_highlights	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_highlights = 0$/;"	v	language:Vim
+g:ale_set_quickfix	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_quickfix=1$/;"	v	language:Vim
+g:ale_set_signs	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_signs = 1$/;"	v	language:Vim
+g:ale_sh_shellcheck_options	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sh_shellcheck_options = '-x'$/;"	v	language:Vim
+g:ale_sign_column_always	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sign_column_always = 0$/;"	v	language:Vim
+g:ale_sign_error	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sign_error = '>>'$/;"	v	language:Vim
+g:ale_sign_warning	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_sign_warning = '--'$/;"	v	language:Vim
+g:BASH_AuthorName	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_AuthorName               = 'Antenore Gatta'$/;"	v	language:Vim
+g:BASH_Company	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_Company                  = 'IBM Switzerland'$/;"	v	language:Vim
+g:BASH_DoOnNewLine	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_DoOnNewLine              = 'yes'$/;"	v	language:Vim
+g:BASH_Email	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_Email                    = 'agatt@ch.ibm.com'$/;"	v	language:Vim
+g:BASH_LineEndCommColDefault	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_LineEndCommColDefault    = 49$/;"	v	language:Vim
+g:BASH_MapLeader	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:BASH_MapLeader                = ','$/;"	v	language:Vim
+g:deoplete#enable_at_startup	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:deoplete#enable_at_startup = 1$/;"	v	language:Vim
+g:devhelpAssistant	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpAssistant=1$/;"	v	language:Vim
+g:devhelpSearch	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpSearch=1$/;"	v	language:Vim
+g:devhelpSearchKey	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpSearchKey = '<S-F5>'$/;"	v	language:Vim
+g:DoxygenToolkit_authorName	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_authorName= 'Antenore Gatta'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . '(at your option) any later version.\\<enter>\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'along with this program; if not, write to the Free Software\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Boston, MA  02110-1301, USA.\\<enter>\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'but WITHOUT ANY WARRANTY; without even the implied warranty of\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'files in the program, then also delete it here.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'for all of the code used other than OpenSSL.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Foundation, Inc., 51 Franklin Street, Fifth Floor,\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'GNU General Public License for more details.\\<enter>\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you delete this exception statement from all source\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you do not wish to do so, delete this exception statement from your\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you modify file(s) with this exception, you may extend this exception\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'In addition, as a special exception, the copyright holders give\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'including the two.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'individual source file, and distribute linked combinations\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'it under the terms of the GNU General Public License as published by\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'OpenSSL library under certain conditions as described in each\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'permission to link the code of portions of this program with the\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'the Free Software Foundation; either version 2 of the License, or\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is distributed in the hope that it will be useful,\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is free software; you can redistribute it and\/or modify\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'to your version of the file(s), but you are not obligated to do so.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'version.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You must obey the GNU General Public License in all respects\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You should have received a copy of the GNU General Public License\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag= 'Copyright (C) 2014-2020 Antenore Gatta, Giovanni Panozzo\\<enter>\\<enter>'$/;"	v	language:Vim
+g:dracula_colorterm	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_colorterm = 0$/;"	v	language:Vim
+g:dracula_italic	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_italic = 0$/;"	v	language:Vim
+g:easytags_async	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_async = 1$/;"	v	language:Vim
+g:easytags_cmd	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_cmd = '\/usr\/local\/bin\/ctags'$/;"	v	language:Vim
+g:easytags_dynamic_files	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_dynamic_files = 2$/;"	v	language:Vim
+g:easytags_events	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_events = ['BufReadPost', 'BufWritePost']$/;"	v	language:Vim
+g:easytags_resolve_links	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_resolve_links = 1$/;"	v	language:Vim
+g:easytags_suppress_ctags_warning	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:easytags_suppress_ctags_warning = 1$/;"	v	language:Vim
+g:excludeft	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:excludeft = ['tagbar']$/;"	v	language:Vim
+g:fugitive_gitlab_domains	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:fugitive_gitlab_domains = ['https:\/\/www.gitlab.com']$/;"	v	language:Vim
+g:grammalecte_cli_py	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:grammalecte_cli_py='\/usr\/local\/bin\/grammalecte-cli.py'$/;"	v	language:Vim
+g:mapleader	/home/antenore/.dotfiles/vim/.vim/init/general.vimrc	/^let g:mapleader = ','$/;"	v	language:Vim
+g:NERDTreeShowLineNumbers	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:NERDTreeShowLineNumbers=0$/;"	v	language:Vim
+g:notes_directories	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:notes_directories = ['~\/Notes']$/;"	v	language:Vim
+g:pandoc#filetypes#pandoc_markdown	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:pandoc#filetypes#pandoc_markdown = 0$/;"	v	language:Vim
+g:racer_cmd	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:racer_cmd = '\/home\/tmow\/.cargo\/bin\/racer'$/;"	v	language:Vim
+g:racer_experimental_completer	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:racer_experimental_completer = 1$/;"	v	language:Vim
+g:tagbar_autopreview	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_autopreview=0$/;"	v	language:Vim
+g:tagbar_ctags_bin	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_ctags_bin='\/usr\/local\/bin\/ctags'$/;"	v	language:Vim
+g:tagbar_indent	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_indent=1$/;"	v	language:Vim
+g:tagbar_show_linenumbers	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_show_linenumbers=0$/;"	v	language:Vim
+g:tagbar_width	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:tagbar_width=65$/;"	v	language:Vim
+g:UltiSnipsExpandTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsExpandTrigger='<tab>'$/;"	v	language:Vim
+g:UltiSnipsJumpBackwardTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsJumpBackwardTrigger='<c-z>'$/;"	v	language:Vim
+g:UltiSnipsJumpForwardTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsJumpForwardTrigger='<c-b>'$/;"	v	language:Vim
+g:vim_markdown_folding_disabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:vim_markdown_folding_disabled= 1$/;"	v	language:Vim
+line_handler	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:line_handler(l)$/;"	f	language:Vim
+Locate	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! -nargs=1 -bang Locate call fzf#run(fzf#wrap($/;"	c	language:Vim
+nerd_open	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup nerd_open$/;"	a	language:Vim
 plug_install	/data/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
-python_conf	/data/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup python_conf$/;"	a	language:Vim
-remapping	/data/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^augroup remapping$/;"	a	language:Vim
-ruby_grp	/data/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup ruby_grp$/;"	a	language:Vim
-rust_grp	/data/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup rust_grp$/;"	a	language:Vim
-syn_clean	/data/home/antenore/.dotfiles/vim/.vim/init/highlight.vimrc	/^augroup syn_clean$/;"	a	language:Vim
-vimrc_autocmd	/data/home/antenore/.dotfiles/vim/.vim/init/autocmd.vimrc	/^augroup vimrc_autocmd$/;"	a	language:Vim
-vim_exit	/data/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^  augroup vim_exit$/;"	a	language:Vim
-VO2MD	/data/home/antenore/.dotfiles/vim/.vim/init/functions.vimrc	/^function! VO2MD()$/;"	f	language:Vim
-WriteBackup	/data/home/antenore/.dotfiles/vim/.vim/init/functions.vimrc	/^function! WriteBackup()$/;"	f	language:Vim
+plug_install	/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
+remapping	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^augroup remapping$/;"	a	language:Vim
+rust_grp	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup rust_grp$/;"	a	language:Vim
+vim_exit	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^  augroup vim_exit$/;"	a	language:Vim

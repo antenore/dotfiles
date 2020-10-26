@@ -16,31 +16,50 @@ let g:airline#extensions#ale#enabled = 1
 " {{{ ===== ALE ================================================================
 "let g:ale_linters = {'c': ['clang-check', 'gcc', 'make', 'uncrustify']}
 let g:airline#extensions#ale#enabled = 1
+let g:ale_set_signs = 1
 let g:ale_sign_column_always = 0
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 0
 let g:ale_puppet_puppetlint_executable = '/home/antenore/bin/puppet-lint'
-let g:ale_linter_aliases = {'ps1': 'powershell'}
+let g:ale_linter_aliases = {
+  \ 'ps1': 'powershell',
+  \ 'md': 'markdown',}
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
-  \	'c': ['clang'],
-  \	'rust': ['rls'],
-  \	'markdown': ['mdl'],
+  \ 'bash': ['shellcheck'],
+  \ 'sh': ['shellcheck'],
+  \ 'c': ['clang'],
+  \ 'cpp': ['clang'],
+  \ 'cmake': ['cmakelint'],
+  \ 'rust': ['rls'],
+  \ 'markdown': ['proselint', 'mdl'],
+  \ 'pandoc': ['markdown'],
+  \ 'rst': ['proselint'],
   \ 'json': ['fixjson'],
   \ 'puppet': ['puppetlint'],
   \ 'vim': ['vint'],
   \ 'powershell': ['psscriptanalyzer'],
-  \ 'javascript': ['standard'],}
+  \ 'html': ['fecs', 'tidy'],
+  \ 'javascript': ['fecs', 'standard'],}
 let g:ale_fixers = {
+  \ 'c': [ 'uncrustify'],
+  \ 'cpp': [ 'uncrustify'],
   \ 'json': ['fixjson'],
   \ 'puppet': ['puppetlint'],
   \ 'vim': ['vint'],
-  \ 'javascript': ['standard'],}
-let g:ale_linters_explicit = 0
+  \ 'cmake': ['cmakeformat', 'remove_trailing_lines', 'trim_whitespace'],
+  \ 'html': ['fecs', 'tidy'],
+  \ 'javascript': ['fecs', 'standard'],}
 "nmap <silent> <C-h> <Plug>(ale_previous_wrap)
 "nmap <silent> <C-l> <Plug>(ale_next_wrap)
 """ ale-c-options
+let g:ale_cmake_cmakeformat_executable = '/home/antenore/.local/bin/cmake-format'
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_c_build_dir_names = ['build']
 let g:ale_c_parse_compile_commands = 1
 "" '-g -gdwarf-2 -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -std=c99 -ffunction-sections -fdata-sections -Wall'
@@ -53,12 +72,13 @@ let g:ale_open_list = 1
 let g:ale_set_quickfix=1
 " puppet-lint options
 let g:ale_puppet_puppetlint_options='--no-puppet_url_without_modules-check'
+let g:ale_sh_shellcheck_options = '-x'
 "powershell
 " let g:ale_powershell_psscriptanalyzer_exclusions =
 " \  'PSAvoidUsingWriteHost,PSAvoidGlobalVars'
 
 augroup ale_cmake
-  autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 0
+  autocmd BufNewFile,BufRead CMakeLists.txt let g:ale_open_list = 1
 augroup END
 let g:ale_c_uncrustify_options = '-c ~/.uncrustify.cfg -l C --replace'
 "https://github.com/richq/cmake-lint
@@ -70,20 +90,21 @@ nnoremap <leader>rr :%s/$//g<CR>
 nnoremap <leader>rt :%s/\r//g<CR>
 nnoremap <leader>re ::%s/\s\+$//<CR>
 let g:ale_json_fixjson_executable = 'fixjson'
-let g:ale_fixers = {
-			\ 'c': [
-			\ 'uncrustify',
-			\ 'remove_trailing_lines',
-			\ 'trim_whitespace',
-			\ ],
-			\ 'cmake': [
-			\ 'remove_trailing_lines',
-			\ 'trim_whitespace',
-			\ ],
-      \ 'json': [
-      \ 'fixjson',
-      \ ]
-			\ }
+" }}}
+" {{{ ===== Animates ============================================================
+" Settings for https://github.com/camspiers/animate.vim
+if exists('g:animate#loaded')
+    nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>
+    nnoremap <silent> <Down>  :call animate#window_delta_height(-10)<CR>
+    nnoremap <silent> <Left>  :call animate#window_delta_width(10)<CR>
+    nnoremap <silent> <Right> :call animate#window_delta_width(-10)<CR>
+else
+    " disable arrow keys
+    map <up> <nop>
+    map <down> <nop>
+    map <left> <nop>
+    map <right> <nop>
+endif
 " }}}
 " {{{ ===== Bash Support Plugin ================================================
 let g:BASH_MapLeader                = ','
@@ -135,6 +156,56 @@ let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'files in the pr
 let g:fugitive_gitlab_domains = ['https://www.gitlab.com']
 source ~/.gitlabtoken.vimrc
 " }}}
+" {{{ ===== Fuzzy finder =======================================================
+" locate command integration
+command! -nargs=1 -bang Locate call fzf#run(fzf#wrap(
+      \ {'source': 'locate <q-args>', 'options': '-m'}, <bang>0))
+
+" Search lines in all open vim buffers
+"(require set hidden to prevent vim unload buffer)
+function! s:line_handler(l)
+  let l:keys = split(a:l, ':\t')
+  exec 'buf' l:keys[0]
+  exec l:keys[1]
+  normal! ^zz
+endfunction
+
+function! s:buffer_lines()
+  let l:res = []
+  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
+    call extend(l:res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+  endfor
+  return l:res
+endfunction
+
+command! FZFLines call fzf#run({
+\   'source':  <sid>buffer_lines(),
+\   'sink':    function('<sid>line_handler'),
+\   'options': '--extended --nth=3..',
+\   'down':    '60%'
+\})
+
+"Select buffer
+function! s:buflist()
+  redir => l:ls
+  silent ls
+  redir END
+  return split(l:ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+nnoremap <silent> <Leader><Enter> :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
+
+
+" }}}
 " {{{ ===== Easytags & Tagbar ==================================================
 let g:excludeft = ['tagbar']
 nmap <F8> :TagbarToggle<CR>
@@ -159,6 +230,15 @@ let g:tagbar_autopreview=0
 " autocmd FileType * nested :call tagbar#autoopen(0)
 " Open Tagbar automatically in the current tab
 " autocmd BufEnter * nested :call tagbar#autoopen(0)
+" }}}
+" {{{ ===== Lens ===============================================================
+" https://github.com/camspiers/lens.vim
+
+"The plugin can be disabled completely with:
+"let g:lens#disabled = 1
+
+" The plugin can be disabled for specific filetypes:
+" let g:lens#disabled_filetypes = ['nerdtree', 'fzf']
 " }}}
 " {{{ ===== NERDTree ===========================================================
 " Open a NERDTree automatically when vim starts up if no files were specified
@@ -213,6 +293,13 @@ let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 " {{{ ===== VimSafe ============================================================
 " Defined in the plugin
 "set conceallevel=1
+" }}}
+" {{{ ===== Grammalecte ========================================================
+let g:grammalecte_cli_py='/usr/local/bin/grammalecte-cli.py'
+" }}}
+" {{{ ===== Pandoc =============================================================
+"let g:pandoc#filetypes#handled = ['pandoc', 'markdown']
+let g:pandoc#filetypes#pandoc_markdown = 0
 " }}}
 " {{{ ===== Empty Entry ========================================================
 " }}}

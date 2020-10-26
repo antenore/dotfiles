@@ -15,7 +15,7 @@ setopt appendhistory autocd extendedglob
 
 # dir_colors
 
-#eval `dircolors ~/.dir_colors`
+eval `dircolors ~/.dir_colors`
 export CLICOLOR=1
 
 
@@ -258,7 +258,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #
 #   fi
 
-source ~/.zshrc.local
 export RI="--format ansi --width 70"
 export WINEARCH=win32
 #wmname LG3D
@@ -268,3 +267,64 @@ PERL5LIB="~/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
+
+#
+#        _/_/_/_/  _/_/_/_/_/  _/_/_/_/
+#       _/              _/    _/
+#      _/_/_/        _/      _/_/_/
+#     _/          _/        _/
+#    _/        _/_/_/_/_/  _/
+#
+
+if [ ! -d ~/.fzf ] ; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Modified version where you can press
+#   - CTRL-O to open with `xdg-open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
+fo() (
+  IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && xdg-open "$file" || ${EDITOR:-vim} "$file"
+  fi
+)
+
+# vf - fuzzy open with vim from anywhere
+# ex: vf word1 word2 ... (even part of a file name)
+# zsh autoload function
+fv() {
+  local files
+
+  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
+
+  if [[ -n $files ]]
+  then
+     vim -- $files
+     print -l $files[1]
+  fi
+}
+
+
+#    _/_/_/_/    _/_/    _/    _/        _/_/_/    _/_/
+#       _/    _/    _/    _/_/    _/  _/    _/  _/_/_/_/
+#    _/      _/    _/  _/    _/  _/  _/    _/  _/
+# _/_/_/_/    _/_/    _/    _/  _/    _/_/_/    _/_/_/
+#
+eval "$(zoxide init zsh)"
+
+#              _/          _/                    _/
+#     _/_/_/  _/_/_/    _/_/_/_/        _/_/_/  _/_/_/
+#  _/        _/    _/    _/          _/_/      _/    _/
+# _/        _/    _/    _/              _/_/  _/    _/
+#  _/_/_/  _/    _/      _/_/  _/  _/_/_/    _/    _/
+#
+
+fpath=(~/.zsh.d/ $fpath)
+
+
+source ~/.zshrc.local

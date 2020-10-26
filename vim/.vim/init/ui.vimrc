@@ -1,3 +1,5 @@
+set encoding=utf-8
+scriptencoding utf-8
 "$HOME/.vim/init/ui.vimrc
 " Tabs
 set tabpagemax=15
@@ -50,7 +52,10 @@ colorscheme dracula
 
 " Highlight if more then 88 chars
 set colorcolumn=81
-highlight ColorColumn term=reverse cterm=reverse
+"highlight ColorColumn term=reverse cterm=reverse
+highlight CursorLine term=underline cterm=underline gui=underline
+highlight CursorLine guibg=#303000 ctermbg=234
+highlight CursorColumn guibg=#303000 ctermbg=234
 
 " Visual Cues
 set cmdheight=2
