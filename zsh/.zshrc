@@ -275,6 +275,7 @@ PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
 #     _/          _/        _/
 #    _/        _/_/_/_/_/  _/
 #
+# source: ~/.fzf
 
 if [ ! -d ~/.fzf ] ; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -315,6 +316,7 @@ fv() {
 #    _/      _/    _/  _/    _/  _/  _/    _/  _/
 # _/_/_/_/    _/_/    _/    _/  _/    _/_/_/    _/_/_/
 #
+# source: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
 eval "$(zoxide init zsh)"
 
 #              _/          _/                    _/
@@ -323,6 +325,7 @@ eval "$(zoxide init zsh)"
 # _/        _/    _/    _/              _/_/  _/    _/
 #  _/_/_/  _/    _/      _/_/  _/  _/_/_/    _/    _/
 #
+# source: curl https://cht.sh/:cht.sh >| ~/bin/cht.sh
 
 fpath=(~/.zsh.d/ $fpath)
 

@@ -9,7 +9,7 @@ scriptencoding utf-8
 "     +++|VVVVVV|++/VVVVV/'+++++     - My .vimrc file.
 "   +++++|VVVVVV|/VVVVV/'+++++++++     You can use it at your own risk, before to
 "     +++|VVVVVVVVVVV/'+++++++++       ask question RTFM.
-"       +|VVVVVVVVV/'+++++++++         To quit this file type :q
+"       +|VVVVVVVVV/'+++++++++         To quit this file type :q
 "        |VVVVVVV/'+++++++++         - Vim License
 "        |VVVVV/'+++++++++           - Antenore Gatta
 "        |VVV/'+++++++++             - https://antenore.simbiosi.org
@@ -40,7 +40,7 @@ set swapfile
 set undodir=~/.cache/vim//
 set undofile
 set undolevels=1000
-set undoreload=10000        " number of lines to save for undo
+set undoreload=10000
 
 set makeef=error.err
 set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add

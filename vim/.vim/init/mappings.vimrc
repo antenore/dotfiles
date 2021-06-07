@@ -1,10 +1,6 @@
 " $HOME/.im/init/mappings.vimrc
 
 " disable arrow keys
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
@@ -15,8 +11,6 @@ nmap <C-S-t> :tabnew<CR>
 nmap <C-S-n> :tabn<CR>
 nmap <C-S-p> :tabp<CR>
 
-"map <F11> :let &bg = ( &bg = 'dark' ? 'light' : 'dark' )<CR>   # shitch dark lingh bg
-
 "Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -24,7 +18,6 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Remap ctrl-] to Enter and ctrl-T to esc to make help sane.
-
 augroup remapping
   :autocmd FileType help nnoremap <buffer> <CR> <c-]>
   :autocmd FileType help nnoremap <buffer> <BS> <c-T>

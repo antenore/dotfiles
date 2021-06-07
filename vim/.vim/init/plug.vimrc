@@ -19,14 +19,15 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'                   " Needed by yarp
   Plug 'roxma/nvim-yarp'                            " Vim library needed by deoplete, denite
 endif
-Plug 'tmux-plugins/vim-tmux-focus-events'           " FocusGained and FocusLost autocmd
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fzf is a general-purpose command-line fuzzy finder.
+"it doesn't work with encrypted files
+"Plug 'tmux-plugins/vim-tmux-focus-events'           " FocusGained and FocusLost autocmd
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder.
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}          " Async exec library for Vim
 Plug 'Shougo/deol.nvim'                             " Vim shell replacement
 Plug 'antenore/vim-safe'
 Plug 'chrisbra/csv.vim'
 Plug 'godlygeek/tabular'                            " Needed by vim-markdown (and me :- )
-Plug 'honza/vim-snippets'                           " snippets for ultisnip, snipmate and neosnippet
+Plug 'honza/vim-snippets'                           " ultisnip, snipmate and neosnippet
 Plug 'SirVer/ultisnips'
 Plug 'majutsushi/tagbar'
 Plug 'mboughaba/i3config.vim'

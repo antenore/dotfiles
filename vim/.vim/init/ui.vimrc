@@ -21,11 +21,14 @@ endif
 "colorscheme gruvbox
 
 " Dracula colorscheme setting
-"let g:dracula_bold = 1
-let g:dracula_italic = 0
-"let g:dracula_inverse = 1
-let g:dracula_colorterm = 0
+let g:dracula_bold = 1
+let g:dracula_italic = 1
+let g:dracula_underline = 1
+let g:dracula_undercurl = 1
+let g:dracula_inverse = 1
+let g:dracula_colorterm = 1
 colorscheme dracula
+set background=light
 
 "colorscheme nord
 "colorscheme Luciano
@@ -51,11 +54,11 @@ colorscheme dracula
 "  LuciusBlack
 
 " Highlight if more then 88 chars
-set colorcolumn=81
+set colorcolumn=96
 "highlight ColorColumn term=reverse cterm=reverse
-highlight CursorLine term=underline cterm=underline gui=underline
-highlight CursorLine guibg=#303000 ctermbg=234
-highlight CursorColumn guibg=#303000 ctermbg=234
+"highlight CursorLine term=underline cterm=underline gui=underline
+"highlight CursorLine guibg=#303000 ctermbg=234
+"highlight CursorColumn guibg=#303000 ctermbg=234
 
 " Visual Cues
 set cmdheight=2

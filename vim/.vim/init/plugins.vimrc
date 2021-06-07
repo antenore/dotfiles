@@ -173,7 +173,7 @@ endfunction
 function! s:buffer_lines()
   let l:res = []
   for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
-    call extend(l:res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
+    call extend(l:res, map(getbufline(b,0,'$'), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
   endfor
   return l:res
 endfunction
