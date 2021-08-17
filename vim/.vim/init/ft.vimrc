@@ -1,10 +1,15 @@
 " $HOME/.vim/init/ft.vimrc
 " NB: Auto ommands specific to a plugins go in the plugin settings.
+
+" C
+augroup c_grp
+  autocmd BufRead *.c,*h set cindent ts=8 sts=8 sw=8 noexpandtab
+augroup END
+
 " Python
 augroup python_conf
   autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
   autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
-  autocmd BufRead *.c,*h set cindent ts=8 st=8 sw=8 noexpandtab
 augroup END
 
 " Ruby

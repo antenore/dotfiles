@@ -43,6 +43,8 @@
 <up>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    map <up> <nop>$/;"	m	language:Vim
 <Up>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>$/;"	m	language:Vim
 ale_cmake	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup ale_cmake$/;"	a	language:Vim
+bash_match	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup bash_match$/;"	a	language:Vim
+c_grp	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup c_grp$/;"	a	language:Vim
 FZFLines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! FZFLines call fzf#run({$/;"	c	language:Vim
 g:airline#extensions#ale#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
 g:airline#extensions#ale#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
@@ -146,7 +148,9 @@ Locate	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! -nargs=1 
 nerd_open	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup nerd_open$/;"	a	language:Vim
 plug_install	/data/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
 plug_install	/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
+python_conf	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup python_conf$/;"	a	language:Vim
 remapping	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^augroup remapping$/;"	a	language:Vim
+ruby_grp	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup ruby_grp$/;"	a	language:Vim
 rust_grp	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup rust_grp$/;"	a	language:Vim
 s:buffer_lines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buffer_lines()$/;"	f	language:Vim
 s:buflist	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buflist()$/;"	f	language:Vim

@@ -1,3 +1,5 @@
+# zsh profiling
+#zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 umask 022
@@ -225,11 +227,8 @@ setopt hash_cmds hash_dirs  # command list cache
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-cmn_plugins=(battery catimg colored-man-pages colorize compleat cp dnf \
-    emoji-clock emoji emotty encode64 fancy-ctrl-z git git-extras git-flow \
-    github git-hubflow gpg-agent history mercurial nmap pip \
-    python ruby ssh-agent sudo svn svn-fast-info systemadmin systemd textastic \
-    tmux zsh-interactive-cd zsh_reload)
+cmn_plugins=(encode64 fancy-ctrl-z git gpg-agent nmap
+    ssh-agent sudo systemadmin zsh-interactive-cd zsh_reload)
 case "$MYDIST" in
     fedora)
         plugins=(${cmn_plugins[@]} dnf)
@@ -246,6 +245,8 @@ case "$MYDIST" in
         ;;
 esac
 
+# ssh-agent plugin
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 source $ZSH/oh-my-zsh.sh
 

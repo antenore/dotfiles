@@ -27,7 +27,13 @@ let g:ale_completion_enabled = 1
 " }}}
 " {{{ ===== Files ==============================================================
 silent !mkdir ~/.cache/vim > /dev/null 2>&1
-set viminfo='100,\"1000,:100,%,n~/.cache/vim/.viminfo
+if !has('nvim')
+  set viminfo='100,\"1000,:100,%,n~/.cache/vim/.viminfo
+else
+  " Do nothing here to use the neovim default
+  " or do soemething like:
+  " set viminfo+=n~/.shada
+endif
 " backup directory.
 set backupdir=~/.cache/vim//
 set backup

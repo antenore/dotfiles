@@ -343,7 +343,7 @@ unbind C-a
 unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
-bind F5 send-keys 'bash --rcfile /exptrans/agat/.root-bashrc'
+bind F5 send-keys 'bash --rcfile /exptrans/tmp/.root-bashrc'
 
 # move status line to top
 set -g status-position top

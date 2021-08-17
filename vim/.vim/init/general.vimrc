@@ -4,7 +4,11 @@ let g:mapleader = ','
 set exrc
 "with clipboard=autoselect visual selection should go automatically into primary
 "in case of needs I can user registers "+y
-set clipboard=autoselect
+if !has('nvim')
+    set clipboard=autoselect
+else
+    set clipboard+=unnamedplus
+endif
 set regexpengine=1
 set autoread
 set autowrite

@@ -33,7 +33,10 @@ Plug 'majutsushi/tagbar'
 Plug 'mboughaba/i3config.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvie/vim-pep8'
-Plug 'gabrielelana/vim-markdown'                    " Needs tabular
+"Plug 'gabrielelana/vim-markdown'                    " Needs tabular
+Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
+Plug 'elzr/vim-json'
 Plug 'rodjek/vim-puppet'
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'rust-lang/rust.vim'
