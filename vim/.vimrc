@@ -22,7 +22,9 @@ filetype plugin indent on
 set foldenable
 set foldmethod=marker
 syntax enable
-set pyxversion=3
+if !has('nvim')
+  set pyxversion=3
+endif
 let g:ale_completion_enabled = 1
 " }}}
 " {{{ ===== Files ==============================================================
