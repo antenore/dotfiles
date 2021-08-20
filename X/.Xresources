@@ -38,7 +38,8 @@
 !#include "/home/tmow/.Xcolors/Luciano"
 !#include "/home/tmow/.Xcolors/hydra"
 !#include "/home/tmow/.Xcolors/gruvbox-dark.xresources"
-#include "/home/tmow/.Xcolors/nord.xresources"
+!#include "/home/tmow/.Xcolors/nord.xresources"
+#include "/home/tmow/.Xcolors/dracula"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)

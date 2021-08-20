@@ -1,3 +1,8 @@
+# zsh profiling
+#zmodload zsh/zprof
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+umask 022
 # I keep the following just to avoid wizards
 # Lines configured by zsh-newuser-install
 setopt appendhistory autocd extendedglob
@@ -15,7 +20,7 @@ setopt appendhistory autocd extendedglob
 
 # dir_colors
 
-#eval `dircolors ~/.dir_colors`
+eval `dircolors ~/.dir_colors`
 export CLICOLOR=1
 
 
@@ -125,6 +130,27 @@ bindkey -e  # emacs style (-v for vi)
 [[ -n "${key[Backspace]}"   ]]  && bindkey  "${key[Backspace]}"   backward-delete-char
 
 
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="bira"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Search history for a command beginning with the current input. It places the
 # cursor at the beginning of the command line.
@@ -154,48 +180,58 @@ setopt no_clobber  # disallow > redirections to an existing file
                    # ( >| to override)
 
 setopt hash_cmds hash_dirs  # command list cache
-
-setopt no_bg_nice  # do not nice bg processes
-
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="bira"
-#ZSH_THEME="gnzh"
-
-# Example aliases
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-
-cmn_plugins=(battery catimg colored-man colored-man-pages colorize compleat cp \
-    dnf emoji-clock emoji emotty encode64 fancy-ctrl-z gemcw git git-extras git-flow \
-    github git-hubflow git-remote-branch gpg-agent history mercurial nmap pip \
-    python ruby rust ssh-agent sudo svn svn-fast-info systemadmin systemd textastic \
-    tmux tmuxinator zsh_reload)
+# Add wisely, as too many plugins slow down shell startup.
+cmn_plugins=(encode64 fancy-ctrl-z git gpg-agent nmap
+    ssh-agent sudo systemadmin zsh-interactive-cd zsh_reload)
 case "$MYDIST" in
     fedora)
-        plugins=(${cmn_plugins[@]} fedora)
+        plugins=(${cmn_plugins[@]} dnf)
         ;;
     arch)
         plugins=(${cmn_plugins[@]} archlinux)
@@ -209,15 +245,44 @@ case "$MYDIST" in
         ;;
 esac
 
-
+# ssh-agent plugin
+zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent identities id_rsa_4096_z007093
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 #Keychain
 #keychain id_rsa
 #. ~/.keychain/`uname -n`-sh
-eval `keychain --eval --agents ssh,gpg id_rsa`
+#eval `keychain --eval --agents ssh,gpg id_rsa`
+
+# Command line calculator
+autoload -Uz zcalc
 
 # Default browser
 export BROWSER=/usr/bin/firefox
@@ -242,14 +307,13 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #randline.sh ~/Dropbox/ENFP-mot.txt
 # Bettter and "built in"
 #gshuf -n 1 ~/Dropbox/ENFP-mot.txt | cowsay
-#if which shuffle >/dev/null 2>&1 ; then
-#    shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
-#elif which shuf >/dev/null 2>&1; then
-#    shuf ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+#   if which shuffle >/dev/null 2>&1 ; then
+#       shuffle ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
+#   elif which shuf >/dev/null 2>&1; then
+#       shuf ~/Dropbox/ENFP-mot.txt | tail -1 | cowsay
 #
-#fi
+#   fi
 
-source ~/.zshrc.local
 export RI="--format ansi --width 70"
 export WINEARCH=win32
 #wmname LG3D
@@ -259,3 +323,59 @@ PERL5LIB="~/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
+
+#
+#        _/_/_/_/  _/_/_/_/_/  _/_/_/_/
+#       _/              _/    _/
+#      _/_/_/        _/      _/_/_/
+#     _/          _/        _/
+#    _/        _/_/_/_/_/  _/
+#
+# source: ~/.fzf
+
+if [ ! -d ~/.fzf ] ; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Modified version where you can press
+#   - CTRL-O to open with `xdg-open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
+fo() (
+  IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && xdg-open "$file" || ${EDITOR:-vim} "$file"
+  fi
+)
+
+# vf - fuzzy open with vim from anywhere
+# ex: vf word1 word2 ... (even part of a file name)
+# zsh autoload function
+fv() {
+  local files
+
+  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1 -m)"})
+
+  if [[ -n $files ]]
+  then
+     vim -- $files
+     print -l $files[1]
+  fi
+}
+
+
+#              _/          _/                    _/
+#     _/_/_/  _/_/_/    _/_/_/_/        _/_/_/  _/_/_/
+#  _/        _/    _/    _/          _/_/      _/    _/
+# _/        _/    _/    _/              _/_/  _/    _/
+#  _/_/_/  _/    _/      _/_/  _/  _/_/_/    _/    _/
+#
+# source: curl https://cht.sh/:cht.sh >| ~/bin/cht.sh
+
+fpath=(~/.zsh.d/ $fpath)
+
+
+source ~/.zshrc.local
