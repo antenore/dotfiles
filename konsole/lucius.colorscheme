@@ -1,0 +1,97 @@
+# --- ~/.kde/share/apps/konsole/NAME.colorscheme -------------------------------
+# ------------------------------------------------------------------------------
+# --- generated with 4bit Terminal Color Scheme Designer -----------------------
+# ------------------------------------------------------------------------------
+# --- http://ciembor.github.com/4bit -------------------------------------------
+# ------------------------------------------------------------------------------
+
+# --- special colors ---
+
+[Background]
+Color=16,16,16
+Transparency=false
+
+[BackgroundIntense]
+color=16,16,16
+Transparency=false
+
+[Foreground]
+Color=146,146,146
+Transparency=false
+
+[ForegroundIntense]
+Color=146,146,146
+Bold=true
+Transparency=false
+
+# --- standard colors ---
+
+[Color0]
+Color=16,16,16
+Transparency=false
+
+[Color0Intense]
+Color=50,50,50
+Transparency=false
+
+[Color1]
+Color=143,103,70
+Transparency=false
+
+[Color1Intense]
+Color=215,192,174
+Transparency=false
+
+[Color2]
+Color=70,143,103
+Transparency=false
+
+[Color2Intense]
+Color=174,215,192
+Transparency=false
+
+[Color3]
+Color=110,143,70
+Transparency=false
+
+[Color3Intense]
+Color=196,215,174
+Transparency=false
+
+[Color4]
+Color=103,70,143
+Transparency=false
+
+[Color4Intense]
+Color=192,174,215
+Transparency=false
+
+[Color5]
+Color=143,70,110
+Transparency=false
+
+[Color5Intense]
+Color=215,174,196
+Transparency=false
+
+[Color6]
+Color=70,110,143
+Transparency=false
+
+[Color6Intense]
+Color=174,196,215
+Transparency=false
+
+[Color7]
+Color=146,146,146
+Transparency=false
+
+[Color7Intense]
+Color=229,229,229
+Transparency=false
+
+# --- general options ---
+
+[General]
+Description=Lucius
+Opacity=1

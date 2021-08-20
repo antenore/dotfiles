@@ -1,0 +1,17 @@
+/* Rofi configuration */
+
+configuration {
+    modi:                   "window,run,ssh,drun";
+    matching:               "fuzzy";
+    theme:                  ".config/rofi/nord.rasi";
+    font:                   "mono 18";
+    show-icons:             true;
+    lines:                  7;
+    separator-style:        "solid";
+    hide-scrollbar:         true;
+    kb-row-down:            "Control+j";
+    kb-row-up:              "Control+k";
+    kb-accept-entry:        "Return,KP_Enter";
+    kb-remove-to-eol:       "";
+}
+/* rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi */
