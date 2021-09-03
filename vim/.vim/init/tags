@@ -146,7 +146,6 @@ g:UltiSnipsJumpForwardTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vim
 g:vim_markdown_folding_disabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:vim_markdown_folding_disabled= 1$/;"	v	language:Vim
 Locate	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! -nargs=1 -bang Locate call fzf#run(fzf#wrap($/;"	c	language:Vim
 nerd_open	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup nerd_open$/;"	a	language:Vim
-plug_install	/data/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
 plug_install	/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
 python_conf	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup python_conf$/;"	a	language:Vim
 remapping	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^augroup remapping$/;"	a	language:Vim

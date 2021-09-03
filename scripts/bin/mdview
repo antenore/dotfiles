@@ -1,0 +1,36 @@
+#!/bin/env python3
+
+import sys, getopt
+from rich.console import Console
+from rich.markdown import Markdown
+
+def main(argv):
+    inputfile = ""
+    try:
+        opts, args = getopt.getopt(argv,"hi:",["inputfile="])
+    except getopt.GetoptError:
+        print ("mdview.py -i <inputfile>")
+        sys.exit(2)
+
+    for opt, arg in opts:
+        if opt == '-h':
+            print ("test.py -i <inputfile>")
+            exit(1)
+        elif opt in ("-i", "--inputfile"):
+            inputfile = arg
+
+    if not inputfile:
+        print("Input file is required")
+        exit(1)
+
+    console = Console()
+    try:
+        with open(inputfile) as mdsource:
+            markdown = Markdown(mdsource.read())
+        console.print(markdown)
+    except FileNotFoundError:
+        print("File not found")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

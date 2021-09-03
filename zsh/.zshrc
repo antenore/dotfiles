@@ -228,9 +228,9 @@ setopt hash_cmds hash_dirs  # command list cache
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 cmn_plugins=(encode64 fancy-ctrl-z git gpg-agent nmap
-    ssh-agent sudo systemadmin zsh-interactive-cd zsh_reload)
+    sudo systemadmin zsh-interactive-cd zsh_reload)
 case "$MYDIST" in
-    fedora)
+    fedora|redhat)
         plugins=(${cmn_plugins[@]} dnf)
         ;;
     arch)
@@ -244,10 +244,6 @@ case "$MYDIST" in
         plugins=(${cmn_plugins[@]})
         ;;
 esac
-
-# ssh-agent plugin
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-zstyle :omz:plugins:ssh-agent identities id_rsa_4096_z007093
 
 source $ZSH/oh-my-zsh.sh
 

@@ -67,4 +67,5 @@ Plug 'dpelle/vim-Grammalecte'
 "Plug 'morhetz/gruvbox'
 "Plug 'lifepillar/vim-gruvbox8'
 "Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }
+Plug '/home/antenore/software/myvim/plugins/mdview.nvim'
 call plug#end()
