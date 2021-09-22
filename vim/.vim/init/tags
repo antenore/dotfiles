@@ -44,6 +44,9 @@
 <Up>	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^    nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>$/;"	m	language:Vim
 ale_cmake	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup ale_cmake$/;"	a	language:Vim
 bash_match	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup bash_match$/;"	a	language:Vim
+buffer_lines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buffer_lines()$/;"	f	language:Vim
+buflist	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buflist()$/;"	f	language:Vim
+bufopen	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:bufopen(e)$/;"	f	language:Vim
 c_grp	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup c_grp$/;"	a	language:Vim
 FZFLines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! FZFLines call fzf#run({$/;"	c	language:Vim
 g:airline#extensions#ale#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#ale#enabled = 1$/;"	v	language:Vim
@@ -51,7 +54,7 @@ g:airline#extensions#ale#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.
 g:airline#extensions#fugitiveline#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#fugitiveline#enabled = 1$/;"	v	language:Vim
 g:airline#extensions#tabline#enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline#extensions#tabline#enabled = 1$/;"	v	language:Vim
 g:airline_powerline_fonts	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_powerline_fonts = 1$/;"	v	language:Vim
-g:airline_theme	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_theme='dracula'$/;"	v	language:Vim
+g:airline_theme	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:airline_theme='wal'$/;"	v	language:Vim
 g:ale_cmake_cmakeformat_executable	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_cmake_cmakeformat_executable = '\/home\/antenore\/.local\/bin\/cmake-format'$/;"	v	language:Vim
 g:ale_cmake_cmakelint_options	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_cmake_cmakelint_options = '--filter=-linelength'$/;"	v	language:Vim
 g:ale_completion_enabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_completion_enabled = 0$/;"	v	language:Vim
@@ -68,7 +71,6 @@ g:ale_linters_explicit	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^le
 g:ale_linter_aliases	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_linter_aliases = {$/;"	v	language:Vim
 g:ale_lint_on_text_changed	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_lint_on_text_changed = 1$/;"	v	language:Vim
 g:ale_open_list	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_open_list = 1$/;"	v	language:Vim
-g:ale_puppet_puppetlint_executable	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_puppet_puppetlint_executable = '\/home\/antenore\/bin\/puppet-lint'$/;"	v	language:Vim
 g:ale_puppet_puppetlint_options	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_puppet_puppetlint_options='--no-puppet_url_without_modules-check'$/;"	v	language:Vim
 g:ale_set_highlights	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_highlights = 0$/;"	v	language:Vim
 g:ale_set_quickfix	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:ale_set_quickfix=1$/;"	v	language:Vim
@@ -88,32 +90,32 @@ g:devhelpAssistant	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:
 g:devhelpSearch	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpSearch=1$/;"	v	language:Vim
 g:devhelpSearchKey	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:devhelpSearchKey = '<S-F5>'$/;"	v	language:Vim
 g:DoxygenToolkit_authorName	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_authorName= 'Antenore Gatta'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . '(at your option) any later vers/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'along with this program; if not/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Boston, MA  02110-1301, USA.\\</;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'but WITHOUT ANY WARRANTY; witho/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'files in the program, then also/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'for all of the code used other /;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Foundation, Inc., 51 Franklin S/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'GNU General Public License for /;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you delete this exception st/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you do not wish to do so, de/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you modify file(s) with this/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'In addition, as a special excep/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . '(at your option) any later version.\\<enter>\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'along with this program; if not, write to the Free Software\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Boston, MA  02110-1301, USA.\\<enter>\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'but WITHOUT ANY WARRANTY; without even the implied warranty of\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'files in the program, then also delete it here.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'for all of the code used other than OpenSSL.\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'Foundation, Inc., 51 Franklin Street, Fifth Floor,\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'GNU General Public License for more details.\\<enter>\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you delete this exception statement from all source\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you do not wish to do so, delete this exception statement from your\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'If you modify file(s) with this exception, you may extend this exception\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'In addition, as a special exception, the copyright holders give\\<enter>'$/;"	v	language:Vim
 g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'including the two.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'individual source file, and dis/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'it under the terms of the GNU G/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'MERCHANTABILITY or FITNESS FOR /;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'OpenSSL library under certain c/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'permission to link the code of /;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'the Free Software Foundation; e/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is distributed in /;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is free software; /;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'to your version of the file(s),/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'individual source file, and distribute linked combinations\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'it under the terms of the GNU General Public License as published by\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'OpenSSL library under certain conditions as described in each\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'permission to link the code of portions of this program with the\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'the Free Software Foundation; either version 2 of the License, or\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is distributed in the hope that it will be useful,\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'This program is free software; you can redistribute it and\/or modify\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'to your version of the file(s), but you are not obligated to do so.\\<enter>'$/;"	v	language:Vim
 g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'version.\\<enter>'$/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You must obey the GNU General P/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You should have received a copy/;"	v	language:Vim
-g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag= 'Copyright (C) 2014-2020 Antenore Gatta, Giovanni Panozzo\\<ent/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You must obey the GNU General Public License in all respects\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag = g:DoxygenToolkit_licenseTag . 'You should have received a copy of the GNU General Public License\\<enter>'$/;"	v	language:Vim
+g:DoxygenToolkit_licenseTag	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:DoxygenToolkit_licenseTag= 'Copyright (C) 2014-2020 Antenore Gatta, Giovanni Panozzo\\<enter>\\<enter>'$/;"	v	language:Vim
 g:dracula_bold	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_bold = 1$/;"	v	language:Vim
 g:dracula_colorterm	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_colorterm = 1$/;"	v	language:Vim
 g:dracula_inverse	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^let g:dracula_inverse = 1$/;"	v	language:Vim
@@ -144,6 +146,7 @@ g:UltiSnipsExpandTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^
 g:UltiSnipsJumpBackwardTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsJumpBackwardTrigger='<c-z>'$/;"	v	language:Vim
 g:UltiSnipsJumpForwardTrigger	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:UltiSnipsJumpForwardTrigger='<c-b>'$/;"	v	language:Vim
 g:vim_markdown_folding_disabled	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^let g:vim_markdown_folding_disabled= 1$/;"	v	language:Vim
+line_handler	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:line_handler(l)$/;"	f	language:Vim
 Locate	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^command! -nargs=1 -bang Locate call fzf#run(fzf#wrap($/;"	c	language:Vim
 nerd_open	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup nerd_open$/;"	a	language:Vim
 plug_install	/home/antenore/.dotfiles/vim/.vim/init/plug.vimrc	/^  augroup plug_install$/;"	a	language:Vim
@@ -151,8 +154,4 @@ python_conf	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup python_con
 remapping	/home/antenore/.dotfiles/vim/.vim/init/mappings.vimrc	/^augroup remapping$/;"	a	language:Vim
 ruby_grp	/home/antenore/.dotfiles/vim/.vim/init/ft.vimrc	/^augroup ruby_grp$/;"	a	language:Vim
 rust_grp	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^augroup rust_grp$/;"	a	language:Vim
-s:buffer_lines	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buffer_lines()$/;"	f	language:Vim
-s:buflist	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:buflist()$/;"	f	language:Vim
-s:bufopen	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:bufopen(e)$/;"	f	language:Vim
-s:line_handler	/home/antenore/.dotfiles/vim/.vim/init/plugins.vimrc	/^function! s:line_handler(l)$/;"	f	language:Vim
 vim_exit	/home/antenore/.dotfiles/vim/.vim/init/ui.vimrc	/^  augroup vim_exit$/;"	a	language:Vim

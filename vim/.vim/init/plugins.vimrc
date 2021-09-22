@@ -5,7 +5,8 @@
 " let g:airline_powerline_fonts = 1 "change 0 to 1 if you have a powerline font
 "let g:airline#extensions#disable_rtp_load = 1
 "let g:airline_theme='Luciano'
-let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
+let g:airline_theme='wal'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#fugitiveline#enabled = 1
@@ -22,7 +23,8 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_completion_enabled = 0
-let g:ale_puppet_puppetlint_executable = '/home/antenore/bin/puppet-lint'
+"let g:ale_puppet_puppetlint_executable = '/home/antenore/bin/puppet-lint'
+"let g:ale_markdown_mdl_executable = '/home/antenore/bin/mdl'
 let g:ale_linter_aliases = {
   \ 'ps1': 'powershell',
   \ 'md': 'markdown',}
@@ -34,7 +36,7 @@ let g:ale_linters = {
   \ 'cpp': ['clang'],
   \ 'cmake': ['cmakelint'],
   \ 'rust': ['rls'],
-  \ 'markdown': ['proselint', 'mdl'],
+  \ 'markdown': ['mdl', 'proselint'],
   \ 'pandoc': ['markdown'],
   \ 'rst': ['proselint'],
   \ 'json': ['fixjson'],

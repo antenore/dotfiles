@@ -33,6 +33,9 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # helpful to have keycombos set - see also ~/.xbindkeysrc (catwm has its own!)
 #xbindkeys -f ~/.xbindkeysrc &
 
+# Set compose key to menu
+setxkbmap -option compose:menu
+
 ## DPMS monitor setting (standby suspend off)(seconds)
 xset dpms 300 600 900 &
 
@@ -82,7 +85,7 @@ case "$1" in
     gnome3) exec gnome-session ;;
     lxde) exec lxsession ;;
     i3) exec i3;;
-    i3) exec /usr/local/bin/dwm;;
+    dwm) exec /usr/local/bin/dwm;;
     mate) exec /usr/bin/mate-session ;;
     spectrwm) exec spectrwm;;
     e16) exec e16;;

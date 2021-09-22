@@ -2,6 +2,11 @@
 # vim:syntax=zsh
 # vim:filetype=zsh
 
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+#export XMODIFIERS=@im=ibus
+export XMODIFIERS="@im=none"
+
 # https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html
 skip_global_compinit=1
 
@@ -18,3 +23,8 @@ fi
 
 # Home-made scripts
 export PATH=$PATH:${HOME}/bin
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi

@@ -3,52 +3,93 @@
 ################################################################################
 # General Options
 ################################################################################
-font pango:Monaco, Icons 11
-# use Mouse+Mod4 to drag floating windows to their wanted position
-floating_modifier Mod4
+set $mod Mod4
+font pango:Iosevka Nerd Font 14, feather 14
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+################################################################################
+# Startup
+################################################################################
+#exec --no-startup-id /usr/libexec/gsd-xsettings
+#exec_always /usr/local/bin/picom -b &
+#exec_always --no-startup-id gnome-power-statistics
+#exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+#exec --no-startup-id gnome-flashback
+#exec --no-startup-id /usr/libexec/notification-daemon
+
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+#exec_always --no-startup-id "$HOME/.config/polybar/launch.sh --cuts &"
+#exec_always --no-startup-id "$HOME/.config/polybar/cuts/scripts/pywal.sh ~/Pictures/wallpapers/desert_car.png &"
+#exec_always --no-startup-id "/usr/local/bin/polybar myBar"
+exec_always --no-startup-id "/home/antenore/.config/polybar/launch.sh"
+exec_always --no-startup-id redshift
+exec_always --no-startup-id "$HOME/.screenlayout/home-kyndryl.sh &"
+# wallpaper
+# Currently I'm using auto_stainless_oldtimer_rusted_scrap_old_scrap_car_wreck-664086.jpg
+# https://pxhere.com/en/photo/664086
+# The image is released free of copyrights under Creative Commons CC0.
+# You may download, modify, distribute, and use them royalty free for anything you like, even in commercial applications. Attribution is not required.
+exec_always --no-startup-id /usr/local/bin/feh --bg-scale /home/antenore/Pictures/wallpaper.jpg &
 ################################################################################
 # Appearance
 ################################################################################
 
-# Gaps
-gaps inner 10
-gaps outer 0
-#smart_gaps on
-
 # set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $orange #D65D0E
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-set $white #fbf1c7
+#set $bg #282828
+#set $red #cc241d
+#set $green #98971a
+#set $orange #D65D0E
+#set $yellow #d79921
+#set $blue #458588
+#set $purple #b16286
+#set $aqua #689d68
+#set $gray #a89984
+#set $darkgray #1d2021
+#set $white #fbf1c7
 
 # class                 border  backgr. text    indicator child_border
-client.background       $bg
+#client.background       $bg
 #client.focused          #1d1d1d #928374 #1d2021 #1d1d1d
 #client.focused_inactive #1d1d1d #1d2021 #928374 #ebdbb2
 #client.unfocused        #32302f #32302f #928374 #282828
 #client.urgent           #cc241d #cc241d #ebdbb2 #282828
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+#client.focused          $blue $blue $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
+
+# - BEGIN - PyWal
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+#set_from_resource $fg i3wm.color7 #f0f0f0
+#set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color0 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+# - END - PyWal
 
 new_window none
 new_float 1pixel
 hide_edge_borders both
+
 
 ## bar {
 ##     # In hide mode is nice but with Sametime blinking it's just awful
 ##     #mode hide
 ##     mode dock
 ##     #hidden_state hide
-##     #modifier Mod4
+##     #modifier $mod
 ##     status_command i3status -c ~/.i3/i3status.conf
 ##     position bottom
 ##     font pango:Inconsolata Nerd Font 10
@@ -70,28 +111,28 @@ hide_edge_borders both
 # i3wm Command (quit, reload, etc)
 ################################################################################
 # Reload config
-bindsym Mod4+Shift+i reload
+bindsym $mod+Shift+i reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod4+Shift+r restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod4+Shift+q exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 ################################################################################
 # Key Bindings
 ################################################################################
 
 # toggle tiling / floating
-bindsym Mod4+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 # enter fullscreen mode for the focused container
-bindsym Mod4+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, default)
-bindsym Mod4+s layout stacking
-bindsym Mod4+w layout tabbed
-bindsym Mod4+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # change focus between tiling / floating windows
-bindsym Mod4+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 # focus the parent container
-bindsym Mod4+a focus parent
+bindsym $mod+a focus parent
 # focus the child container
 bindsym Mod1+d focus child
 
@@ -101,21 +142,21 @@ bindsym Mod1+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 
 bindsym Mod1+minus scratchpad show
-bindsym Mod4+Left focus left
-bindsym Mod4+Down focus down
-bindsym Mod4+Up focus up
-bindsym Mod4+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym Mod4+Shift+Left move left
-bindsym Mod4+Shift+Down move down
-bindsym Mod4+Shift+Up move up
-bindsym Mod4+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym Mod4+h split h
+bindsym $mod+h split h
 # split in vertical orientation
-bindsym Mod4+v split v
+bindsym $mod+v split v
 
 ################################################################################
 # Workspaces
@@ -133,59 +174,59 @@ workspace 7               output eDP-1
 workspace 8               output eDP-1
 workspace 9               output eDP-1
 workspace 10              output eDP-1
-workspace "11: Terms"     output HDMI-2
-workspace "12: Intranet"     output HDMI-2
-workspace "13: Remmina"   output HDMI-2
-workspace "14: Office"    output HDMI-2
-workspace 15              output HDMI-2
-workspace 16              output HDMI-2
-workspace 17              output HDMI-2
-workspace 18              output HDMI-2
-workspace "19: Ref"       output HDMI-2
-workspace "20: Harden"       output HDMI-2
+workspace "11: Terms"     output DP-1-1
+workspace "12: Intranet"     output DP-1-1
+workspace "13: Remmina"   output DP-1-1
+workspace "14: Office"    output DP-1-1
+workspace 15              output DP-1-1
+workspace 16              output DP-1-1
+workspace 17              output DP-1-1
+workspace 18              output DP-1-1
+workspace "19: Ref"       output DP-1-1
+workspace "20: Harden"       output DP-1-1
 # switch to workspace
-bindsym Mod4+1   workspace "1: Mail"
-bindsym Mod4+2   workspace "2: Files"
-bindsym Mod4+3   workspace "3: Incognito"
-bindsym Mod4+4   workspace "4: DevDoc"
-bindsym Mod4+5   workspace 5
-bindsym Mod4+6   workspace 6
-bindsym Mod4+7   workspace 7
-bindsym Mod4+8   workspace 8
-bindsym Mod4+9   workspace 9
-bindsym Mod4+10  workspace 10
-bindsym Mod4+F1  workspace "11: Terms"
-bindsym Mod4+F2  workspace "12: Intranet"
-bindsym Mod4+F3  workspace "13: Remmina"
-bindsym Mod4+F4  workspace "14: Office"
-bindsym Mod4+F5  workspace 15
-bindsym Mod4+F6  workspace 16
-bindsym Mod4+F7  workspace 17
-bindsym Mod4+F8  workspace 18
-bindsym Mod4+F9  workspace "19: Ref"
-bindsym Mod4+F10 workspace "20: Harden"
+bindsym $mod+1   workspace "1: Mail"
+bindsym $mod+2   workspace "2: Files"
+bindsym $mod+3   workspace "3: Incognito"
+bindsym $mod+4   workspace "4: DevDoc"
+bindsym $mod+5   workspace 5
+bindsym $mod+6   workspace 6
+bindsym $mod+7   workspace 7
+bindsym $mod+8   workspace 8
+bindsym $mod+9   workspace 9
+bindsym $mod+10  workspace 10
+bindsym $mod+F1  workspace "11: Terms"
+bindsym $mod+F2  workspace "12: Intranet"
+bindsym $mod+F3  workspace "13: Remmina"
+bindsym $mod+F4  workspace "14: Office"
+bindsym $mod+F5  workspace 15
+bindsym $mod+F6  workspace 16
+bindsym $mod+F7  workspace 17
+bindsym $mod+F8  workspace 18
+bindsym $mod+F9  workspace "19: Ref"
+bindsym $mod+F10 workspace "20: Harden"
 
 # move focused container to workspace
-bindsym Mod4+Shift+1   move workspace "1: Mail"
-bindsym Mod4+Shift+2   move workspace "2: Files"
-bindsym Mod4+Shift+3   move workspace "3: Incognito"
-bindsym Mod4+Shift+4   move workspace "4: DevDoc"
-bindsym Mod4+Shift+5   move workspace 5
-bindsym Mod4+Shift+6   move workspace 6
-bindsym Mod4+Shift+7   move workspace 7
-bindsym Mod4+Shift+8   move workspace 8
-bindsym Mod4+Shift+9   move workspace 9
-bindsym Mod4+Shift+10  move workspace 10
-bindsym Mod4+Shift+F1  move workspace "11: Terms"
-bindsym Mod4+Shift+F2  move workspace "12: Intranet"
-bindsym Mod4+Shift+F3  move workspace "13: Remmina"
-bindsym Mod4+Shift+F4  move workspace "14: Office"
-bindsym Mod4+Shift+F5  move workspace 15
-bindsym Mod4+Shift+F6  move workspace 16
-bindsym Mod4+Shift+F7  move workspace 17
-bindsym Mod4+Shift+F8  move workspace 18
-bindsym Mod4+Shift+F9  move workspace "19: Ref"
-bindsym Mod4+Shift+F10 move workspace "20: Harden"
+bindsym $mod+Shift+1   move workspace "1: Mail"
+bindsym $mod+Shift+2   move workspace "2: Files"
+bindsym $mod+Shift+3   move workspace "3: Incognito"
+bindsym $mod+Shift+4   move workspace "4: DevDoc"
+bindsym $mod+Shift+5   move workspace 5
+bindsym $mod+Shift+6   move workspace 6
+bindsym $mod+Shift+7   move workspace 7
+bindsym $mod+Shift+8   move workspace 8
+bindsym $mod+Shift+9   move workspace 9
+bindsym $mod+Shift+10  move workspace 10
+bindsym $mod+Shift+F1  move workspace "11: Terms"
+bindsym $mod+Shift+F2  move workspace "12: Intranet"
+bindsym $mod+Shift+F3  move workspace "13: Remmina"
+bindsym $mod+Shift+F4  move workspace "14: Office"
+bindsym $mod+Shift+F5  move workspace 15
+bindsym $mod+Shift+F6  move workspace 16
+bindsym $mod+Shift+F7  move workspace 17
+bindsym $mod+Shift+F8  move workspace 18
+bindsym $mod+Shift+F9  move workspace "19: Ref"
+bindsym $mod+Shift+F10 move workspace "20: Harden"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -218,47 +259,61 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym Mod4+r mode "resize"
+bindsym $mod+r mode "resize"
 
 # start a terminal
-bindsym Mod4+Return exec /usr/local/bin/st -e tmux attach
-bindsym Mod4+Shift+Return exec /usr/local/bin/st
-bindsym Mod4+Shift+c kill
-bindsym Mod4+p exec rofi -show run -location 1 -width 360x600 -xoffset 0 -yoffset 305 -lines 24
-bindsym Mod4+Shift+p exec rofi -show drun -location 1 -width 360x600 -xoffset 0 -yoffset 305 -lines 24
-bindsym Mod4+Shift+l exec ~/bin/ilock.sh
-bindsym Mod4+o exec rofi -show ssh
-bindsym Mod4+Tab exec rofi -show window
-bindsym Mod4+k exec GDK_DPI_SCALE=0.5 gkbd-keyboard-display -g 1
+bindsym $mod+Return exec /home/antenore/bin/st -e tmux attach
+bindsym $mod+Shift+Return exec /home/antenore/bin/st
+bindsym $mod+Shift+c kill
+bindsym $mod+p exec /home/antenore/.local/bin/rofi -show run -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
+bindsym $mod+Shift+p exec /home/antenore/.local/bin/rofi -show drun -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
+bindsym $mod+Shift+l exec ~/bin/ilock.sh
+bindsym $mod+o exec /home/antenore/.local/bin/rofi -show ssh -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
+bindsym $mod+Tab exec /home/antenore/.local/bin/rofi -show window -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
+bindsym $mod+k exec GDK_DPI_SCALE=1 gkbd-keyboard-display -g 1
 # Screenshot
-bindsym 0xff61 exec scrot  ~/Images/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
+bindsym 0xff61 exec scrot ~/Images/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
 
 # Sound
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 5 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 5 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 5 toggle
 
 # Browser
 bindsym XF86HomePage exec firefox -P IBM
 bindsym XF86Mail exec ibm-notes9
 
+# Sreen brightness controls
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # File manager
-bindsym Mod4+Shift+f exec /usr/local/bin/st -e ranger
+bindsym $mod+Shift+f exec /home/antenore/bin/st -e /usr/local/bin/ranger
 
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace and hides everythiing)
-exec --no-startup-id wmctrl -c Plasma
-for_window [title="Desktop — Plasma"] kill, floating enable
+#exec --no-startup-id wmctrl -c Plasma
+#for_window [title="Desktop — Plasma"] kill, floating enable
 
-# wallpaper
-exec --no-startup-id feh --bg-fill /home/antenore/Pictures/wallpaper.jpg
+
+# dropbox
 exec --no-startup-id dropbox start
 
-# You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 0
+# PROTECT YOUR EYES! USE REDSHIFT!
+exec --no-startup-id /usr/bin/redshift
+
+#exec --no-startup-id xfce4-panel --disable-wm-check
+
+
 # Automatically putting clients on specific workspaces.
 assign [class="IBM Notes"] → "1: Mail"
 assign [title="Screenshot Tool"] → "1: Mail"
-assign [title="ranger"] → "11: Terms"
+#assign [title="ranger"] → "11: Terms"
 assign [title="thunar"] → "2: Files"
 assign [title="Devhelp — Assistant"] → "4: DevDoc"
 assign [class="st-256color"] → "11: Terms"
@@ -268,17 +323,12 @@ assign [class="Claws-mail"] → "20: Harden"
 #assign [class="Firefox"] → "20: Harden"
 #assign [class="IBM Firefox"] → "12: Intranet"
 for_window [title=".*\(Private Browsing\).*"] move to workspace "3: Incognito"
-# autostartup
-#exec --no-startup-id /usr/libexec/gsd-xsettings
-#exec_always --no-startup-id gnome-power-statistics
-#exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
-#exec --no-startup-id gnome-flashback
-#exec --no-startup-id /usr/libexec/notification-daemon
 
 # focus
 ## Avoid tiling popups, dropdown windows from plasma
 # for the first time, manually resize them, i3 will remember the setting for floating windows
 
+for_window [class="PanGPUI"] floating disable;
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
@@ -288,8 +338,18 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
 no_focus [class="plasmashell" window_type="notification"]
 
 focus_on_window_activation none
+
+# Gaps
+# Disable Window decorations for i3-gaps
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 0
+gaps inner 10
+gaps outer 0
+
+bindsym $mod+g		gaps inner current plus 5
+bindsym $mod+shift+g	gaps inner current minus 5
+smart_gaps on

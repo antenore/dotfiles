@@ -64,6 +64,7 @@ Plug 'camspiers/lens.vim'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'https://gitlab.com/antenore/Luciano.git'      " Hey it's me!!
 Plug 'dpelle/vim-Grammalecte'
+Plug 'dylanaraps/wal.vim'
 "Plug 'morhetz/gruvbox'
 "Plug 'lifepillar/vim-gruvbox8'
 "Plug 'arcticicestudio/nord-vim', { 'branch': 'develop' }

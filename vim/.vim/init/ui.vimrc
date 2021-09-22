@@ -27,7 +27,8 @@ let g:dracula_underline = 1
 let g:dracula_undercurl = 1
 let g:dracula_inverse = 1
 let g:dracula_colorterm = 1
-colorscheme dracula
+"colorscheme dracula
+colorscheme wal
 set background=light
 
 "colorscheme nord

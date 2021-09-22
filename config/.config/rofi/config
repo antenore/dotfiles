@@ -11,7 +11,7 @@ rofi.font: mono 18
 /* rofi.xoffset: 0 */
 /* rofi.fixed-num-lines: true */
 rofi.show-icons: true
-/* rofi.terminal: rofi-sensible-terminal */
+rofi.terminal: /home/antenore/bin/st
 /* rofi.ssh-client: ssh */
 /* rofi.ssh-command: {terminal} -e {ssh-client} {host} */
 /* rofi.run-command: {cmd} */

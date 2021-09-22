@@ -1,9 +1,9 @@
 /* Rofi configuration */
 
 configuration {
+    import:                 "~/.cache/wal/colors-rofi-dark";
     modi:                   "window,run,ssh,drun";
     matching:               "fuzzy";
-    theme:                  ".config/rofi/nord.rasi";
     font:                   "mono 18";
     show-icons:             true;
     lines:                  7;
@@ -13,5 +13,6 @@ configuration {
     kb-row-up:              "Control+k";
     kb-accept-entry:        "Return,KP_Enter";
     kb-remove-to-eol:       "";
+    terminal: "/home/antenore/bin/st";
 }
 /* rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi */

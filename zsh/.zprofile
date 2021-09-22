@@ -20,3 +20,4 @@ export LESSCHARSET=utf-8
 
 # eliminates duplicates in *paths
 typeset -gU cdpath fpath path
+

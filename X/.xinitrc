@@ -1,18 +1,18 @@
 #!/bin/bash
 # This is a sample .xinitrc file (to be executed with xinit or startx)
 
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-    for f in /etc/X11/xinit/xinitrc.d/*; do
-        [ -x "$f" ] && ; "$f"
-    done
-    unset f
-fi
+#if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    #for f in /etc/X11/xinit/xinitrc.d/*; do
+        #[ -x "$f" ] && ; "$f"
+    #done
+    #unset f
+#fi
 
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=xim
-export XMODIFIERS=@im=ibus
-/usr/local/bin/mozc start
-ibus-daemon -r --daemonize --xim
+#export GTK_IM_MODULE=ibus
+#export QT_IM_MODULE=xim
+#export XMODIFIERS=@im=ibus
+#/usr/local/bin/mozc start
+#ibus-daemon -r --daemonize --xim
 
 
 # font bullshit
@@ -23,7 +23,7 @@ xset fp rehash
 xrdb -merge ~/.Xresources &
 
 #color profiles
-xcalib -d :0 ~/.color/icc/271S4.icm
+#xcalib -d :0 ~/.color/icc/271S4.icm
 
 # Ctrl-Alt-Backspace kills the X session
 setxkbmap -option terminate:ctrl_alt_bksp
@@ -34,6 +34,9 @@ setxkbmap -option terminate:ctrl_alt_bksp
 # caps lock to backspace
 #setxkbmap -option caps:backspace
 
+# Set compose key to menu
+setxkbmap -option compose:menu
+
 # read Xmodmap file - please edit it first
 #xmodmap ~/.Xmodmap &
 
@@ -41,18 +44,18 @@ setxkbmap -option terminate:ctrl_alt_bksp
 #xbindkeys -f ~/.xbindkeysrc &
 
 ## DPMS monitor setting (standby suspend off)(seconds)
-xset dpms 300 600 900 &
+#xset dpms 300 600 900 &
 
 ## for who the bell tolls (percent;pitch;duration)
 ## test with xset q | grep bell
-xset b 100 400 100
+#xset b 100 400 100
 
 # make the cursor point in the 'right' direction
-xsetroot -cursor_name left_ptr &
+#xsetroot -cursor_name left_ptr &
 
 # set a wallpaper
 #hsetroot -tile /foo/bar/image.png &
-eval $(cat ~/.fehbg)
+#eval $(cat ~/.fehbg)
 
 # candy - pick one or none
 #xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D2 &
@@ -61,7 +64,7 @@ eval $(cat ~/.fehbg)
 # Stuff I need running
 #eval `gnome-keyring-daemon`  # SSH/GPG agent
 xscreensaver &
-nm-applet &
+#nm-applet &
 #savtray &
 
 AWT_TOOLKIT=XToolkit
@@ -74,16 +77,16 @@ _JAVA_OPTIONS="-Djava.net.preferIPv4Stack=true" ; export _JAVA_OPTIONS
 
 #wmname LG3D
 
-DEFAULTSESSION=i3
+#DEFAULTSESSION=i3
 
-case "$1" in
-    openbox) exec openbox-session ;;
-    xfce) exec xfce4-session ;;
-    gnome3) exec gnome-session ;;
-    lxde) exec lxsession ;;
-    i3) exec i3;;
-    dwm) exec /usr/local/bin/dwm;;
-    mate) exec mate-session;;
-    spectrwm) exec spectrwm;;
-    *) exec $DEFAULTSESSION ;;
-esac
+#case "$1" in
+    #openbox) exec openbox-session ;;
+    #xfce) exec xfce4-session ;;
+    #gnome3) exec gnome-session ;;
+    #lxde) exec lxsession ;;
+    #i3) exec i3;;
+    #dwm) exec /usr/local/bin/dwm;;
+    #mate) exec mate-session;;
+    #spectrwm) exec spectrwm;;
+    #*) exec $DEFAULTSESSION ;;
+#esac
