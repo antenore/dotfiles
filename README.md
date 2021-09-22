@@ -3,12 +3,13 @@ dotfiles
 
 ![Screenshot](data/i3wm-reddit.png)
 
-* [i3-gaps](https://www.github.com/Airblader/i3) + [i3 GNOME integration for 3.28.1](https://github.com/i3-gnome/i3-gnome/tree/3.28.1) + [yshui/picom](https://github.com/yshui/picom)
+* WM: [i3-gaps](https://www.github.com/Airblader/i3) + [i3 GNOME integration for 3.28.1](https://github.com/i3-gnome/i3-gnome/tree/3.28.1)
+* Compositor: [yshui/picom](https://github.com/yshui/picom)
+* Bar: [Polybar](https://github.com/polybar/polybar)
 * Wallpaper: https://pxhere.com/en/photo/664086
 * Colors: Almost everything generated with [Pywal](https://github.com/dylanaraps/pywal) and heavily modified.
 * Icons a modified version of Papirus, to match the color scheme.
-* ranger, zsh, vim/neovim, st, and tmux.
-
+* ranger, zsh, vim/neovim, st, tmux and tons of other things, check-out my dotfiles.
 
 ## Description
 
