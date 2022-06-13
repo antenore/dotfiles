@@ -1,6 +1,11 @@
 " $HOME/.vim/init/ft.vimrc
 " NB: Auto ommands specific to a plugins go in the plugin settings.
 
+" vim
+augroup vim_grp
+  autocmd BufRead *.vim,*.vimrc set cindent ts=2 sts=2 et sw=2
+augroup END
+
 " C
 augroup c_grp
   autocmd BufRead *.c,*h set cindent ts=8 sts=8 sw=8 noexpandtab
@@ -16,7 +21,7 @@ augroup END
 augroup ruby_grp
   autocmd FileType ruby set ts=2 sts=2 et sw=2
   autocmd FileType rb set foldmethod=expr
-  autocmd FileType rb set foldexpr=FoldSomething(v:lnum)
+  "autocmd FileType rb set foldexpr=FoldSomething(v:lnum)
 augroup END
 
 augroup bash_match

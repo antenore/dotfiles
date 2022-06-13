@@ -66,6 +66,8 @@ xscreensaver &
 # Dropbox
 ~/.dropbox-dist/dropboxd &
 
+wal -R
+
 AWT_TOOLKIT=XToolkit
 export AWT_TOOLKIT
 #AWT_TOOLKIT=MToolkit ; export AWT_TOOLKIT

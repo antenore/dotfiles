@@ -39,8 +39,8 @@
 !#include "/home/antenore/.Xcolors/hydra"
 !include "/home/antenore/.Xcolors/gruvbox-dark.xresources"
 !#include "/home/antenore/.Xcolors/nord"
-!#include "/home/antenore/.Xcolors/dracula"
-#include "/home/antenore/.cache/wal/colors.Xresources"
+#include "/home/antenore/.Xcolors/dracula"
+!#include "/home/antenore/.cache/wal/colors.Xresources"
 !Debian (lovely)
 #define DebianRed #D70A53
 ! MAN (xterm and generic)
@@ -59,9 +59,12 @@ Xft.hinting                                   : 1
 Xft.hintstyle                                 : hintslight
 Xft.lcdfilter                                 : lcddefault
 Xft.rgba                                      : rgb
-*font : Roboto Mono Nerd Font:size=14:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
-*.font : Roboto Mono Nerd Font:size=14:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
-*font* : Roboto Mono Nerd Font:size=14:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
+!*font : xft:Roboto Mono Nerd Font:size=9:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
+!*.font : xft:Roboto Mono Nerd Font:size=9:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
+!*font* : xft:Roboto Mono Nerd Font:size=9:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
+*font : mono:pixelsize=12:antialias=true:autohint=true
+*.font : mono:pixelsize=12:antialias=true:autohint=true
+*font* : mono:pixelsize=12:antialias=true:autohint=true
 ! -END- XFT Section 1}}}
 ! St Section {{{1
 !! Transparency (0-1):
@@ -69,7 +72,7 @@ st.alpha: 0.96
 !st.alphaOffset: 0.3
 
 !! Set a default font and font size as below:
-st.font: Roboto Mono Nerd Font:size=14
+st.font: mono:pixelsize=12:antialias=true:autohint=true
 
 st.termname: st-256color
 st.borderpx: 2
@@ -86,8 +89,8 @@ XTerm.colorMode                               : true
 XTerm.curses                                  : on
 XTerm.cutNewline                              : off
 XTerm.DeiconifyWarp                           : off
-XTerm.font                                    : xft:Roboto Mono Nerd Font:size=14:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
-XTerm.font1                                   : xft:Roboto Mono Nerd Font:size=14:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
+XTerm.font                                    : xft:Roboto Mono Nerd Font:size=11:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
+XTerm.font1                                   : xft:Roboto Mono Nerd Font:size=11:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
 XTerm.InternalBorder                          : 1
 !XTerm.jumpScroll                              : on
 XTerm.loginShell                              : true

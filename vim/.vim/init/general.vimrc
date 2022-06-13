@@ -1,5 +1,6 @@
 " $HOME/.vim/init/general.vimrc
 let g:mapleader = ','
+let g:maplocalleader = ','
 "Let vim automatically load .vimrc found on folders
 set exrc
 "with clipboard=autoselect visual selection should go automatically into primary
@@ -14,6 +15,7 @@ set autoread
 set autowrite
 set backspace=indent,eol,start
 set browsedir=current
+set formatoptions+=ro/qj
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right
@@ -33,6 +35,19 @@ set wildmode=list:longest,full
 set wildignorecase
 set wildchar=<Tab>
 set grepprg=grep\ -nH\ $*
+
+" Completion
+set completeopt=menu,menuone,noselect
+
+" Avoid showing extra messages when using completion
+set shortmess+=c
+
+" have a fixed column for the diagnostics to appear in
+" this removes the jitter when warnings/errors flow in
+set signcolumn=yes
+
+" Avoid windows have all the same size, this should prevent linter windows to gain space
+set noequalalways
 
 " file extensions to append.
 set suffixesadd+=.c

@@ -4,7 +4,7 @@
 # General Options
 ################################################################################
 set $mod Mod4
-font pango:Iosevka Nerd Font 14, feather 14
+font pango:Iosevka Nerd Font 10, feather 10
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 ################################################################################
@@ -12,7 +12,6 @@ floating_modifier $mod
 ################################################################################
 #exec --no-startup-id /usr/libexec/gsd-xsettings
 #exec_always /usr/local/bin/picom -b &
-#exec_always --no-startup-id gnome-power-statistics
 #exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 #exec --no-startup-id gnome-flashback
 #exec --no-startup-id /usr/libexec/notification-daemon
@@ -22,14 +21,15 @@ floating_modifier $mod
 #exec_always --no-startup-id "$HOME/.config/polybar/cuts/scripts/pywal.sh ~/Pictures/wallpapers/desert_car.png &"
 #exec_always --no-startup-id "/usr/local/bin/polybar myBar"
 exec_always --no-startup-id "/home/antenore/.config/polybar/launch.sh"
-exec_always --no-startup-id redshift
-exec_always --no-startup-id "$HOME/.screenlayout/home-kyndryl.sh &"
+exec_always --no-startup-id "/usr/bin/redshift"
+exec_always --no-startup-id "$HOME/.screenlayout/home-kyndryl-vertical.sh &"
 # wallpaper
 # Currently I'm using auto_stainless_oldtimer_rusted_scrap_old_scrap_car_wreck-664086.jpg
 # https://pxhere.com/en/photo/664086
 # The image is released free of copyrights under Creative Commons CC0.
 # You may download, modify, distribute, and use them royalty free for anything you like, even in commercial applications. Attribution is not required.
-exec_always --no-startup-id /usr/local/bin/feh --bg-scale /home/antenore/Pictures/wallpaper.jpg &
+exec_always --no-startup-id /usr/local/bin/feh --bg-fill /home/antenore/Pictures/wallpaper.jpg &
+exec_always --no-startup-id "/usr/bin/setxkbmap -option compose:menu"
 ################################################################################
 # Appearance
 ################################################################################
@@ -82,7 +82,8 @@ client.background       $bg
 new_window none
 new_float 1pixel
 hide_edge_borders both
-
+default_border pixel
+for_window [all] title_window_icon on
 
 ## bar {
 ##     # In hide mode is nice but with Sametime blinking it's just awful
@@ -164,69 +165,69 @@ bindsym $mod+v split v
 # Switch back to most recent workspace
 workspace_auto_back_and_forth yes
 # Each workspace its own screen
-workspace "1: Mail"       output eDP-1
-workspace "2: Files"      output eDP-1
-workspace "3: Incognito"  output eDP-1
-workspace "4: DevDoc"     output eDP-1
-workspace 5               output eDP-1
-workspace 6               output eDP-1
-workspace 7               output eDP-1
-workspace 8               output eDP-1
-workspace 9               output eDP-1
-workspace 10              output eDP-1
-workspace "11: Terms"     output DP-1-1
-workspace "12: Intranet"     output DP-1-1
-workspace "13: Remmina"   output DP-1-1
-workspace "14: Office"    output DP-1-1
-workspace 15              output DP-1-1
-workspace 16              output DP-1-1
-workspace 17              output DP-1-1
-workspace 18              output DP-1-1
-workspace "19: Ref"       output DP-1-1
-workspace "20: Harden"       output DP-1-1
+workspace "mail"       output DP-1-2
+workspace "media"      output DP-1-2
+workspace "doc"        output DP-1-2
+workspace "private"    output DP-1-2
+workspace 5            output DP-1-2
+workspace 6            output DP-1-2
+workspace 7            output DP-1-2
+workspace 8            output DP-1-2
+workspace 9            output DP-1-2
+workspace 10           output DP-1-2
+workspace "hack"       output HDMI-2
+workspace "background" output HDMI-2
+workspace "code"       output HDMI-2
+workspace "office"     output HDMI-2
+workspace 15           output HDMI-2
+workspace 16           output HDMI-2
+workspace 17           output HDMI-2
+workspace 18           output HDMI-2
+workspace "chat"       output HDMI-2
+workspace "web"        output HDMI-2
 # switch to workspace
-bindsym $mod+1   workspace "1: Mail"
-bindsym $mod+2   workspace "2: Files"
-bindsym $mod+3   workspace "3: Incognito"
-bindsym $mod+4   workspace "4: DevDoc"
+bindsym $mod+1   workspace "mail"
+bindsym $mod+2   workspace "media"
+bindsym $mod+3   workspace "doc"
+bindsym $mod+4   workspace "private"
 bindsym $mod+5   workspace 5
 bindsym $mod+6   workspace 6
 bindsym $mod+7   workspace 7
 bindsym $mod+8   workspace 8
 bindsym $mod+9   workspace 9
 bindsym $mod+10  workspace 10
-bindsym $mod+F1  workspace "11: Terms"
-bindsym $mod+F2  workspace "12: Intranet"
-bindsym $mod+F3  workspace "13: Remmina"
-bindsym $mod+F4  workspace "14: Office"
+bindsym $mod+F1  workspace "hack"
+bindsym $mod+F2  workspace "background"
+bindsym $mod+F3  workspace "code"
+bindsym $mod+F4  workspace "office"
 bindsym $mod+F5  workspace 15
 bindsym $mod+F6  workspace 16
 bindsym $mod+F7  workspace 17
 bindsym $mod+F8  workspace 18
-bindsym $mod+F9  workspace "19: Ref"
-bindsym $mod+F10 workspace "20: Harden"
+bindsym $mod+F9  workspace "chat"
+bindsym $mod+F10 workspace "web"
 
 # move focused container to workspace
-bindsym $mod+Shift+1   move workspace "1: Mail"
-bindsym $mod+Shift+2   move workspace "2: Files"
-bindsym $mod+Shift+3   move workspace "3: Incognito"
-bindsym $mod+Shift+4   move workspace "4: DevDoc"
+bindsym $mod+Shift+1   move workspace "mail"
+bindsym $mod+Shift+2   move workspace "media"
+bindsym $mod+Shift+3   move workspace "doc"
+bindsym $mod+Shift+4   move workspace "private"
 bindsym $mod+Shift+5   move workspace 5
 bindsym $mod+Shift+6   move workspace 6
 bindsym $mod+Shift+7   move workspace 7
 bindsym $mod+Shift+8   move workspace 8
 bindsym $mod+Shift+9   move workspace 9
 bindsym $mod+Shift+10  move workspace 10
-bindsym $mod+Shift+F1  move workspace "11: Terms"
-bindsym $mod+Shift+F2  move workspace "12: Intranet"
-bindsym $mod+Shift+F3  move workspace "13: Remmina"
-bindsym $mod+Shift+F4  move workspace "14: Office"
+bindsym $mod+Shift+F1  move workspace "hack"
+bindsym $mod+Shift+F2  move workspace "background"
+bindsym $mod+Shift+F3  move workspace "code"
+bindsym $mod+Shift+F4  move workspace "office"
 bindsym $mod+Shift+F5  move workspace 15
 bindsym $mod+Shift+F6  move workspace 16
 bindsym $mod+Shift+F7  move workspace 17
 bindsym $mod+Shift+F8  move workspace 18
-bindsym $mod+Shift+F9  move workspace "19: Ref"
-bindsym $mod+Shift+F10 move workspace "20: Harden"
+bindsym $mod+Shift+F9  move workspace "chat"
+bindsym $mod+Shift+F10 move workspace "web"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -263,21 +264,21 @@ bindsym $mod+r mode "resize"
 
 # start a terminal
 bindsym $mod+Return exec /home/antenore/bin/st -e tmux attach
-bindsym $mod+Shift+Return exec /home/antenore/bin/st
+bindsym $mod+Shift+Return exec /home/antenore/bin/st -e /bin/zsh --login
 bindsym $mod+Shift+c kill
-bindsym $mod+p exec /home/antenore/.local/bin/rofi -show run -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
-bindsym $mod+Shift+p exec /home/antenore/.local/bin/rofi -show drun -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
+bindsym $mod+p exec /home/antenore/.local/bin/rofi -show run -theme ~/.config/polybar/scripts/rofi/launcher.rasi
+bindsym $mod+Shift+p exec /home/antenore/.local/bin/rofi -show drun -theme ~/.config/polybar/scripts/rofi/launcher.rasi
 bindsym $mod+Shift+l exec ~/bin/ilock.sh
-bindsym $mod+o exec /home/antenore/.local/bin/rofi -show ssh -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
-bindsym $mod+Tab exec /home/antenore/.local/bin/rofi -show window -theme ~/.config/polybar.theme/cuts/scripts/rofi/launcher.rasi
+bindsym $mod+o exec /home/antenore/.local/bin/rofi -show ssh -theme ~/.config/polybar/scripts/rofi/launcher.rasi
+bindsym $mod+Tab exec /home/antenore/.local/bin/rofi -show window -theme ~/.config/polybar/scripts/rofi/launcher.rasi
 bindsym $mod+k exec GDK_DPI_SCALE=1 gkbd-keyboard-display -g 1
 # Screenshot
 bindsym 0xff61 exec scrot ~/Images/Screenshots/screenshot_%Y_%m_%d_%H_%M_%S.png
 
 # Sound
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 5 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 5 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 5 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # Browser
 bindsym XF86HomePage exec firefox -P IBM
@@ -311,18 +312,9 @@ exec --no-startup-id /usr/bin/redshift
 
 
 # Automatically putting clients on specific workspaces.
-assign [class="IBM Notes"] → "1: Mail"
-assign [title="Screenshot Tool"] → "1: Mail"
-#assign [title="ranger"] → "11: Terms"
-assign [title="thunar"] → "2: Files"
-assign [title="Devhelp — Assistant"] → "4: DevDoc"
-assign [class="st-256color"] → "11: Terms"
-assign [class="Remmina"] → "13: Remmina"
-assign [class="libreoffice"] → "14: Office"
-assign [class="Claws-mail"] → "20: Harden"
-#assign [class="Firefox"] → "20: Harden"
-#assign [class="IBM Firefox"] → "12: Intranet"
-for_window [title=".*\(Private Browsing\).*"] move to workspace "3: Incognito"
+assign [class="IBM Notes"] → "mail"
+assign [title="Devhelp — Assistant"] → "doc"
+for_window [title=".*\(Private Browsing\).*"] move to workspace "private"
 
 # focus
 ## Avoid tiling popups, dropdown windows from plasma

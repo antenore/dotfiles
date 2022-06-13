@@ -1,71 +1,54 @@
-set encoding=utf-8
-scriptencoding utf-8
 "$HOME/.vim/init/ui.vimrc
-" Tabs
-set tabpagemax=15
-set showtabline=2
+"
+" All the settings related to the UI goes here
+"
+" ==============================================================================
 
-"set termguicolors
-set laststatus=2
-if !has('gui_running')
-  set t_Co=256
-endif
+" {{{ ===== Colorschemes =======================================================
+" This option doesn't play well with most themes.
+"if !has('gui_running')
+  "set t_Co=256
+"endif
 
-"gruvbox
-"set background=dark
-"let g:gruvbox_guisp_fallback = "bg"
-"let g:gruvbox_contrast_dark = "hard"
-"let g:gruvbox_transp_bg = 1
-"let g:gruvbox_plugin_hi_groups = 1
-"colorscheme gruvbox8_hard
-"colorscheme gruvbox
-
-" Dracula colorscheme setting
-let g:dracula_bold = 1
-let g:dracula_italic = 1
-let g:dracula_underline = 1
-let g:dracula_undercurl = 1
-let g:dracula_inverse = 1
-let g:dracula_colorterm = 1
-"colorscheme dracula
-colorscheme wal
-set background=light
-
+set termguicolors
 "colorscheme nord
 "colorscheme Luciano
-"let g:gruvbox_termcolors=16
+"colorscheme wal
+"colorscheme preto
 
-" https://github.com/ajmwagar/vim-deus
-"colors deus
+"zenbones
+"colorscheme zenbones
+"colorscheme zenwritten
+"colorscheme neobones
+"colorscheme vimbones
+"colorscheme rosebones
+"colorscheme forestbones
+"colorscheme nordbones
+colorscheme tokyobones
+"colorscheme seoulbones
+"colorscheme duckbones
+"colorscheme zenburned
+"colorscheme kanagawabones
+"colorscheme randombones
 
-
-" let g:gruvbox_termcolors = 256
-" if !has("gui_running")
-"    let g:gruvbox_italic=0
-" endif
-" nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-" nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-" nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-"
-" nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-" nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-" nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-"colorscheme hemisu
-"colorscheme lucius
-"  LuciusBlack
-
-" Highlight if more then 88 chars
-set colorcolumn=96
+set background=dark
+" }}}
+" {{{ ===== Tabs ===============================================================
+set tabpagemax=15
+set showtabline=2
+" }}}
+" {{{ ===== Visual Cues ========================================================
+" Highlight if more then 96 chars
+set colorcolumn=80
 "highlight ColorColumn term=reverse cterm=reverse
 "highlight CursorLine term=underline cterm=underline gui=underline
 "highlight CursorLine guibg=#303000 ctermbg=234
 "highlight CursorColumn guibg=#303000 ctermbg=234
 
-" Visual Cues
 set cmdheight=2
 set cursorline
 set cursorcolumn
-if &term =~? "st\\|xterm\\|rxvt\\|screen-it\\|screen"
+if &term =~? "tmux\\|st\\|xterm\\|rxvt\\|screen-it\\|screen"
   " use an orange cursor in insert mode
   let &t_SI = "\<Esc>]12;white\x7"
   " use a red cursor otherwise
@@ -76,7 +59,7 @@ if &term =~? "st\\|xterm\\|rxvt\\|screen-it\\|screen"
       autocmd VimLeave * silent !echo -ne "\033]112\007"
   augroup END
 endif
-if &term =~? "st\\|xterm\\|rxvt\\|screen-it\\|screen"
+if &term =~? "tmux\\|st\\|xterm\\|rxvt\\|screen-it\\|screen"
   " solid underscore
   let &t_SI .= "\<Esc>[6 q"
   " solid block
@@ -90,20 +73,22 @@ if &term =~? "st\\|xterm\\|rxvt\\|screen-it\\|screen"
 endif
 set hlsearch
 set incsearch
-set laststatus=2   " always show the status line
+set laststatus=2                               " always show the status line
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-set matchtime=5          " how many tenths of a second to blink matching brackets for
-set modeline       " in source settings --> # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
-set nostartofline  " keep the cursor in the same colon when changing line
+set showmatch                                  " show matching brackets
+set matchtime=5                                " Tenths of a second to show the matching paren (showmatch)
+set modeline                                   " in source settings --> # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
+set nostartofline                              " keep the cursor in the same colon when changing line
 set number
 set scrolloff=3
 set ruler
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)       " if not vim-airline
 set showcmd
-set showmatch      " show matching brackets
+set showmatch                                  " show matching brackets
 set sidescroll=1
 set sidescrolloff=10
 set smartcase
-set scrolloff=10          " Keep 10 lines (top/bottom) for scope
+set scrolloff=10                               " Keep 10 lines (top/bottom) for scope
 set title
+" }}}
+" vim:set ts=2 sts=2 sw=2 expandtab:

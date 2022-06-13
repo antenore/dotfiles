@@ -1,11 +1,15 @@
 " $HOME/.im/init/mappings.vimrc
 
 " disable arrow keys
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
+" See animate imap <up> <nop>
+" See animate imap <down> <nop>
+" See animate imap <left> <nop>
+" See animate imap <right> <nop>
+" Remap arrow keys to resize window
+nnoremap <Up>    :resize -2<CR>
+nnoremap <Down>  :resize +2<CR>
+nnoremap <Left>  :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
 " Tabs
 nmap <C-S-t> :tabnew<CR>
 nmap <C-S-n> :tabn<CR>

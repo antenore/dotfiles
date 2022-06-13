@@ -15,5 +15,8 @@ augroup vimrc_autocmd
   autocmd Filetype md setlocal spell
   autocmd FileType powershell set colorcolumn=115
   autocmd FileType ps1 set colorcolumn=115
+  " Follow https://github.com/nvim-lua/lsp_extensions.nvim/issues/30
+  "autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *.rs
+  "      \ :lua require('lsp_extensions').inlay_hints{ enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 augroup END
 

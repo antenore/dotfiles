@@ -25,7 +25,7 @@ syntax enable
 if !has('nvim')
   set pyxversion=3
 endif
-let g:ale_completion_enabled = 1
+"TEMP: let g:ale_completion_enabled = 1
 " }}}
 " {{{ ===== Files ==============================================================
 silent !mkdir ~/.cache/vim > /dev/null 2>&1
@@ -61,23 +61,30 @@ set tags+=~/.vim/tags/glib
 runtime ftplugin/man.vim
 
 " }}}
-" {{{ ===== VIMRC Functions ====================================================
-source $HOME/.vim/init/functions.vimrc  " Functions
-" }}}
-" {{{ ===== Plug ===============================================================
-source $HOME/.vim/init/plug.vimrc       " Plugin loader
-" }}}
 " {{{ ===== General ============================================================
 source $HOME/.vim/init/general.vimrc    " General Settings
 " }}}
 " {{{ ===== Text Formatting/Layout =============================================
 source $HOME/.vim/init/autoformat.vimrc " Auto formatting
 " }}}
+" {{{ ===== VIMRC Functions ====================================================
+source $HOME/.vim/init/functions.vimrc  " Functions
+" }}}
 " {{{ ===== Text Highlighting ==================================================
 source $HOME/.vim/init/highlight.vimrc  " Highlight text, columns, …
 " }}}
+" {{{ ===== Secrets ============================================================
+"source $HOME/.secrets/.gitlab.vimrc
+source ~/.gitlabtoken.vimrc
+" }}}
+" {{{ ===== Plug ===============================================================
+source $HOME/.vim/init/plug.vimrc       " Plugin loader
+" }}}
 " {{{ ===== UI =================================================================
 source $HOME/.vim/init/ui.vimrc         " Colors and appearance
+" }}}
+" {{{ ===== Plugin settings ====================================================
+source $HOME/.vim/init/plugins.vimrc    "Plugin settings
 " }}}
 " {{{ ===== Language specific settings =========================================
 source $HOME/.vim/init/ft.vimrc         " File type based commands
@@ -87,9 +94,6 @@ source $HOME/.vim/init/latex.vimrc      " Special settings for LaTeX
 " }}}
 " {{{ ===== Mutt ===============================================================
 source $HOME/.vim/init/mutt.vimrc       " Mutt ;-)
-" }}}
-" {{{ ===== Plugin settings ====================================================
-source $HOME/.vim/init/plugins.vimrc    "Plugin settings
 " }}}
 " {{{ ===== Auto Commands ======================================================
 source $HOME/.vim/init/autocmd.vimrc    " Auto commands
