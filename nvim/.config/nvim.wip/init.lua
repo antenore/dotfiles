@@ -40,6 +40,9 @@ require('mappings')
 require('ft')
 require('latex')
 require('autocmd')
+require('plugins.config.cmp')
+require('plugins.config.lualine')
+require('plugins.config.telescope')
 -- }}}
 -- {{{ ===== Secrets ====================================================
 --source $HOME/.secrets/.gitlab.vimrc

@@ -1,16 +1,58 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+-- Automatically install packer
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
 end
 
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
+
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+    working_sym = '', -- The symbol for a plugin being installed/updated
+    error_sym = '✗', -- The symbol for a plugin with an error in installation/updating
+    done_sym = '✓', -- The symbol for a plugin which has completed installation/updating
+    removed_sym = '-', -- The symbol for an unused plugin which was removed
+    moved_sym = '→', -- The symbol for a plugin which was moved (e.g. from opt to start)
+    header_sym = '━', -- The symbol for the header line in packer's display
+  }
+}
+
+-- Install your plugins here
 local use = require('packer').use
 require('packer').startup(function()
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-    use 'rktjmp/lush.nvim'
+    use "wbthomason/packer.nvim" -- Have packer manage itself
+    use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+    use 'nvim-lua/plenary.nvim'  -- Useful lua functions used by lots of plugins
+    use "windwp/nvim-autopairs"  -- Autopairs, integrates with both cmp and treesitter
+    use "numToStr/Comment.nvim"  -- Easily comment stuff
+    use 'rktjmp/lush.nvim'       -- color scheme aid plugin
     use {
         "kyazdani42/nvim-web-devicons",
         config = function()
@@ -19,50 +61,78 @@ require('packer').startup(function()
     }
     use {
         "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-        config = function()
-            require("plugins.config.lualine")
-        end
+        requires = { "kyazdani42/nvim-web-devicons", opt = true }
     }
-    use 'folke/lsp-colors.nvim'                        -- Auto add missing colour group for LSP
-    use 'williamboman/nvim-lsp-installer'
-    use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/lsp_extensions.nvim'                 -- Extentions to built-in LSP, for example, providing type inlay hints
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+    -- LSP
+    use "neovim/nvim-lspconfig"           -- enable LSP
+    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use "tamago324/nlsp-settings.nvim"    -- language server settings defined in json for
+    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use 'folke/lsp-colors.nvim'           -- Auto add missing colour group for LSP
+    use 'nvim-lua/lsp_extensions.nvim'    -- Extentions to built-in LSP, for example, providing type inlay hints
+    -- -> nvim-cmp
     use {
         "hrsh7th/nvim-cmp",
         requires = {
+            -- https://github.com/quangnguyen30192/cmp-nvim-ultisnips
             "quangnguyen30192/cmp-nvim-ultisnips",
-            "nvim-treesitter/nvim-treesitter",
+            "quangnguyen30192/cmp-nvim-tags",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-calc",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-look",
+            'hrsh7th/cmp-cmdline',
+            "ray-x/cmp-treesitter",
+            "f3fora/cmp-spell",
+            "hrsh7th/cmp-emoji",
         },
     }
+    -- snippets - ultisnip
+    use "honza/vim-snippets"
+    use({
+        "SirVer/ultisnips",
+        requires = "honza/vim-snippets",
+        config = function()
+            vim.g.UltiSnipsRemoveSelectModeMappings = 0
+        end,
+    })
+    use "quangnguyen30192/cmp-nvim-ultisnips"
+
     use 'p00f/clangd_extensions.nvim'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
     use 'cuducos/yaml.nvim'
-    use 'nvim-lua/plenary.nvim'
+
+    -- FZF setup
+    use {
+        'junegunn/fzf',
+        dir = '~/.fzf',
+        run = { './install --all' },
+    }
+    use 'junegunn/fzf.vim'
+
+    -- Telescope https://github.com/nvim-telescope/telescope.nvim
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use {
         'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = {
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        }
     }
     use 'nvim-telescope/telescope-ui-select.nvim'
 
     -- Vim/Neovim plugins
-    use {
-        'junegunn/fzf.vim',
-        requires = {'junegunn/fzf'},
-        run = function() vim.fn["fzf#install"]() end
-    }
     -- use 'antenore/vim-safe'                         -- Not compatible with neovim
     use 'chrisbra/csv.vim'
     use 'ludovicchabant/vim-gutentags'
     use 'majutsushi/tagbar'
     use 'godlygeek/tabular'                            -- Needed by vim-markdown (and me :- )
-    use 'SirVer/ultisnips'
-    use 'honza/vim-snippets'                           -- ultisnip, snipmate and neosnippet
     use 'mboughaba/i3config.vim'
     use 'nvie/vim-flake8'                              -- Python style guide
     use 'relastle/vim-nayvy'                           -- Enriching python coding.
@@ -70,8 +140,14 @@ require('packer').startup(function()
     use 'rodjek/vim-puppet'
     use 'puppetlabs/puppet-syntax-vim'
     use 'scrooloose/nerdtree'
+    -- Git
     use 'tpope/vim-fugitive'                           -- :G*
     use 'shumphrey/fugitive-gitlab.vim'                -- :Gbrowse
+    use {
+        "lewis6991/gitsigns.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function() require("gitsigns").setup() end
+    }
     use 'tpope/vim-rhubarb'
     use 'tpope/vim-surround'
     use 'tmux-plugins/vim-tmux'
@@ -88,8 +164,8 @@ require('packer').startup(function()
     use { 'neomake/neomake', cmd = 'Neomake' }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if packer_bootstrap then
-    require('packer').sync()
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
   end
 end)
 
@@ -229,10 +305,22 @@ vim.g.vim_markdown_folding_disabled= 1
 vim.g.neomake_javascript_enabled_makers = {'eslint'}
 -- }}}
 -- {{{ ===== UltiSnip ===========================================================
-vim.g.UltiSnipsExpandTrigger       = "<tab>"
-vim.g.UltiSnipsListSnippets        = "<c-tab>"
-vim.g.UltiSnipsJumpForwardTrigger  = "<c-j>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
+-- vim.g.UltiSnipsExpandTrigger       = "<tab>"
+-- vim.g.UltiSnipsListSnippets        = "<c-tab>"
+-- vim.g.UltiSnipsJumpForwardTrigger  = "<c-j>"
+-- vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+-- Make sure it picks up our snippet file first, so our overwrites take effect.
+vim.g.UltiSnipsDontReverseSearchPath = true
+-- let g:UltiSnipsSnippetsDir = '~/.upkg/Viming-With-Buttars.git/vim/UltiSnips'
+
+vim.g.UltiSnipsExpandTrigger = '<c-j>'
+-- vim.g.UltiSnipsListSnippets = '<c-q>'
+-- vim.g.UltiSnipsListSnippets                <c-tab>
+-- vim.g.UltiSnipsJumpForwardTrigger          <c-j>
+-- vim.g.UltiSnipsJumpBackwardTrigger         <c-k>
+
+vim.g.UltiSnipsSnippetDirectories = {'~/.config/nvim/UltiSnips'}
 -- }}}
 -- {{{ ===== VimSafe ============================================================
 -- Defined in the plugin
@@ -260,10 +348,12 @@ vim.g.tex_conceal='abdmg'
 -- {{{ ===== nvim.treesitter ====================================================
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "vim", "python", "javascript",
+-- ensure_installed = "all",  -- or "maintained"
+ensure_installed = { "c", "lua", "rust", "vim", "python", "javascript",
                        "java", "ruby", "bash", "go", "json", "yaml", "make",
                        "cmake", "cpp", "dockerfile", "scss", "css", "html",
                        "comment" },
+
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -306,114 +396,6 @@ require'nvim-treesitter.configs'.setup {
 -- }}}
 -- {{{ ===== lsp-colors.nvim ====================================================
 require("lsp-colors").setup({})
--- }}}
--- {{{ ===== telescope-ui-select.nvim ===========================================
--- This is your opts table
-require("telescope").setup {
-
-  extensions = {
-    ["ui-select"] = {
-
-      require("telescope.themes").get_dropdown {
-        -- even more opts
-      },
-
-    }
-  }
-}
--- To get ui-select loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require("telescope").load_extension("ui-select")
--- }}}
--- {{{ ===== cmp_nvim_ultisnips =================================================
-require("cmp_nvim_ultisnips").setup {
-  filetype_source = "treesitter",
-  show_snippets = "all",
-  documentation = function(snippet)
-    return snippet.description
-  end
-}
--- }}}
--- {{{ ===== nvim-cmp ===========================================================
-  -- Setup nvim-cmp.
-  local cmp = require'cmp'
-  require("cmp_nvim_ultisnips").setup{}
-
-  cmp.setup({
-    snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        --vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
-    },
-    window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
-    enabled = function()
-      if require "cmp.config.context".in_treesitter_capture("comment") == true or require "cmp.config.context".in_syntax_group("Comment") then
-        return false
-      else
-        return true
-      end
-    end,
-    mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm{
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
-      -- { name = 'luasnip' }, -- For luasnip users.
-      { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
-
-  -- Setup lspconfig.
-  -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    -- capabilities = capabilities
-  -- }
 -- }}}
 -- {{{ ===== nvim-lsp-installer =================================================
 require("nvim-lsp-installer").setup({
