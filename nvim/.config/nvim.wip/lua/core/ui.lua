@@ -35,8 +35,8 @@ vim.opt.tabpagemax = 15
 vim.opt.showtabline = 2
 -- }}}
 -- {{{ ===== Visual Cues ========================================================
--- Highlight if more then 96 chars
-vim.opt.colorcolumn = { 80 }
+-- Highlight if more then 87 chars
+vim.opt.colorcolumn = { 87 }
 --highlight ColorColumn term=reverse cterm=reverse
 --highlight CursorLine term=underline cterm=underline gui=underline
 --highlight CursorLine guibg=#303000 ctermbg = 234

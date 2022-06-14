@@ -142,7 +142,6 @@ require('packer').startup(function()
     use 'scrooloose/nerdtree'
                                         -- Git
     use 'tpope/vim-fugitive'            -- :G*
-    use 'shumphrey/fugitive-gitlab.vim' -- :Gbrowse
     use {
         "lewis6991/gitsigns.nvim",
         requires = { "nvim-lua/plenary.nvim" },
@@ -181,6 +180,9 @@ require('plugins.config.lsp')
 require('plugins.config.cmp')
 require('plugins.config.lualine')
 require('plugins.config.telescope')
+require('plugins.config.gutentags')
+require('plugins.config.tagbar')
+
 -- }}}
 -- {{{ ===== Jaflpl.nvim ========================================================
 -- require'jaflpl'.setup({})
