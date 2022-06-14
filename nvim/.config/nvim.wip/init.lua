@@ -6,13 +6,13 @@
 --  ██║ ╚████║  | Antenore (tmow) Gatta - WTFPL License
 --  ╚═╝  ╚═══╝  | - https://antenore.simbiosi.org
 --
--- {{{ ===== Before everything else =====================================
+-- {{{ ===== Before everything else ============================================
 HOME = os.getenv("HOME")
 --set nocompatible
 vim.opt.foldenable = true
 vim.opt.foldmethod = 'marker'
 -- }}}
--- {{{ ===== Files ======================================================
+-- {{{ ===== Files =============================================================
 -- backup directory.
 vim.opt.backupdir = vim.fn.expand("$HOME/.cache/nvim")
 vim.opt.backup = true
@@ -31,20 +31,12 @@ vim.g.netrw_home =  vim.fn.expand("$HOME/.cache") .. '/nvim'
 -- CTags
 vim.opt.tags = "$HOME/.vim/tags/gtk2,$HOME/.vim/tags/gtk3,$HOME/.vim/tags/glib"
 -- }}}
--- {{{ ===== Modules ====================================================
-require('settings')
-require('autoformat')
+-- {{{ ===== Modules ===========================================================
 require('plugins')
-require('ui')
-require('mappings')
-require('ft')
+require('core')
 require('latex')
-require('autocmd')
-require('plugins.config.cmp')
-require('plugins.config.lualine')
-require('plugins.config.telescope')
 -- }}}
--- {{{ ===== Secrets ====================================================
+-- {{{ ===== Secrets ===========================================================
 --source $HOME/.secrets/.gitlab.vimrc
 -- source ~/.gitlabtoken.vimrc
 -- }}}

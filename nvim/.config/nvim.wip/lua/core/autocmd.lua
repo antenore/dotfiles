@@ -2,11 +2,6 @@ local auto_group = vim.api.nvim_create_augroup(
     "AutoGroup",
     { clear = true }
     )
-vim.api.nvim_create_autocmd({ 'BufWinEnter', 'WinEnter' }, {
-    group = auto_group,
-    pattern = { "*" },
-    command = 'if index(excludeft, &ft) <0 | set number'
-})
 vim.api.nvim_create_autocmd({ 'BufWinLeave', 'WinLeave' }, {
     group = auto_group,
     pattern = { "*" },
