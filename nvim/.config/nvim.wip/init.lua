@@ -7,22 +7,22 @@
 --  ╚═╝  ╚═══╝  | - https://antenore.simbiosi.org
 --
 -- {{{ ===== Before everything else ============================================
-HOME = os.getenv("HOME")
+HOME = os.getenv('HOME')
 vim.opt.foldenable = true
 vim.opt.foldmethod = 'marker'
 -- }}}
 -- {{{ ===== Modules ===========================================================
 local modules = {
-  "setup",
-  "plugins",
-  "core",
-  "latex"
+  'setup',
+  'plugins',
+  'core',
+  'latex',
 }
 for _, module in ipairs(modules) do
-   local ok, err = pcall(require, module)
-   if not ok then
-      error("Error loading " .. module .. "\n\n" .. err)
-   end
+  local ok, err = pcall(require, module)
+  if not ok then
+    error('Error loading ' .. module .. '\n\n' .. err)
+  end
 end
 -- }}}
 -- ====================================== EOF =========================================

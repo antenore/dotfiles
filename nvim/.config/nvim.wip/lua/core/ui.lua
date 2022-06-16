@@ -7,7 +7,6 @@
 -- {{{ ===== Colorschemes =======================================================
 -- This option doesn't play well with most themes.
 
-vim.opt.termguicolors = true
 --colorscheme nord
 --colorscheme Luciano
 --colorscheme wal
@@ -21,14 +20,16 @@ vim.opt.termguicolors = true
 --colorscheme rosebones
 --colorscheme forestbones
 --colorscheme nordbones
-vim.cmd('colorscheme tokyobones')
 --colorscheme seoulbones
 --colorscheme duckbones
 --colorscheme zenburned
 --colorscheme kanagawabones
 --colorscheme randombones
-
+vim.opt.termguicolors = true
 vim.opt.background = "dark"
+vim.cmd('colorscheme tokyobones')
+
+
 -- }}}
 -- {{{ ===== Tabs ===============================================================
 vim.opt.tabpagemax = 15
@@ -45,31 +46,6 @@ vim.opt.colorcolumn = { 87 }
 vim.opt.cmdheight = 2
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.api.nvim_exec([[
-if &term =~? "tmux\\|st\\|xterm\\|rxvt\\|screen-it\\|screen"
-  " use an orange cursor in insert mode
-  let &t_SI = "\<Esc>]12;white\x7"
-  " use a red cursor otherwise
-  let &t_EI = "\<Esc>]12;orange\x7"
-  silent !echo -ne "\033]12;orange\007"
-  " reset cursor when vim exits
-  augroup vim_exit
-      autocmd VimLeave * silent !echo -ne "\033]112\007"
-  augroup END
-endif
-if &term =~? "tmux\\|st\\|xterm\\|rxvt\\|screen-it\\|screen"
-  " solid underscore
-  let &t_SI .= "\<Esc>[6 q"
-  " solid block
-  let &t_EI .= "\<Esc>[6 q"
-  " 1 or 0 -> blinking block
-  " 2 -> solid underscore
-  " 3 -> blinking underscore
-  " 4 -> solid block
-  " 5 -> blinking vertical bar
-  " 6 -> solid vertical bar
-endif
-]], true)
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.laststatus = 2                             -- always show the status line

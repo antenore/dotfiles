@@ -37,8 +37,8 @@ local source_name_map = {
 local comp_items = {
 -- if you change or add symbol here
 -- replace corresponding line in readme
-    -- Text = "",
-    Text = " ",
+    Text = " ",
+    -- Text = " ",
     -- Method = "",
     -- Method = '',
     Method = ' ',

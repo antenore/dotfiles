@@ -391,6 +391,7 @@ _G.packer_plugins = {
     url = "https://github.com/cuducos/yaml.nvim"
   },
   ["zenbones.nvim"] = {
+    config = { "            vim.g.zenbones_darkness = \"warm\"\n            vim.g.zenbones_lightness = \"dim\"\n            vim.opt.termguicolors = true\n            vim.opt.background = \"dark\"\n            vim.cmd('colorscheme tokyobones')\n        " },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
     url = "https://github.com/mcchrish/zenbones.nvim"
@@ -398,6 +399,19 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: zenbones.nvim
+time([[Config for zenbones.nvim]], true)
+            vim.g.zenbones_darkness = "warm"
+            vim.g.zenbones_lightness = "dim"
+            vim.opt.termguicolors = true
+            vim.opt.background = "dark"
+            vim.cmd('colorscheme tokyobones')
+        
+time([[Config for zenbones.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
@@ -406,10 +420,6 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for ultisnips]], true)
 try_loadstring("\27LJ\2\nC\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0&UltiSnipsRemoveSelectModeMappings\6g\bvim\0", "config", "ultisnips")
 time([[Config for ultisnips]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

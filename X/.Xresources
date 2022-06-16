@@ -39,7 +39,31 @@
 !#include "/home/antenore/.Xcolors/hydra"
 !include "/home/antenore/.Xcolors/gruvbox-dark.xresources"
 !#include "/home/antenore/.Xcolors/nord"
-#include "/home/antenore/.Xcolors/dracula"
+!#include "/home/antenore/.Xcolors/dracula"
+#include "/home/antenore/.Xcolors/tokyonight-storm"
+!#include "/home/antenore/software/iTerm2-Color-Schemes.antenore/xrdb/zenwritten_light.xrdb"
+*color0:      Ansi_0_Color
+*color1:      Ansi_1_Color
+*color2:      Ansi_2_Color
+*color3:      Ansi_3_Color
+*color4:      Ansi_4_Color
+*color5:      Ansi_5_Color
+*color6:      Ansi_6_Color
+*color7:      Ansi_7_Color
+*color8:      Ansi_8_Color
+*color9:      Ansi_9_Color
+*color10:     Ansi_10_Color
+*color11:     Ansi_11_Color
+*color12:     Ansi_12_Color
+*color13:     Ansi_13_Color
+*color14:     Ansi_14_Color
+*color15:     Ansi_15_Color
+*colorBD:     Bold_Color
+*colorIT:     Italic_Color
+*colorUL:     Underline_Color
+*foreground:  Foreground_Color
+*background:  Background_Color
+*cursorColor: Cursor_Color
 !#include "/home/antenore/.cache/wal/colors.Xresources"
 !Debian (lovely)
 #define DebianRed #D70A53
@@ -62,9 +86,9 @@ Xft.rgba                                      : rgb
 !*font : xft:Roboto Mono Nerd Font:size=9:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
 !*.font : xft:Roboto Mono Nerd Font:size=9:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
 !*font* : xft:Roboto Mono Nerd Font:size=9:lcdfilter=lcddefault:hintstyle=hintslight:hinting=true:rgba=rgb:antialias=true:autohint=false
-*font : mono:pixelsize=12:antialias=true:autohint=true
-*.font : mono:pixelsize=12:antialias=true:autohint=true
-*font* : mono:pixelsize=12:antialias=true:autohint=true
+*font : mono:pixelsize=13:antialias=true:autohint=true
+*.font : mono:pixelsize=13:antialias=true:autohint=true
+*font* : mono:pixelsize=13:antialias=true:autohint=true
 ! -END- XFT Section 1}}}
 ! St Section {{{1
 !! Transparency (0-1):

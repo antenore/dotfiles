@@ -156,7 +156,18 @@ require('packer').startup(function()
     use 'https://gitlab.com/antenore/Luciano.git'      -- Hey it's me!!
     use '/home/antenore/software/myvim/plugins/mdview.nvim'
     -- use '/home/antenore/software/myvim/plugins/jaflpl.nvim'
-    use 'mcchrish/zenbones.nvim'
+    use {
+        'mcchrish/zenbones.nvim',
+        requires = { 'rktjmp/lush.nvim', opt = true },
+        config = [[
+            vim.g.zenbones_darkness = "warm"
+            vim.g.zenbones_lightness = "dim"
+            vim.opt.termguicolors = true
+            vim.opt.background = "dark"
+            vim.cmd('colorscheme tokyobones')
+        ]]
+    }
+
     use 'ewilazarus/preto'
     use 'luochen1990/rainbow'
     use 'lervag/vimtex'
