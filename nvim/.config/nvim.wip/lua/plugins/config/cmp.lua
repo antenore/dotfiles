@@ -119,10 +119,10 @@ cmp.setup({
         -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
 
         -- For `luasnip` user.
-        -- require('luasnip').lsp_expand(args.body)
+        require('luasnip').lsp_expand(args.body)
 
         -- For `ultisnips` user.
-        vim.fn["UltiSnips#Anon"](args.body)
+        -- vim.fn["UltiSnips#Anon"](args.body)
       end,
     },
 
@@ -171,7 +171,8 @@ cmp.setup({
       -- For ultisnips user.
       { name = 'nvim_lsp', group_index = 1 },
       { name = 'nvim_lsp_signature_help', group_index = 1 },
-      { name = 'ultisnips', group_index = 1 },
+      --{ name = 'ultisnips', group_index = 1 },
+        { name = "luasnip", group_index = 1 },
       -- { name = 'cmp_tabnine', group_index = 1 },
       { name = 'treesitter', group_index = 1 },
       { name = 'buffer', group_index = 1, Keyword_length = 3  },

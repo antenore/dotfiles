@@ -7,6 +7,8 @@
 --  ╚═╝  ╚═══╝  | - https://antenore.simbiosi.org
 --
 -- {{{ ===== Before everything else ============================================
+-- Do not source the default filetype.vim
+vim.g.did_load_filetypes = 1
 HOME = os.getenv('HOME')
 vim.opt.foldenable = true
 vim.opt.foldmethod = 'marker'

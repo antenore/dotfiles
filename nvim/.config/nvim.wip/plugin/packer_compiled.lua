@@ -74,6 +74,12 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    config = { "\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["Luciano.git"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/Luciano.git",
@@ -129,11 +135,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/cmp-nvim-tags",
     url = "https://github.com/quangnguyen30192/cmp-nvim-tags"
   },
-  ["cmp-nvim-ultisnips"] = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
-  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -149,6 +150,11 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/cmp-treesitter",
     url = "https://github.com/ray-x/cmp-treesitter"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["command-t"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/command-t",
@@ -158,6 +164,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/csv.vim",
     url = "https://github.com/chrisbra/csv.vim"
+  },
+  ["filetype.nvim"] = {
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   fzf = {
     loaded = true,
@@ -234,6 +250,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    config = { "require('plugins.config.cmp')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -314,12 +331,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ultisnips = {
-    config = { "\27LJ\2\nC\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0&UltiSnipsRemoveSelectModeMappings\6g\bvim\0" },
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/SirVer/ultisnips"
-  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -365,11 +376,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
     url = "https://github.com/tpope/vim-rhubarb"
   },
-  ["vim-snippets"] = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-snippets",
-    url = "https://github.com/honza/vim-snippets"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -403,6 +409,14 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-web-devicons]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
+time([[Config for LuaSnip]], false)
 -- Config for: zenbones.nvim
 time([[Config for zenbones.nvim]], true)
             vim.g.zenbones_darkness = "warm"
@@ -412,14 +426,10 @@ time([[Config for zenbones.nvim]], true)
             vim.cmd('colorscheme tokyobones')
         
 time([[Config for zenbones.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: ultisnips
-time([[Config for ultisnips]], true)
-try_loadstring("\27LJ\2\nC\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0&UltiSnipsRemoveSelectModeMappings\6g\bvim\0", "config", "ultisnips")
-time([[Config for ultisnips]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('plugins.config.cmp')
+time([[Config for nvim-cmp]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

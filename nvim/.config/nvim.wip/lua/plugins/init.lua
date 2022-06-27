@@ -48,6 +48,7 @@ packer.init {
 local use = require('packer').use
 require('packer').startup(function()
     use "wbthomason/packer.nvim" -- Have packer manage itself
+    use("nathom/filetype.nvim")  -- filetype.nvim - Easily speed up your neovim startup time!
     use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
     use 'nvim-lua/plenary.nvim'  -- Useful lua functions used by lots of plugins
     use "windwp/nvim-autopairs"  -- Autopairs, integrates with both cmp and treesitter
@@ -79,7 +80,7 @@ require('packer').startup(function()
         "hrsh7th/nvim-cmp",
         requires = {
             -- https://github.com/quangnguyen30192/cmp-nvim-ultisnips
-            "quangnguyen30192/cmp-nvim-ultisnips",
+            -- "quangnguyen30192/cmp-nvim-ultisnips",
             "quangnguyen30192/cmp-nvim-tags",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -93,17 +94,27 @@ require('packer').startup(function()
             "f3fora/cmp-spell",
             "hrsh7th/cmp-emoji",
         },
+        config = [[require('plugins.config.cmp')]],
     }
     -- snippets - ultisnip
-    use "honza/vim-snippets"
-    use({
-        "SirVer/ultisnips",
-        requires = "honza/vim-snippets",
+    -- use "honza/vim-snippets"
+    -- use({
+    --     "SirVer/ultisnips",
+    --     requires = "honza/vim-snippets",
+    --     config = function()
+    --         vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    --     end,
+    -- })
+    -- use "quangnguyen30192/cmp-nvim-ultisnips"
+    -- For luasnip user.
+    use {
+        "L3MON4D3/LuaSnip",
+        requires = { "rafamadriz/friendly-snippets" },
         config = function()
-            vim.g.UltiSnipsRemoveSelectModeMappings = 0
+            require("luasnip.loaders.from_vscode").lazy_load()
         end,
-    })
-    use "quangnguyen30192/cmp-nvim-ultisnips"
+    }
+    use "saadparwaiz1/cmp_luasnip"
 
     use 'p00f/clangd_extensions.nvim'
     use 'cuducos/yaml.nvim'
@@ -182,13 +193,13 @@ require('plugins.config.fzf')
 require('plugins.config.nerdtree')
 require('plugins.config.vim-markdown')
 require('plugins.config.neomake')
-require('plugins.config.ultisnip')
+-- require('plugins.config.ultisnip')
 require('plugins.config.vimsafe')       -- Disabled
 require('plugins.config.rainbow')
 require('plugins.config.vimtex')
 require('plugins.config.treesitter')
 require('plugins.config.lsp')
-require('plugins.config.cmp')
+-- require('plugins.config.cmp')
 require('plugins.config.lualine')
 require('plugins.config.telescope')
 require('plugins.config.gutentags')
