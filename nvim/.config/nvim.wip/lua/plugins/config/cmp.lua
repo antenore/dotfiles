@@ -35,8 +35,8 @@ local source_name_map = {
 }
 
 local comp_items = {
--- if you change or add symbol here
--- replace corresponding line in readme
+    -- if you change or add symbol here
+    -- replace corresponding line in readme
     Text = " ",
     -- Text = " ",
     -- Method = "",
@@ -114,37 +114,37 @@ cmp.setup({
     --     return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt'
     -- end,
     snippet = {
-      expand = function(args)
-        -- For `vsnip` user.
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+        expand = function(args)
+            -- For `vsnip` user.
+            -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
 
-        -- For `luasnip` user.
-        require('luasnip').lsp_expand(args.body)
+            -- For `luasnip` user.
+            require('luasnip').lsp_expand(args.body)
 
-        -- For `ultisnips` user.
-        -- vim.fn["UltiSnips#Anon"](args.body)
-      end,
+            -- For `ultisnips` user.
+            -- vim.fn["UltiSnips#Anon"](args.body)
+        end,
     },
 
     mapping = cmp.mapping.preset.insert({
-      -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      -- ['<C-Space>'] = cmp.mapping.complete(),
-      -- ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-      }),
-      ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's', 'c' }),
-      ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's', 'c' }),
-      -- ['<Tab>'] = cmp.mapping.select_next_item({
-      --     behavior = cmp.SelectBehavior.Select,
-      --     select = true,
-      -- }),
-      -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
-      --     behavior = cmp.SelectBehavior.Select,
-      --     select = true,
-      -- }),
+        -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        -- ['<C-Space>'] = cmp.mapping.complete(),
+        -- ['<C-e>'] = cmp.mapping.close(),
+        ['<CR>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = false,
+        }),
+        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's', 'c' }),
+        ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's', 'c' }),
+        -- ['<Tab>'] = cmp.mapping.select_next_item({
+        --     behavior = cmp.SelectBehavior.Select,
+        --     select = true,
+        -- }),
+        -- ['<S-Tab>'] = cmp.mapping.select_prev_item({
+        --     behavior = cmp.SelectBehavior.Select,
+        --     select = true,
+        -- }),
     }),
 
     formatting = {
@@ -168,22 +168,22 @@ cmp.setup({
         end
     },
     sources = {
-      -- For ultisnips user.
-      { name = 'nvim_lsp', group_index = 1 },
-      { name = 'nvim_lsp_signature_help', group_index = 1 },
-      --{ name = 'ultisnips', group_index = 1 },
+        -- For ultisnips user.
+        { name = 'nvim_lsp', group_index = 1 },
+        { name = 'nvim_lsp_signature_help', group_index = 1 },
+        --{ name = 'ultisnips', group_index = 1 },
         { name = "luasnip", group_index = 1 },
-      -- { name = 'cmp_tabnine', group_index = 1 },
-      { name = 'treesitter', group_index = 1 },
-      { name = 'buffer', group_index = 1, Keyword_length = 3  },
-      { name = 'tags', group_index = 1 },
-      { name = 'nvim_lua', group_index = 1 },
-      { name = 'path', group_index = 1 },
-      { name = 'spell', group_index = 2 },
-      { name = 'calc', group_index = 2 },
-      { name = 'look', group_index = 2 },
-      { name = 'zsh', group_index = 2 },
-      { name = 'emoji', group_index = 2 },
+        -- { name = 'cmp_tabnine', group_index = 1 },
+        { name = 'treesitter', group_index = 1 },
+        { name = 'buffer', group_index = 1, Keyword_length = 3  },
+        { name = 'tags', group_index = 1 },
+        { name = 'nvim_lua', group_index = 1 },
+        { name = 'path', group_index = 1 },
+        { name = 'spell', group_index = 2 },
+        { name = 'calc', group_index = 2 },
+        { name = 'look', group_index = 2 },
+        { name = 'zsh', group_index = 2 },
+        { name = 'emoji', group_index = 2 },
     },
 
     window = {
@@ -213,11 +213,11 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local servers = { 'clangd', 'pyright', 'tsserver' }
 for _, lsp in ipairs(servers) do
 
-  -- nvim_lsp[lsp].setup {
-  require('lspconfig')[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
+    -- nvim_lsp[lsp].setup {
+    require('lspconfig')[lsp].setup {
+        -- on_attach = my_custom_on_attach,
+        capabilities = capabilities,
+    }
 end
 
 -- https://github.com/hrsh7th/nvim-cmp#how-to-disable-nvim-cmp-on-the-specific-buffer
@@ -227,9 +227,9 @@ end
 -- START --
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer' }
-  }
+    sources = {
+        { name = 'buffer' }
+    }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).

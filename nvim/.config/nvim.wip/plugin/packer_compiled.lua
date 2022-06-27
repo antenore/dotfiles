@@ -75,7 +75,7 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/Comment.nvim"
   },
   LuaSnip = {
-    config = { "\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0" },
+    config = { "require('plugins.config.luasnip')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
@@ -181,6 +181,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
+    config = { "require('plugins.config.fzf')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
@@ -207,6 +208,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/lsp_extensions.nvim"
   },
   ["lualine.nvim"] = {
+    config = { "require('plugins.config.lualine')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -261,11 +263,19 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
+    config = { "require('plugins.config.lsp')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-markdown"] = {
+    config = { "require('plugins.config.vim-markdown')" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-markdown",
+    url = "https://github.com/ixru/nvim-markdown"
+  },
   ["nvim-treesitter"] = {
+    config = { "require('plugins.config.treesitter')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -302,6 +312,7 @@ _G.packer_plugins = {
     url = "https://github.com/puppetlabs/puppet-syntax-vim"
   },
   rainbow = {
+    config = { "require('plugins.config.rainbow')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/rainbow",
     url = "https://github.com/luochen1990/rainbow"
@@ -327,6 +338,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
   },
   ["telescope.nvim"] = {
+    config = { "require('plugins.config.telescope')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -350,11 +362,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-gutentags",
     url = "https://github.com/ludovicchabant/vim-gutentags"
-  },
-  ["vim-markdown"] = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-markdown",
-    url = "https://github.com/plasticboy/vim-markdown"
   },
   ["vim-nayvy"] = {
     loaded = true,
@@ -405,18 +412,42 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('plugins.config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: rainbow
+time([[Config for rainbow]], true)
+require('plugins.config.rainbow')
+time([[Config for rainbow]], false)
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('plugins.config.lsp')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('plugins.config.luasnip')
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('plugins.config.treesitter')
+time([[Config for nvim-treesitter]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\nM\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14lazy_load luasnip.loaders.from_vscode\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
+-- Config for: nvim-markdown
+time([[Config for nvim-markdown]], true)
+require('plugins.config.vim-markdown')
+time([[Config for nvim-markdown]], false)
+-- Config for: fzf.vim
+time([[Config for fzf.vim]], true)
+require('plugins.config.fzf')
+time([[Config for fzf.vim]], false)
 -- Config for: zenbones.nvim
 time([[Config for zenbones.nvim]], true)
             vim.g.zenbones_darkness = "warm"
@@ -426,6 +457,10 @@ time([[Config for zenbones.nvim]], true)
             vim.cmd('colorscheme tokyobones')
         
 time([[Config for zenbones.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.config.lualine')
+time([[Config for lualine.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('plugins.config.cmp')
