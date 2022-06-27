@@ -121,6 +121,7 @@ require('packer').startup(function()
   -- })
   -- use "quangnguyen30192/cmp-nvim-ultisnips"
   -- For luasnip user.
+  use { "rafamadriz/friendly-snippets" }
   use {
     "L3MON4D3/LuaSnip",
     requires = { "rafamadriz/friendly-snippets" },

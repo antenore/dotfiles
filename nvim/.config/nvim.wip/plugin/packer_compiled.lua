@@ -412,42 +412,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('plugins.config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: rainbow
-time([[Config for rainbow]], true)
-require('plugins.config.rainbow')
-time([[Config for rainbow]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require('plugins.config.lsp')
 time([[Config for nvim-lspconfig]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('plugins.config.luasnip')
-time([[Config for LuaSnip]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('plugins.config.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-markdown
-time([[Config for nvim-markdown]], true)
-require('plugins.config.vim-markdown')
-time([[Config for nvim-markdown]], false)
--- Config for: fzf.vim
-time([[Config for fzf.vim]], true)
-require('plugins.config.fzf')
-time([[Config for fzf.vim]], false)
 -- Config for: zenbones.nvim
 time([[Config for zenbones.nvim]], true)
             vim.g.zenbones_darkness = "warm"
@@ -457,14 +425,46 @@ time([[Config for zenbones.nvim]], true)
             vim.cmd('colorscheme tokyobones')
         
 time([[Config for zenbones.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.config.lualine')
-time([[Config for lualine.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: rainbow
+time([[Config for rainbow]], true)
+require('plugins.config.rainbow')
+time([[Config for rainbow]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('plugins.config.cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('plugins.config.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('plugins.config.lualine')
+time([[Config for lualine.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('plugins.config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('plugins.config.luasnip')
+time([[Config for LuaSnip]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: fzf.vim
+time([[Config for fzf.vim]], true)
+require('plugins.config.fzf')
+time([[Config for fzf.vim]], false)
+-- Config for: nvim-markdown
+time([[Config for nvim-markdown]], true)
+require('plugins.config.vim-markdown')
+time([[Config for nvim-markdown]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
