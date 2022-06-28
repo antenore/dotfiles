@@ -75,7 +75,7 @@ _G.packer_plugins = {
     url = "https://github.com/numToStr/Comment.nvim"
   },
   LuaSnip = {
-    config = { "require('plugins.config.luasnip')" },
+    config = { "require('config.luasnip')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
@@ -181,7 +181,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/fzf"
   },
   ["fzf.vim"] = {
-    config = { "require('plugins.config.fzf')" },
+    config = { "require('config.fzf')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
@@ -197,6 +197,12 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/i3config.vim",
     url = "https://github.com/mboughaba/i3config.vim"
   },
+  ["indent-guides.nvim"] = {
+    config = { "require('config.indent-guides')" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/indent-guides.nvim",
+    url = "https://github.com/glepnir/indent-guides.nvim"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
@@ -207,8 +213,13 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
     url = "https://github.com/nvim-lua/lsp_extensions.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lualine.nvim"] = {
-    config = { "require('plugins.config.lualine')" },
+    config = { "require('config.lualine')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -231,11 +242,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/opt/neomake",
     url = "https://github.com/neomake/neomake"
   },
-  nerdtree = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/scrooloose/nerdtree"
-  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -252,7 +258,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    config = { "require('plugins.config.cmp')" },
+    config = { "require('config.cmp')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -263,19 +269,25 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
-    config = { "require('plugins.config.lsp')" },
+    config = { "require('config.lsp')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-markdown"] = {
-    config = { "require('plugins.config.vim-markdown')" },
+    config = { "require('config.vim-markdown')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-markdown",
     url = "https://github.com/ixru/nvim-markdown"
   },
+  ["nvim-tree.lua"] = {
+    config = { "require('config.nvim-tree')" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
-    config = { "require('plugins.config.treesitter')" },
+    config = { "require('config.treesitter')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -312,20 +324,10 @@ _G.packer_plugins = {
     url = "https://github.com/puppetlabs/puppet-syntax-vim"
   },
   rainbow = {
-    config = { "require('plugins.config.rainbow')" },
+    config = { "require('config.rainbow')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/rainbow",
     url = "https://github.com/luochen1990/rainbow"
-  },
-  tabular = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/tabular",
-    url = "https://github.com/godlygeek/tabular"
-  },
-  tagbar = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/tagbar",
-    url = "https://github.com/majutsushi/tagbar"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
@@ -338,15 +340,27 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
   },
   ["telescope.nvim"] = {
-    config = { "require('plugins.config.telescope')" },
+    config = { "require('config.telescope')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["venn.nvim"] = {
+    config = { "require('config.venn')" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/venn.nvim",
+    url = "https://github.com/jbyuki/venn.nvim"
   },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
+  },
+  ["vim-easy-align"] = {
+    config = { "\27LJ\2\nù\1\0\0\3\0\6\0\n6\0\0\0005\2\1\0B\0\2\0016\0\2\0005\2\3\0B\0\2\0016\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\21<Leader><Bslash>\28:EasyAlign*<Bar><Enter>\tvmap\1\3\0\0\aga\22<Plug>(EasyAlign)\txmap\1\3\0\0\aga\22<Plug>(EasyAlign)\tnmap\0" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-easy-align",
+    url = "https://github.com/junegunn/vim-easy-align"
   },
   ["vim-flake8"] = {
     loaded = true,
@@ -398,6 +412,12 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vimtex",
     url = "https://github.com/lervag/vimtex"
   },
+  ["vista.vim"] = {
+    config = { "\27LJ\2\nm\0\0\3\0\6\0\b6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\t<F8>\17:Vista!!<CR>\rnnoremap\rnvim_lsp\28vista_default_executive\6g\bvim\0" },
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vista.vim",
+    url = "https://github.com/liuchengxu/vista.vim"
+  },
   ["yaml.nvim"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/yaml.nvim",
@@ -412,10 +432,62 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('plugins.config.lsp')
-time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('config.cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: rainbow
+time([[Config for rainbow]], true)
+require('config.rainbow')
+time([[Config for rainbow]], false)
+-- Config for: fzf.vim
+time([[Config for fzf.vim]], true)
+require('config.fzf')
+time([[Config for fzf.vim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: venn.nvim
+time([[Config for venn.nvim]], true)
+require('config.venn')
+time([[Config for venn.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+require('config.treesitter')
+time([[Config for nvim-treesitter]], false)
+-- Config for: indent-guides.nvim
+time([[Config for indent-guides.nvim]], true)
+require('config.indent-guides')
+time([[Config for indent-guides.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('config.luasnip')
+time([[Config for LuaSnip]], false)
+-- Config for: vim-easy-align
+time([[Config for vim-easy-align]], true)
+try_loadstring("\27LJ\2\nù\1\0\0\3\0\6\0\n6\0\0\0005\2\1\0B\0\2\0016\0\2\0005\2\3\0B\0\2\0016\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\21<Leader><Bslash>\28:EasyAlign*<Bar><Enter>\tvmap\1\3\0\0\aga\22<Plug>(EasyAlign)\txmap\1\3\0\0\aga\22<Plug>(EasyAlign)\tnmap\0", "config", "vim-easy-align")
+time([[Config for vim-easy-align]], false)
+-- Config for: vista.vim
+time([[Config for vista.vim]], true)
+try_loadstring("\27LJ\2\nm\0\0\3\0\6\0\b6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\t<F8>\17:Vista!!<CR>\rnnoremap\rnvim_lsp\28vista_default_executive\6g\bvim\0", "config", "vista.vim")
+time([[Config for vista.vim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('config.lualine')
+time([[Config for lualine.nvim]], false)
 -- Config for: zenbones.nvim
 time([[Config for zenbones.nvim]], true)
             vim.g.zenbones_darkness = "warm"
@@ -425,46 +497,14 @@ time([[Config for zenbones.nvim]], true)
             vim.cmd('colorscheme tokyobones')
         
 time([[Config for zenbones.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: rainbow
-time([[Config for rainbow]], true)
-require('plugins.config.rainbow')
-time([[Config for rainbow]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('plugins.config.cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-require('plugins.config.treesitter')
-time([[Config for nvim-treesitter]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('plugins.config.lualine')
-time([[Config for lualine.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('plugins.config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('plugins.config.luasnip')
-time([[Config for LuaSnip]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
--- Config for: fzf.vim
-time([[Config for fzf.vim]], true)
-require('plugins.config.fzf')
-time([[Config for fzf.vim]], false)
 -- Config for: nvim-markdown
 time([[Config for nvim-markdown]], true)
-require('plugins.config.vim-markdown')
+require('config.vim-markdown')
 time([[Config for nvim-markdown]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp')
+time([[Config for nvim-lspconfig]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

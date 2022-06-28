@@ -12,12 +12,16 @@ vim.g.did_load_filetypes = 1
 HOME = os.getenv('HOME')
 vim.opt.foldenable = true
 vim.opt.foldmethod = 'marker'
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
 -- }}}
 -- {{{ ===== Modules ===========================================================
 local modules = {
-  'setup',
-  'plugins',
-  'core',
+  'utils',
+  'general',
+  --'setup',
+  -- 'plugins',
+  -- 'core',
   'latex',
 }
 for _, module in ipairs(modules) do
@@ -26,6 +30,8 @@ for _, module in ipairs(modules) do
     error('Error loading ' .. module .. '\n\n' .. err)
   end
 end
+
+local plugins = require "plugins"
 -- }}}
 -- ====================================== EOF =========================================
 -- vim:set ts=2 sts=2 sw=2 expandtab:

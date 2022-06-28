@@ -1,5 +1,0 @@
-require('core.autoformat')
-require('core.ui')
-require('core.mappings')
-require('core.ft')
-require('core.autocmd')
