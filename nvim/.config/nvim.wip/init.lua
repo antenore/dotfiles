@@ -20,7 +20,7 @@ local modules = {
   'utils',
   'general',
   --'setup',
-  -- 'plugins',
+  'plugins',
   -- 'core',
   'latex',
 }
@@ -31,7 +31,11 @@ for _, module in ipairs(modules) do
   end
 end
 
-local plugins = require "plugins"
+vim.cmd [[autocmd BufWritePost general.lua source <afile> | PackerCompile]]
+vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]]
+
 -- }}}
+vim.cmd [[autocmd BufWritePost general.lua source <afile> | PackerCompile]]
+vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]]
 -- ====================================== EOF =========================================
 -- vim:set ts=2 sts=2 sw=2 expandtab:
