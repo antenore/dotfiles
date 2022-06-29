@@ -26,7 +26,7 @@ Variable.g {
 -------------------------------------------------------------------
 
 Option.g {
-	encoding = "utf-8", -- "set encoding for text
+	encoding = "utf-8",                   -- "set encoding for text
 	-- Files
 	makeef = "error.err",
 	spellfile = vim.fn.expand("$HOME/Dropbox/vim/spell/en.utf-8.add"),
@@ -35,8 +35,8 @@ Option.g {
 	regexpengine = 1,
 	browsedir = "current",
 	-- Let vim automatically load .vimrc found on folders
-	-- exrc = true,  -- This is quite dangerous, do not use it!!!
-	--     " enable true colors
+	-- exrc = true, -- This is quite dangerous, do not use it!!!
+	-- " enable true colors
 	-- " If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 	-- " (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 	-- " Tmux
@@ -61,7 +61,7 @@ Option.g {
 	undoreload = 10000,
 	cmdheight = 2,
 	laststatus = 2,
-	--  -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline
+	-- -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline
 	showmode = false,
 	-- Set completeopt to have a better completion experience
 	-- https://github.com/hrsh7th/nvim-cmp#completioncompleteopt-type-string
@@ -89,32 +89,32 @@ Option.g {
 	background = "dark",
 
 	-- base configuration
-	timeoutlen = 300, --mapping timeout
-	ttimeoutlen = 50, --keycode timeout
+	timeoutlen = 300,                     -- mapping timeout
+	ttimeoutlen = 50,                     -- keycode timeout
 
-	-- mouse = "a", --"enable mouse
-	history = 1000, --number of command lines to remember
-	ttyfast = true, -- assume fast terminal connection
+	-- mouse = "a", -- "enable mouse
+	history = 1000,                       -- number of command lines to remember
+	ttyfast = true,                       -- assume fast terminal connection
 	viewoptions = "folds,options,cursor", -- unix and slash are deprecated, do not use
-	hidden = true, -- allow buffer switching without saving
-	autoread = true, -- auto reload if file saved externally
-	fileformats = "unix,dos,mac", -- add mac to auto-detection of file format line endings
+	hidden = true,                        -- allow buffer switching without saving
+	autoread = true,                      -- auto reload if file saved externally
+	fileformats = "unix,dos,mac",         -- add mac to auto-detection of file format line endings
 	-- nrformats = "bin,hex"
 	showcmd = true,
-	--showfulltag = true,
+	-- showfulltag = true,
 	modeline = true,
 	modelines = 5,
 	startofline = false,
 
-	shelltemp = false, -- use pipes
+	shelltemp = false,                    -- use pipes
 	-- whitespace
-	backspace = "indent,eol,start", --" allow backspacing everything in insert mode
-	autoindent = true, --          " automatically indent to match adjacent lines
-	expandtab = true, --" spaces instead of tabs
-	smarttab = true, --" use shiftwidth to enter tabs
-	tabstop = 8, --" number of spaces per tab for display
-	softtabstop = 4, --" number of spaces per tab in insert mode
-	shiftwidth = 4, --" number of spaces when indenting
+	backspace = "indent,eol,start",       -- " allow backspacing everything in insert mode
+	autoindent = true,                    -- " automatically indent to match adjacent lines
+	expandtab = true,                     -- " spaces instead of tabs
+	smarttab = true,                      -- " use shiftwidth to enter tabs
+	tabstop = 8,                          -- " number of spaces per tab for display
+	softtabstop = 4,                      -- " number of spaces per tab in insert mode
+	shiftwidth = 4,                       -- " number of spaces when indenting
 	shiftround = true,
 	linebreak = true,
 	showbreak = "↪ ",
@@ -123,11 +123,11 @@ Option.g {
 	-- ruler = true,
 	-- title = true,
 
-	scrolloff = 1, --always show content after scroll
-	scrolljump = 5, --minimum number of lines to scroll
+	scrolloff = 1,                        -- always show content after scroll
+	scrolljump = 5,                       -- minimum number of lines to scroll
 	-- display = "lastline,msgsep",
-	wildmenu = true, --show list for autocomplete
-	wildmode = "list:longest,full", -- Command-line completion mode
+	wildmenu = true,                      -- show list for autocomplete
+	wildmode = "list:longest,full",       -- Command-line completion mode
 	wildignorecase = true,
 	wildchar       = ('<tab>'):byte(),
 
@@ -139,29 +139,28 @@ Option.g {
 	visualbell = false,
 
 	-- searching
-	hlsearch = true, --"highlight searches
-	incsearch = true, --"incremental searching
-	ignorecase = true, --"ignore case for searching
-	smartcase = true, --"do case-sensitive if there's a capital letter
+	hlsearch = true,                      -- "highlight searches
+	incsearch = true,                     -- "incremental searching
+	ignorecase = true,                    -- "ignore case for searching
+	smartcase = true,                     -- "do case-sensitive if there's a capital letter
 	smartindent = true,
 
-	--  backups
+	-- backups
 	backup = true,
 	backupdir = vim.fn.expand(vim.fn.stdpath "cache" .. "/nvim"),
 	-- no swap files
 	swapfile = false,
 
 	-- ui configuration
-	showmatch = true, --"automatically highlight matching braces/brackets/etc.
-	matchtime = 2, --"tens of a second to show matching parentheses
+	showmatch = true,                     -- automatically highlight matching braces/brackets/etc.
+	matchtime = 2,                        -- tens of a second to show matching parentheses
 	number = true,
-	-- lazyredraw = true,
-	foldenable = true, --"enable folds by default
-	foldmethod = "indent", --"do not use syntax as fdm due to performance issue
-	foldlevelstart = 99, --"open all folds by default
+	foldenable = true,                    -- enable folds by default
+	foldmethod = "indent",                -- do not use syntax as fdm due to performance issue
+	foldlevelstart = 99,                  -- open all folds by default
 
-	textwidth = 86,
-	colorcolumn = "+1", --highlight column after 'textwidth'
+	textwidth = 0,                        -- Disabled, text is not broken after N columns.
+	colorcolumn = "+87",                  -- highlight column after 'textwidth'
 }
 
 if vim.fn.exists "$TMUX" then
