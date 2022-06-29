@@ -7,9 +7,8 @@
 --  ╚═╝  ╚═══╝  | - https://antenore.simbiosi.org
 --
 -- {{{ ===== Before everything else ============================================
--- Do not source the default filetype.vim
+-- Do not source the default filetype.vim (we use nathom/filetype.nvim)
 vim.g.did_load_filetypes = 1
-HOME = os.getenv('HOME')
 vim.opt.foldenable = true
 vim.opt.foldmethod = 'marker'
 vim.g.mapleader = ','
@@ -19,9 +18,8 @@ vim.g.maplocalleader = ','
 local modules = {
   'utils',
   'general',
-  --'setup',
+  'impatient',  -- Comment this if you remove impatient or when it's not yet loaded
   'plugins',
-  -- 'core',
   'latex',
 }
 for _, module in ipairs(modules) do
@@ -30,12 +28,10 @@ for _, module in ipairs(modules) do
     error('Error loading ' .. module .. '\n\n' .. err)
   end
 end
-
-vim.cmd [[autocmd BufWritePost general.lua source <afile> | PackerCompile]]
-vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]]
-
 -- }}}
+-- {{{ ===== Mapping ===========================================================
 vim.cmd [[autocmd BufWritePost general.lua source <afile> | PackerCompile]]
 vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerCompile]]
+-- }}}
 -- ====================================== EOF =========================================
 -- vim:set ts=2 sts=2 sw=2 expandtab:

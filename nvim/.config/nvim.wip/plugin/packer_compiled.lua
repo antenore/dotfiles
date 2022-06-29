@@ -80,11 +80,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["Luciano.git"] = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/Luciano.git",
-    url = "https://gitlab.com/antenore/Luciano"
-  },
   ["clangd_extensions.nvim"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/clangd_extensions.nvim",
@@ -155,11 +150,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["command-t"] = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/command-t",
-    url = "https://github.com/wincent/command-t"
-  },
   ["csv.vim"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/csv.vim",
@@ -196,6 +186,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/i3config.vim",
     url = "https://github.com/mboughaba/i3config.vim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-guides.nvim"] = {
     config = { "require('config.indent-guides')" },
@@ -313,11 +308,6 @@ _G.packer_plugins = {
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  preto = {
-    loaded = true,
-    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/preto",
-    url = "https://github.com/ewilazarus/preto"
-  },
   ["puppet-syntax-vim"] = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/puppet-syntax-vim",
@@ -333,6 +323,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-symbols.nvim"] = {
+    loaded = true,
+    path = "/home/antenore/.local/share/nvim/site/pack/packer/start/telescope-symbols.nvim",
+    url = "https://github.com/nvim-telescope/telescope-symbols.nvim"
   },
   ["telescope-ui-select.nvim"] = {
     loaded = true,
@@ -373,6 +368,7 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-gutentags"] = {
+    config = { "require('config.gutentags')" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/vim-gutentags",
     url = "https://github.com/ludovicchabant/vim-gutentags"
@@ -424,7 +420,7 @@ _G.packer_plugins = {
     url = "https://github.com/cuducos/yaml.nvim"
   },
   ["zenbones.nvim"] = {
-    config = { "            vim.g.zenbones_darkness = \"warm\"\n            vim.g.zenbones_lightness = \"dim\"\n            vim.opt.termguicolors = true\n            vim.opt.background = \"dark\"\n            vim.cmd('colorscheme tokyobones')\n        " },
+    config = { "\t\t\t\t\t\tvim.g.zenbones_darkness = \"warm\"\n\t\t\t\t\t\tvim.g.zenbones_lightness = \"dim\"\n\t\t\t\t\t\tvim.opt.termguicolors = true\n\t\t\t\t\t\tvim.opt.background = \"dark\"\n\t\t\t\t\t\tvim.cmd('colorscheme tokyobones')\n\t\t\t\t" },
     loaded = true,
     path = "/home/antenore/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
     url = "https://github.com/mcchrish/zenbones.nvim"
@@ -432,27 +428,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: zenbones.nvim
-time([[Config for zenbones.nvim]], true)
-            vim.g.zenbones_darkness = "warm"
-            vim.g.zenbones_lightness = "dim"
-            vim.opt.termguicolors = true
-            vim.opt.background = "dark"
-            vim.cmd('colorscheme tokyobones')
-        
-time([[Config for zenbones.nvim]], false)
--- Config for: indent-guides.nvim
-time([[Config for indent-guides.nvim]], true)
-require('config.indent-guides')
-time([[Config for indent-guides.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('config.cmp')
-time([[Config for nvim-cmp]], false)
--- Config for: rainbow
-time([[Config for rainbow]], true)
-require('config.rainbow')
-time([[Config for rainbow]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 require('config.lsp')
@@ -461,14 +436,6 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for lualine.nvim]], true)
 require('config.lualine')
 time([[Config for lualine.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('config.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
 -- Config for: venn.nvim
 time([[Config for venn.nvim]], true)
 require('config.venn')
@@ -477,18 +444,14 @@ time([[Config for venn.nvim]], false)
 time([[Config for nvim-treesitter]], true)
 require('config.treesitter')
 time([[Config for nvim-treesitter]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
+-- Config for: vim-easy-align
+time([[Config for vim-easy-align]], true)
+try_loadstring("\27LJ\2\nù\1\0\0\3\0\6\0\n6\0\0\0005\2\1\0B\0\2\0016\0\2\0005\2\3\0B\0\2\0016\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\21<Leader><Bslash>\28:EasyAlign*<Bar><Enter>\tvmap\1\3\0\0\aga\22<Plug>(EasyAlign)\txmap\1\3\0\0\aga\22<Plug>(EasyAlign)\tnmap\0", "config", "vim-easy-align")
+time([[Config for vim-easy-align]], false)
 -- Config for: fzf.vim
 time([[Config for fzf.vim]], true)
 require('config.fzf')
 time([[Config for fzf.vim]], false)
--- Config for: nvim-markdown
-time([[Config for nvim-markdown]], true)
-require('config.vim-markdown')
-time([[Config for nvim-markdown]], false)
 -- Config for: vista.vim
 time([[Config for vista.vim]], true)
 try_loadstring("\27LJ\2\nm\0\0\3\0\6\0\b6\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\t<F8>\17:Vista!!<CR>\rnnoremap\rnvim_lsp\28vista_default_executive\6g\bvim\0", "config", "vista.vim")
@@ -497,14 +460,51 @@ time([[Config for vista.vim]], false)
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: vim-easy-align
-time([[Config for vim-easy-align]], true)
-try_loadstring("\27LJ\2\nù\1\0\0\3\0\6\0\n6\0\0\0005\2\1\0B\0\2\0016\0\2\0005\2\3\0B\0\2\0016\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\3\0\0\21<Leader><Bslash>\28:EasyAlign*<Bar><Enter>\tvmap\1\3\0\0\aga\22<Plug>(EasyAlign)\txmap\1\3\0\0\aga\22<Plug>(EasyAlign)\tnmap\0", "config", "vim-easy-align")
-time([[Config for vim-easy-align]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: zenbones.nvim
+time([[Config for zenbones.nvim]], true)
+						vim.g.zenbones_darkness = "warm"
+						vim.g.zenbones_lightness = "dim"
+						vim.opt.termguicolors = true
+						vim.opt.background = "dark"
+						vim.cmd('colorscheme tokyobones')
+				
+time([[Config for zenbones.nvim]], false)
+-- Config for: vim-gutentags
+time([[Config for vim-gutentags]], true)
+require('config.gutentags')
+time([[Config for vim-gutentags]], false)
+-- Config for: indent-guides.nvim
+time([[Config for indent-guides.nvim]], true)
+require('config.indent-guides')
+time([[Config for indent-guides.nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 require('config.luasnip')
 time([[Config for LuaSnip]], false)
+-- Config for: nvim-markdown
+time([[Config for nvim-markdown]], true)
+require('config.vim-markdown')
+time([[Config for nvim-markdown]], false)
+-- Config for: rainbow
+time([[Config for rainbow]], true)
+require('config.rainbow')
+time([[Config for rainbow]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('config.cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

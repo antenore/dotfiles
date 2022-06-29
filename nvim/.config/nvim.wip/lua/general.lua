@@ -527,18 +527,6 @@ Augroup {
 					vim.bo.keywordprg = ":help"
 				end,
 			},
-			--   " Gofmt formats Go programs. It uses tabs for indentation and blanks for alignment.
-			--   " Alignment assumes that an editor is using a fixed-width font.
-			--   " https://golang.org/cmd/gofmt/
-			{
-				"go",
-				function()
-					vim.bo.expandtab = false
-					vim.bo.tabstop = 4
-					vim.bo.softtabstop = 4
-					vim.bo.shiftwidth = 4
-				end,
-			},
 			-- C
 			{
 				"c,h",
