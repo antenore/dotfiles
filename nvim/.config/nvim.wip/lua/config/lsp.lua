@@ -1,3 +1,4 @@
+local util = require 'lspconfig/util'
 -- {{{ ===== lsp-colors.nvim ====================================================
 require("lsp-colors").setup({})
 -- }}}
@@ -90,6 +91,7 @@ require'lspconfig'.sumneko_lua.setup{
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
+				path = vim.split(package.path, ";")
         },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
@@ -97,7 +99,8 @@ require'lspconfig'.sumneko_lua.setup{
         },
       workspace = {
         -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
+        --library = vim.api.nvim_get_runtime_file("", true),
+				library = {[vim.fn.expand("$VIMRUNTIME/lua")] = true, [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true}
         },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
@@ -134,6 +137,19 @@ require'lspconfig'.bashls.setup{
 require'lspconfig'.marksman.setup{
   on_attach = on_attach,
   capabilities = capabilities
+}
+require'lspconfig'.puppet.setup {
+  on_attach = on_attach,
+  cmd = { 'puppet-languageserver', '--stdio' },
+  filetypes = { 'puppet' },
+  root_dir = function(fname)
+    local root_files = {
+      "manifests",
+      "metadata.json",
+      ".git"
+    }
+    return util.root_pattern(unpack(root_files))(fname) or util.path.dirname(fname)
+  end,
 }
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

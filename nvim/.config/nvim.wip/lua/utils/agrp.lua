@@ -23,9 +23,10 @@ end
 
 local function manage_definitions(definitions, group)
 	for key, definition in pairs(definitions) do
-		vim.validate {
-			definition = { definition, "table" },
+		vim.validate{
+			definition={definition, 'table'},
 		}
+		-- vim.validate { val = { val, 'string' } }
 		-- When group is nil, it does not set augroup.
 		if type(key) == "number" then
 			-- Each definition has all params to set.

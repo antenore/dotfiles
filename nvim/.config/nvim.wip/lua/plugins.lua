@@ -17,15 +17,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-	augroup packer_user_config
-	autocmd!
-	" autocmd BufWritePost init.lua source <afile> | PackerSync
-	" autocmd BufWritePost general.lua source <afile> | PackerSync
-	augroup end
-]]
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -51,9 +42,7 @@ packer.init {
 local use = require('packer').use
 require('packer').startup(function()
 	use ({ 'wbthomason/packer.nvim' }) -- Have packer manage itself
-	use ({
-		'lewis6991/impatient.nvim',
-	})
+	use ({ 'lewis6991/impatient.nvim' })
 	use ({ 'nathom/filetype.nvim' })   -- filetype.nvim - Easily speed up your neovim startup time!
 	use ({ 'nvim-lua/popup.nvim' })    -- An implementation of the Popup API from vim in Neovim
 	use ({ 'nvim-lua/plenary.nvim' })  -- Useful lua functions used by lots of plugins
@@ -96,8 +85,6 @@ require('packer').startup(function()
 	use ({
 		'hrsh7th/nvim-cmp',
 		requires = {
-			-- https://github.com/quangnguyen30192/cmp-nvim-ultisnips
-			-- 'quangnguyen30192/cmp-nvim-ultisnips',
 			'quangnguyen30192/cmp-nvim-tags',
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -113,24 +100,10 @@ require('packer').startup(function()
 		},
 		config = [[require('config.cmp')]],
 	})
-	-- snippets - ultisnip
-	-- use 'honza/vim-snippets'
-	-- use ({
-	--     'SirVer/ultisnips',
-	--     requires = 'honza/vim-snippets',
-	--     config = function()
-	--         vim.g.UltiSnipsRemoveSelectModeMappings = 0
-	--     end,
-	-- })
-	-- use 'quangnguyen30192/cmp-nvim-ultisnips'
-	-- For luasnip user.
 	use ({ 'rafamadriz/friendly-snippets' })
 	use ({
 		'L3MON4D3/LuaSnip',
 		requires = { 'rafamadriz/friendly-snippets' },
-		-- config = function()
-		--   require("luasnip.loaders.from_vscode").lazy_load()
-		-- end,
 		config = [[require('config.luasnip')]],
 	})
 	use 'saadparwaiz1/cmp_luasnip'
@@ -141,8 +114,8 @@ require('packer').startup(function()
 	-- FZF setup
 	use ({
 		'junegunn/fzf',
-dir = '~/.fzf',
-		run = { './install --all' },
+		dir = '~/.fzf',
+		run = { './install               -- all' },
 	})
 	use ({
 		'junegunn/fzf.vim',
@@ -163,15 +136,11 @@ dir = '~/.fzf',
 	use ({ 'nvim-telescope/telescope-ui-select.nvim' })
 	use ({ 'nvim-telescope/telescope-symbols.nvim' })
 
-	-- Vim/Neovim plugins
-	-- use ({ 'antenore/vim-safe' })          -- Not compatible with neovim
 	use ({ 'chrisbra/csv.vim' })
 	use ({
 		'ludovicchabant/vim-gutentags',
 		config = [[require('config.gutentags')]],
 	})
-	--use ({ 'majutsushi/tagbar' })
-	-- vista.vim: A tagbar alternative that supports LSP symbols and async processing
 	use ({
 		'liuchengxu/vista.vim',
 		config = function()
@@ -179,9 +148,6 @@ dir = '~/.fzf',
 			nnoremap { "<F8>", ":Vista!!<CR>" }
 		end,
 	})
-	-- use ({ 'godlygeek/tabular' })             -- Needed by vim-markdown (and me :- )
-	-- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-	-- related works: godlygeek/tabular
 	use ({
 		'junegunn/vim-easy-align',
 		config = function()
@@ -195,8 +161,6 @@ dir = '~/.fzf',
 		end,
 	})
 	use ({ 'mboughaba/i3config.vim' })
-	use ({ 'nvie/vim-flake8' })               -- Python style guide
-	use ({ 'relastle/vim-nayvy' })            -- Enriching python coding.
 	use ({
 		'ixru/nvim-markdown',
 		config = [[require('config.vim-markdown')]],
@@ -204,7 +168,6 @@ dir = '~/.fzf',
 
 	use ({ 'rodjek/vim-puppet' })
 	use ({ 'puppetlabs/puppet-syntax-vim' })
-	--use ({ 'scrooloose/nerdtree' })
 	use ({
 		'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
@@ -212,12 +175,34 @@ dir = '~/.fzf',
 	})
 
 	-- Git
-	use ({ 'tpope/vim-fugitive' })            -- :G*
+	use ({ 'tpope/vim-fugitive' })     -- :G*
 	use ({
 		'lewis6991/gitsigns.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function() require("gitsigns").setup() end
 	})
+	-- Given a text like #800080 it will show the real color
+	-- It supports the following code and you can write your own parser
+	--   DEFAULT_OPTIONS = {
+	--     RGB      = true;         -- #RGB hex codes
+	--     RRGGBB   = true;         -- #RRGGBB hex codes
+	--     names    = true;         -- "Name" codes like Blue
+	--     RRGGBBAA = false;        -- #RRGGBBAA hex codes
+	--     rgb_fn   = false;        -- CSS rgb() and rgba() functions
+	--     hsl_fn   = false;        -- CSS hsl() and hsla() functions
+	--     css      = false;        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+	--     css_fn   = false;        -- Enable all CSS *functions*: rgb_fn, hsl_fn
+	--     -- Available modes: foreground, background
+	--     mode     = 'background'; -- Set the display mode.
+  --     }
+	-- With files that are not automatically detected you use ColorizerAttachToBuffer
+	-- https://github.com/norcalli/nvim-colorizer.lua
+	use {
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	}
 	use ({ 'tpope/vim-rhubarb' })
 	-- https://github.com/glepnir/indent-guides.nvim
 	use ({
@@ -241,7 +226,7 @@ dir = '~/.fzf',
 						vim.opt.termguicolors = true
 						vim.opt.background = "dark"
 						vim.cmd('colorscheme tokyobones')
-				]]
+		]]
 	})
 
 	-- use ({ 'ewilazarus/preto' })
@@ -262,20 +247,8 @@ dir = '~/.fzf',
 end)
 
 require('config.fzf')
--- require('config.nerdtree')
--- require('config.vim-markdown')
 require('config.neomake')
--- require('config.ultisnip')
-require('config.vimsafe')       -- Disabled
--- require('config.rainbow')
 require('config.vimtex')
--- require('config.treesitter')
--- require('config.lsp')
--- require('config.cmp')
--- require('config.lualine')
--- require('config.telescope')
--- require('config.gutentags')
--- require('config.tagbar')
 
 -- }}}
 -- {{{ ===== Jaflpl.nvim ========================================================

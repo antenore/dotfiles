@@ -8,17 +8,10 @@ Variable.g {
 	-- this will save almost 20ms
 	python3_host_skip_check = 1,
 	python3_host_prog = "/usr/bin/python3",
-
 	-- " enable embeded lua syntax
 	-- " see https://github.com/neovim/neovim/pull/14213
 	vimsyn_embed = "l",
 	mousehide = true, --  "hide when characters are typed
-
-	-- see https://github.com/rust-lang/rust.vim/blob/87c745d8d506fc1eecc1d81df15d5bde1658a2fc/doc/rust.txt#L61
-	-- Set this option to enable vim indentation and textwidth settings to
-	-- conform to style conventions of the rust standard library (i.e. use 4
-	-- spaces for indents and sets 'textwidth' to 99). This option is enabled by default
-	-- rust_recommended_style = false,
 }
 
 -------------------------------------------------------------------
@@ -446,28 +439,6 @@ Augroup {
 			end,
 		},
 	},
-	ProtectFile = {
-		{
-			"BufReadPost",
-			"*.rs",
-			function()
-				-- protect rust source files under ~/.rustup/toolchains/
-				-- idea from https://github.com/Xvezda/vim-readonly/blob/master/plugin/readonly.vim
-				-- and https://github.com/rust-lang/rustup/issues/2550
-				local protect_dirs = {
-					"^" .. vim.fn.expand "~" .. "/.rustup/toolchains/",
-					"^" .. vim.fn.expand "~" .. "/.cargo/git/",
-					"^" .. vim.fn.expand "~" .. "/.cargo/registry/",
-				}
-				for _, prefix in ipairs(protect_dirs) do
-					if string.match(vim.fn.expand "%:p", prefix) ~= nil then
-						vim.bo.readonly = true
-						vim.bo.modifiable = false
-					end
-				end
-			end,
-		},
-	},
 	RemoveTrailingWhitespace = {
 		{
 			-- must use BufWritePre, if use BufWritePost has problem with other formatters (whitespace not got removed)
@@ -579,37 +550,14 @@ Augroup {
 					vim.bo.softtabstop = 0
 					vim.bo.tabstop = 4
 					vim.bo.shiftwidth = 4
-					-- iunmap <Tab>
-					-- https://github.com/nanotee/nvim-lua-guide#defining-mappings
--- nvim_del_keymap disabled due to err:
-					-- Error detected while processing BufReadPost Autocommands for "*":
-					-- E5108: Error executing lua ...te/pack/packer/start/filetype.nvim/lua/filetype/init.lua:8: Vim(lua):E5108: Error executing lua /home/ttys3/.config/nvim/lua/general.lua:482: E31: No such mapping
-					-- vim.api.nvim_del_keymap("i", "<Tab>")
 				end,
 			},
 		},
 	},
-	-- " because global ftplugin will overrule this, we should set in after/ftplugin/ft.vim
-	-- for gomod file it is: after/ftplugin/gomod.vim
-	-- " see https://neovim.io/doc/user/filetype.html#ftplugin-overrule
-	-- " autocmd FileType lisp setlocal commentstring=;;\ %s
-	-- " au BufRead,BufNewFile *.el	setlocal commentstring=;;\ %s
 	CommentString = {
 		["FileType"] = {
 			{
-				"gomod",
-				function()
-					vim.bo.commentstring = "// %s"
-				end,
-			},
-			{
 				"toml",
-				function()
-					vim.bo.commentstring = "# %s"
-				end,
-			},
-			{
-				"nomad",
 				function()
 					vim.bo.commentstring = "# %s"
 				end,
@@ -644,13 +592,3 @@ Augroup {
 		},
 	},
 }
-
--- file template
-vim.api.nvim_command "augroup FileTemplate"
-vim.api.nvim_command "autocmd!"
-local template_files = vim.fn.glob(vim.fn.stdpath "config" .. "/template/new.*", 0, 1)
-for _, tmpl in ipairs(template_files) do
-	local ext = vim.fn.fnamemodify(tmpl, ":e")
-	vim.api.nvim_command(string.format("autocmd BufNewFile *.%s  0r %s", ext, tmpl))
-end
-vim.api.nvim_command "augroup END"
