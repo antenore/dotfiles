@@ -3,7 +3,6 @@ require("indent_guides").setup {
 
 	char = '│',
 	indent_level = 10,
-	viewport_buffer = 30,
 
 	-- treesitter related configuration
 
@@ -13,19 +12,26 @@ require("indent_guides").setup {
 
 	show_end_of_line = true,
 
-	buftype_exclude = {
-		'nofile',
-		'terminal',
-	},
+	--buftype_exclude = {
+	--	'nofile',
+	--	'terminal',
+	--	'alpha',
+	--},
 
-	filetype_exclude = {
+	exclude_filetypes = {
 		'LspTrouble',
 		'Outline',
 		'help',
 		'norg',
 		'packer',
 		'startify',
+		'dashboard',
+		'alpha',
 		'markdown',
+		'dashpreview',
+		'NvimTree',
+		'sagaover',
+		'vista'
 	},
 
 }
