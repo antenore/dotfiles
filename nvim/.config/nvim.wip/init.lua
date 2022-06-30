@@ -26,6 +26,7 @@ for _, module in ipairs(modules) do
   if not ok then
     error('Error loading ' .. module .. '\n\n' .. err)
   end
+  err = nil
 end
 -- }}}
 -- {{{ ===== Mapping ===========================================================

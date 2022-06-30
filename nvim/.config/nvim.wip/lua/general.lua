@@ -153,7 +153,8 @@ Option.g {
 	foldlevelstart = 99,                  -- open all folds by default
 
 	textwidth = 0,                        -- Disabled, text is not broken after N columns.
-	colorcolumn = "+87",                  -- highlight column after 'textwidth'
+	colorcolumn = 87,                     -- highlight column after 'textwidth'
+	-- colorcolumn = "+86",               -- + - only when textwidth > 0
 }
 
 if vim.fn.exists "$TMUX" then

@@ -140,7 +140,9 @@ require'lspconfig'.marksman.setup{
 }
 require'lspconfig'.puppet.setup {
   on_attach = on_attach,
-  cmd = { 'puppet-languageserver', '--stdio' },
+  capabilities = capabilities,
+  -- DEBUG add '--stdio', '--debug=/tmp/puppet-lsp-debug.log'
+  cmd = { '/home/antenore/software/puppet-editor-services/puppet-languageserver', '--stdio' },
   filetypes = { 'puppet' },
   root_dir = function(fname)
     local root_files = {
