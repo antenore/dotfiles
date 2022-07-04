@@ -98,7 +98,7 @@ require('packer').startup(function()
 			'f3fora/cmp-spell',
 			'hrsh7th/cmp-emoji',
 		},
-		config = [[require('config.cmp')]],
+		config = [[require('config.cmp').setup()]],
 	})
 	use ({ 'rafamadriz/friendly-snippets' })
 	use ({
@@ -160,10 +160,10 @@ require('packer').startup(function()
 			vmap { "<Leader><Bslash>", ":EasyAlign*<Bar><Enter>" }
 		end,
 	})
-	use ({ 'mboughaba/i3config.vim' })
+	-- use ({ 'mboughaba/i3config.vim' })
 	use ({
 		'ixru/nvim-markdown',
-		config = [[require('config.vim-markdown')]],
+		config = [[require('config.nvim-markdown').setup()]],
 	})
 
 	use ({ 'rodjek/vim-puppet' })
@@ -175,7 +175,14 @@ require('packer').startup(function()
 	})
 
 	-- Git
-	use ({ 'tpope/vim-fugitive' })     -- :G*
+	--use ({ 'tpope/vim-fugitive' })     -- :G*
+	use ({
+		'TimUntersberger/neogit',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'sindrets/diffview.nvim'
+		}
+	})
 	use ({
 		'lewis6991/gitsigns.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
@@ -203,15 +210,17 @@ require('packer').startup(function()
 			require("colorizer").setup()
 		end,
 	}
-	use ({ 'tpope/vim-rhubarb' })
 	-- https://github.com/glepnir/indent-guides.nvim
 	use ({
 		'glepnir/indent-guides.nvim',
 		config = [[require('config.indent-guides')]],
 	})
-	use ({ 'tpope/vim-surround' })
+	use {
+		"kylechui/nvim-surround",
+		config = function() require("nvim-surround").setup({}) end,
+		event = "BufEnter",
+	}
 	use ({ 'tmux-plugins/vim-tmux' })
-	-- use ({ 'wincent/command-t' })
 	use ({ 'ryanoasis/vim-devicons' })
 	use ({ 'PProvost/vim-ps1' })
 	-- use ({ 'https://gitlab.com/antenore/Luciano.git' })
@@ -229,7 +238,7 @@ require('packer').startup(function()
 		]]
 	})
 
-	-- use ({ 'ewilazarus/preto' })
+	-- iusei ({ 'ewilazarus/preto' })
 	use ({
 		'luochen1990/rainbow',
 		config = [[require('config.rainbow')]],
