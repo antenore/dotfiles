@@ -31,7 +31,7 @@ require("indent_guides").setup {
 		'dashpreview',
 		'NvimTree',
 		'sagaover',
-		'vista'
+		'vista',
+		'',
 	},
-
 }

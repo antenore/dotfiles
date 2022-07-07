@@ -209,7 +209,6 @@ function M.setup()
 	-- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
 	local servers = { 'clangd', 'pyright', 'tsserver' }
 	for _, lsp in ipairs(servers) do
-
 		-- nvim_lsp[lsp].setup {
 		require('lspconfig')[lsp].setup {
 			-- on_attach = my_custom_on_attach,

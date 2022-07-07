@@ -155,5 +155,5 @@ Plug 'mcchrish/zenbones.nvim'
 Plug 'ewilazarus/preto'
 Plug 'luochen1990/rainbow'
 Plug 'lervag/vimtex'
-Plug 'neomake/neomake', { 'on': 'Neomake' }
+"Plug 'neomake/neomake', { 'on': 'Neomake' }  " terrible with airline
 call plug#end()

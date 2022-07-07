@@ -10,11 +10,11 @@
   "set t_Co=256
 "endif
 
-set termguicolors
+"set termguicolors
 "colorscheme nord
 "colorscheme Luciano
 "colorscheme wal
-"colorscheme preto
+colorscheme preto
 
 "zenbones
 "colorscheme zenbones
@@ -24,7 +24,7 @@ set termguicolors
 "colorscheme rosebones
 "colorscheme forestbones
 "colorscheme nordbones
-colorscheme tokyobones
+" colorscheme tokyobones
 "colorscheme seoulbones
 "colorscheme duckbones
 "colorscheme zenburned

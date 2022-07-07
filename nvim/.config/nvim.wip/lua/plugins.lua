@@ -47,7 +47,6 @@ require('packer').startup(function()
 	use ({ 'nvim-lua/popup.nvim' })    -- An implementation of the Popup API from vim in Neovim
 	use ({ 'nvim-lua/plenary.nvim' })  -- Useful lua functions used by lots of plugins
 	use ({ 'windwp/nvim-autopairs' })  -- Autopairs, integrates with both cmp and treesitter
-	use ({ 'numToStr/Comment.nvim' })  -- Easily comment stuff
 	use ({ 'rktjmp/lush.nvim' })       -- color scheme aid plugin
 	use ({
 		'kyazdani42/nvim-web-devicons',
@@ -136,6 +135,11 @@ require('packer').startup(function()
 	use ({ 'nvim-telescope/telescope-ui-select.nvim' })
 	use ({ 'nvim-telescope/telescope-symbols.nvim' })
 
+	-- Easily comment stuff
+	-- use ({
+	-- 	'numToStr/Comment.nvim',
+	-- 	config = function() require("Comment").setup() end
+	-- })
 	use ({ 'chrisbra/csv.vim' })
 	use ({
 		'ludovicchabant/vim-gutentags',
@@ -204,12 +208,12 @@ require('packer').startup(function()
   --     }
 	-- With files that are not automatically detected you use ColorizerAttachToBuffer
 	-- https://github.com/norcalli/nvim-colorizer.lua
-	use {
+	use ({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
 		end,
-	}
+	})
 	-- https://github.com/glepnir/indent-guides.nvim
 	use ({
 		'glepnir/indent-guides.nvim',
@@ -239,10 +243,11 @@ require('packer').startup(function()
 	})
 
 	-- iusei ({ 'ewilazarus/preto' })
-	use ({
-		'luochen1990/rainbow',
-		config = [[require('config.rainbow')]],
-	})
+	-- use ({
+	-- 	'luochen1990/rainbow',
+	-- 	config = [[require('config.rainbow')]],
+	-- })
+	use ({ 'p00f/nvim-ts-rainbow' })
 	use ({ 'lervag/vimtex' })
 	use ({ 'neomake/neomake', cmd = 'Neomake' })
 	use ({

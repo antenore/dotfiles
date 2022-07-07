@@ -15,7 +15,7 @@ set autoread
 set autowrite
 set backspace=indent,eol,start
 set browsedir=current
-set formatoptions+=ro/qj
+"set formatoptions+=ro/qj
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
 " http://items.sjbach.com/319/configuring-vim-right

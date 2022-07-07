@@ -234,11 +234,11 @@ else
 " "let g:airline#extensions#disable_rtp_load = 1
 " "let g:airline_theme='Luciano'
 " "let g:airline_theme='dracula'
-let g:airline_theme='wal'
+let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#fugitiveline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
+"let g:airline#extensions#ale#enabled = 1
 "If things goes nasty
 "let g:airline_extensions = []
 " }}}

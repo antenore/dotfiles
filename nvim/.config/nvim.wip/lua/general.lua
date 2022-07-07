@@ -536,7 +536,6 @@ Augroup {
 				"sh",
 				function()
 					vim.wo.foldmethod = "syntax"
-					vim.go.is_bash = 1
 				end,
 			},
 
