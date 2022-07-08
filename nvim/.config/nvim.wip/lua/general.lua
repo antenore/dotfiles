@@ -122,7 +122,8 @@ Option.g {
 	wildmenu = true,                      -- show list for autocomplete
 	wildmode = "list:longest,full",       -- Command-line completion mode
 	wildignorecase = true,
-	wildchar       = ('<tab>'):byte(),
+	-- wildchar       = ('<tab>'):byte(), -- This is wrong, it sets (bizarre) the wildchar to <lt> ==> <
+	wildchar = 9,                         -- Like settings <Tab>
 
 	splitbelow = true,
 	splitright = true,
@@ -233,7 +234,8 @@ nnoremap { '<Space>x', ":let @/=''<CR>" }
 noremap { "<F5>", ":setlocal spell! spelllang=en_us<CR>" }
 
 -- Buffer navigation
-nnoremap { '<C-t>', ':GFiles<CR>' }
+-- <C-T> is the default mapping to indent in insert mode
+-- nnoremap { '<C-t>', ':GFiles<CR>' }
 nnoremap { '<leader><Enter>', ':<C-u>Buffers<CR>' }
 
 -- " quick list/nolist toggle

@@ -69,10 +69,6 @@ require'lspconfig'.jsonls.setup{
   on_attach = on_attach,
   capabilities = capabilities
 }
-require'lspconfig'.puppet.setup{
-  on_attach = on_attach,
-  capabilities = capabilities
-}
 -- Ruby
 require'lspconfig'.solargraph.setup{
   on_attach = on_attach,
@@ -111,11 +107,11 @@ require'lspconfig'.sumneko_lua.setup{
 }
 require'lspconfig'.clangd.setup{
   -- on_attach = on_attach,
-  -- capabilities = capabilities
+  capabilities = capabilities
 }
 require("clangd_extensions").setup{
   -- on_attach = on_attach,
-  -- capabilities = capabilities
+  capabilities = capabilities
 }
 --- require'lspconfig'.tsserver.setup{}
 require'lspconfig'.eslint.setup{

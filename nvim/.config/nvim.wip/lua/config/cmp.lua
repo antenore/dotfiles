@@ -1,7 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 -- https://github.com/hrsh7th/nvim-cmp
 
--- vim.o.completeopt = "menu,menuone,noselect"
+vim.o.completeopt = "menu,menuone,noselect"
 
 -- Tabnine config
 -- local tabnine = require('cmp_tabnine.config')
@@ -31,7 +31,7 @@ function M.setup()
 		tags          = '[Tags]',
 		nvim_lua      = '[Lua]',
 		latex_symbols = '[Latex]',
-		cmdline       = '[Cmd]',
+		-- cmdline       = '[Cmd]',
 		luasnip       = '[Snip]',
 		emoji         = '[Emoji]',
 		zsh           = '[Zsh]',
@@ -135,6 +135,8 @@ function M.setup()
 			}),
 			['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's', 'c' }),
 			['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's', 'c' }),
+			-- ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+			-- ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
 			-- ['<Tab>'] = cmp.mapping.select_next_item({
 			--     behavior = cmp.SelectBehavior.Select,
 			--     select = true,
@@ -167,21 +169,37 @@ function M.setup()
 		},
 		sources = {
 			-- For ultisnips user.
-			{ name = 'nvim_lsp', group_index = 1 },
-			{ name = 'nvim_lsp_signature_help', group_index = 1 },
-			--{ name = 'ultisnips', group_index = 1 },
-			{ name = "luasnip", group_index = 1 },
-			-- { name = 'cmp_tabnine', group_index = 1 },
-			{ name = 'treesitter', group_index = 1 },
-			{ name = 'buffer', group_index = 1, Keyword_length = 3  },
-			{ name = 'tags', group_index = 1 },
-			{ name = 'nvim_lua', group_index = 1 },
-			{ name = 'path', group_index = 1 },
-			{ name = 'spell', group_index = 2 },
-			{ name = 'calc', group_index = 2 },
-			{ name = 'look', group_index = 2 },
-			{ name = 'zsh', group_index = 2 },
-			{ name = 'emoji', group_index = 2 },
+			-- { name = 'nvim_lsp', group_index = 1 },
+			-- { name = 'nvim_lsp_signature_help', group_index = 1 },
+			-- --{ name = 'ultisnips', group_index = 1 },
+			-- { name = "luasnip", group_index = 1 },
+			-- -- { name = 'cmp_tabnine', group_index = 1 },
+			-- { name = 'treesitter', group_index = 1 },
+			-- { name = 'buffer', group_index = 1, Keyword_length = 3  },
+			-- { name = 'tags', group_index = 1 },
+			-- { name = 'nvim_lua', group_index = 1 },
+			-- { name = 'path', group_index = 1 },
+			-- { name = 'spell', group_index = 2 },
+			-- { name = 'calc', group_index = 2 },
+			-- { name = 'look', group_index = 2 },
+			-- { name = 'zsh', group_index = 2 },
+			-- { name = 'emoji', group_index = 2 },
+
+			{ name = 'nvim_lsp' },
+			{ name = 'nvim_lsp_signature_help' },
+			--{ name = 'ultisnips' },
+			{ name = "luasnip" },
+			-- { name = 'cmp_tabnine' },
+			{ name = 'treesitter' },
+			{ name = 'buffer' },
+			{ name = 'tags' },
+			-- { name = 'nvim_lua' },
+			{ name = 'path' },
+			{ name = 'spell' },
+			-- { name = 'calc' },
+			{ name = 'look' },
+			-- { name = 'zsh' },
+			{ name = 'emoji' },
 		},
 
 		window = {
@@ -193,36 +211,38 @@ function M.setup()
 			},
 		},
 
-		experimental = {
-			ghost_text = true,
-		},
+		-- experimental = {
+		-- 	ghost_text = true,
+		-- },
 	})
 
 	cmp.register_source('look', require('cmp_look').new())
 
 	-- https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 	-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+	-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+	-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-	-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-	-- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-	local servers = { 'clangd', 'pyright', 'tsserver' }
-	for _, lsp in ipairs(servers) do
-		-- nvim_lsp[lsp].setup {
-		require('lspconfig')[lsp].setup {
-			-- on_attach = my_custom_on_attach,
-			capabilities = capabilities,
-		}
-	end
+	-- -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+	-- -- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+	-- local servers = { 'cmake', 'jsonls', 'solargraph', 'sumneko_lua', 'clangd', 'pyright',
+	-- 	'tsserver', 'eslint', 'vimls', 'bashls', 'marksman', 'puppet' }
+	-- for _, lsp in ipairs(servers) do
+	-- 	-- nvim_lsp[lsp].setup {
+	-- 	require('lspconfig')[lsp].setup {
+	-- 		-- on_attach = my_custom_on_attach,
+	-- 		capabilities = capabilities,
+	-- 	}
+	-- end
 
 	-- https://github.com/hrsh7th/nvim-cmp#how-to-disable-nvim-cmp-on-the-specific-buffer
-	--vim.cmd('autocmd FileType TelescopePrompt lua require("cmp").setup { enabled = false }')
+	vim.cmd('autocmd FileType TelescopePrompt lua require("cmp").setup { enabled = false }')
 
 	-- https://github.com/hrsh7th/cmp-cmdline
 	-- START --
 	-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 	cmp.setup.cmdline('/', {
+		mapping = cmp.mapping.preset.cmdline(),
 		sources = {
 			{ name = 'buffer' }
 		}
@@ -230,6 +250,7 @@ function M.setup()
 
 	-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 	cmp.setup.cmdline(':', {
+		mapping = cmp.mapping.preset.cmdline(),
 		sources = cmp.config.sources(
 			{
 				{ name = 'path' }
