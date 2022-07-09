@@ -6,21 +6,18 @@
 --  ██║ ╚████║  | Antenore (tmow) Gatta - WTFPL License
 --  ╚═╝  ╚═══╝  | - https://antenore.simbiosi.org
 --
--- {{{ ===== Before everything else ============================================
--- Do not source the default filetype.vim (nathom/filetype.nvim)
-vim.g.did_load_filetypes = 1
-vim.opt.foldenable = true
-vim.opt.foldmethod = 'marker'
+--  ===== Before everything else ===============================================
+vim.g.did_load_filetypes = 1 -- No default filetype.vim (nathom/filetype.nvim)
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
--- }}}
--- {{{ ===== Modules ===========================================================
+-- ===== Modules ===============================================================
 local modules = {
   'utils',
   'general',
-  'impatient',  -- Comment this if you remove impatient or when it's not yet loaded
+  'impatient',               -- Comment this if you remove impatient
   'plugins',
 }
+
 for _, module in ipairs(modules) do
   local ok, err = pcall(require, module)
   if not ok then
@@ -28,10 +25,8 @@ for _, module in ipairs(modules) do
   end
   err = nil
 end
--- }}}
--- {{{ ===== Mapping ===========================================================
+--  ===== Mapping ==============================================================
 vim.cmd [[autocmd BufWritePost general.lua source <afile> | PackerSync]]
 vim.cmd [[autocmd BufWritePost plugins.lua source <afile> | PackerSync]]
--- }}}
--- ====================================== EOF =========================================
+-- ================================== EOF ======================================
 -- vim:set ts=2 sts=2 sw=2 expandtab:

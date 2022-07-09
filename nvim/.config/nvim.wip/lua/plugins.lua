@@ -179,7 +179,6 @@ require('packer').startup(function()
 	})
 
 	-- Git
-	--use ({ 'tpope/vim-fugitive' })     -- :G*
 	use ({
 		'TimUntersberger/neogit',
 		requires = {
@@ -192,27 +191,27 @@ require('packer').startup(function()
 		requires = { 'nvim-lua/plenary.nvim' },
 		config = function() require("gitsigns").setup() end
 	})
-	-- Given a text like #800080 it will show the real color
-	-- It supports the following code and you can write your own parser
-	--   DEFAULT_OPTIONS = {
-	--     RGB      = true;         -- #RGB hex codes
-	--     RRGGBB   = true;         -- #RRGGBB hex codes
-	--     names    = true;         -- "Name" codes like Blue
-	--     RRGGBBAA = false;        -- #RRGGBBAA hex codes
-	--     rgb_fn   = false;        -- CSS rgb() and rgba() functions
-	--     hsl_fn   = false;        -- CSS hsl() and hsla() functions
-	--     css      = false;        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-	--     css_fn   = false;        -- Enable all CSS *functions*: rgb_fn, hsl_fn
-	--     -- Available modes: foreground, background
-	--     mode     = 'background'; -- Set the display mode.
-  --     }
-	-- With files that are not automatically detected you use ColorizerAttachToBuffer
-	-- https://github.com/norcalli/nvim-colorizer.lua
+	--[[
+	https://github.com/norcalli/nvim-colorizer.lua
+	Given a text like #800080 it will show the real color
+	It supports the following code and you can write your own parser
+	  DEFAULT_OPTIONS = {
+	    RGB      = true;         -- #RGB hex codes
+	    RRGGBB   = true;         -- #RRGGBB hex codes
+	    names    = true;         -- "Name" codes like Blue
+	    RRGGBBAA = false;        -- #RRGGBBAA hex codes
+	    rgb_fn   = false;        -- CSS rgb() and rgba() functions
+	    hsl_fn   = false;        -- CSS hsl() and hsla() functions
+	    css      = false;        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+	    css_fn   = false;        -- Enable all CSS *functions*: rgb_fn, hsl_fn
+	    -- Available modes: foreground, background
+	    mode     = 'background'; -- Set the display mode.
+      }
+	With files that are not automatically detected you use ColorizerAttachToBuffer
+	--]]
 	use ({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
+		'norcalli/nvim-colorizer.lua',
+		config = [[require('config.nvim-colorizer')]],
 	})
 	-- https://github.com/glepnir/indent-guides.nvim
 	use ({
@@ -272,10 +271,3 @@ end)
 require('config.fzf')
 require('config.neomake')
 require('config.vimtex')
-
--- }}}
--- {{{ ===== Jaflpl.nvim ========================================================
--- require'jaflpl'.setup({})
--- }}}
--- {{{ ===== Empty Entry ========================================================
--- }}}
