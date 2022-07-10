@@ -1,7 +1,11 @@
-require("colorizer").setup({
+local M = {}
+function M.setup()
+	local colorizer = require 'colorizer'
+	colorizer.setup({
+	})
+end
 
-})
-
+return M
 --[[
 Some usage examples for future refactoring
 
@@ -41,3 +45,4 @@ require 'colorizer'.setup {
 }
 
 --]]
+-- END --
