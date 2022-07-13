@@ -214,15 +214,19 @@ require('packer').startup(function()
 		config = [[require('config.nvim-colorizer')]],
 	})
 	-- https://github.com/glepnir/indent-guides.nvim
+	-- use ({
+	-- 	'glepnir/indent-guides.nvim',
+	-- 	config = [[require('config.indent-guides')]],
+	-- })
 	use ({
-		'glepnir/indent-guides.nvim',
-		config = [[require('config.indent-guides')]],
+		"lukas-reineke/indent-blankline.nvim",
+		config = [[require('config.indent-blanklines')]],
 	})
-	use {
+	use ({
 		"kylechui/nvim-surround",
 		config = function() require("nvim-surround").setup({}) end,
 		event = "BufEnter",
-	}
+	})
 	use ({ 'tmux-plugins/vim-tmux' })
 	use ({ 'ryanoasis/vim-devicons' })
 	use ({ 'PProvost/vim-ps1' })

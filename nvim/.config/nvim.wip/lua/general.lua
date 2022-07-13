@@ -16,6 +16,7 @@ Variable.g {
 Option.g {
 	encoding       = "utf-8",                -- "set encoding for text
 	-- Files
+	shada          = "!,%,:100,'300,/50,<300,s100,f1,h",
 	makeef         = "error.err",
 	spellfile      = vim.fn.expand("$HOME/Dropbox/vim/spell/en.utf-8.add"),
 	-- Migrated
