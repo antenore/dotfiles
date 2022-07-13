@@ -1,0 +1,3 @@
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = git@gitlab.com:antenore/nvim-dotdogs.git
