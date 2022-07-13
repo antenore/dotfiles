@@ -4,131 +4,131 @@ require "utils"
 Variable.g {
 	-- this will save almost 20ms
 	python3_host_skip_check = 1,
-	python3_host_prog = "/usr/bin/python3",
+	python3_host_prog       = "/usr/bin/python3",
 	-- " enable embeded lua syntax
 	-- " see https://github.com/neovim/neovim/pull/14213
-	vimsyn_embed = "l",
-	mousehide = true, --  "hide when characters are typed
+	vimsyn_embed            = "l",
+	mousehide               = true, --  "hide when characters are typed
 }
 
 --  ===== set global options (set xxx = xxx) ==================================
 
 Option.g {
-	encoding = "utf-8",                   -- "set encoding for text
+	encoding       = "utf-8",                -- "set encoding for text
 	-- Files
-	makeef = "error.err",
-	spellfile = vim.fn.expand("$HOME/Dropbox/vim/spell/en.utf-8.add"),
+	makeef         = "error.err",
+	spellfile      = vim.fn.expand("$HOME/Dropbox/vim/spell/en.utf-8.add"),
 	-- Migrated
-	-- clipboard = vim.opt.clipboard + "unnamedplus",
-	regexpengine = 1,
-	browsedir = "current",
-	termguicolors = true,
+	-- clipboard   = vim.opt.clipboard + "unnamedplus",
+	regexpengine   = 1,
+	browsedir      = "current",
+	termguicolors  = true,
 
 	-- enable cursorline
-	cursorline = true,
-	cursorcolumn = true,
+	cursorline     = true,
+	cursorcolumn   = true,
 
-	undodir = vim.fn.expand(vim.fn.stdpath "cache" .. "/nvim"),
-	undofile = true,
-	undolevels = 1000,
-	undoreload = 10000,
-	cmdheight = 2,
-	laststatus = 2,
-	showmode = false,
+	undodir        = vim.fn.expand(vim.fn.stdpath "cache" .. "/nvim"),
+	undofile       = true,
+	undolevels     = 1000,
+	undoreload     = 10000,
+	cmdheight      = 2,
+	laststatus     = 2,
+	showmode       = false,
 	-- Set completeopt to have a better completion experience
 	-- https://github.com/hrsh7th/nvim-cmp#completioncompleteopt-type-string
-	completeopt = "menu,menuone,noselect",
+	completeopt    = "menu,menuone,noselect",
 	-- Avoid showing message extra message when using completion
-	shortmess = vim.o.shortmess .. "c",
-	list = true,
+	shortmess      = vim.o.shortmess .. "c",
+	list           = true,
 
-	pastetoggle = '<F12>',
+	pastetoggle    = '<F12>',
 
 	-- stylua: ignore
-	listchars = "tab:│ ,trail:•,extends:❯,precedes:❮",
+	listchars      = "tab:│ ,trail:•,extends:❯,precedes:❮",
 
 	-- " The delay is governed by vim's updatetime option,
 	-- " default updatetime 4000ms is not good for async update
-	updatetime = 100,
+	updatetime     = 100,
 
 	-- set signcolumn to 2 to avoid git gutter sign conflict with linter sign
-	signcolumn = "yes:2",
+	signcolumn     = "yes:2",
 
-	background = "dark",
+	background     = "dark",
 
 	-- base configuration
-	timeoutlen = 300,                     -- mapping timeout
-	ttimeoutlen = 50,                     -- keycode timeout
+	timeoutlen     = 300,                    -- mapping timeout
+	ttimeoutlen    = 50,                     -- keycode timeout
 
-	-- mouse = "a", -- "enable mouse
-	history = 1000,                       -- number of command lines to remember
-	ttyfast = true,                       -- assume fast terminal connection
-	viewoptions = "folds,options,cursor", -- unix and slash are deprecated, do not use
-	hidden = true,                        -- allow buffer switching without saving
-	autoread = true,                      -- auto reload if file saved externally
-	fileformats = "unix,dos,mac",         -- add mac to auto-detection of file format line endings
-	-- nrformats = "bin,hex"
-	showcmd = true,
+	-- mouse       = "a", -- "enable mouse
+	history        = 1000,                   -- number of command lines to remember
+	ttyfast        = true,                   -- assume fast terminal connection
+	viewoptions    = "folds,options,cursor", -- unix and slash are deprecated, do not use
+	hidden         = true,                   -- allow buffer switching without saving
+	autoread       = true,                   -- auto reload if file saved externally
+	fileformats    = "unix,dos,mac",         -- add mac to auto-detection of file format line endings
+	-- nrformats   = "bin,hex"
+	showcmd        = true,
 	-- showfulltag = true,
-	modeline = true,
-	modelines = 5,
-	startofline = false,
+	modeline       = true,
+	modelines      = 5,
+	startofline    = false,
 
-	shelltemp = false,                    -- use pipes
+	shelltemp      = false,                  -- use pipes
 	-- whitespace
-	backspace = "indent,eol,start",       -- " allow backspacing everything in insert mode
-	autoindent = true,                    -- " automatically indent to match adjacent lines
-	expandtab = true,                     -- " spaces instead of tabs
-	smarttab = true,                      -- " use shiftwidth to enter tabs
-	tabstop = 8,                          -- " number of spaces per tab for display
-	softtabstop = 4,                      -- " number of spaces per tab in insert mode
-	shiftwidth = 4,                       -- " number of spaces when indenting
-	shiftround = true,
-	linebreak = true,
-	showbreak = "↪ ",
-	wrap = false,
+	backspace      = "indent,eol,start",     -- " allow backspacing everything in insert mode
+	autoindent     = true,                   -- " automatically indent to match adjacent lines
+	expandtab      = true,                   -- " spaces instead of tabs
+	smarttab       = true,                   -- " use shiftwidth to enter tabs
+	tabstop        = 8,                      -- " number of spaces per tab for display
+	softtabstop    = 4,                      -- " number of spaces per tab in insert mode
+	shiftwidth     = 4,                      -- " number of spaces when indenting
+	shiftround     = true,
+	linebreak      = true,
+	showbreak      = "↪ ",
+	wrap           = false,
 
-	-- ruler = true,
-	-- title = true,
+	-- ruler       = true,
+	-- title       = true,
 
-	scrolloff = 1,                        -- always show content after scroll
-	scrolljump = 5,                       -- minimum number of lines to scroll
-	-- display = "lastline,msgsep",
-	wildmenu = true,                      -- show list for autocomplete
-	wildmode = "list:longest,full",       -- Command-line completion mode
+	scrolloff      = 1,                      -- always show content after scroll
+	scrolljump     = 5,                      -- minimum number of lines to scroll
+	-- display     = "lastline,msgsep",
+	wildmenu       = true,                   -- show list for autocomplete
+	wildmode       = "list:longest,full",    -- Command-line completion mode
 	wildignorecase = true,
-	wildchar = 9,                         -- Like settings <Tab>
+	wildchar       = 9,                      -- Like settings <Tab>
 
-	splitbelow = true,
-	splitright = true,
+	splitbelow     = true,
+	splitright     = true,
 
 	-- disable sounds
-	errorbells = false,
-	visualbell = false,
+	errorbells     = false,
+	visualbell     = false,
 
 	-- searching
-	hlsearch = true,                      -- "highlight searches
-	incsearch = true,                     -- "incremental searching
-	ignorecase = true,                    -- "ignore case for searching
-	smartcase = true,                     -- "do case-sensitive if there's a capital letter
-	smartindent = true,
+	hlsearch       = true,                   -- "highlight searches
+	incsearch      = true,                   -- "incremental searching
+	ignorecase     = true,                   -- "ignore case for searching
+	smartcase      = true,                   -- "do case-sensitive if there's a capital letter
+	smartindent    = true,
 
 	-- backups
-	backup = true,
-	backupdir = vim.fn.expand(vim.fn.stdpath "cache" .. "/nvim"),
+	backup         = true,
+	backupdir      = vim.fn.expand(vim.fn.stdpath "cache" .. "/nvim"),
 	-- no swap files
-	swapfile = false,
+	swapfile       = false,
 
 	-- ui configuration
-	showmatch = true,                     -- automatically highlight matching braces/brackets/etc.
-	matchtime = 2,                        -- tens of a second to show matching parentheses
-	number = true,
-	foldenable = true,                    -- enable folds by default
-	foldmethod = "indent",                -- do not use syntax as fdm due to performance issue
-	foldlevelstart = 99,                  -- open all folds by default
+	showmatch      = true,                   -- automatically highlight matching braces/brackets/etc.
+	matchtime      = 2,                      -- tens of a second to show matching parentheses
+	number         = true,
+	foldenable     = true,                   -- enable folds by default
+	foldmethod     = "indent",               -- do not use syntax as fdm due to performance issue
+	foldlevelstart = 99,                     -- open all folds by default
 
-	textwidth = 0,                        -- Disabled, text is not broken after N columns.
-	colorcolumn = 87,                     -- highlight column after 'textwidth'
+	textwidth      = 0,                      -- Disabled, text is not broken after N columns.
+	colorcolumn    = 87,                     -- highlight column after 'textwidth'
 	-- colorcolumn = "+86",               -- + - only when textwidth > 0
 }
 
