@@ -155,3 +155,4 @@ scripts/bin/uuid
 scripts/bin/httpclient
 nvim/.config/nvim*/plugin/packer_compiled.lua
 __pycache__
+tags
