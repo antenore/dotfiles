@@ -1,3 +1,6 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@gitlab.com:antenore/nvim-dotdogs.git
+[submodule "config/.config/ranger/plugins/ranger_devicons"]
+	path = config/.config/ranger/plugins/ranger_devicons
+	url = https://github.com/alexanderjeurissen/ranger_devicons
